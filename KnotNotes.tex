@@ -91,7 +91,7 @@
     \begin{itemize}
         \item The trefoil knot in Figure \ref{fig:circletrefoilb} is a \underline{three-crossing knot} because it crosses itself 3 times.
         \item Any one-crossing knot is trivial.
-        \item \emph{Excercise 1.2}: Any two-crossing knot must be trivial because the simplest nontrivial knot is the trefoil knot, which has three crossings.
+        \item \emph{Exercise 1.2}: Any two-crossing knot must be trivial because the simplest nontrivial knot is the trefoil knot, which has three crossings.
     \end{itemize}
     \item Atoms were originally thought to be tangles (knots) in the ether of the universe, but when chemists moved on, mathematicians took up knot theory. In the 1980s, biochemists began to see applications of knot theory in their research (see Section \ref{sse:biochemphys}).
     \item \textbf{Topology}: \dq{The study of the properties of geometric objects that are preserved under deformations}{6}
@@ -136,7 +136,115 @@
 
 \subsection{Composition of Knots}
 \begin{itemize}
-    \item \dq{hi}{\#\#}
+    \item \textbf{Composition} (of two knots): \dq{A new knot obtained by removing a small arc from two knot projections and then connecting the four endpoints by two new arcs}{7}
+    \begin{itemize}
+        \item If two knots are designated $J$ and $K$, then their composition is denoted $J\#K$.
+        \item Do not overlap the projections and choose two arcs that are on the outside to avoid new crossings.
+        \item Make sure that the new arcs do not cross any of the the original knot projections or each other.
+    \end{itemize}
+    \item \textbf{Composite knot}: A knot that \dq{can be expressed as the composition of two knots, neither of which is the trivial knot}{8}
+    \begin{itemize}
+        \item This definition is analogous to composite integers, where an integer is \underline{composite} if it is the product of positive integers, neither of which is $1$.
+        \item Similarly, if we compose any knot with the unknot, we get the same knot back.
+    \end{itemize}
+    \item \textbf{Factor knots}: \dq{The knots that make up the composite knot}{8}
+    \item \textbf{Prime knot}: \dq{A knot [that] is not the composition of any two nontrivial knots}{9}
+    \item The unknot, trefoil knot, and figure-eight knots are all prime (see Section \ref{sss:GenusSeifert}).
+    \begin{itemize}
+        \item The unknot is not composite for the same reason that 1 is not the product of two integers greater than 1.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[scale=0.8]
+            \begin{knot}[
+                clip width=5
+            ]
+                % Use looseness=# key to stretch out lengths!
+                \strand[red,thick]       (0,0)
+                    to [out=-85,in=-95]  (4,0)
+                    to [out=90,in=0]     (3,1.2)
+                ;
+                \strand[red,thick]       (3,1.2)
+                    to [out=180,in=60]   (1.9,0.7)
+                    to [out=-120,in=120] (1.9,-0.4)
+                    to [out=-60,in=10]   (2,-1.6)
+                ;
+                \strand[red,thick]       (2,-1.6)
+                    to [out=170,in=-120] (2.1,-0.4)
+                    to [out=60,in=-60]   (2.1,0.7)
+                    to [out=120,in=0]    (1,1.2)
+                    to [out=180,in=90]   (0,0)
+                ;
+                \flipcrossings{2,3}
+            \end{knot}
+        \end{tikzpicture}
+        \caption{The figure-eight knot.}
+        \label{fig:figure8knot}
+    \end{figure}
+    \item Similar to integers, \dq{a composite knot factors into a unique set of prime knots}{10}
+    \newpage
+    \item \emph{Exercise 1.8}: Using the appendix table, identify the factor knots that make up the composite knot in Figure \ref{fig:compos1}.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.15\linewidth]{Blender/compos1.png}
+        \caption{The composite knot.}
+        \label{fig:compos1}
+    \end{figure}
+    \begin{itemize}
+        \item \textsc{Figure out when knot cord arrives.}
+    \end{itemize}
+    \item \emph{Exercise 1.9}: Show that the knot in Figure \ref{fig:compos2} is composite.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\textwidth}
+            \centering
+            \includegraphics[width=0.5\textwidth]{Blender/compos2.png}
+            \caption{The composite knot.}
+            \label{fig:compos2a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\textwidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections
+                ]
+                    % Why don't polar coordinates mesh with figures?
+                    \strand[red,thick] (1,{3^0.5})
+                        to [out=0,in=60] (1.5,0.25)
+                        to [out=240,in=-60] (0,0)
+                        to [out=120,in=180] (1,1.12)
+                        to [out=0,in=60] (2,0)
+                        to [out=240,in=-60] (0.5,0.25)
+                        to [out=120,in=180] cycle
+                    ;
+                    \flipcrossings{1,3}
+                \end{knot}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    rotate=60,
+                    scale=0.2,
+                    xshift=0.1cm,yshift=-1.3cm
+                ]
+                    % Why don't polar coordinates mesh with figures?
+                    \strand[red,thick] (1,{3^0.5})
+                        to [out=0,in=60] (1.5,0.25)
+                        to [out=240,in=-60] (0,0)
+                        to [out=120,in=180] (1,1.12)
+                        to [out=0,in=60] (2,0)
+                        to [out=240,in=-60] (0.5,0.25)
+                        to [out=120,in=180] cycle
+                    ;
+                    \flipcrossings{1,3}
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Factors.}
+            \label{fig:compos2b}
+        \end{subfigure}
+        \caption{Factorization of a `double trefoil.'}
+        \label{fig:compos2}
+    \end{figure}
 \end{itemize}
 
 
