@@ -13,6 +13,7 @@
 \MakeOuterQuote{"}
 
 \numberwithin{figure}{section}
+\numberwithin{table}{section}
 
 \usetikzlibrary{knots,decorations.markings}
 
@@ -188,17 +189,17 @@
         \label{fig:figure8knot}
     \end{figure}
     \item Similar to integers, \dq{a composite knot factors into a unique set of prime knots}{10}
-    \newpage
     \item \emph{Exercise 1.8}: Using the appendix table, identify the factor knots that make up the composite knot in Figure \ref{fig:compos1}.
+    \begin{itemize}
+        \item The knot in Figure \ref{fig:compos1} is the composition of two projections of $5_2$.
+    \end{itemize}
+    \newpage
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.15\linewidth]{Blender/compos1.png}
+        \includegraphics[width=0.2\linewidth]{Blender/compos1.png}
         \caption{The composite knot.}
         \label{fig:compos1}
     \end{figure}
-    \begin{itemize}
-        \item \textsc{Figure out when knot cord arrives.}
-    \end{itemize}
     \item \emph{Exercise 1.9}: Show that the knot in Figure \ref{fig:compos2a} is composite.
     \begin{figure}[h!]
         \centering
@@ -374,6 +375,7 @@
         \item A knot and its mirror image are distinct unless the knot is amphicheiral.
         \item See Section \ref{sse:biochemphys} for more on amphicheirality.
     \end{itemize}
+    \newpage
     \item \emph{Exercise 1.10}: Show that the two projections in Figure \ref{fig:ex1-10} represent the same knot by finding a series of Reidemeister moves from one to the other.
     \begin{figure}[h!]
         \centering
@@ -418,7 +420,7 @@
 
 \subsection{Links}
 \begin{itemize}
-    \item \textbf{Link}: A set of knotted loops all tangled up together.
+    \item \textbf{Link}: \dq{A set of knotted loops all tangled up together}{17}
     \item \dq{Two links are considered to be the same if we can deform the one link to the other link without ever having any one of the loops intersect itself or any of the other loops in the process}{17}
     \begin{figure}[h!]
         \centering
@@ -455,26 +457,404 @@
             \caption{Borromean rings.}
             \label{fig:WhiteheadBorromeanb}
         \end{subfigure}
-        \caption{Projections of two simple links.}
+        \caption{Projections of two common links.}
         \label{fig:WhiteheadBorromean}
     \end{figure}
+    \item \emph{Exercise 1.13}: Show that the two projections in Figure \ref{fig:ex1-13a} and \ref{fig:ex1-13c} represent the same link.
+    \begin{itemize}
+        \item Untwist the right side of the figure-eight loop, twisting the right side of the circle at the same time. Then add a futher twist to the circle loop and flip (rotate along the horizontal axis) the figure-eight loop (which now looks like an ellipse).
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.5\linewidth]{Blender/ex1-13a.png}
+            \caption{Initial projection.}
+            \label{fig:ex1-13a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections=true,
+                    ignore endpoint intersections=false
+                ]
+                    \strand[red,thick] (-0.4,0) ellipse (0.8cm and 0.2cm);
+                    \strand[red,thick] (-1,0)
+                        to [out=90,in=90,out looseness=1.4,in looseness=1.6] (1,0.2)
+                        to [out=270,in=270,out looseness=1.2,in looseness=1.3] (0,0)
+                        to [out=90,in=90,out looseness=1.3,in looseness=1.2] (1,-0.2)
+                        to [out=270,in=270,out looseness=1.6,in looseness=1.4] cycle
+                    ;
+                    \flipcrossings{2,4,6}
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-1em}
+            \caption{Intermediate projection.}
+            \label{fig:ex1-13b}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.5\linewidth]{Blender/ex1-13c.png}
+            \caption{Final projection.}
+            \label{fig:ex1-13c}
+        \end{subfigure}
+        \caption{Ambient isotropies of the Whitehead link.}
+        \label{fig:ex1-13}
+    \end{figure}
+    \item \textbf{Link of \emph{n} components}: A link made up of $n$ loops knotted with each other.
+    \begin{itemize}
+        \item The Whitehead link (Figure \ref{fig:WhiteheadBorromeana}) is a \underline{link of 2 components}.
+        \item The Borromean rings (Figure \ref{fig:WhiteheadBorromeanb}) are a \underline{link of 3 components}.
+        \item A knot is a \underline{link of 1 component}.
+        \item If the number of components in two links differ, then the links are clearly distinct.
+    \end{itemize}
+    \item \textbf{Splittable}: A link whose components \dq{can be deformed so that they lie on different sides of a plane in three-space}{17}
+    \item \emph{Exercise 1.14}: Show that the link in Figure \ref{fig:ex1-14} is splittable.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.2\linewidth]{Blender/ex1-14.png}
+        \caption{Link to be split.}
+        \label{fig:ex1-14}
+    \end{figure}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.8\linewidth]{Blender/ex1-14-2.png}
+        \caption{Solution to \emph{Exercise 1.14}.}
+        \label{fig:ex1-14-2}
+    \end{figure}
+    \item \textbf{Unlink}: One of the two simplest links of two components and the simplest splittable link of two components. \emph{Also known as} \textbf{trivial link}. See Figure \ref{fig:unlinkHopfa}.
+    \item \textbf{Hopf link} The other of the two simplest links of two components and the simplest nonsplittable link of two components. See Figure \ref{fig:unlinkHopfb}.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \begin{tikzpicture}[red,thick]
+                \draw (-1.5,0) circle (1cm);
+                \draw (1.5,0)  circle (1cm);
+            \end{tikzpicture}
+            \caption{Trivial link.}
+            \label{fig:unlinkHopfa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    flip crossing=1
+                ]
+                    \strand[red,thick] (-0.8,0) circle (1cm);
+                    \strand[red,thick] (0.8,0)  circle (1cm);
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Hopf link.}
+            \label{fig:unlinkHopfb}
+        \end{subfigure}
+        \caption{Projections of the two simplest links of two components.}
+        \label{fig:unlinkHopf}
+    \end{figure}
+    \item \textbf{Linking number}: A quantity that numerically measures how linked up two components are.
+    \begin{itemize}
+        \item If $M$ and $N$ are two components in a link, begin by orienting both of them.
+        \item At each crossing, count a $+1$ if Figure \ref{fig:linkingnumbera} holds or count a $-1$ if Figure \ref{fig:linkingnumberb} holds.
+        \begin{itemize}
+            \item Note that if you are unsure, do the following: If rotating the bottom strand clockwise lines up the arrows (correlates the two orientations), count $+1$.
+            \item In the same vein, if rotating the bottom strand counterclockwise lines up the arrows, count $-1$.
+            \item If a component crosses itself, do not count it.
+        \end{itemize}
+        \begin{figure}[h!]
+            \centering
+            \begin{subfigure}[b]{0.2\linewidth}
+                \centering
+                \begin{tikzpicture}
+                    \begin{knot}[
+                        clip width=5,
+                        flip crossing=1
+                    ]
+                        \strand[red,thick,-stealth] (-1,-0.7) -- (1,0.7);
+                        \strand[red,thick,-stealth] (-1,0.7) -- (1,-0.7);
+                    \end{knot}
+                \end{tikzpicture}
+                \caption{Count $+1$.}
+                \label{fig:linkingnumbera}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.2\linewidth}
+                \centering
+                \begin{tikzpicture}
+                    \begin{knot}[
+                        clip width=5
+                    ]
+                        \strand[red,thick,-stealth] (-1,-0.7) -- (1,0.7);
+                        \strand[red,thick,-stealth] (-1,0.7) -- (1,-0.7);
+                    \end{knot}
+                \end{tikzpicture}
+                \caption{Count $-1$.}
+                \label{fig:linkingnumberb}
+            \end{subfigure}
+            \caption{Computing linking numbers per crossing.}
+            \label{fig:linkingnumber}
+        \end{figure}
+        \item Sum all of the $+1$s and $-1$s and divide this sum by 2 to yield the linking number.
+        \begin{itemize}
+            \item For example, the linking number for the Hopf link (Figure \ref{fig:unlinkHopfb}) is $\pm 1$ depending on the chosen orientation.
+            \item Note that reversing the orientation for one of the two links is equivalent to multiplying the linking number by $-1$.
+            \item As such, the absolute value of the linking number remains constant whatever orientation is chosen.
+        \end{itemize}
+    \end{itemize}
+    \item \emph{Exercise 1.15}: Compute the linking number of the link pictured in Figure \ref{fig:ex1-15}. Now reverse the direction on one of the components and recompute it.
+    \begin{itemize}
+        \item Add up all of the numbers in the second row of Table \ref{tab:ex1-15} to yield $2$. Divide by $2$ to yield the linking number, $1$.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.2\linewidth]{Blender/ex1-15.png}
+        \begin{tikzpicture}[
+                remember picture,overlay,
+                red,thin
+            ]
+            \draw (-1.5,2.6)   circle (4pt) node[right]{A};
+            \draw (-2.28,2.42) circle (4pt) node[left] {B};
+            \draw (-2.08,2.13) circle (4pt) node[left] {C};
+            \draw (-1.56,2.16) circle (4pt) node[right]{D};
+            \draw (-0.73,1.96) circle (4pt) node[right]{E};
+            \draw (-1.78,1.76) circle (4pt) node[right]{F};
+            \draw (-1.65,1.48) circle (4pt) node[right]{G};
+            \draw (-1.74,0.83) circle (4pt) node[right]{H};
+            \draw (-1.77,0.15) circle (4pt) node[right]{I};
+        \end{tikzpicture}
+        \caption{Link of linking number $n$.}
+        \label{fig:ex1-15}
+    \end{figure}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+            \hline
+            A    & B    & C   & D   & E    & F   & G    & H    & I   \\
+            \hline
+            $-1$ & $-1$ & $0$ & $0$ & $+1$ & $0$ & $+1$ & $+1$ & $+1$\\
+            \hline
+        \end{tabular}
+        \caption{Counting crossings.}
+        \label{tab:ex1-15}
+    \end{table}
+    \item Although a linking number is computed using a single projection of a link, the linking number will be the same for any projection of the link.
+    \begin{itemize}
+        \item This can be proven by demonstrating that the Redemeister moves do not change the linking number. \dq{Since we can get from any one projection of a link to any other via a sequence of Reidemeister moves, none of which will change the linking number, it must be that two different projections of the same link yield the same linking number}{20}
+        \item Let's take this case by case.
+        \begin{itemize}
+            \item A Type I Reidemeister move generates a self-intersection. Because self-crossings do not count toward the linking number by definition, the first Reidemeister move does not affect the linking number.
+            \item A Type II Reidemeister move generates two crossings. There are now two cases: Either the new crossings are self-intersections or they are not. If the new crossings are self-intersections, then there is no change to the linking number. If the new crossings are not self-intersections, they will always have opposite linking numbers, and, thus, the two new crossings cancel each other out. Therefore, the second Reidemeister move does not affect the linking number.
+            \item A Type III Reidemeister move removes two crossings and generates two crossings. There are now two cases: Either the new crossings are self-intersections or they are not. If the new crossings are self-intersections, then there is no change to the linking number. If the new crossings are not self-intersections, both pairs of crossings will always have opposite linking numbers and, thus, both pairs of crossings cancel each other out. Therefore, the third Reidemeister move does not affect the linking number.
+        \end{itemize}
+        \item This logic can be visually confirmed by assigning orientations and counting crossings in Figure \ref{fig:reidem}.
+    \end{itemize}
+    \item \textbf{Invariant}: A quality of a knot or link that, once orientations are chosen, is unchanged by ambient isotropy.
+    \begin{itemize}
+        \item Both the linking number and the number of components are \underline{link invariants}.
+    \end{itemize}
+    \item \emph{Exercise 1.16}: Explain why the linking number of a splittable two-component link will always be $0$, no matter what projection is used to compute it.
+    \begin{itemize}
+        \item \textsc{Solution 1}: By definition, the linking number numerically measures how linked up two components are. Since splittable links are not joined (or "linked up") in any way, the linking number must be $0$.
+        \item \textsc{Solution 2}: If a two-component link is splittable, then there exists a projection of it with no crossings that are not self-intersections (a projection of the split link, as in Figure \ref{fig:unlinkHopfb}). If all crossings are self-intersections, then the linking number computed for this projection must be $0$. Now that it is known that said link has a linking number of $0$, any combination of Reidemeister moves can be used to manipulate the link into any other projection. But because Reidemeister moves do not affect the linking number, the linking number will remain $0$.
+    \end{itemize}
+    \item The absolute value of the linking number, as a link invariant, can be used to distinguish certain distinct links, regardless of orientation.
+    \begin{itemize}
+        \item \dq{Any two links with two components that have distinct absolute values of their linking numbers have to be different links}{21}
+        \item For example, the difference in linking number between the unlink (0; Figure \ref{fig:unlinkHopfa}) and the Hopf link (1; Figure \ref{fig:unlinkHopfb}) distinguishes them.
+    \end{itemize}
+    \item However, the linking number cannot distinguish between all links.
+    \begin{itemize}
+        \item For instance, both the Whitehead link (Figure \ref{fig:WhiteheadBorromeana}) and the unlink (Figure \ref{fig:unlinkHopfa}) have linking number 0.
+        \item One such distinction is discussed in Section \ref{sss:tricolor}.
+    \end{itemize}
+    \item \textbf{Brunnian link}: A nontrivial link where the removal of any one component leaves behind a set of trivial unlinked circles.
+    \begin{itemize}
+        \item The Borromean rings (Figure \ref{fig:WhiteheadBorromeanb}) are Brunnian$^[$\footnote{How can I draw a Brunnian link with four components? Or more?}$^]$.
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Tricolorability}\label{sss:tricolor}
+\begin{itemize}
+    \item How do we \emph{prove} that every knot is not just a projection of the unknot?
+    \item \textbf{Strand}: \dq{A piece of the link that goes from one undercrossing to another with only overcrossings in between}{23}
+    \item \textbf{Tricolorable}: A projection of a knot or link in which each strand \dq{can be colored one of three different colors, so that at each crossing, either three different colors come together or all the same color comes together}{23}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \coordinate (a) at (30:0.57);
+            \coordinate (b) at (150:0.57);
+            \coordinate (c) at (270:0.57);
+        
+            \begin{knot}[
+                clip width=5,clip radius=8pt,ignore endpoint intersections=false
+            ]
+                \strand[red,thick] (a) to[relative,out=73,in=20,out looseness=5.8,in looseness=3.3] (b);
+                \strand[orange,thick] (b) to[relative,out=73,in=20,out looseness=5.8,in looseness=3.3] (c);
+                \strand[yellow!70!black,thick] (c) to[relative,out=73,in=20,out looseness=5.8,in looseness=3.3] (a);
+                \flipcrossings{1,3,5}
+                \redraw{1}{(c)}
+            \end{knot}
+        \end{tikzpicture}
+        \vspace{-0.8cm}
+        \caption{Tricolored trefoil.}
+        \label{fig:TricolorTrefoil}
+    \end{figure}
+    \item \emph{Exercise 1.21}: Determine which of the projections of the three six-crossing knots $6_1$, $6_2$, and $6_3$ are tricolorable.
+    \begin{itemize}
+        \item $6_1$ is tricolorable and the other two knots are not. I determined this through trial and error.
+    \end{itemize}
+    \item \emph{Exercise 1.22}: Show that the projection of the knot $7_4$ in Figure \ref{fig:ex1-22a} is tricolorable.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.5\linewidth]{Blender/ex1-22.png}
+            \caption{Initial projection.}
+            \label{fig:ex1-22a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}[scale=0.6]
+                \coordinate (a) at (-1.2,0.5);
+                \coordinate (b) at (1.2,0.5);
+                \coordinate (c) at (1.9,1.6);
+                \coordinate (d) at (1.2,2.9);
+                \coordinate (e) at (0,1.7);
+                \coordinate (f) at (-1.9,1.6);
+                \coordinate (g) at (-1.2,2.9);
+                
+                \begin{knot}[
+                    clip width=5,
+                    ignore endpoint intersections=false
+                ]
+                    \strand[orange,thick] (a)
+                        to [out=-30,in=-150] (b)
+                        to [out=30,in=-110] (c)
+                    ;
+                    \strand[red,thick] (c)
+                        to [out=70,in=30,out looseness=3] (d)
+                        to [out=-150,in=50] (e)
+                    ;
+                    \strand[red,thick] (e)
+                        to [out=-130,in=30] (a)
+                        to [out=-150,in=-110,out looseness=2.5] (f)
+                    ;
+                    \strand[orange,thick] (f)
+                        to [out=70,in=-135] (g)
+                        to [out=45,in=135] (d)
+                    ;
+                    \strand[yellow!70!black,thick] (d)
+                        to [out=-45,in=110] (c)
+                        to [out=-80,in=-30,in looseness=2.5] (b)
+                    ;
+                    \strand[red,thick] (b)
+                        to [out=150,in=-50] (e)
+                        to [out=130,in=-30] (g)
+                    ;
+                    \strand[yellow!70!black,thick] (g)
+                        to [out=150,in=100,in looseness=3] (f)
+                        to [out=-80,in=150] (a)
+                    ;
+                    \flipcrossings{10,13,19}
+                \end{knot}
+
+                \begin{scope}
+                    \path[clip] (b) circle (5pt);
+                    \draw[white,double=orange,very thick,double distance=0.9pt] (a)
+                        to [out=-30,in=-150] (b)
+                        to [out=30,in=-110] (c)
+                    ;
+                \end{scope}
+                \begin{scope}
+                    \path[clip] (d) circle (5pt);
+                    \draw[white,double=red,very thick,double distance=0.9pt] (c)
+                        to [out=70,in=30,out looseness=3] (d)
+                        to [out=-150,in=50] (e)
+                    ;
+                \end{scope}
+                \begin{scope}
+                    \path[clip] (g) circle (5pt);
+                    \draw[white,double=orange,very thick,double distance=0.9pt] (f)
+                        to [out=70,in=-135] (g)
+                        to [out=45,in=135] (d)
+                    ;
+                \end{scope}
+            \end{tikzpicture}
+            \caption{Tricolored projection.}
+            \label{fig:ex1-22b}
+        \end{subfigure}
+        \caption{Tricolored $7_4$.}
+        \label{fig:ex1-22}
+    \end{figure}
+    \item Reidemeister moves do not affect tricolorability.
+    \begin{itemize}
+        \item A Type I Reidemeister move generates a self-intersection. At such a crossing (made out of one original strand), every color will be the same; only one color meets at the crossing.
+        \item A Type II Reidemeister move generates two crossings. If the strands are the same color, then everything stays the same color. If the strands are different colors, than newly created loop takes on the third color.
+        \item Type III has many cases (\emph{Exercise 1.23}).
+    \end{itemize}
+    \item Since the unknot is not tricolorable and the trefoil knot is, we have just proven that there is at least one other knot besides the unknot.
+    \begin{itemize}
+        \item Tricolorability is a knot invariant.
+    \end{itemize}
+    \item For links, tricolorability is a bit different --- the unlink, for example, is tricolorable.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \begin{knot}[
+                clip width=5
+            ]
+                \strand[orange,thick] (-0.8,0) circle (1cm);
+                \strand[red,thick] (0.8,0)  circle (1cm);
+            \end{knot}
+            \begin{scope}
+                \clip (-0.045,-1) rectangle (-1.8,1);
+                \draw[yellow!70!black,thick] (0.8,0) circle (1cm);
+            \end{scope}
+        \end{tikzpicture}
+        \caption{Tricolored unlink.}
+        \label{fig:tricolorUnlink}
+    \end{figure}
+\end{itemize}
+
+
+\subsection{Knots and Sticks}
+\begin{itemize}
+    \item We can also consider knots made out of straight sticks glued to each other at each end.
+    \item The first nontrivial knot made out of sticks is the trefoil, with six sticks.
+    \begin{itemize}
+        \item We know that the stick trefoil in Figure \ref{fig:sticktrefoil} could be made in the real world because, if two vertices lie in the $xy$-plane, then two lie above and two lie below.
+        \item This P(lanar), L(ow), H(igh) notation is commonly used.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \begin{knot}[
+                clip width=5,
+                consider self intersections
+            ]
+                \strand[red,thick] (70:1) to (-10:1) to (-170:1) to (110:1) to (-50:1) to (-130:1) to cycle;
+                \flipcrossings{1,3}
+            \end{knot}
+
+            \fill[red] (70:1)   circle (1pt) node[right]{\small$H$};
+            \fill[red] (-10:1)  circle (1pt) node[right]{\small$P$};
+            \fill[red] (-170:1) circle (1pt) node[left] {\small$P$};
+            \fill[red] (110:1)  circle (1pt) node[left] {\small$L$};
+            \fill[red] (-50:1)  circle (1pt) node[right]{\small$H$};
+            \fill[red] (-130:1) circle (1pt) node[left] {\small$L$};
+        \end{tikzpicture}
+        \caption{A trefoil knot made of sticks.}
+        \label{fig:sticktrefoil}
+    \end{figure}
+    \item \textbf{Stick number}: \dq{The least number of straight sticks necessary to make a knot $K$}{29} \emph{Also known as} \textbf{s(K)}.
+    \item The stick number for the composition of $n$ trefoil knots is $2n+4$.
+    \item Many problems listed$^[$\footnote{These could make good topics for a larger paper. Alternatively, some I am not ready to solve and need to learn more math first (those that I will come back to at the end of the book). I do not believe I'm missing anything essential by skipping these for now, but we'll see.}$^]$.
 \end{itemize}
 
 
 
 
-
 \end{document}
-
-
-
-% \subsection{Tricolorability}
-% \begin{itemize}
-%     \item \dq{hi}{\#\#}
-% \end{itemize}
-
-
-% \subsection{Knots and Sticks}
-% \begin{itemize}
-%     \item \dq{hi}{\#\#}
-% \end{itemize}
