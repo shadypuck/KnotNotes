@@ -49,7 +49,7 @@
 \rfoot{Labalme \thepage}
 \renewcommand{\headrulewidth}{0pt}
 \section{Introduction}\label{sse:intro}
-\subsection{Introduction}
+\subsection{Introduction}\label{sss:Introduction}
 \begin{itemize}
     \item \textbf{Knot}: \dq{A knotted loop of string, except that we think of the string as having no thickness, its cross-section being a single point}{2}
     \item Do not distinguish between a `nice, even' knot and one that has been deformed through space.
@@ -852,6 +852,72 @@
     \item \textbf{Stick number}: \dq{The least number of straight sticks necessary to make a knot $K$}{29} \emph{Also known as} \textbf{s(K)}.
     \item The stick number for the composition of $n$ trefoil knots is $2n+4$.
     \item Many problems listed$^[$\footnote{These could make good topics for a larger paper. Alternatively, some I am not ready to solve and need to learn more math first (those that I will come back to at the end of the book). I do not believe I'm missing anything essential by skipping these for now, but we'll see.}$^]$.
+\end{itemize}
+\newpage
+
+
+
+\section{Tabulating Knots}\label{sse:tabulating}
+\subsection{History of Knot Tabulation}
+\begin{itemize}
+    \item Although many mathematicians (including Gauss) had dabbled with knots, Lord Kelvin's theory that atoms were knotted vortices in the ether (referenced in Section \ref{sss:Introduction}) kicked off research in earnest.
+    \item Reverand Thomas P. Kirkman began tabulating knots but wrote poorly.
+    \item However, Kirkman's ideas were applied by Scottish physicist Peter Guthrie Tait to list all alternating knots up to 10 crossings.
+    \item C. N. Little of the University of Nebraska was the first to tackle the nonalternating knots.
+    \begin{itemize}
+        \item He tabulated up to 10 crossings (43 knots total).
+        \item However, in 1974, it was discovered that two knots were, in fact, the same and there were really 42 knots.
+        \begin{itemize}
+            \item Kenneth A. Perko, a parttime mathematician and New York lawyer, discovered that the projections were not distinct. As such, the projections are known as the Perko pair (Figure \ref{fig:perkopair}).
+        \end{itemize}
+    \end{itemize}
+    \item \emph{Exercise 2.1}: Show that the Perko pair (projected in Figure \ref{fig:perkopair}) are the same knot.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{Blender/perkopair1.png}
+            \caption{Projection 1.}
+            \label{fig:perkopaira}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.7\linewidth]{Blender/perkopair2.png}
+            \caption{Projection 2.}
+            \label{fig:perkopairb}
+        \end{subfigure}
+        \caption{The Perko pair.}
+        \label{fig:perkopair}
+    \end{figure}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.6\linewidth]{Blender/ex2-1.png}
+        \caption{Solution to \emph{Exercise 2.1}.}
+        \label{fig:ex2-1}
+    \end{figure}
+    \item Little later published a census of 11-crossing alternating knots with 11 omissions and 1 duplication.
+    \item Mary G. Haseman listed all amphicheiral knots of 12 crossings.
+    \item Early on, there were few attempts to \emph{prove} that the tabulated knots were actually distinct.
+    \item In 1927, Alexander and Briggs proved that the knots up to 9 crossings were distinct.
+    \begin{itemize}
+        \item They developed the first knot polynomial, the Alexander polynomial.
+        \item This would remain the only knot polynomial until 1984.
+    \end{itemize}
+    \item Once Kurt Reidemeister finished rigorously classifying the knots up to 9 crossings in 1932, tabulation was inactive for a while.
+    \item In 1969, John H. Conway developed a new notation and used it to determine all of the prime knots up to 11 crossings and all prime nonsplittable links up to 10 crossings.
+    \item In 1978, Alain Caudron of the University of Paris corrected Conway's tabulation a bit.
+    \item Meanwhile, a new notation was developed by Hugh Dowker (see Section \ref{sss:Dowker}) that was implemented as a computer algorithm by Morwen Thistlethwaite.
+    \item In the 1980s-1990s (with computer help), Jim Hoste, Thistlethwaite, and Jeff Weeks (an expert in hyperbolic knots; see Section \ref{sss:Hyperbolic}) tabulated up to 16-crossing knots.
+    \begin{itemize}
+        \item Note that the number of knots of successive numbers of crossings \emph{appears} to grows exponentially (this is unproven).
+        \item Also note that Hoste et al's listed knots includes those that are not amphicheiral only once, so those knots actually represent 2 distinct knots.
+        \begin{itemize}
+            \item Determining amphicheirality is discussed in Section \ref{sse:polynomials}
+        \end{itemize}
+    \end{itemize}
+    \item On drawing a 14-crossing knot.
+    \item Claus Ernst and Dewitt Sumners proved a lower exponential bound on the number of distinct prime knots (see Section \ref{sss:Bridge}).
+    \item Dominic Welsh proved an upper exponential bound on the number of distinct prime knots.
 \end{itemize}
 
 
