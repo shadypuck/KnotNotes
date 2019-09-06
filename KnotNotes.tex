@@ -921,6 +921,74 @@
 \end{itemize}
 
 
+\subsection{The Dowker Notation for Knots}
+\begin{itemize}
+    \item For alternating knots\dots
+    \begin{itemize}
+        \item Begin by choosing an orientation.
+        \item Label an arbitrary crossing 1.
+        \item Leaving that crossing on the understrand, label the next crossing 2.
+        \item Continue through the crossing on the same strand and label the next crossing 3.
+        \item Continue in this fashion until you have gone all the way around the knot once.
+        \begin{itemize}
+            \item Note that this gives each crossing two numbers.
+        \end{itemize}
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \begin{knot}[
+                clip width=5,
+                consider self intersections
+            ]
+                \strand[red,thick,
+                decoration={markings,
+                mark=at position 0.2 with {\arrow{>}}},
+                postaction={decorate}] (90:1)
+                    \foreach \x in {1,2,3} {
+                        to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                    }
+                ;
+                \flipcrossings{1,3}
+            \end{knot}
+            \footnotesize
+            \fill (30:0.57) circle (0pt)
+                node[above right]{1}
+                node[below left]{4}
+            ;
+            \fill (-90:0.57) circle (0pt)
+                node[above]{2}
+                node[below]{5}
+            ;
+            \fill (150:0.57) circle (0pt)
+                node[above right]{3}
+                node[below left=]{6}
+            ;
+            \normalsize
+        \end{tikzpicture}
+        \caption{Trefoil knot labeled in Dowker notation.}
+        \label{fig:Dowkertrefoil}
+    \end{figure}
+    \item \emph{Exercise 2.2}: Why does every crossing get one even numbered label and one odd numbered label?
+    \begin{itemize}
+        \item Because the knot is alternating --- every understrand will add an odd label and every overstrand will add an even number (because you set off on the understrand after labeling your starter crossing 1).
+    \end{itemize}
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{ccc}
+            1 & 3 & 5\\
+            4 & 6 & 2
+        \end{tabular}
+        \caption{Dowker numerical pairing of a trefoil knot.}
+        \label{tab:Dowkertrefoil}
+    \end{table}
+    \item From the counting in Figure \ref{fig:Dowkertrefoil}, we obtain a pairing between the numbers (Table \ref{tab:Dowkertrefoil}).
+    \item Note that the numbers in the top row of Table \ref{tab:Dowkertrefoil} are teh constantly increasing odd numbers.
+    \item Since the top row numbers are in a predictable pattern, we can shorthand the notation for the trefoil knot in Figure \ref{fig:Dowkertrefoil} to 4 6 2.
+    \item \dq{Thus, from a projection of a knot, we obtain a sequence of even integers, where the number of even integers is exactly the number of crossings in the knot}{36}
+\end{itemize}
+
+
 
 
 \end{document}
