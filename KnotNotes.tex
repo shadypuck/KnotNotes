@@ -14,6 +14,7 @@
 
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
+\numberwithin{equation}{section}
 
 \usetikzlibrary{knots,decorations.markings}
 
@@ -983,9 +984,116 @@
         \label{tab:Dowkertrefoil}
     \end{table}
     \item From the counting in Figure \ref{fig:Dowkertrefoil}, we obtain a pairing between the numbers (Table \ref{tab:Dowkertrefoil}).
-    \item Note that the numbers in the top row of Table \ref{tab:Dowkertrefoil} are teh constantly increasing odd numbers.
+    \item Note that the numbers in the top row of Table \ref{tab:Dowkertrefoil} are constantly increasing odd numbers.
     \item Since the top row numbers are in a predictable pattern, we can shorthand the notation for the trefoil knot in Figure \ref{fig:Dowkertrefoil} to 4 6 2.
     \item \dq{Thus, from a projection of a knot, we obtain a sequence of even integers, where the number of even integers is exactly the number of crossings in the knot}{36}
+    \item \emph{Exercise 2.3}: Find a sequence of even integers that represents the projection of the knots $6_2$ and $6_3$ (Figure \ref{fig:ex2-3}). How about a second sequence of even integers that also represents the same projection of $6_3$?
+    \begin{itemize}
+        \item For Figure \ref{fig:ex2-3a}, write 6 8 10 12 2 4.
+        \item For Figure \ref{fig:ex2-3b}, write 8 6 10 12 4 2.
+        \item Another sequence of even integers for Figure \ref{fig:ex2-3b} is 4 10 8 12 2 6.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{Blender/ex2-3a.png}
+            \caption{$6_2$.}
+            \label{fig:ex2-3a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.7\linewidth]{Blender/ex2-3b.png}
+            \caption{$6_3$.}
+            \label{fig:ex2-3b}
+        \end{subfigure}
+        \caption{Knots $6_2$ and $6_3$.}
+        \label{fig:ex2-3}
+    \end{figure}
+    \item Knots can also be reconstructed from Dowker notation. See Figure \ref{fig:reconstruction} for an example of reconstructing an alternating knot from the notation, 8 10 12 2 14 6 4.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[
+            every node/.style={black}
+        ]
+            \begin{knot}[
+                clip width=5,
+                every strand/.append style={red,thick},
+                consider self intersections=true,
+                ignore endpoint intersections=false
+            ]
+                \footnotesize
+                \strand[
+                    decoration={markings,
+                    mark=at position 0.3 with {\arrow{>}},
+                    mark=at position 0.9 with {\arrow{>}}},
+                    postaction={decorate}
+                ] (0,0) to (6,0) to[out=0,in=-90] (7,0.4) to[out=90,in=90,out looseness=0.5] (2,0) node[below left]{2}node[above right]{7} to (2,-0.5);
+                \strand (1,0.5) to node[below left]{1}node[above right]{8}  (1,-0.5);
+                \strand (3,0.5) to node[below left]{3}node[above right]{10} (3,-0.5);
+                \strand (4,0.5) to node[below left]{4}node[above right]{13} (4,-0.5);
+                \strand (5,0.5) to node[below left]{5}node[above right]{12} (5,-0.5);
+                \strand (6,0.5) to node[below left]{6}node[above right]{11} (6,-0.5);
+                \flipcrossings{3,4,6}
+                \redraw{1}{(6,0)}
+            \end{knot}
+        \end{tikzpicture}
+        \caption{Constructing a knot projection from its Dowker notation.}
+        \label{fig:reconstruction}
+    \end{figure}
+    \item Our choice in drawing can change the resulting knot.
+    \begin{itemize}
+        \item 4 6 2 10 12 8 gives two distinct knots.
+        \begin{itemize}
+            \item \dq{Note that the two knots are composite knots, and that this is refleted in the fact that the sequence 4 6 2 10 12 8 is actually a shuffling of the three numbers 2, 4, 6 and then a shuffling of the three numbers 8, 10, and 12}{38}
+        \end{itemize}
+        \item When the Dowker notation can be broken into two subpermutations (as above) the knot is composite (unless one subpermutation is trivial).
+        \item Any sequence that cannot be split in this way represents either a particular knot or its mirror image.
+        \item If the knot is amphicheiral, then the sequence only represent one knot.
+    \end{itemize}
+    \item A knot and its mirror image are equivalent when projected onto a sphere as opposed to a plane.
+    \item \emph{Exercise 2.6}: Draw two projections given by 10 12 2 14 6 4 8, which are inequivalent as projections in the plane but which are equivalent as projections on the sphere.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.5\linewidth]{Blender/ex2-6.png}
+        \caption{Solution to \emph{Exercise 2.6}.}
+        \label{fig:ex2-6}
+    \end{figure}
+    \item \emph{Exercise 2.7}: How many different sequences of the integers 2 4 6 8 10 12 14 are there? (This exercise gives us an upper bound on the number of possible alternating knot projections with seven crossings; however, it's far from accurate.)
+    \begin{itemize}
+        \item There are $7!=5040$ sequences.
+    \end{itemize}
+    \item There is a slightly modified Dowker notation for nonalternating knots.
+    \begin{itemize}
+        \item \dq{If the even integer is assigned to the crossing while we are on the overstrand at that crossing, we leave the even integer positive. But if the even integer is assigned to the crossing while we are on the understrand of theat crossing, we make the corresponding even numbers negative}{39}
+    \end{itemize}
+    \item \emph{Exercise 2.9}: How can you recognize from the sequence of numbers that a projection has a trivial crossing in it like in Figure \ref{fig:ex2-9a}? How about recognizing a Type II Reidemeister move that will reduce the number of crossings by two like in Figure \ref{fig:ex2-9b}?
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.6\linewidth]{Blender/ex2-9a.png}
+            \caption{Type I Reidemeister move.}
+            \label{fig:ex2-9a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.53\linewidth]{Blender/ex2-9b.png}
+            \caption{Type II Reidemeister move.}
+            \label{fig:ex2-9b}
+        \end{subfigure}
+        \caption{Recognizing extra crossings from the Dowker notation.}
+        \label{fig:ex2-9}
+    \end{figure}
+    \begin{itemize}
+        \item A Type I Reidemeister move can be recognized from the Dowker notation sequence by the pairing of two numbers that have an absolute difference of 1. In Figure \ref{fig:ex2-9a}, a sample Dowker notation is 6 2 8 10 4. Since 2 pairs with 3, and $|2-3|=1$, we know that there is a Type I Reidemeister move. Logically, this makes sense because when moving along the orientation, a trivial crossing will be crossed twice in a row.
+        \item A Type II Reidemeister move can be recognized from the Dowker notation sequence by a specific characteristic of two pairs: If $(x_1,y_1)$ and $(x_2,y_2)$ is such a pair, then
+        \begin{equation}
+            |x_1-y_2|=1=|x_2-y_1|
+        \end{equation}
+        In Figure \ref{fig:ex2-9b}, a sample Dowker notation is 8 6 10 2 12 4. Since 6 pairs with 3 and 2 with 7, where $|3-2|=1$ and $|6-7|=1$, we know that there is a Type II Reidemeister move. Logically, this makes sense because, when moving along the orientation, such crossings' numbers will be sequential both times crossed.
+    \end{itemize}
+    \item The most consequential fact of Dowker notation is that it allows us to \dq{feed projections of knots into the computer simply as a sequence of numbers}{40}
 \end{itemize}
 
 
