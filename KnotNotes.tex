@@ -1087,11 +1087,11 @@
     \end{figure}
     \begin{itemize}
         \item A Type I Reidemeister move can be recognized from the Dowker notation sequence by the pairing of two numbers that have an absolute difference of 1. In Figure \ref{fig:ex2-9a}, a sample Dowker notation is 6 2 8 10 4. Since 2 pairs with 3, and $|2-3|=1$, we know that there is a Type I Reidemeister move. Logically, this makes sense because when moving along the orientation, a trivial crossing will be crossed twice in a row.
-        \item A Type II Reidemeister move can be recognized from the Dowker notation sequence by a specific characteristic of two pairs: If $(x_1,y_1)$ and $(x_2,y_2)$ is such a pair, then
-        \begin{equation}
-            |x_1-y_2|=1=|x_2-y_1|
-        \end{equation}
-        In Figure \ref{fig:ex2-9b}, a sample Dowker notation is 8 6 10 2 12 4. Since 6 pairs with 3 and 2 with 7, where $|3-2|=1$ and $|6-7|=1$, we know that there is a Type II Reidemeister move. Logically, this makes sense because, when moving along the orientation, such crossings' numbers will be sequential both times crossed.
+        \item A Type II Reidemeister move can be recognized from the Dowker notation sequence by a specific characteristic of two pairs: If $(x_1,y_1)$ and $(x_2,y_2)$ is such a pair, where the order is listed such that $|x_2|>|x_1|$ and $|y_1|>|y_2|$, then both of the following must be true.
+        \begin{align}
+            \big||x_1|-|x_2|\big|=1=\big||y_1|-|y_2|\big| && |x_1-y_2|\neq\big||x_1|-|y_2|\big|\label{eqn:typeIIdowker}
+        \end{align}
+        In Figure \ref{fig:ex2-9b}, a sample Dowker notation is 8 6 10 $-2$ 12 4. Since ($-2$,7) and (3,6) are pairs that satisfy the above, we know that there is a Type II Reidemeister move. Logically, this makes sense because, when moving along the orientation, such crossings' numbers will be sequential both times crossed (confirmed by the left statement in Equation \ref{eqn:typeIIdowker}). Additionally, the even numbers must have opposite signs or the strand would be linked, as opposed to entirely above or below (confirmed by the right statement in Equation \ref{eqn:typeIIdowker}).
     \end{itemize}
     \item The most consequential fact of Dowker notation is that it allows us to \dq{feed projections of knots into the computer simply as a sequence of numbers}{40}
 \end{itemize}
