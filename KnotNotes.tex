@@ -420,7 +420,7 @@
 \end{itemize}
 
 
-\subsection{Links}
+\subsection{Links}\label{sss:Links}
 \begin{itemize}
     \item \textbf{Link}: \dq{A set of knotted loops all tangled up together}{17}
     \item \dq{Two links are considered to be the same if we can deform the one link to the other link without ever having any one of the loops intersect itself or any of the other loops in the process}{17}
@@ -1397,6 +1397,148 @@
     \end{itemize}
     \item Mutation cannot turn a nontrivial knot into the trivial knot (Figure \ref{fig:circletrefoila}).
     \item More on mutant knots can be found in Sections \ref{sse:polynomials} and \ref{sse:biochemphys}.
+\end{itemize}
+
+
+\subsection{Knots and Planar Graphs}
+\begin{itemize}
+    \item This section's notation bridges knot theory and graph theory.
+    \begin{itemize}
+        \item It is capable of contributing to both branches of mathematics.
+    \end{itemize}
+    \item \textbf{Graph}: A set of points called vertices that are connected by edges.
+    \item \textbf{Planar graph}: A graph that lies in a plane.
+    \item Creating a planar graph from a projection of a knot or link:
+    \begin{itemize}
+        \item \dq{Shade every other region of the link projection so that the infinite outermost region is not shaded}{51}
+        \item \dq{Put a vertex at the center of each shaded region and then connect with an edge any two vertices that are in regions that share a crossing}{52}
+        \item Assign an orientation.
+        \item \dq{Label each edge in the planar graph with a $+$ or a $-$, depending on whether the edge passes through a $+$ crossing or a $-$ crossing}{52} See Figure \ref{fig:crossingsign}. Recall computing link numbers in Section \ref{sss:Links} (see Figure \ref{fig:linkingnumber}, specifically).
+        \item The result is a \textbf{signed planar graph}. See Figure \ref{fig:graphtrefoil} for an original example.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \fill[orange!50] (-0.8,1) -- (0,0) -- (0.8,1);
+                \fill[orange!50] (-0.8,-1) -- (0,0) -- (0.8,-1);
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=2pt,
+                    every strand/.append style={red,thick,->}
+                ]
+                    \strand (-0.8,-1) to (0.8,1);
+                    \strand (-0.8,1) to (0.8,-1);
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Denote $+$.}
+            \label{fig:crossingsigna}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \fill[orange!50] (-0.8,1) -- (0,0) -- (0.8,1);
+                \fill[orange!50] (-0.8,-1) -- (0,0) -- (0.8,-1);
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=2pt,
+                    every strand/.append style={red,thick,->},
+                    flip crossing=1
+                ]
+                    \strand (-0.8,-1) to (0.8,1);
+                    \strand (-0.8,1) to (0.8,-1);
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Denote $-$.}
+            \label{fig:crossingsignb}
+        \end{subfigure}
+        \caption{Computing signs per crossing.}
+        \label{fig:crossingsign}
+    \end{figure}
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \fill [orange!50] (90:1)
+                    \foreach \x in {1,2,3} {
+                        to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                    }
+                ;
+                \fill [white] (30:0.57)
+                    \foreach \x in {1,2,3} {
+                        to [bend left=10] ({30-120*\x}:0.57)
+                    }
+                ;
+    
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=2pt,
+                    every strand/.append style={red,thick},
+                    consider self intersections
+                ]
+                    \strand [
+                        decoration={markings,
+                        mark=at position 0.28 with {\arrow{>}},
+                        mark=at position 0.48 with {\arrow{>}},
+                        mark=at position 0.68 with {\arrow{>}}},
+                        postaction={decorate}
+                    ] (90:1)
+                        \foreach \x in {1,2,3} {
+                            to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                        }
+                    ;
+                    \flipcrossings{1,3}
+                \end{knot}
+    
+                \node (a) [circle,line width=0pt,fill=brown!60!black,inner sep=1.5pt] at (90:0.7){};
+                \node (b) [circle,line width=0pt,fill=brown!60!black,inner sep=1.5pt] at (-30:0.7){}
+                    edge [brown!60!black,thick,bend right=33] node[anchor=-150]{$+$} (a)
+                ;
+                \node (c) [circle,line width=0pt,fill=brown!60!black,inner sep=1.5pt] at (-150:0.7){}
+                    edge [brown!60!black,thick,bend right=33] node[anchor=north]{$+$} (b)
+                    edge [brown!60!black,thick,bend left=33]  node[anchor=-30]  {$+$} (a)
+                ;
+            \end{tikzpicture}
+            \vspace{-0.7cm}
+            \caption{Shaded trefoil projection.}
+            \label{fig:graphtrefoila}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \node (a) [circle,line width=0pt,fill=brown!60!black,inner sep=1.5pt] at (90:0.7){};
+                \node (b) [circle,line width=0pt,fill=brown!60!black,inner sep=1.5pt] at (-30:0.7){}
+                    edge [brown!60!black,thick] node[anchor=-150]{$+$} (a)
+                ;
+                \node (c) [circle,line width=0pt,fill=brown!60!black,inner sep=1.5pt] at (-150:0.7){}
+                    edge [brown!60!black,thick] node[anchor=north]{$+$} (b)
+                    edge [brown!60!black,thick] node[anchor=-30]  {$+$} (a)
+                ;
+            \end{tikzpicture}
+            \vspace{-0.2cm}
+            \caption{Signed planar graph.}
+            \label{fig:graphtrefoilb}
+        \end{subfigure}
+        \caption{A signed planar graph from the standard trefoil knot projection.}
+        \label{fig:graphtrefoil}
+    \end{figure}
+    \item It is also possible return the signed planar graph to a knot projection:
+    \begin{itemize}
+        \item \dq{Put an $x$ across each edge}{53}
+        \item \dq{Connect the edges inside each region of the graph}{53}
+        \item \dq{Shade those areas that contain a vertex}{53}
+        \item \dq{At each of the $x$'s, put in a crossing corresponding to whether the edge is a $+$ edge or a $-$ edge}{53}
+    \end{itemize}
+    \item The significance here, as previously referenced, is that we can turn questions about knots into questions about graphs.
+    \item \emph{Exercise 2.31}: What do the Reidemeister moves become when translated into operations on signed planar graphs? (Make sure you consider what happens when different regions are shaded.)
+    \begin{itemize}
+        \item Type I Reidemeister move: Extend an edge from one vertex to a newly created one. Either sign is acceptable (the sign option is analogous to the over-under crossing option).
+        \item Type II Reidemeister move: Add two edges connecting two, specific vertices and intersecting no other edges. The signs on the new edges must be opposite, but it either can be positive (or negative; this option is analogous to the over-under crossing option).
+        \item Type III Reidemeister move: I do not know$^[$\footnote{Return to this later.}$^]$.
+    \end{itemize}
+    \item See Section \ref{sss:StatisticalMechanics} for more on signed planar graphs.
 \end{itemize}
 
 
