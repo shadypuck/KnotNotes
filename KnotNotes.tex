@@ -6,9 +6,10 @@
 \usepackage{csquotes}
 \usepackage{amsmath}
 \usepackage{tikz}
-\usepackage[list=true]{subcaption}
+\usepackage{subcaption}
 \usepackage{graphicx}
 \usepackage{amssymb}
+\usepackage{float}
 
 \MakeOuterQuote{"}
 
@@ -922,7 +923,7 @@
 \end{itemize}
 
 
-\subsection{The Dowker Notation for Knots}
+\subsection{The Dowker Notation for Knots}\label{sss:Dowker}
 \begin{itemize}
     \item For alternating knots\dots
     \begin{itemize}
@@ -1094,6 +1095,308 @@
         In Figure \ref{fig:ex2-9b}, a sample Dowker notation is 8 6 10 $-2$ 12 4. Since ($-2$,7) and (3,6) are pairs that satisfy the above, we know that there is a Type II Reidemeister move. Logically, this makes sense because, when moving along the orientation, such crossings' numbers will be sequential both times crossed (confirmed by the left statement in Equation \ref{eqn:typeIIdowker}). Additionally, the even numbers must have opposite signs or the strand would be linked, as opposed to entirely above or below (confirmed by the right statement in Equation \ref{eqn:typeIIdowker}).
     \end{itemize}
     \item The most consequential fact of Dowker notation is that it allows us to \dq{feed projections of knots into the computer simply as a sequence of numbers}{40}
+\end{itemize}
+
+
+\subsection{Conway's Notation}
+\begin{itemize}
+    \item Particularly suited to calculations involving \textbf{tangles}.
+    \item \textbf{Tangle}: \dq{A region [in a knot or link] in the projection plane surrounded by a circle such that the knot or link crosses the circle exactly four times}{41}
+    \begin{itemize}
+        \item These four crossings will be thought of as occurring in the four ordinal compass directions.
+    \end{itemize}
+    \item Tangles can be thought of as building blocks in knot or link projections.
+    \item \textbf{Equivalent}: Two tangle projections that can be transformed into each other via a series of Reidemeister moves \dq{while the four endpoints of the strings in the tangle remain fixed and while the strings of the tangle never journey outside the circle defining the tangle}{41}
+    \item Notice that, if a knot is formed by gluing together the tangle's ends in pairs, the knot is equivalent to other projections of itself as long as the tangles are equivalent (by a series of Reidemeister moves).
+    \item Tangles, such as the one in Figure \ref{fig:tanglesc} are denoted by the number of left-hand twists (crossings).
+    \begin{itemize}
+        \item If we had twisted the tangle the other way, we would have called it $-3$.
+        \item More simply, \dq{for a positive-integer twist, the overstrand always has a positive slope, if we think of it as a small segment of a line [perhaps a cubic, in the case of Figure \ref{fig:tanglesc}]}{42}
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5
+                ]
+                    \strand[cyan,thick,only when rendering/.style={dashed,dash pattern={on 4pt off 1pt}}] circle (1cm);
+                    \strand[red,thick] (-1,1.2) to[out=-45,in=45,looseness=1.3] (-1,-1.2);
+                    \strand[red,thick] (1,1.2) to[out=-135,in=135,looseness=1.3] (1,-1.2);
+                    \flipcrossings{1,2,3,4}
+                \end{knot}
+            \end{tikzpicture}
+            \caption{The $\infty$ tangle.}
+            \label{fig:tanglesa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5
+                ]
+                    \strand[cyan,thick,only when rendering/.style={dashed,dash pattern={on 4pt off 1pt}}] circle (1cm);
+                    \strand[red,thick] (-1.2,1) to[out=-45,in=-135,looseness=1.3] (1.2,1);
+                    \strand[red,thick] (-1.2,-1) to[out=45,in=135,looseness=1.3] (1.2,-1);
+                    \flipcrossings{1,2,3,4}
+                \end{knot}
+            \end{tikzpicture}
+            \caption{The $0$ tangle.}
+            \label{fig:tanglesb}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    ignore endpoint intersections=false
+                ]
+                    \strand[cyan,thick,only when rendering/.style={dashed,dash pattern={on 4pt off 1pt}}] ellipse (2cm and 1cm);
+                    \strand[red,thick] (-2.4,-1)
+                        to[out=60,in=135,looseness=1.3] (0,0)
+                        to[out=-45,in=-120,looseness=1.3] (2.4,1)
+                    ;
+                    \strand[red,thick] (-2.4,1)
+                        to[out=-60,in=-135,looseness=1.3] (0,0)
+                        to[out=45,in=120,looseness=1.3] (2.4,-1)
+                    ;
+                    \flipcrossings{1,2,3,4,6}
+                \end{knot}
+            \end{tikzpicture}
+            \caption{The $3$ tangle.}
+            \label{fig:tanglesc}
+        \end{subfigure}
+        \caption{Tangles.}
+        \label{fig:tangles}
+    \end{figure}
+    \item \textbf{0 tangle}: The simplest of all tangles (by definition). \emph{Also known as} \textbf{trivial tangle}. See Figure \ref{fig:tanglesb}.
+    \item If we reflect the 3 tangle across a line connecting the NW and SE corners, and then proceed to extrude the NE and SE strands, twisting positively twice, we yield the tangle, 3 2.
+    \item If we reflect 3 2 across the same line, and then proceed to extrude the NE and SE stands, twisting negatively four times, we yield the tangle, 3 2 $-4$.
+    \item \textbf{Rational tangle}: Any tangle that can be constructed in the manner described in the above 2 bullet points.
+    \begin{itemize}
+        \item Note that if the tangle is represented by an even number of integers, it can be thought of as being constructed from the $\infty$ tangle, and vice versa for the 0 tangle.
+    \end{itemize}
+    \item \emph{Exercise 2.10}: Draw the rational tangles corresponding to 2 $-3$ 4 5 and 3 $-1$ 3 $-3$ 2.
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \includegraphics[width=\linewidth]{Blender/ex2-10a.png}
+            \caption{The tangle, 2 $-3$ 4 5.}
+            \label{fig:ex2-10a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{Blender/ex2-10b.png}
+            \caption{The tangle, 3 $-1$ 3 $-3$ 2.}
+            \label{fig:ex2-10b}
+        \end{subfigure}
+        \caption{Solution to \emph{Exercise 2.10}}
+        \label{fig:ex2-10}
+    \end{figure}
+    \item There is an extremely simple way to tell if two rational tangles are equivalent from their notation: \textbf{continued fractions}.
+    \item \textbf{Continued fraction}: A fraction obtained through the iterative process of summing a number and its reciprocal.
+    \begin{itemize}
+        \item For example, given the three numbers a, b, and c, the continued fraction would be the following.
+        \begin{equation}
+            c+\frac{1}{b+\frac{1}{a}}
+        \end{equation}
+    \end{itemize}
+    \item Applied to knot theory, we know that the tangles, $-2$ 3 2 and 3 $-2$ 3, (seen in Figure \ref{fig:ex2-12}) are equivalent because of the following.
+    \begin{align}
+        \begin{split}
+            2+\frac{1}{3+\frac{1}{-2}} &= 3+\frac{1}{-2+\frac{1}{3}}\\
+            2+\frac{1}{\frac{5}{2}} &= 3+\frac{1}{\frac{-5}{3}}\\
+            2+\frac{2}{5} &= 3+\frac{-3}{5}\\
+            \frac{12}{5} &= \frac{12}{5}\\
+        \end{split}
+    \end{align}
+    \item \emph{Exercise 2.13}: Determine which of the four rational tangles in Figure \ref{fig:ex2-13} are equivalent$^[$\footnote{Idea for first paper: Prove that a series of NE$\leftrightarrow$SE and SE$\leftrightarrow$SW moves is sufficient to generate any rational tangle (like Reidemeister moves). Apply these findings to defining a tangle from a projection. Potentially create a new notation (show how this notation and the current tangle notation convert).}$^]$.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{Blender/ex2-13a.png}
+            \caption{Tangle 1.}
+            \label{fig:ex2-13a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{Blender/ex2-13b.png}
+            \caption{Tangle 2.}
+            \label{fig:ex2-13b}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.25\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{Blender/ex2-13c.png}
+            \caption{Tangle 3.}
+            \label{fig:ex2-13c}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.16\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{Blender/ex2-13d.png}
+            \caption{Tangle 4.}
+            \label{fig:ex2-13d}
+        \end{subfigure}
+        \caption{Four rational tangles.}
+        \label{fig:ex2-13}
+    \end{figure}
+    \begin{itemize}
+        \item Tangle 1 (Figure \ref{fig:ex2-13a}) can be denoted $-1$ $-1$ $-2$ $-2$ $-2$.
+        \begin{itemize}
+            \item Its continued fraction simplifies as follows.
+            \begin{align}
+                \begin{split}
+                    -2+\frac{1}{-2+\frac{1}{-2+\frac{1}{-1+\frac{1}{-1}}}} &= -2+\frac{1}{-2+\frac{1}{-2+\frac{1}{-2}}}\\
+                    &= -2+\frac{1}{-2+\frac{-2}{5}}\\
+                    &= -2+\frac{-5}{12}\\
+                    &= \frac{-29}{12}\\
+                \end{split}
+            \end{align}
+        \end{itemize}
+        \item Tangle 2 (Figure \ref{fig:ex2-13b}) can be denoted 2 $-3$ 2.
+        \begin{itemize}
+            \item Its continued fraction simplifies as follows.
+            \begin{align}
+                \begin{split}\label{eqn:ex2-13b}
+                    2+\frac{1}{-3+\frac{1}{2}} &= 2+\frac{-2}{5}\\
+                    &= \frac{8}{5}\\
+                \end{split}
+            \end{align}
+        \end{itemize}
+        \item Tangle 3 (Figure \ref{fig:ex2-13c}) can be denoted $-4$ 1 2.
+        \begin{itemize}
+            \item Its continued fraction simplifies as follows.
+            \begin{align}
+                \begin{split}
+                    2+\frac{1}{1+\frac{1}{-4}} &= 2+\frac{4}{3}\\
+                    &= \frac{10}{3}\\
+                \end{split}
+            \end{align}
+        \end{itemize}
+        \item Tangle 4 (Figure \ref{fig:ex2-13d}) can be denoted 1 1 1 1 1.
+        \begin{itemize}
+            \item Its continued fraction simplifies as follows.
+            \begin{align}
+                \begin{split}\label{eqn:ex2-13d}
+                    1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1}}}} &= 1+\frac{1}{1+\frac{1}{1+\frac{1}{2}}}\\
+                    &= 1+\frac{1}{1+\frac{2}{3}}\\
+                    &= 1+\frac{3}{5}\\
+                    &= \frac{8}{5}\\
+                \end{split}
+            \end{align}
+        \end{itemize}
+        \item Therefore, tangles 2 and 4 (Figures \ref{fig:ex2-13b} and \ref{fig:ex2-13d}, respectively) are equivalent by equations \ref{eqn:ex2-13b} and \ref{eqn:ex2-13d}.
+    \end{itemize}
+    \item If we close off the ends of a rational tangle, i.e. NE to NW and SE to SW, we form a rational link.
+    \item If the link is a knot, we can denote it by its tangle. For example, the figure-eight knot is a rational knot with \textbf{Conway notation} 22 (because of the two twists twice in its center and the gluing of its ends).
+    \item \textbf{Conway's notation}: A method of denoting knots by their tangles (all aforementioned theory in this section).
+    \item Multiplying tangles:
+    \begin{itemize}
+        \item Reflect the left tangle across its NW to SE diagonal and then glue its new NE and SE ends to the NW and SW ends, respectively, of the adjacent (to the right) tangle.
+        \item Multiplying a rational tangle by an integer tangle will always generate a rational tangle, e.g. 32 comes from multiplying 3 by 2.
+        \item To reflect a tangle over its NW-SE line, multiply it by the tangle, 0.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \node (a) [draw=red,circle,thick,inner sep=4mm] [top color=orange!50,bottom color=orange!10] [xshift=-5cm]                     {$T_1$}
+                edge [red,thick] +([xshift=-5cm]1.1,1.1)
+                edge [red,thick] +([xshift=-5cm]-1.1,1.1)
+                edge [red,thick] +([xshift=-5cm]1.1,-1.1)
+                edge [red,thick] +([xshift=-5cm]-1.1,-1.1)
+            ;
+            \node (b) [draw=red,circle,thick,inner sep=4mm] [top color=orange!50,bottom color=orange!10] [xshift=-2cm]                     {$T_2$}
+                edge [red,thick] +([xshift=-2cm]1.1,1.1)
+                edge [red,thick] +([xshift=-2cm]-1.1,1.1)
+                edge [red,thick] +([xshift=-2cm]1.1,-1.1)
+                edge [red,thick] +([xshift=-2cm]-1.1,-1.1)
+            ;
+            \node (c) [draw=red,circle,thick,inner sep=4mm] [left color=orange!50,right color=orange!10] [rotate=90,xscale=-1,yshift=-2cm] {$T_1$}
+                edge [red,thick] +([xshift=2cm]-1.1,1.1)
+                edge [red,thick] +([xshift=2cm]-1.1,-1.1)
+            ;
+            \node (d) [draw=red,circle,thick,inner sep=4mm] [top color=orange!50,bottom color=orange!10] [xshift=5cm]                     {$T_2$}
+                edge [red,thick] +([xshift=5cm]1.1,1.1)
+                edge [red,thick] +([xshift=5cm]1.1,-1.1)
+                edge [red,thick,bend left=45,looseness=1.4]  (c)
+                edge [red,thick,bend left=-45,looseness=1.4] (c)
+            ;
+    
+            \draw[very thick,-latex] (-0.4,0) -- (0.4,0);
+        \end{tikzpicture}
+        \caption{Multiplying tangles.}
+        \label{fig:tanglemultiply}
+    \end{figure}
+    \item Adding tangles:
+    \begin{itemize}
+        \item Glue the left tangle's NE and SE ends to the right tangle's NW and SW ends, respectively.
+        \item Note that no reflecting occurs here.
+        \item \dq{If we multiply each tangle in a sequence of tangles by 0, and then add them all together, we denote the resultant tangle by the sequence of numbers that stand for the original tangles, only now separated by commas}{48}
+    \end{itemize}
+    \item \textbf{Pretzel knot}: \dq{A knot obtained from a tangle represented by a finite number of integers separated by commas}{48}
+    \item \textbf{Algebraic tangle}: \dq{Any tangle obtained by the operations of addition and multiplication on rational tangles}{48}
+    \item \textbf{Algebraic link}: \dq{A link formed when we connect the NW string to the NE string and the SW string to the SE string on an algebraic tangle}{48} \emph{Also known as} \textbf{aborescent link}.
+    \begin{itemize}
+        \item Denoted the same way as a tangle.
+        \item Fun fact: The trefoil knot (Figure \ref{fig:circletrefoilb}) is an algebraic link of the 3 tangle (Figure \ref{fig:tanglesc}).
+    \end{itemize}
+    \item \textbf{Additive identity}: A quantity that can be added to a second quantity without changing that second quantity.
+    \begin{itemize}
+        \item 0 is an additive identity for the real numbers.
+    \end{itemize}
+    \item \emph{Exercise 2.21}: Is there an additive identity for tangles?
+    \begin{itemize}
+        \item The 0 tangle (Figure \ref{fig:tanglesb}) is an additive identity for tangles. Adding the 0 tangle does the same thing as extruding (performing a planar isotropy on) the NE and SE strands. Such an addition does not change the relative position of any strand's ordinal end(s).
+        \item Continuing the analogy to the real numbers, it makes sense that the 0 tangle would be analogous to 0, the real number.
+    \end{itemize}
+    \item \textbf{Multiplicative identity}: A quantity that can be multiplied by a second quantity without changing that second quantity.
+    \begin{itemize}
+        \item 1 is a multiplicative identity for the real numbers.
+    \end{itemize}
+    \item \emph{Exercise 2.22}: Is there a multiplicative identity for tangles? Is it the same if you multiply a tangle by it on the right side or the left side?
+    \begin{itemize}
+        \item The 0 tangle (Figure \ref{fig:tanglesb}) is a multiplicative identity for tangles. Multiplying the 0 tangle does the same thing as extruding (performing a planar isotropy on) the SE and SW strands. Such a multiplication does not change the relative position of any strand's ordinal end(s).
+        \item To part 2, yes.
+    \end{itemize}
+    \item The analogy to real numbers does not hold in some areas.
+    \begin{itemize}
+        \item Multiplication on tangles is not commutative --- $ab\neq ba$ for tangles.
+        \item Multiplication on tangles is not associative --- $(ab)c\neq a(bc)$ for tangles.
+        \item There are no inverse tangles --- there is no tangle that when added to $T$ gives back the trivial tangle, 0.
+    \end{itemize}
+    \item There are tangles that are not algebraic.
+    \item New knots can be obtained via \textbf{mutation}.
+    \item \textbf{Mutation}: Severing the connections between a tangle and any adjacent tangles, transforming it (flipping horizontally, vertically, or both), and gluing the strands to their new adjacent counterparts.
+    \begin{itemize}
+        \item Knots formed in this manner are called \textbf{mutants} of one another.
+    \end{itemize}
+    \item \emph{Exercise 2.25}: Show that if we have three tangles as in Figure \ref{fig:ex2-25a}, we can mutate several times in order to permute the tangles. Note that we can then permute $n$ tangles in a row.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{Blender/ex2-25a.png}
+            \caption{A knot.}
+            \label{fig:ex2-25a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{Blender/ex2-25b.png}
+            \caption{A mutant.}
+            \label{fig:ex2-25b}
+        \end{subfigure}
+        \caption{Series of mutations.}
+        \label{fig:ex2-9}
+    \end{figure}
+    \begin{itemize}
+        \item Beginning in Figure \ref{fig:ex2-25a}, horizontally flip $T_2$.
+        \item Horizontally flip $T_3$.
+        \item Horizontally flip the unit of the flipped $T_2$ and $T_3$.
+    \end{itemize}
+    \item Mutation cannot turn a nontrivial knot into the trivial knot (Figure \ref{fig:circletrefoila}).
+    \item More on mutant knots can be found in Sections \ref{sse:polynomials} and \ref{sse:biochemphys}.
 \end{itemize}
 
 
