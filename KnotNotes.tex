@@ -10,6 +10,7 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{float}
+\usepackage{amssymb}
 
 \MakeOuterQuote{"}
 
@@ -118,7 +119,7 @@
     \begin{itemize}
         \item The trefoil is such a knot.
     \end{itemize}
-    \item \emph{Exercise 1.7*}: By changing some of the crossings from over to under or vice versa, any projection of a knot can be made into a projection of the unknot$^[$\footnote{How can I \emph{show} something? How can I do these proofs? What kind of logic solves one of these?}$^]$. See Figure \ref{fig:knottotrivial}.
+    \item \emph{Exercise 1.7*}: By changing some of the crossings from over to under or vice versa, any projection of a knot can be made into a projection of the unknot$^[$\footnote{How can I \emph{show} something? How can I do these proofs? What kind of logic solves one of these? See Section \ref{sss:UnknottingNumber} for a direct proof of/solution to Exercise 1.7.}$^]$. See Figure \ref{fig:knottotrivial}.
     \begin{figure}[h!]
         \centering
         \begin{tikzpicture}
@@ -143,7 +144,7 @@
 \end{itemize}
 
 
-\subsection{Composition of Knots}
+\subsection{Composition of Knots}\label{sss:Composition}
 \begin{itemize}
     \item \textbf{Composition} (of two knots): \dq{A new knot obtained by removing a small arc from two knot projections and then connecting the four endpoints by two new arcs}{7}
     \begin{itemize}
@@ -1539,6 +1540,71 @@
         \item Type III Reidemeister move: I do not know$^[$\footnote{Return to this later.}$^]$.
     \end{itemize}
     \item See Section \ref{sss:StatisticalMechanics} for more on signed planar graphs.
+\end{itemize}
+\newpage
+
+
+
+\section{Invariants of Knots}
+\subsection{Unknotting Number}\label{sss:UnknottingNumber}
+\begin{itemize}
+    \item \textbf{Unknotting number}: A value $n\in\mathbb{N}$ specific to a knot $K$ that gives the fewest number of crossing changes needed in any projection to turn it into the unknot. \emph{Also known as} $\mathbf{u(K)}$.
+    \begin{itemize}
+        \item It may, however, be a nasty projection of the unknot (see Figure \ref{fig:ex1-11-2} and the related Exercise).
+    \end{itemize}
+    \item \emph{Exercise 3.1}: Find the unknotting number of the figure-eight knot (Figure \ref{fig:figure8knot}).
+    \begin{itemize}
+        \item $u(K)=1$, where $K$ is the figure-eight knot.
+        \item $K$ is distinct from the unknot, so $u(K)\neq 0$. The next possibility ($u(K)=1$) succeeds with the projection in Figure \ref{fig:figure8knot} (in fact, flipping \emph{any} crossing in the referenced projection trivializes $K$).
+    \end{itemize}
+    \item Note that performing all of the crossing changes on one projection is equivalent to performing one such change, then an ambient isotropy, then another\dots
+    \begin{itemize}
+        \item A proof of this is listed on page 58.
+    \end{itemize}
+    \item \dq{The fact that every knot has a finite unknotting number follows from the fact that every projection of a knot can be changed into a projection of the unknot by changing some subset of the crossings in the projection}{58}
+    \begin{itemize}
+        \item See Exercise 1.7.
+    \end{itemize}
+    \item A proof of the above:
+    \begin{itemize}
+        \item Pick a starting point (not a crossing) on an arbitrary knot and an orientation in whose direction to traverse the knot.
+        \item When you arrive at the first crossing, change it so that the strand that you are on is the over strand, if necessary.
+        \item Continue changing every new crossing to which you come to make the current strand into the overstrand.
+        \begin{itemize}
+            \item Do not change crossings that you have already passed through once.
+        \end{itemize}
+        \item At this point, you now have a projection of a knot that was obtained from the original knot by changing crossings and that is the trivial knot. A proof of this triviality follows.
+        \medskip
+        \item Consider the knot in three-space, with the $z$-axis coming out of the page. Assign to the starting point the $z$-coordinate, $z=1$.
+        \item Decrease the $z$-coordinate of each consecutive point as you traverse the knot, culminating in the original point being labeled, $z=0$.
+        \begin{itemize}
+            \item Connect the starting and ending points with a vertical bar to preserve the knot as a knot.
+        \end{itemize}
+        \item What you have now obtained is a knot in three-space that, when projected from the top is the knot that we constructed before the line break, but has no crossings when projected from the side (and is therefore the trivial knot).
+        \item Q.E.D.
+    \end{itemize}
+    \item It is very hard, in general, to find the unknotting number of a knot. How do you know that there isn't a better projection?
+    \item \dq{A knot with unknotting number 1 is prime}{61}
+    \item Therefore, a composite knot cannot be unknotted with a one crossing change.
+    \begin{itemize}
+        \item Another way to think about this idea is that changing a crossing to unknot one factor knot would yield the composition of the other factor knot with the unknot, which, according to Section \ref{sss:Composition}, is simply the other factor knot (obviously still fully knotted).
+    \end{itemize}
+    \begin{equation}
+        u(K_1\#K_2)\leq u(K_1)+u(K_2)
+    \end{equation}
+    \item \emph{Exercise 3.4}: Show that a knot like the one in Figure \ref{fig:ex3-4} is alternating by finding an alternating projection. Then show that it has unknotting number 1 by showing that there is a crossing in this projection that can be changed to yield the trivial knot.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.6\linewidth]{Blender/ex3-4.png}
+        \caption{Knot to alternate and later unknot.}
+        \label{fig:ex3-4}
+    \end{figure}
+    \begin{figure}[h!]
+        \centering
+        \rule{0.8\linewidth}{2cm}
+        \caption{Solution to \emph{Exercise 3.4}.}
+        \label{fig:ex3-4-2}
+    \end{figure}
 \end{itemize}
 
 
