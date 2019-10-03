@@ -1592,19 +1592,198 @@
     \begin{equation}
         u(K_1\#K_2)\leq u(K_1)+u(K_2)
     \end{equation}
-    \item \emph{Exercise 3.4}: Show that a knot like the one in Figure \ref{fig:ex3-4} is alternating by finding an alternating projection. Then show that it has unknotting number 1 by showing that there is a crossing in this projection that can be changed to yield the trivial knot.
+    \item The unknotting number can be realized by a projection that is not \textbf{minimal}.
+    \item \textbf{Minimal projection}: The projection of a knot with the lowest possible number of crossings.
+    \item \textbf{\emph{k}-move}: A local change in the projection that replaces two untwisted strings with two strings that twist around each other with $k$ crossings in a right-handed manner. See Figure \ref{fig:k-moves}.
+    \begin{itemize}
+        \item If $k$ is positive, then the overstrand has a positive slope.
+    \end{itemize}
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.6\linewidth]{Blender/ex3-4.png}
-        \caption{Knot to alternate and later unknot.}
-        \label{fig:ex3-4}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}[
+                every to/.style={out=90,in=-90}
+            ]
+                \def\val{0.15}
+                \begin{scope}[red, thick, xshift=-1cm]
+                    \draw (-\val,-1) -- (-\val,1);
+                    \draw (\val,-1) -- (\val,1);
+                \end{scope}
+                \draw[very thick,-latex] (-0.4,0) -- (0.4,0);
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=3pt,
+                    every strand/.append style={red,thick},
+                    xshift=1cm,
+                    ignore endpoint intersections=false
+                ]
+                    \strand (-\val,-1) to (\val,-0.6) to (-\val,-0.2) to (\val,0.2) to (-\val,0.6) to (\val,1);
+                    \strand (\val,-1) to (-\val,-0.6) to (\val,-0.2) to (-\val,0.2) to (\val,0.6) to (-\val,1);
+                    \flipcrossings{2,4}
+                \end{knot}
+            \end{tikzpicture}
+            \caption{A 5-move.}
+            \label{fig:k-movesa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}[
+                every to/.style={out=90,in=-90}
+            ]
+                \def\val{0.15}
+                \begin{scope}[red, thick, xshift=-1cm]
+                    \draw (-\val,-1) -- (-\val,1);
+                    \draw (\val,-1) -- (\val,1);
+                \end{scope}
+                \draw[very thick,-latex] (-0.4,0) -- (0.4,0);
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=3pt,
+                    every strand/.append style={red,thick},
+                    xshift=1cm,
+                    ignore endpoint intersections=false
+                ]
+                    \strand (\val,-1) to (-\val,-0.6) to (\val,-0.2) to (-\val,0.2) to (\val,0.6) to (-\val,1);
+                    \strand (-\val,-1) to (\val,-0.6) to (-\val,-0.2) to (\val,0.2) to (-\val,0.6) to (\val,1);
+                    \flipcrossings{2,4}
+                \end{knot}
+            \end{tikzpicture}
+            \caption{A $-5$-move.}
+            \label{fig:k-movesb}
+        \end{subfigure}
+        \caption{Examples of $k$-moves.}
+        \label{fig:k-moves}
+    \end{figure}
+    \item \textbf{\emph{k}-equivalent}: Two knot or link projections that can be transformed into each other through a series of $k$-moves and $-k$-moves.
+    \begin{itemize}
+        \item Ambient isotropies are allowed between $k$-moves.
+    \end{itemize}
+    \item \emph{Exercise 3.8}: Show that the knots in Figure \ref{fig:ex3-8} are each three-equivalent to a trivial link.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.5\linewidth]{Blender/ex3-8a.png}
+            \caption{The knot $3_1$.}
+            \label{fig:ex3-8a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.55\linewidth]{Blender/ex3-8b.png}
+            \caption{The knot $4_1$.}
+            \label{fig:ex3-8b}
+        \end{subfigure}
+        \caption{Knots that are 3-equivalent to trivial links.}
+        \label{fig:ex3-8}
     \end{figure}
     \begin{figure}[h!]
         \centering
-        \rule{0.8\linewidth}{2cm}
-        \caption{Solution to \emph{Exercise 3.4}.}
-        \label{fig:ex3-4-2}
+        \includegraphics[width=0.7\linewidth]{Blender/ex3-8-2.png}
+        \caption{Solution to \emph{Exercise 3.8}.}
+        \label{fig:ex3-8-2}
     \end{figure}
+\end{itemize}
+
+
+\subsection{Bridge Number}
+\begin{itemize}
+    \item Think of knots as \dq{cutting through the projection plane, rather than lying in it}{64}
+    \begin{itemize}
+        \item Every overstrand is entirely above and every understrand is entirely beneath. The points where the strand shifts from over to under are known as \textbf{vertices}.
+    \end{itemize}
+    \item \textbf{Bridge number}: The least number of unknotted arcs lying above the plane in any projection of the knot. \emph{Also known as} $\mathbf{b(K)}$
+    \begin{itemize}
+        \item The number of maximal overpasses in in the projection.
+    \end{itemize}
+    \item \textbf{Overpass}: \dq{A subarc of the knot that goes over at least one crossing but never goes under a crossing}{64}
+    \item \textbf{Maximal overpass}: \dq{An overpass that could not be made any longer}{65}
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \def\val{0.6}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (0,0) to (6,0);
+                    \strand (1,-\val) to (1,\val);
+                    \strand (2,-\val) to (2,\val);
+                    \strand (3,-\val) to (3,\val);
+                    \strand (4,-\val) to (4,\val);
+                    \strand (5,-\val) to (5,\val);
+                    \flipcrossings{1,5}
+                \end{knot}
+                \node [circle,fill=orange] (a) at (1.5,0) {};
+                \node [circle,fill=orange] (b) at (3.5,0) {}
+                    edge [ultra thick,orange] (a)
+                ;
+            \end{tikzpicture}
+            \caption{An overpass.}
+            \label{fig:overpassa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \def\val{0.6}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (0,0) to (6,0);
+                    \strand (1,-\val) to (1,\val);
+                    \strand (2,-\val) to (2,\val);
+                    \strand (3,-\val) to (3,\val);
+                    \strand (4,-\val) to (4,\val);
+                    \strand (5,-\val) to (5,\val);
+                    \flipcrossings{1,5}
+                \end{knot}
+                \node [circle,fill=orange] (a) at (1.5,0) {};
+                \node [circle,fill=orange] (b) at (4.5,0) {}
+                    edge [ultra thick,orange] (a)
+                ;
+            \end{tikzpicture}
+            \caption{A maximal overpass.}
+            \label{fig:overpassb}
+        \end{subfigure}
+        \caption{Overpasses.}
+        \label{fig:overpass}
+    \end{figure}
+    \item \emph{Exercise 3.10}: Show that if a knot has bridge number 1, it must be the unknot.
+    \begin{itemize}
+        \item If a knot has bridge number 1, $\exists$ a projection of the knot such that there is only one arc above the projection plane and 1 arc below the projection plane.
+        \item This projection, viewed from above, will look like any isotropy of the knot. However, viewed from the side, there will be 0 crossings --- therefore, it is the unknot.
+    \end{itemize}
+    \item \emph{Exercise 3.11}: Show that the knot $5_2$ has bridge number 2$^[$\footnote{Idea for a paper: On reducing bridge number. Discuss manipulating a projection to its Dowker redraw to create the "killzone" and then using "killzone moves" to make the projection nonalternating.}$^]$.
+    \begin{itemize}
+        \item Since $5_2$ is distinct from the unknot, $b(K)\neq 1$.
+        \item Therefore, the next possibility to check is 2. Then, a projection of $5_2$ with bridge number 2 $\Rightarrow b(k)=2$.
+        \begin{figure}[h!]
+            \centering
+            \begin{subfigure}[b]{0.2\linewidth}
+                \centering
+                \includegraphics[width=0.8\linewidth]{Blender/ex3-11a.png}
+                \caption{$3_1$ with $b(K)=2$.}
+                \label{fig:ex3-11a}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.2\linewidth}
+                \centering
+                \includegraphics[width=0.8\linewidth]{Blender/ex3-11b.png}
+                \caption{$4_1$ with $b(K)=2$.}
+                \label{fig:ex3-11b}
+            \end{subfigure}
+            \caption{Reducing bridge number between projections.}
+            \label{fig:ex3-11}
+        \end{figure}
+        \item Before tackling this problem, though, let's look at some simpler examples.
+        \begin{itemize}
+            \item From these, we notice that there are tangling moves which can reduce or increase the bridge number by $\pm 1$.
+            \item Furthermore, long overstrands call to mind a Dowker reconstruction (Figure \ref{fig:reconstruction}).
+        \end{itemize}
+        \item Find the Dowker notation of $5_2$.
+    \end{itemize}
 \end{itemize}
 
 
