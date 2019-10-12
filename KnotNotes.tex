@@ -1067,7 +1067,7 @@
     \end{itemize}
     \item There is a slightly modified Dowker notation for nonalternating knots.
     \begin{itemize}
-        \item \dq{If the even integer is assigned to the crossing while we are on the overstrand at that crossing, we leave the even integer positive. But if the even integer is assigned to the crossing while we are on the understrand of theat crossing, we make the corresponding even numbers negative}{39}
+        \item \dq{If the even integer is assigned to the crossing while we are on the overstrand at that crossing, we leave the even integer positive. But if the even integer is assigned to the crossing while we are on the understrand of that crossing, we make the corresponding even numbers negative}{39}
     \end{itemize}
     \item \emph{Exercise 2.9}: How can you recognize from the sequence of numbers that a projection has a trivial crossing in it like in Figure \ref{fig:ex2-9a}? How about recognizing a Type II Reidemeister move that will reduce the number of crossings by two like in Figure \ref{fig:ex2-9b}?
     \begin{figure}[h!]
@@ -1702,7 +1702,7 @@
         \centering
         \begin{subfigure}[b]{0.4\linewidth}
             \centering
-            \begin{tikzpicture}
+            \begin{tikzpicture}[dot/.style={circle,fill=orange,outer sep=-1pt}]
                 \def\val{0.6}
                 \begin{knot}[
                     clip width=5,
@@ -1716,8 +1716,8 @@
                     \strand (5,-\val) to (5,\val);
                     \flipcrossings{1,5}
                 \end{knot}
-                \node [circle,fill=orange] (a) at (1.5,0) {};
-                \node [circle,fill=orange] (b) at (3.5,0) {}
+                \node [dot] (a) at (1.5,0) {};
+                \node [dot] (b) at (3.5,0) {}
                     edge [ultra thick,orange] (a)
                 ;
             \end{tikzpicture}
@@ -1726,7 +1726,7 @@
         \end{subfigure}
         \begin{subfigure}[b]{0.4\linewidth}
             \centering
-            \begin{tikzpicture}
+            \begin{tikzpicture}[dot/.style={circle,fill=orange,outer sep=-1pt}]
                 \def\val{0.6}
                 \begin{knot}[
                     clip width=5,
@@ -1740,8 +1740,8 @@
                     \strand (5,-\val) to (5,\val);
                     \flipcrossings{1,5}
                 \end{knot}
-                \node [circle,fill=orange] (a) at (1.5,0) {};
-                \node [circle,fill=orange] (b) at (4.5,0) {}
+                \node [dot] (a) at (1.5,0) {};
+                \node [dot] (b) at (4.5,0) {}
                     edge [ultra thick,orange] (a)
                 ;
             \end{tikzpicture}
@@ -1756,10 +1756,10 @@
         \item If a knot has bridge number 1, $\exists$ a projection of the knot such that there is only one arc above the projection plane and 1 arc below the projection plane.
         \item This projection, viewed from above, will look like any isotropy of the knot. However, viewed from the side, there will be 0 crossings --- therefore, it is the unknot.
     \end{itemize}
-    \item \emph{Exercise 3.11}: Show that the knot $5_2$ has bridge number 2$^[$\footnote{Idea for a paper: On reducing bridge number. Discuss manipulating a projection to its Dowker redraw to create the "killzone" and then using "killzone moves" to make the projection nonalternating.}$^]$.
+    \item \emph{Exercise 3.11}: Show that the knot $5_2$ has bridge number 2$^[$\footnote{Idea for a paper: On reducing bridge number. Discuss manipulating a projection to its Dowker reconstruction to create the "killzone" and then using "bridging moves" to make the projection nonalternating. 2 types so far: I $\rightarrow$ III, and 2xII $\rightarrow$ III (in both cases it is the Type III move which climactically changes $b(K)$. It can be necessary to increase $b(K)$ before decreasing it.)}$^]$.
     \begin{itemize}
         \item Since $5_2$ is distinct from the unknot, $b(K)\neq 1$.
-        \item Therefore, the next possibility to check is 2. Then, a projection of $5_2$ with bridge number 2 $\Rightarrow b(k)=2$.
+        \item Therefore, the next possibility to check is 2. If $\exists$ a projection of $5_2$ with bridge number 2, $b(K)=2$.
         \begin{figure}[h!]
             \centering
             \begin{subfigure}[b]{0.2\linewidth}
@@ -1779,10 +1779,84 @@
         \end{figure}
         \item Before tackling this problem, though, let's look at some simpler examples.
         \begin{itemize}
-            \item From these, we notice that there are tangling moves which can reduce or increase the bridge number by $\pm 1$.
+            \item From these, we notice that there are "bridging moves" (distinct combinations of the Reidemeister moves) that can shift the bridge number by $\pm 1$.
             \item Furthermore, long overstrands call to mind a Dowker reconstruction (Figure \ref{fig:reconstruction}).
         \end{itemize}
         \item Find the Dowker notation of $5_2$.
+        \begin{itemize}
+            \item The Dowker notation of the projection listed in the appendix is 6 10 8 2 4.
+        \end{itemize}
+        \begin{figure}[h!]
+            \centering
+            \begin{subfigure}[b]{0.3\linewidth}
+                \centering
+                \includegraphics[width=0.8\linewidth]{Blender/ex3-11-2a.png}
+                \caption{Bridge number: 5.}
+                \label{fig:ex3-11-2a}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.3\linewidth}
+                \centering
+                \includegraphics[width=0.8\linewidth]{Blender/ex3-11-2b.png}
+                \caption{Bridge number: 3.}
+                \label{fig:ex3-11-2b}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.3\linewidth}
+                \centering
+                \includegraphics[width=0.8\linewidth]{Blender/ex3-11-2c.png}
+                \caption{Bridge number: 4.}
+                \label{fig:ex3-11-2c}
+            \end{subfigure}
+            \par\bigskip
+            \begin{subfigure}[b]{0.3\linewidth}
+                \centering
+                \includegraphics[width=0.8\linewidth]{Blender/ex3-11-2d.png}
+                \caption{Bridge number: 3.}
+                \label{fig:ex3-11-2d}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.6\linewidth}
+                \centering
+                \includegraphics[width=0.8\linewidth]{Blender/ex3-11-2e.png}
+                \caption{Bridge number: 2.}
+                \label{fig:ex3-11-2e}
+            \end{subfigure}
+            \par\bigskip
+            \begin{subfigure}[b]{0.3\linewidth}
+                \centering
+                \includegraphics[width=0.8\linewidth]{Blender/ex3-11-2f.png}
+                \caption{Bridge number: 2.}
+                \label{fig:ex3-11-2f}
+            \end{subfigure}
+            \caption{Solution to \emph{Exercise 3.11}.}
+            \label{fig:ex3-11-2}
+        \end{figure}
+        \item Note that the following hold for all projections in Figure \ref{fig:ex3-11-2}.
+        \begin{itemize}
+            \item Dashes, when present represent the boundaries of the "killzone." They also provide consistent reference points for Figures \ref{fig:ex3-11-2a} through \ref{fig:ex3-11-2e}.
+            \item Dots, when present, represent bounds on the overpasses (and, technically, the underpasses).
+            \item Thicker lines represent overpasses. Conversely, thinner lines represent underpasses.
+            \item Like-colored strands between sequential projections represent the same strand after Reidemeister moves or planar isotropies (colored for clarity, not for any specific purpose such as tricolorability).
+        \end{itemize}
+        \item From this notation, reconstruct a knot projection. This projection (Figure \ref{fig:ex3-11-2a}) contains the "killzone," a concentrated region where every crossing is displayed in an orderly fashion$^[$\footnote{Note that from here-down, I do not guarantee that this is the fastest or simplest way to generate a projection that displays $b(K)=2$, nor can I assure the reader that my solution is the "simplest" projection (perhaps the one with the fewest crossings). However, I do guarantee that it is correct. I know that it is so because all projections are separated only by Reidemeister moves and planar isotropies, and Figure \ref{fig:ex3-11-2f} visibly has bridge number 2.}$^]$.
+        \item Employ two Type I Reidemeister moves followed respectively by Type III Reidemeister moves to eliminate two overpasses. These moves occur on the green and blue strands, independently. They yield a projection with bridge number 3 (Figure \ref{fig:ex3-11-2b}). This projection has several noteworthy properties.
+        \begin{itemize}
+            \item First, of the three overpasses, two contain 2 crossings while one contains 3 crossings.
+            \item Second, of the three underpasses, two contain 2 crossings while one contains 3 crossings.
+            \item Third, every overpass crosses at least one of its adjacent underpass.
+            \item Because each overpass and underpass has more than one crossing, the bridge number of the projection must increase before it can decrease (one of the overpasses must be split into two [or three]; single overpasses can subsequently be eliminated via "bridging moves").
+            \item Because each overpass crosses at least one of its adjacent underpasses, no "bridging moves" can eliminate a bridge from this projection directly$^[$\footnote{I am holding this to be true because I cannot demonstrate otherwise, but I do not know that it is true. I'd actually conjecture that it's false --- it would seem to make sense that some overpass could be eliminated directly from Figure \ref{fig:ex3-11-2b}.}$^]$.
+        \end{itemize}
+        \item Employ two Type II Reidemeister moves followed by one Type III Reidemeister move to split one of the 2-crossing overpasses into two 1-crossing overpasses. These moves occur on the red-purple strand, which is "slid along" beneath the central overpass. This change will increase the bridge number to 4 and yield Figure \ref{fig:ex3-11-2c}$^[$\footnote{Multiple such moves may suffice here. I chose and followed through this one randomly.}$^]$.
+        \item Employ a Type I Reidemeister move followed by a Type III Reidemeister move to eliminate one of the new 1-crossing overpasses. These moves occur on the purple strand. This change will decrease the bridge number back to 3. Additionally, perform the reverse of the actions on the green strand between Figures \ref{fig:ex3-11-2a} and \ref{fig:ex3-11-2b} to "straighten it out." These changes will yield Figure \ref{fig:ex3-11-2d}. This projection has several noteworthy properties.
+        \begin{itemize}
+            \item The 1-crossing overpass has underpasses of greater than 1 crossing on both sides.
+            \item The 1-crossing overpass passes through a loop, creating a setup similar to the two overpasses eliminated between Figure \ref{fig:ex3-11-2a} and \ref{fig:ex3-11-2b}. However, because of the above, a Type I Reidemeister move followed by a Type III Reidemeister move will not eliminate this overpass --- it would only shift the position of the overpass.
+            \item The 1-crossing overpass crosses neither of its adjacent underpasses.
+            \item The above is key --- because of it, a succession of 2xType II Reidemeister moves followed by 1xType III Reidemeister moves can combine the 1-crossing overpass with the partially purple overpass.
+            \item This set of moves will occur thrice --- once for each crossing of the adjacent underpass.
+        \end{itemize}
+        \item Three times sequentially, employ two Type II Reidemeister moves followed by one Type III Reidemeister moves to (for the first two) shift the position of the 1-crossing overpass and then (for the last one) eliminate the 1-crossing overpass. These moves occur on the orange, purple, and green strands, sequentially. They yield a projection with bridge number 2 (Figure \ref{fig:ex3-11-2e}).
+        \item Q.E.D.
+        \item Figure \ref{fig:ex3-11-2e} is rather visually unpleasant, however. Figure \ref{fig:ex3-11-2f} is the result of one Type I Reidemeister move (on the upper part of the orange strand) and planar isotropies intended purely to "clean up" the projection. It remains indistinct from $5_2$ and displays $b(K)=2$.
     \end{itemize}
 \end{itemize}
 
