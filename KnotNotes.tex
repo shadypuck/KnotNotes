@@ -10,7 +10,6 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{float}
-\usepackage{amssymb}
 
 \MakeOuterQuote{"}
 
@@ -465,7 +464,7 @@
     \end{figure}
     \item \emph{Exercise 1.13}: Show that the two projections in Figure \ref{fig:ex1-13a} and \ref{fig:ex1-13c} represent the same link.
     \begin{itemize}
-        \item Untwist the right side of the figure-eight loop, twisting the right side of the circle at the same time. Then add a futher twist to the circle loop and flip (rotate along the horizontal axis) the figure-eight loop (which now looks like an ellipse).
+        \item Untwist the right side of the figure-eight loop, twisting the right side of the circle at the same time. Then add a further twist to the circle loop and flip (rotate along the horizontal axis) the figure-eight loop (which now looks like an ellipse).
     \end{itemize}
     \begin{figure}[h!]
         \centering
@@ -864,14 +863,14 @@
 \subsection{History of Knot Tabulation}
 \begin{itemize}
     \item Although many mathematicians (including Gauss) had dabbled with knots, Lord Kelvin's theory that atoms were knotted vortices in the ether (referenced in Section \ref{sss:Introduction}) kicked off research in earnest.
-    \item Reverand Thomas P. Kirkman began tabulating knots but wrote poorly.
+    \item Reverend Thomas P. Kirkman began tabulating knots but wrote poorly.
     \item However, Kirkman's ideas were applied by Scottish physicist Peter Guthrie Tait to list all alternating knots up to 10 crossings.
     \item C. N. Little of the University of Nebraska was the first to tackle the nonalternating knots.
     \begin{itemize}
         \item He tabulated up to 10 crossings (43 knots total).
         \item However, in 1974, it was discovered that two knots were, in fact, the same and there were really 42 knots.
         \begin{itemize}
-            \item Kenneth A. Perko, a parttime mathematician and New York lawyer, discovered that the projections were not distinct. As such, the projections are known as the Perko pair (Figure \ref{fig:perkopair}).
+            \item Kenneth A. Perko, a part time mathematician and New York lawyer, discovered that the projections were not distinct. As such, the projections are known as the Perko pair (Figure \ref{fig:perkopair}).
         \end{itemize}
     \end{itemize}
     \item \emph{Exercise 2.1}: Show that the Perko pair (projected in Figure \ref{fig:perkopair}) are the same knot.
@@ -1204,6 +1203,23 @@
             c+\frac{1}{b+\frac{1}{a}}
         \end{equation}
     \end{itemize}
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.56\linewidth]{Blender/ex2-12a.png}
+            \caption{The tangle, $-2$ 3 2.}
+            \label{fig:ex2-12a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.56\linewidth]{Blender/ex2-12b.png}
+            \caption{The tangle, 3 $-2$ 3.}
+            \label{fig:ex2-12b}
+        \end{subfigure}
+        \caption{Two equivalent tangles.}
+        \label{fig:ex2-12}
+    \end{figure}
     \item Applied to knot theory, we know that the tangles, $-2$ 3 2 and 3 $-2$ 3, (seen in Figure \ref{fig:ex2-12}) are equivalent because of the following.
     \begin{align}
         \begin{split}
@@ -1686,7 +1702,7 @@
 \end{itemize}
 
 
-\subsection{Bridge Number}
+\subsection{Bridge Number}\label{sss:Bridge}
 \begin{itemize}
     \item Think of knots as \dq{cutting through the projection plane, rather than lying in it}{64}
     \begin{itemize}
@@ -1831,12 +1847,12 @@
         \end{figure}
         \item Note that the following hold for all projections in Figure \ref{fig:ex3-11-2}.
         \begin{itemize}
-            \item Dashes, when present represent the boundaries of the "killzone." They also provide consistent reference points for Figures \ref{fig:ex3-11-2a} through \ref{fig:ex3-11-2e}.
-            \item Dots, when present, represent bounds on the overpasses (and, technically, the underpasses).
+            \item Dashes, when present, represent the boundaries of the "killzone." They also provide consistent reference points for Figures \ref{fig:ex3-11-2a} through \ref{fig:ex3-11-2e}.
+            \item Dots, when present, represent bounds on the overpasses (and, consequently, the underpasses).
             \item Thicker lines represent overpasses. Conversely, thinner lines represent underpasses.
             \item Like-colored strands between sequential projections represent the same strand after Reidemeister moves or planar isotropies (colored for clarity, not for any specific purpose such as tricolorability).
         \end{itemize}
-        \item From this notation, reconstruct a knot projection. This projection (Figure \ref{fig:ex3-11-2a}) contains the "killzone," a concentrated region where every crossing is displayed in an orderly fashion$^[$\footnote{Note that from here-down, I do not guarantee that this is the fastest or simplest way to generate a projection that displays $b(K)=2$, nor can I assure the reader that my solution is the "simplest" projection (perhaps the one with the fewest crossings). However, I do guarantee that it is correct. I know that it is so because all projections are separated only by Reidemeister moves and planar isotropies, and Figure \ref{fig:ex3-11-2f} visibly has bridge number 2.}$^]$.
+        \item From the previously determined Dowker notation, reconstruct a knot projection. This projection (Figure \ref{fig:ex3-11-2a}) contains the "killzone," a concentrated region where every crossing is displayed in an orderly fashion$^[$\footnote{Note that from here-down, I do not guarantee that this is the fastest or simplest way to generate a projection that displays $b(K)=2$, nor can I assure the reader that my solution is the "simplest" projection (perhaps the one with the fewest crossings). However, I do guarantee that it is correct. I know that it is so because all projections are separated only by Reidemeister moves and planar isotropies, and Figure \ref{fig:ex3-11-2f} visibly has bridge number 2.}$^]$.
         \item Employ two Type I Reidemeister moves followed respectively by Type III Reidemeister moves to eliminate two overpasses. These moves occur on the green and blue strands, independently. They yield a projection with bridge number 3 (Figure \ref{fig:ex3-11-2b}). This projection has several noteworthy properties.
         \begin{itemize}
             \item First, of the three overpasses, two contain 2 crossings while one contains 3 crossings.
@@ -1845,8 +1861,8 @@
             \item Because each overpass and underpass has more than one crossing, the bridge number of the projection must increase before it can decrease (one of the overpasses must be split into two [or three]; single overpasses can subsequently be eliminated via "bridging moves").
             \item Because each overpass crosses at least one of its adjacent underpasses, no "bridging moves" can eliminate a bridge from this projection directly$^[$\footnote{I am holding this to be true because I cannot demonstrate otherwise, but I do not know that it is true. I'd actually conjecture that it's false --- it would seem to make sense that some overpass could be eliminated directly from Figure \ref{fig:ex3-11-2b}.}$^]$.
         \end{itemize}
-        \item Employ two Type II Reidemeister moves followed by one Type III Reidemeister move to split one of the 2-crossing overpasses into two 1-crossing overpasses. These moves occur on the red-purple strand, which is "slid along" beneath the central overpass. This change will increase the bridge number to 4 and yield Figure \ref{fig:ex3-11-2c}$^[$\footnote{Multiple such moves may suffice here. I chose and followed through this one randomly.}$^]$.
-        \item Employ a Type I Reidemeister move followed by a Type III Reidemeister move to eliminate one of the new 1-crossing overpasses. These moves occur on the purple strand. This change will decrease the bridge number back to 3. Additionally, perform the reverse of the actions on the green strand between Figures \ref{fig:ex3-11-2a} and \ref{fig:ex3-11-2b} to "straighten it out." These changes will yield Figure \ref{fig:ex3-11-2d}. This projection has several noteworthy properties.
+        \item Employ two Type II Reidemeister moves followed by one Type III Reidemeister move to split one of the 2-crossing overpasses into two 1-crossing overpasses. These moves occur on the red-purple strand, which is "slid along" beneath the central overpass. This change will increase the bridge number to 4 and yield Figure \ref{fig:ex3-11-2c}$^[$\footnote{Multiple such moves may suffice here to split a 2-crossing bridge. I chose and followed through this one randomly.}$^]$.
+        \item Employ a Type I Reidemeister move followed by a Type III Reidemeister move to eliminate one of the new 1-crossing overpasses. These moves occur on the purple strand. This change will decrease the bridge number back to 3. Additionally, perform the reverse of the actions on the green strand between Figures \ref{fig:ex3-11-2a} and \ref{fig:ex3-11-2b} to "straighten it out." This shift will switch the 1-crossing overpass to an adjacent strand. These changes will yield Figure \ref{fig:ex3-11-2d}. This projection has several noteworthy properties.
         \begin{itemize}
             \item The 1-crossing overpass has underpasses of greater than 1 crossing on both sides.
             \item The 1-crossing overpass passes through a loop, creating a setup similar to the two overpasses eliminated between Figure \ref{fig:ex3-11-2a} and \ref{fig:ex3-11-2b}. However, because of the above, a Type I Reidemeister move followed by a Type III Reidemeister move will not eliminate this overpass --- it would only shift the position of the overpass.
@@ -1854,9 +1870,307 @@
             \item The above is key --- because of it, a succession of 2xType II Reidemeister moves followed by 1xType III Reidemeister moves can combine the 1-crossing overpass with the partially purple overpass.
             \item This set of moves will occur thrice --- once for each crossing of the adjacent underpass.
         \end{itemize}
-        \item Three times sequentially, employ two Type II Reidemeister moves followed by one Type III Reidemeister moves to (for the first two) shift the position of the 1-crossing overpass and then (for the last one) eliminate the 1-crossing overpass. These moves occur on the orange, purple, and green strands, sequentially. They yield a projection with bridge number 2 (Figure \ref{fig:ex3-11-2e}).
+        \item Three times sequentially, employ two Type II Reidemeister moves followed by one Type III Reidemeister move to (for the first two sets) shift the position of the 1-crossing overpass and then (for the last set) eliminate the 1-crossing overpass. These moves occur on the orange, purple, and green strands, sequentially. They yield a projection with bridge number 2 (Figure \ref{fig:ex3-11-2e}).
         \item Q.E.D.
         \item Figure \ref{fig:ex3-11-2e} is rather visually unpleasant, however. Figure \ref{fig:ex3-11-2f} is the result of one Type I Reidemeister move (on the upper part of the orange strand) and planar isotropies intended purely to "clean up" the projection. It remains indistinct from $5_2$ and displays $b(K)=2$.
+    \end{itemize}
+    \item \textbf{Two-bridge knots}: Knots that have $b(K)=2$.
+    \item If a two-bridge knot is sliced through the projection plane, there will be two \textbf{unknotted untangled} arcs both above and below said plane.
+    \item \textbf{Unknotted untangled}: Distinct arcs that have no crossings with each other.
+    \item From 2 such unknotted untangled arcs on each side of the projection plane, it is possible to construct all two-bridge knots.
+    \begin{itemize}
+        \item \dq{The tricky part is that although the strings to each side of the plane
+        are individually unknotted, they can twist around each other and themselves}{65}
+    \end{itemize}
+    \item All two-bridge knots are rational knots and vice versa.
+    \item Since the two-bridge knots are a very well understood class of knots, properties that are suspected to hold true for all knots are often first proved to hold true for two-bridge knots.
+    \item All two-bridge knots are prime.
+    \item The first tabulated three-bridge knot is $8_{10}$.
+    \item \emph{Exercise 3.13}: Find a picture of $8_{10}$ that shows that it is at most a three-bridge knot.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.12\linewidth]{Blender/ex3-13.png}
+        \caption{The knot $8_{10}$.}
+        \label{fig:ex3-13}
+    \end{figure}
+    \begin{itemize}
+        \item Find the Dowker notation of $8_{10}$$^[$\footnote{Note that different Dowker notations will lead to different Dowker reconstructions --- some may be easier to manipulate than others. To concentrate the "killzone" in a single (or at least close) to rectangular region, choose Dowker notations with maximum "base strands." Avoid, in the beginning, passing through at a crossing that will soon be passed through again.}$^]$.
+        \begin{itemize}
+            \item The "maximum" Dowker notation (which, fortunately, is also "ideal") for $8_{10}$ is 12 16 10 14 4 6 2 8
+        \end{itemize}
+        \item From the previously determined Dowker notation, reconstruct a knot projection.
+        \item There are four possible "type I bridging moves"$^[$\footnote{A Type I Reidemeister move performed on an isolated loop followed by a Type III Reidemeister move to translate the new crossing across the "base strand."}$^]$ allowed by this projection. Perform 3 of these to eliminate 3 bridges.
+        \begin{itemize}
+            \item For the "linked loops," it does matter on which loop the move is performed.
+            \item This yields a projection with 2x3-crossing bridges, 2x2-crossing bridges, and 1x1-crossing bridge.
+        \end{itemize}
+        \item Perform two "type II bridging moves"$^[$\footnote{Two Type II Reidemeister moves performed on the same strand to move it over either side of an adjacent crossing followed by a Type III Reidemeister move to translate the strand over the crossing followed by two Type II Reidemeister moves for simplification purposes.}$^]$ to eliminate the 1-crossing bridge.
+        \item Perform four "type II bridging moves" to eliminate a 2-crossing bridge.
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.9\linewidth]{Blender/ex3-13-2.png}
+            \caption{Solution to \emph{Exercise 3.13}.}
+            \label{fig:ex3-13-2}
+        \end{figure}
+        \item Q.E.D. --- see Figure \ref{fig:ex3-13-2} for the final projection$^[$\footnote{Note that this figure is drawn with the same rules used in Exercise 3.11, i.e. the original "killzone" is marked as well as the start and end of each bridge. Each "bridging move" has been carried out without simplification, so some thought should be able to reveal the connection between the original Dowker reconstruction (unpictured) and this projection.}$^]$.
+    \end{itemize}
+    \item \dq{In 1954, a German mathematician named H. Shubert proved that $b(K_1\#K_2)=b(K_1)+b(K_2)-1$}{67}
+    \item \emph{Exercise 3.14}: Explain how Shubert's result implies that rational knots are all prime.
+    \begin{itemize}
+        \item To be distinct from the unknot, a knot must have $b(K)\geq 2$, as proven in \emph{Exercise 3.10}.
+        \item By Shubert's theorem, above, and the above fact, any composition of two nontrivial knots must have $b(K)\geq 3$ (at least $2+2-1=3$).
+        \item Since any knot with $b(K)\geq 3$ is not rational and all composite knots have $b(K)\geq 3$, all rational knots (those with $b(K)=2$) must be noncomposite, or prime.
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Crossing Number}
+\begin{itemize}
+    \item \textbf{Crossing number}: \dq{The least number of crossings that occur in any projection of the knot}{67} \emph{Also known as} $\mathbf{c(K)}$.
+    \item To find the crossing number of a knot, first find a projection of the knot. Count the crossings, $n$. At this point, it is clear that $c(K)\leq n$.
+    \begin{itemize}
+        \item If all knots with fewer crossing than $n$ are known and $K$ is distinct from all of those knots, then $c(K)=n$.
+        \item Otherwise, reduce the knot to its minimal projection.
+    \end{itemize}
+    \item Proving that a knot is distinct from every knot of fewer crossings is very difficult and requires knot polynomials (see Section \ref{sse:polynomials}).
+    \item Determining $c(K)$ is generally very difficult (knots are currently only tabulated up to 13 crossings).
+    \item \textbf{Reduced}: A projection of a knot with no easily removed crossings.
+    \begin{itemize}
+        \item All "easily removed" crossings in alternating knots are shown in Figure \ref{fig:easilyremoved}.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \foreach \x in {-2,0,2} {
+                \draw[help lines] (\x,-1) -- (\x,1);
+            }
+            \begin{knot}[
+                clip width=5,
+                consider self intersections,
+                xshift=-3cm
+            ]
+                \strand[red,thick] (-0.5,0.3)
+                    to [out=-45,in=180] (0.3,-0.2)
+                    to [out=0,in=0,looseness=2] (0.3,0.2)
+                    to [out=180,in=45]   (-0.5,-0.3)
+                ;
+            \end{knot}
+            \begin{knot}[
+                clip width=5,
+                consider self intersections,
+                xshift=-1cm,
+                flip crossing=1
+            ]
+                \strand[red,thick] (-0.5,0.3)
+                    to [out=-45,in=180] (0.3,-0.2)
+                    to [out=0,in=0,looseness=2] (0.3,0.2)
+                    to [out=180,in=45]   (-0.5,-0.3)
+                ;
+            \end{knot}
+            \begin{knot}[
+                clip width=5,
+                consider self intersections,
+                xshift=1cm
+            ]
+                \strand[red,thick] (-0.5,0.3)
+                    to [out=-45,in=180] (0.3,-0.2)
+                    to [out=0,in=0,looseness=2] (0.3,0.2)
+                    to [out=180,in=45]   (-0.5,-0.3)
+                ;
+            \end{knot}
+            \begin{knot}[
+                clip width=5,
+                consider self intersections,
+                xshift=3cm,
+                flip crossing=1
+            ]
+                \strand[red,thick] (-0.5,0.3)
+                    to [out=-45,in=180] (0.3,-0.2)
+                    to [out=0,in=0,looseness=2] (0.3,0.2)
+                    to [out=180,in=45]   (-0.5,-0.3)
+                ;
+            \end{knot}
+            \node at (1.4,0) [circle,inner sep=2mm,draw=red,thick,fill=orange!50]{};
+            \node at (3.4,0) [circle,inner sep=2mm,draw=red,thick,fill=orange!50]{};
+        \end{tikzpicture}
+        \caption{Easily removed crossings in an alternating knot projection.}
+        \label{fig:easilyremoved}
+    \end{figure}
+    \item However, in 1986, Lou Kauffman, Kunio Murasugi, and Morwen Thistlethwaite all independently proved that \dq{an alternating knot in a reduced alternating projection of $n$ crossings has crossing number $n$}{68}.
+    \begin{itemize}
+        \item They utilized the Jones polynomial (see Section \ref{sse:polynomials}).
+        \item Because we can visually tell whether or not a projection is reduced (and reduce it if it's not), we can determine $c(K)$ for any alternating knot.
+    \end{itemize}
+    \item It is still unknown whether or not $c(K_1\#K_2)=c(K_1)+c(K_2)$.
+    \begin{itemize}
+        \item However, Kaufman, Murasugi, and Thistlethwaite's result proves that the above holds when $K_1\#K_2$ is alternating.
+    \end{itemize}
+    \item \emph{Exercise 3.15}: Show that if $K_1$ and $K_2$ are alternating, then so is $K_1\#K_2$. Hence, $c(K_1\#K_2)=c(K_1)+c(K_2)$ holds when $K_1$ and $K_2$ are alternating even if $K_1\#K_2$ does not appear alternating.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    xshift=-1.3cm
+                ]
+                    \strand[red,thick] (120:1)
+                        \foreach \x in {1,2,3} {
+                            to [bend left=117,looseness=1.9] ({120+120*\x}:1)
+                        }
+                    ;
+                    \flipcrossings{1,3}
+                \end{knot}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    xshift=1.3cm
+                ]
+                    \strand[red,thick] (60:1)
+                        \foreach \x in {1,2,3} {
+                            to [bend left=117,looseness=1.9] ({60+120*\x}:1)
+                        }
+                    ;
+                    \flipcrossings{1,3}
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-0.4cm}
+            \caption{$3_1$ and $3_1$.}
+            \label{fig:alternatingcomposa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \def\x{1}
+                \def\y{1.5}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    ignore endpoint intersections=false
+                ]
+                    \strand[red,thick] (-\y,0.8)
+                        to [bend left=117,looseness=1.9] (-\y,-0.8)
+                        to [out=150,in=180,out looseness=\x,in looseness=1.9] (0,0.5)
+                        to [out=0,in=30,out looseness=1.9,in looseness=\x] (\y,-0.8)
+                        to [bend left=117,looseness=1.9] (\y,0.8)
+                        to [out=-30,in=0,out looseness=\x,in looseness=1.9] (0,-0.5)
+                        to [out=180,in=-150,out looseness=1.9, in looseness=\x] cycle
+                    ;
+                    \flipcrossings{1,4,5,7}
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-0.4cm}
+            \caption{$3_1\#3_1$.}
+            \label{fig:alternatingcomposb}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    xshift=-1.3cm
+                ]
+                    \strand[red,thick] (120:1)
+                        \foreach \x in {1,2,3} {
+                            to [bend left=117,looseness=1.9] ({120+120*\x}:1)
+                        }
+                    ;
+                    \flipcrossings{1,3}
+                \end{knot}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    xshift=1.3cm
+                ]
+                    \strand[red,thick] (60:1)
+                        \foreach \x in {1,2,3} {
+                            to [bend left=117,looseness=1.9] ({60+120*\x}:1)
+                        }
+                    ;
+                    \flipcrossings{2}
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-0.4cm}
+            \caption{$3_1$ and $3_1$'s mirror image.}
+            \label{fig:alternatingcomposc}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \def\x{1}
+                \def\y{1.5}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    ignore endpoint intersections=false
+                ]
+                    \strand[red,thick] (-\y,0.8)
+                        to [bend left=117,looseness=1.9] (-\y,-0.8)
+                        to [out=150,in=180,out looseness=\x,in looseness=1.9] (0,0.5)
+                        to [out=0,in=30,out looseness=1.9,in looseness=\x] (\y,-0.8)
+                        to [bend left=117,looseness=1.9] (\y,0.8)
+                        to [out=-30,in=0,out looseness=\x,in looseness=1.9] (0,-0.5)
+                        to [out=180,in=-150,out looseness=1.9, in looseness=\x] cycle
+                    ;
+                    \flipcrossings{1,4,6}
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-0.4cm}
+            \caption{$3_1\#3_1$ nonalternating.}
+            \label{fig:alternatingcomposd}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \def\x{1}
+                \def\y{1.5}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    ignore endpoint intersections=false
+                ]
+                    \strand[red,thick] (-\y,0.8)
+                        to [out=27,in=90,looseness=1.4] (-0.8,0)
+                        to [out=-90,in=-90,looseness=2] (-0.5,0)
+                        to [out=90,in=90,out looseness=1.2,in looseness=1.5] (2.5,0)
+                        to [out=-90,in=-27,out looseness=1.2,in looseness=0.8] (-\y,-0.8)
+                        to [out=150,in=180,out looseness=\x,in looseness=1.9] (0,0.5)
+                        to [out=0,in=30,out looseness=1.9,in looseness=\x] (\y,-0.8)
+                        to [bend left=117,looseness=1.9] (\y,0.8)
+                        to [out=-30,in=0,out looseness=\x,in looseness=1.9] (0,-0.5)
+                        to [out=180,in=-150,out looseness=1.9, in looseness=\x] cycle
+                    ;
+                    \flipcrossings{1,4,6}
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-0.4cm}
+            \caption{$3_1\#3_1$ made alternating.}
+            \label{fig:alternatingcompose}
+        \end{subfigure}
+        \caption{Drawing an alternating projection of $K_1\#K_2$ where $K_1$ and $K_2$ are alternating.}
+        \label{fig:alternatingcompos}
+    \end{figure}
+    \begin{itemize}
+        \item When composing alternating knots, there are two cases, as exemplified by Figure \ref{fig:alternatingcomposa} and \ref{fig:alternatingcomposc}, respectively.
+        \begin{itemize}
+            \item Case 1: the composite knot will be in an alternating projection.
+            \item Case 2: the composite knot will not be in an alternating projection.
+        \end{itemize}
+        \item For Case 1, the theorem evidently holds. See Figure \ref{fig:alternatingcomposb}
+        \item For Case 2, first consider the definition of an alternating knot (see Section \ref{sss:Introduction}), which states that an alternating knot need only have \underline{a} projection that is alternating, i.e., \underline{every} projection need not be alternating.
+        \item Therefore, if we can prove that every nonalternating projection obtained through a composition has an alternating equivalent, the theorem will be true. To begin, consider several subcases to determine a pattern in the nonalternation.
+        \begin{itemize}
+            \item Because $K_1$ and $K_2$ are both alternating, any arc being removed (to compose the two) will necessarily be on an understrand becoming an overstrand or vice versa.
+            \item Therefore, if we leave $K_1$ to enter $K_2$ from an understrand, we will return into $K_1$ to meet an overstrand and vice versa. The same holds for $K_2$.
+            \item Case A: Leaving from an understrand in $K_1$, enter $K_2$ on an understrand. The next crossing (continuing through $K_2$) will be an overstrand, and then an understrand, \dots\ Eventually, by the above, we will return from $K_2$ on an overstrand into an overstrand on $K_1$. The next crossing (continuing through $K_1$) will be an understrand, and then an overstrand, \dots\ Eventually, we will return to where we started.
+            \item Case B: Leaving from an overstrand in $K_1$, enter $K_2$ on an overstrand. The next crossing (continuing through $K_2$) will be an understrand, and then an overstrand, \dots\ Eventually, by the above, we will return from $K_2$ on an understrand into an understrand on $K_1$. The next crossing (continuing through $K_1$) will be an overstrand, and then an understrand, \dots\ Eventually, we will return to where we started.
+        \end{itemize}
+        \item In both Cases A and B, the only moments of nonalternation are two consecutive underpasses (or overpasses) followed by a factor knot followed by two consecutive overpasses (or underpasses). Notice this pattern in Figure \ref{fig:alternatingcomposd}.
+        \item Thus, "slide" one strand of a factor knot over the other knot to eliminate the nonalternation, as in Figure \ref{fig:alternatingcompose}.
+        \item Q.E.D.
     \end{itemize}
 \end{itemize}
 
