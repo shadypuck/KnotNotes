@@ -2173,6 +2173,54 @@
         \item Q.E.D.
     \end{itemize}
 \end{itemize}
+\newpage
+
+
+
+\section{Surfaces and Knots}
+\subsection{Surfaces without Boundary}
+\begin{itemize}
+    \item \textbf{Surface}: The two-dimensional exterior of a three-dimensional object with volume.
+    \item \textbf{Torus}: \dq{The surface of a donut}{71}
+    \item \dq{At any point on a surface, there is a small region on the surface surrounding and containing the point that looks like a disk}{72}
+    \begin{itemize}
+        \item The disk may be deformed (curved), but it must still be a disk.
+        \item Objects that are not surfaces have points with nondisk "neighborhoods" around them.
+    \end{itemize}
+    \item Surfaces can also be called \textbf{two-manifolds}.
+    \item \textbf{Two-manifold}: \dq{Any object such that every point in that object has a neighborhood in the object that is a (possibly nonflat) disk}{73}
+    \item \emph{Exercise 4.1}: Based on the definition for two-manifolds, decide what the definition should be for a one-manifold. Find two different one manifolds.
+    \begin{itemize}
+        \begin{figure}[h!]
+            \centering
+            \begin{subfigure}[b]{0.2\linewidth}
+                \centering
+                \begin{tikzpicture}
+                    \draw [red,thick] circle (1cm);
+                \end{tikzpicture}
+                \caption{A circle.}
+                \label{fig:1manifoldsa}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.2\linewidth}
+                \centering
+                \begin{tikzpicture}[
+                    scale=0.7
+                ]
+                    \draw [red,thick,latex-latex] plot[smooth,domain=-2:2] (\x,\x*\x);
+                \end{tikzpicture}
+                \caption{A parabola.}
+                \label{fig:1manifoldsb}
+            \end{subfigure}
+            \caption{Two one-manifolds.}
+            \label{fig:1manifolds}
+        \end{figure}
+        \item Any object such that every point in that object has a neighborhood in the object that is a (possibly not straight) line.
+    \end{itemize}
+    \item See Section \ref{sse:topology} for info on three-manifolds.
+    \item Think of surfaces as being made of rubber. In Figure \ref{fig:cubesphere}, the deformation is an \textbf{isotropy} and the left and right surfaces are \textbf{isotropic surfaces}.
+    \item \textbf{Isotropy}: A continuous deformation of a surface in space; a rubber deformation.
+    \item \textbf{Isotropic surfaces}: Two surfaces in space that are equivalent under an isotropy.
+\end{itemize}
 
 
 
