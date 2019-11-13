@@ -2181,7 +2181,7 @@
 \subsection{Surfaces without Boundary}
 \begin{itemize}
     \item \textbf{Surface}: The two-dimensional exterior of a three-dimensional object with volume.
-    \item \textbf{Torus}: \dq{The surface of a donut}{71}
+    \item \textbf{Torus}: \dq{The surface of a donut}{71} \emph{Plural is} \textbf{tori}.
     \item \dq{At any point on a surface, there is a small region on the surface surrounding and containing the point that looks like a disk}{72}
     \begin{itemize}
         \item The disk may be deformed (curved), but it must still be a disk.
@@ -2196,7 +2196,7 @@
             \begin{subfigure}[b]{0.2\linewidth}
                 \centering
                 \begin{tikzpicture}
-                    \draw [red,thick] circle (1cm);
+                    \draw [blue,thick] circle (1cm);
                 \end{tikzpicture}
                 \caption{A circle.}
                 \label{fig:1manifoldsa}
@@ -2206,7 +2206,7 @@
                 \begin{tikzpicture}[
                     scale=0.7
                 ]
-                    \draw [red,thick,latex-latex] plot[smooth,domain=-2:2] (\x,\x*\x);
+                    \draw [blue,thick,latex-latex] plot[smooth,domain=-2:2] (\x,\x*\x);
                 \end{tikzpicture}
                 \caption{A parabola.}
                 \label{fig:1manifoldsb}
@@ -2220,6 +2220,181 @@
     \item Think of surfaces as being made of rubber. In Figure \ref{fig:cubesphere}, the deformation is an \textbf{isotropy} and the left and right surfaces are \textbf{isotropic surfaces}.
     \item \textbf{Isotropy}: A continuous deformation of a surface in space; a rubber deformation.
     \item \textbf{Isotropic surfaces}: Two surfaces in space that are equivalent under an isotropy.
+    \item Surfaces that are not isotropic cannot be deformed into one another without some cutting and pasting!$^[$\footnote{Identify surfaces by the number of holes in them?}$^]$
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \colorlet{bly}{blue!10}
+            \begin{scope}[
+                xshift=-3cm
+            ]
+                \fill [bly] (0.4,0.2) -- (-0.2,0) -- (0,1) -- (0.7,0.6);
+                \fill [bly] (0.7,0.6) -- (1,1) -- (1.5,0) -- (0.2875,0.05) -- (0.4,0.2);
+                \fill [bly!300] (0.4,0.2) -- (1.032,0.411) -- (0.7,0.6);
+                
+                \draw [blue,thick] (0.4,0.2) -- (-0.2,0) -- (0,1) -- (0.7,0.6) -- (1,1) -- (1.5,0) -- (0.2875,0.05) -- cycle;
+                \draw [blue,thick,dashed] (0.4,0.2) -- (0.7,0.6);
+                \draw [blue,thick] (0.4,0.2) -- (1.032,0.411) -- (0.7,0.6);
+            \end{scope}
+            \filldraw [draw=blue,fill=bly,thick] (0,0.4) -- (0,0) -- (-0.7,0.8) -- (0,1.4) -- (0,1.8) -- (0.7,1) -- cycle;
+            \draw [blue,thick] (0,0.4) -- (0,1.4);
+            \begin{scope}[
+                xshift=3cm
+            ]
+                \filldraw [draw=blue,fill=bly,thick] (0,0) -- (-1.2,0.4) -- (0,0.8) to [out=-130,in=130] cycle;
+                \filldraw [draw=blue,fill=bly,thick] (0,0) -- (1.2,0.4) -- (0,0.8) to [out=-50,in=50] cycle;
+                \foreach \y in {0,0.8} {
+                    \fill [blue] (0,\y) circle (2pt);
+                }
+            \end{scope}
+        \end{tikzpicture}
+        \caption{Triangles cannot intersect like this.}
+        \label{fig:triangleintersects}
+    \end{figure}
+    \item \textbf{Triangulation}: A division of a surface into deformable triangles.
+    \begin{itemize}
+        \item Think of a triangle as a disk \dq{with a boundary made up of three edges connecting three vertices}{75}
+        \item The triangles must \dq{fit together nicely along their edges so that they cover the entire surface}{74} See Figure \ref{fig:triangleintersects} for a visualization of ways that triangles cannot fit together.
+        \item Given a triangulation of a surface, the triangles can be separated and we can keep track of the original surface by labeling edges and putting arrows on them.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[
+            arrow/.style={very thick,-latex,black}
+        ]
+            \colorlet{bly}{blue!10}
+            \begin{scope}[
+                xshift=-2cm,
+                every path/.append style={thick,blue}
+            ]
+                \draw [double=bly,double distance=2mm] circle (1cm);
+                \draw [dashed,dash pattern=on 2pt off 1pt] (1,0) ellipse (1.15mm and 0.5mm);
+            \end{scope}
+            \draw [arrow] (-0.4,0) -- (0.4,0);
+            \begin{scope}[
+                xshift=2cm,
+                every path/.append style={thick,blue}
+            ]
+                \draw [double=bly,double distance=2mm] (1,0) arc[start angle=0,end angle=330,radius=1cm];
+                \filldraw [fill=bly,dashed,dash pattern=on 2pt off 1pt] (1,0) ellipse (1.15mm and 0.5mm);
+                \filldraw [rotate=-30] (1,0) ellipse (1.15mm and 0.5mm);
+            \end{scope}
+            \draw [arrow] (3.6,0) -- (4.4,0);
+            \begin{scope}[xshift=6cm]
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    ignore endpoint intersections=false,
+                    only when rendering/.style={
+                        double=bly,
+                        double distance=2mm
+                    }
+                ]
+                    \strand [blue,thick] (-30:1)
+                        to [bend left=117,looseness=1.9] (90:1)
+                        to [bend left=117,looseness=1.9] (-150:1)
+                        to [bend left=102,out looseness=1.5,in looseness=0.8] (0:1)
+                    ;
+                    \flipcrossings{1,3}
+                \end{knot}
+                \foreach \x in {-150,0,90} {
+                    \draw [draw=blue,fill=bly,thick,dashed,dash pattern=on 2pt off 1pt,rotate=\x] (1,0) ellipse (1.15mm and 0.5mm);
+                }
+                \filldraw [blue,thick,rotate=-30] (1,0) ellipse (1.15mm and 0.5mm);
+            \end{scope}
+            \draw [arrow] (7.6,0) -- (8.4,0);
+            \begin{scope}[xshift=10cm]
+                \begin{knot}[
+                    % line width=2pt,
+                    % line join=round,
+                    clip width=5,
+                    consider self intersections,
+                    % background color=white,
+                    only when rendering/.style={
+                        double=bly,
+                        double distance=2mm,
+                        line cap=round
+                    }
+                ]
+                    \strand [blue,thick] (90:1)
+                        \foreach \x in {1,2,3} {
+                            to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                        }
+                    ;
+                    \flipcrossings{1,3}
+                \end{knot}
+                \foreach \x in {-150,-30,90} {
+                    \draw [blue,thick,dashed,dash pattern=on 2pt off 1pt,rotate=\x] (1,0) ellipse (1.15mm and 0.5mm);
+                }
+            \end{scope}
+        \end{tikzpicture}
+        \vspace{-1.2em}
+        \caption{Homeomorphic surfaces.}
+        \label{fig:homeo}
+    \end{figure}
+    \item \textbf{Homeomorphic}: Two surfaces such that \dq{one of them can be triangulated, then cut along a subset of the edges into pieces, and then glued back together along the edges according to the instructions given by the orientations and labels on the edges, in order to obtain the second surface}{76}
+    \item For example, the leftmost and rightmost surfaces in Figure \ref{fig:homeo} are both homromorphic with a torus.
+    \begin{itemize}
+        \item However, proving that the two are not isotropic would take some work.
+    \end{itemize}
+    \item It is not necessary to find a complete triangulation to prove that two surfaces are homeomorphic --- it will suffice to circularly cut and put like circles back together, as in Figure \ref{fig:homeo}.
+    \begin{itemize}
+        \item One could also cut just edges and put like edges back together.
+    \end{itemize}
+    \item A sphere and a torus are clearly not homeomorphic because every closed loop on a sphere cuts it into two pieces. However, there exist closed loops on a torus that do not cut it into two pieces$^[$\footnote{This is not an actual proof.}$^]$.
+    \item The sphere, torus, two-hole torus, and three-hole torus are all not homeomorphic to one another.
+    \item Since we could keep increasing the number of wholes, there are infinitely many distinct (nonhomeomorphic) surfaces.
+    \item \textbf{Genus} (of a surface): \dq{The number of holes in the doughnut}{78} \emph{Plural is} \textbf{genera}.
+    \begin{itemize}
+        \item The sphere has genus 0 while the torus has genus 1.
+    \end{itemize}
+    \item \textbf{Embedding} (of a surface): \dq{A choice of how to place a surface in space}{78}
+    \begin{itemize}
+        \item The leftmost and rightmost surfaces of Figure \ref{fig:homeo} are two distinct embeddings of the torus in three-space.
+    \end{itemize}
+    \item \textbf{Cube-with-holes}: The surface of a solid object obtained by drilling wormholes out of a cube.
+    \item \textbf{Homeomorphism type}: The elementary surface to which a surface can be related.
+    \begin{itemize}
+        \item Could be found via the triangulation method/cut-and-past technique.
+        \item Could be found using its \textbf{Euler characteristic}.
+    \end{itemize}
+    \item \textbf{Euler characteristic}: Given a triangulation (or subdivision) of a surface, the sum $V-E+F$, where $V$ is the number of vertices, $E$ is the number of edges, and $F$ is the number of triangles (or $n$-gon faces). \emph{Also known as} $\chi$.
+    \item For example, $\chi$ for the leftmost sphere in Figure \ref{fig:triangulations} is $6-12+8=2$.
+    \item \emph{Exercise 4.5}: Compute the Euler characteristic of the second triangulation of the sphere in Figure \ref{fig:triangulations}.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.6\linewidth]{Blender/ex4-5.png}
+        \caption{Triangulations of the sphere and the torus.}
+        \label{fig:triangulations}
+    \end{figure}
+    \begin{itemize}
+        \item $\chi=4-6+4=2$
+    \end{itemize}
+    \item \emph{Exercise 4.6}: Compute the Euler characteristic of the triangulation of the torus in Figure \ref{fig:triangulations}.
+    \begin{itemize}
+        \item $\chi=4-12+8=0$
+    \end{itemize}
+    \item The sameness of the Euler characteristics of the two triangulations of the sphere exemplifies the fact the the Euler characteristic depends only on the surface, not the triangulation.
+    \item A summary of the proof that any two triangulations have the same Euler characteristic follows.
+    \begin{itemize}
+        \item Take $T_1$ and $T_2$, two different triangulations of a surface. We will overlay them and add appropriate edges (to make triangles) to make $T_3$. This process will prove that $T_1$ and $T_3$ have the same Euler characteristic. Since $T_2$ could have $T_1$ overlayed, $T_2$ and $T_3$ also have the same Euler characteristic. Therefore, $T_1$ and $T_2$ have the same Euler characteristic (transitive property).
+        \item Each edge of $T_2$ intersects $T_1$ a finite number of times, and no vertices are overlaid --- this can be assured by shifting where $T_2$ is overlaid by a slight bit.
+        \item Add vertices at the intersections of edges. The addition of one vertex and the subsequent splitting of one edge into two cancel out in the Euler characteristic.
+        \item Add the vertices of $T_2$ and a corresponding new edge to each. These edges should be a subset of the edges in $T_2$. Vertices increase by 1 for each vertex and edges increase by 1 for each edge, so the change likewise cancels out.
+        \item Add the rest of the edges from $T_2$. Note that for every edge added, a face is split in two, canceling out the change.
+        \item Add edges to split all $n$-gon faces into triangles. Each added edge splits a face, so the change, again, cancels out.
+        \item Q.E.D.
+    \end{itemize}
+    \item $\chi(\text{genus}=0)=2$.
+    \item $\chi(\text{genus}=1)=0$.
+    \item For a genus 2 surface, we could find a triangulation and calculate $\chi$, or we could be clever.
+    \item \textbf{Connected sum}: Remove a disk from each of two objects and then glue them together.
+    \item With triangulations of two tori, we can imagine that a genus 2 surface can be created via the connected sum of the two tori minus two matching faces.
+    \item So, $F\rightarrow F-2$, and because 3 vertices and 3 edges are merged, $V\rightarrow V-3$ and $E\rightarrow E-3$. The vertices and edges cancel out, giving the following property.
+    \begin{equation}
+        \chi(S)=\chi\left( S_1 \right)+\chi\left( S_2 \right)-2
+    \end{equation}
+    \item Therefore, $\chi(\text{genus}=2)=-2$.
 \end{itemize}
 
 
