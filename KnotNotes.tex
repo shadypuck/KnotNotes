@@ -1098,7 +1098,7 @@
 \end{itemize}
 
 
-\subsection{Conway's Notation}
+\subsection{Conway's Notation}\label{sss:Conway}
 \begin{itemize}
     \item Particularly suited to calculations involving \textbf{tangles}.
     \item \textbf{Tangle}: \dq{A region [in a knot or link] in the projection plane surrounded by a circle such that the knot or link crosses the circle exactly four times}{41}
@@ -2333,7 +2333,7 @@
         \label{fig:homeo}
     \end{figure}
     \item \textbf{Homeomorphic}: Two surfaces such that \dq{one of them can be triangulated, then cut along a subset of the edges into pieces, and then glued back together along the edges according to the instructions given by the orientations and labels on the edges, in order to obtain the second surface}{76}
-    \item For example, the leftmost and rightmost surfaces in Figure \ref{fig:homeo} are both homromorphic with a torus.
+    \item For example, the leftmost and rightmost surfaces in Figure \ref{fig:homeo} are both homeomorphic with a torus.
     \begin{itemize}
         \item However, proving that the two are not isotropic would take some work.
     \end{itemize}
@@ -2343,7 +2343,7 @@
     \end{itemize}
     \item A sphere and a torus are clearly not homeomorphic because every closed loop on a sphere cuts it into two pieces. However, there exist closed loops on a torus that do not cut it into two pieces$^[$\footnote{This is not an actual proof.}$^]$.
     \item The sphere, torus, two-hole torus, and three-hole torus are all not homeomorphic to one another.
-    \item Since we could keep increasing the number of wholes, there are infinitely many distinct (nonhomeomorphic) surfaces.
+    \item Since we could keep increasing the number of holes, there are infinitely many distinct (nonhomeomorphic) surfaces.
     \item \textbf{Genus} (of a surface): \dq{The number of holes in the doughnut}{78} \emph{Plural is} \textbf{genera}.
     \begin{itemize}
         \item The sphere has genus 0 while the torus has genus 1.
@@ -2359,6 +2359,9 @@
         \item Could be found using its \textbf{Euler characteristic}.
     \end{itemize}
     \item \textbf{Euler characteristic}: Given a triangulation (or subdivision) of a surface, the sum $V-E+F$, where $V$ is the number of vertices, $E$ is the number of edges, and $F$ is the number of triangles (or $n$-gon faces). \emph{Also known as} $\chi$.
+    \begin{equation}\label{eqn:eulerchar}
+        \chi=V-E+F
+    \end{equation}
     \item For example, $\chi$ for the leftmost sphere in Figure \ref{fig:triangulations} is $6-12+8=2$.
     \item \emph{Exercise 4.5}: Compute the Euler characteristic of the second triangulation of the sphere in Figure \ref{fig:triangulations}.
     \begin{figure}[h!]
@@ -2376,6 +2379,7 @@
     \end{itemize}
     \item The sameness of the Euler characteristics of the two triangulations of the sphere exemplifies the fact the the Euler characteristic depends only on the surface, not the triangulation.
     \item A summary of the proof that any two triangulations have the same Euler characteristic follows.
+    %image with this proof?
     \begin{itemize}
         \item Take $T_1$ and $T_2$, two different triangulations of a surface. We will overlay them and add appropriate edges (to make triangles) to make $T_3$. This process will prove that $T_1$ and $T_3$ have the same Euler characteristic. Since $T_2$ could have $T_1$ overlayed, $T_2$ and $T_3$ also have the same Euler characteristic. Therefore, $T_1$ and $T_2$ have the same Euler characteristic (transitive property).
         \item Each edge of $T_2$ intersects $T_1$ a finite number of times, and no vertices are overlaid --- this can be assured by shifting where $T_2$ is overlaid by a slight bit.
@@ -2395,6 +2399,756 @@
         \chi(S)=\chi\left( S_1 \right)+\chi\left( S_2 \right)-2
     \end{equation}
     \item Therefore, $\chi(\text{genus}=2)=-2$.
+    \item \emph{Exercise 4.8}: Use connected sums to show that the Euler characteristic of a genus 3 surface is $-4$.
+    \begin{itemize}
+        \item $S_{\text{genus}=2}+S_{\text{genus}=1}=S_{\text{genus}=3}$.
+        \item $\chi\left( S_{\text{genus}=3} \right)=\chi\left( S_{\text{genus}=2} \right)+\chi\left( S_{\text{genus}=1} \right)-2=-2+0-2=-4$.
+    \end{itemize}
+    \item \emph{Exercise 4.9}: Use induction to show that the Euler characteristic of a surface of genus $g$ is $2-2g$.
+    \begin{itemize}
+        \item Basis step: $2\overset{\checkmark}{=}2-2(0)$.
+        \item Induction hypothesis: $\chi\left( S_{\text{genus}=g} \right)=2-2g$
+        \item Induction step:
+        \begin{align*}
+            \chi\left( S_{\text{genus}=g+1} \right) &\overset{?}{=} 2-2(g+1)\\
+            \chi\left( S_{\text{genus}=g} \right)+\chi\left( S_{\text{genus}=1} \right)-2 &\overset{?}{=} 2-2g-2)\\
+            (2-2g)+0-2 &\overset{?}{=} 0-2g\\
+            0-2g &\overset{\checkmark}{=} 0-2g
+        \end{align*}
+        \item Therefore, the following equation holds true.
+        \begin{equation}\label{eqn:chig}
+            \chi(g)=2-2g
+        \end{equation}
+    \end{itemize}
+    \item Every surface has a triangulation.
+    \item \textbf{Compact} (surface): A surface with a triangulation with a finite number of triangles.
+    \item A plane and torus minus a disk are both noncompact surfaces.
+    \item Surfaces appear in knot theory in the space around a knot.
+    \item \textbf{Complement} (of the knot): The space around the knot $M=\mathbb{R}^3-K$, where $\mathbb{R}^3$ is the three-dimensional space around the knot $K$.
+    \item A splittable link can be defined as a link such that there exists a sphere in the link complement between the two link components.
+    \item Every knot is contained within a torus. Some knots can be surrounded by a torus in unusual ways or by a genus $2+$ surface.
+    \item We are particularly interseted in the surfaces that cannot be simplified.
+    \item \textbf{Compressible} (surface): For a link $L$, a surface $F$ where there exists \dq{a disk $D$ in $\mathbb{R}^3-L$ such that $D$ intersects $F$ exactly in its boundary and its boundary does not bound another disk on $F$. Note that $D$ is not allowed to intersect $L$}{86}
+    \item \textbf{Compression}: The simplifying operation of cutting $F$ along $D$, gluing $D$ to each open curve, and using an isotropy to "smooth out" the surface.
+    \item \emph{Exercise 4.11}: Show that a compression always increases the Euler characteristic. Use this to show that the genus of the resulting surface or surfaces is always less than the genus of the original surface.
+    \begin{itemize}
+        \item Think of $D$ as a triangle. During the compression, three vertices and three edges separate into two \emph{pairs} of three vertices and three edges. This does not change the Euler characteristic.
+        \item However, two faces are also added. This increases the Euler characteristic by 2.
+        \item This change of $+2$ changes the genus by $-1$.
+    \end{itemize}
+    \item \textbf{Incompressible} (surface): A surface that is not compressible.
+    \item Any time we have a composite knot, there exist an incompressible \textbf{swallow-follow torus}.
+    %swallow-follow torus image
+    \item \textbf{Swallow-follow torus}: A torus that encompases (swallows) one factor knot and wraps around the strand of (follows) the other factor knot.
+\end{itemize}
+
+
+\subsection{Surfaces with Boundary}
+\begin{itemize}
+    \item \textbf{Boundary component}: Discs (that may have been deformed) that have been removed from surfaces.
+    \item The Euler characteristic of a surface with boundary is that of that surface without boundary minus the number of boundary components.
+    \begin{itemize}
+        \item Think of adding each boundary component as removing the face of a triangle.
+    \end{itemize}
+    \item \textbf{Capping off} (a surface with boundary): \dq{Filling in boundary components by attaching disks}{88}
+    \item \emph{Exercise 4.13}: Find the Euler characteristics of each of the surfaces in Figure \ref{fig:boundcomps} without triangulating them.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.6\linewidth]{Blender/ex4-13.png}
+        \caption{Surfaces with boundary.}
+        \label{fig:boundcomps}
+    \end{figure}
+    \begin{itemize}
+        \item The left surface is a genus 1 surface with three boundary components. Therefore, it has $\chi=0-3=-3$.
+        \item The right surface is a genus 3 surface with two boundary components. Therefore, it has $\chi=-4-2=-6$.
+    \end{itemize}
+    \item The Euler characteristic does not definitively distinguish surfaces with boundary.
+    \item There are other ways, such as \textbf{orientability}.
+    \item \textbf{Orientable} (surface): A surface sitting in $\mathbb{R}^3$ with \dq{two sides that can be painted different colors, say black and white, so that the black paint never meets the white paint except along the boundary of the surface}{90}
+    \begin{itemize}
+        \item For example, a disk and a torus are both orientable.
+        \item Furthermore, any torus with any number of boundary components is orientable.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \fill [blue!10] (0,0)
+                arc [start angle=-70,end angle=250,x radius=2cm,y radius=0.7cm]
+                to [out=0,in=180,looseness=1.2] (0,-0.7)
+                arc [start angle=-70,end angle=250,x radius=2cm,y radius=0.7cm]
+                to [out=0,in=180,looseness=1.2] cycle
+            ;
+            \fill [blue!10] (-2.685,0.694) rectangle (-2,-0.043);
+            \fill [blue!10] (0.5,0.694) rectangle (1.315,-0.043);
+            \fill [white] (1.05,0.3)
+                arc [start angle=30,end angle=150,x radius=2cm,y radius=0.7cm]
+                arc [start angle=210,end angle=330,x radius=2cm,y radius=0.7cm]
+            ;
+            \fill [white] (0,0)
+                to [out=180,in=45] (-0.68,-0.35)
+                to [out=135,in=0] (-1.4,0)
+            ;
+            \begin{knot}[
+                clip width=8,
+                clip radius=3pt,
+                consider self intersections,
+                background color=blue!10
+            ]
+                \strand [draw=blue,thick] (0,0)
+                    arc [start angle=-70,end angle=250,x radius=2cm,y radius=0.7cm]
+                    to [out=0,in=180,looseness=1.2] (0,-0.7)
+                    arc [start angle=-70,end angle=250,x radius=2cm,y radius=0.7cm]
+                    to [out=0,in=180,looseness=1.2] cycle
+                ;
+            \end{knot}
+            \draw [blue,thick,dash pattern= on 2pt off 2pt,postaction={draw,blue!10,dash pattern= on 2pt off 2pt,dash phase=2pt,line width=1.1pt}] (-2.685,-0.043) arc [start angle=180,end angle=150,x radius=2cm,y radius=0.7cm];
+            \draw [blue,thick,dash pattern= on 2pt off 2pt,postaction={draw,blue!10,dash pattern= on 2pt off 2pt,dash phase=2pt,line width=1.1pt}] (1.315,-0.043) arc [start angle=0,end angle=30,x radius=2cm,y radius=0.7cm];
+            %applicability to tricolorability?
+            \draw [blue,thick] (1.315,0.694) -- (1.315,-0.043);
+            \draw [blue,thick] (-2.685,0.694) -- (-2.685,-0.043);
+        \end{tikzpicture}
+        \caption{A M\"{o}bius band.}
+        \label{fig:mobius}
+    \end{figure}
+    \item \textbf{M\"{o}bius band}: One of the simplest surfaces that is not orientable.
+    \item \dq{A surface is nonorientable if and only if it contains a M\"{o}bius band within it}{91}
+    \item A M\"{o}bius band must have an odd number of half-twists in it.
+    \item \emph{Exercise 4.15}: Decide which of the two surfaces in Figure \ref{fig:orients} is orientable and which is nonorientable.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.6\linewidth]{Blender/ex4-15.png}
+        \caption{Possibly orientable surfaces.}
+        \label{fig:orients}
+    \end{figure}
+    \begin{itemize}
+        \item The surface on the left is nonorientable while the one on the right is orientable.
+    \end{itemize}
+    \item Three facts completely determine the homeomorphic type of a surface with boundary.
+    \begin{enumerate}
+        \item \dq{Is it orientable or nonorientable?
+        \item How many boundary components does it have?
+        \item What is its Euler characteristic?}{92}
+    \end{enumerate}
+    \item My techniques:
+    \begin{itemize}
+        \item Choose a subdivision that has one chord for every twist between boundary components.
+        \begin{itemize}
+            \item Alternatively, for simpler counting at the expense of bigger numbers, choose two chords at every twist.
+        \end{itemize}
+        \item Count edges along each boundary component and then count the chords.
+    \end{itemize}
+    \item \emph{Exercise 4.16}: Use the three criteria to identify the surface with boundary in Figure \ref{fig:boundsurfidenta}.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \colorlet{blx}{black}
+                \colorlet{bly}{blx!15}
+    
+                \fill [bly] (-0.4,0.8)
+                    to [out=120,in=60,looseness=0.5] (3.2,0.8)
+                    to [out=-120,in=120] (3.2,-0.8)
+                    to [out=-60,in=-120,looseness=0.5] (-0.4,-0.8)
+                    to [out=60,in=-60] cycle
+                ;
+                \fill [bly] (0,0) ellipse (4mm and 5mm);
+                \fill [bly] (2.5,0.7)
+                    to [out=0,in=0,looseness=1.8] (2.5,-0.7)
+                    to [out=180,in=-90] (2,-0.4)
+                    to [out=90,in=-90] (2.2,0)
+                    to [out=90,in=-90] (2,0.4)
+                    to [out=90,in=180] cycle
+                ;
+                \fill [white] (-0.22,0.4)
+                    to [out=40,in=120] (0.3,0.33)
+                    to [out=-120,in=120] (0.3,-0.33)
+                    to [out=-120,in=-45] (-0.22,-0.4)
+                    to [out=75,in=-75] cycle
+                ;
+                \fill [white] (0.3,0.33)
+                    to [out=60,in=135] (0.84,0.4)
+                    to [out=-110,in=110] (0.84,-0.4)
+                    to [out=-135,in=-50] (0.3,-0.33)
+                    to [out=60,in=-60] cycle
+                ;
+                \fill [white] (0.84,0.4)
+                    to [out=60,in=135] (2.12,0.6)
+                    to [out=-150,in=150] (2.1,0.2)
+                    to [out=-135,in=135] (2.1,-0.2)
+                    to [out=-150,in=150] (2.12,-0.6)
+                    to [out=-135,in=-60] (0.84,-0.4)
+                    to [out=50,in=-50] cycle
+                ;
+                \fill [white] (3.05,0.48)
+                    to [out=135,in=30] (2.12,0.6)
+                    to [out=-50,in=50] (2.1,0.2)
+                    to [out=-50,in=50] (2.1,-0.2)
+                    to [out=-50,in=50] (2.12,-0.6)
+                    to [out=-30,in=-135] (3.05,-0.48)
+                    to [out=110,in=-110] cycle
+                ;
+        
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=2pt,
+                    ignore endpoint intersections=false,
+                    background color=bly,
+                    every strand/.append style={blx,very thick}
+                ]
+                    \strand (0,0) ellipse (4mm and 5mm);
+                    \strand (0.6,0) ellipse (4mm and 5mm);
+                    \strand (1.5,0.8)
+                        to [out=180,in=180,looseness=1.6] (1.5,-0.8)
+                        to [out=0,in=-90] (2.2,-0.4)
+                        to [out=90,in=-90] (2,0)
+                        to [out=90,in=-90] (2.2,0.4)
+                        to [out=90,in=0,] cycle
+                    ;
+                    \strand (2.5,0.7)
+                        to [out=0,in=0,looseness=1.8] (2.5,-0.7)
+                        to [out=180,in=-90] (2,-0.4)
+                        to [out=90,in=-90] (2.2,0)
+                        to [out=90,in=-90] (2,0.4)
+                        to [out=90,in=180] cycle
+                    ;
+                    \strand (-0.4,0.8)
+                        to [out=120,in=60,looseness=0.5] (3.2,0.8)
+                        to [out=-120,in=120] (3.2,-0.8)
+                        to [out=-60,in=-120,looseness=0.5] (-0.4,-0.8)
+                        to [out=60,in=-60] cycle
+                    ;
+                    \flipcrossings{1,3,5,7,9,12}
+                \end{knot}
+            \end{tikzpicture}
+            \caption{A surface.}
+            \label{fig:boundsurfidenta}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \colorlet{blx}{black}
+                \colorlet{bly}{blx!15}
+                
+                \fill [bly] (-0.4,0.8)
+                    to [out=120,in=60,looseness=0.5] (3.2,0.8)
+                    to [out=-120,in=120] (3.2,-0.8)
+                    to [out=-60,in=-120,looseness=0.5] (-0.4,-0.8)
+                    to [out=60,in=-60] cycle
+                ;
+                \fill [bly] (0,0) ellipse (4mm and 5mm);
+                \fill [bly] (2.5,0.7)
+                    to [out=0,in=0,looseness=1.8] (2.5,-0.7)
+                    to [out=180,in=-90] (2,-0.4)
+                    to [out=90,in=-90] (2.2,0)
+                    to [out=90,in=-90] (2,0.4)
+                    to [out=90,in=180] cycle
+                ;
+                \fill [white] (-0.22,0.4)
+                    to [out=40,in=120] (0.3,0.33)
+                    to [out=-120,in=120] (0.3,-0.33)
+                    to [out=-120,in=-45] (-0.22,-0.4)
+                    to [out=75,in=-75] cycle
+                ;
+                \fill [white] (0.3,0.33)
+                    to [out=60,in=135] (0.84,0.4)
+                    to [out=-110,in=110] (0.84,-0.4)
+                    to [out=-135,in=-50] (0.3,-0.33)
+                    to [out=60,in=-60] cycle
+                ;
+                \fill [white] (0.84,0.4)
+                    to [out=60,in=135] (2.12,0.6)
+                    to [out=-150,in=150] (2.1,0.2)
+                    to [out=-135,in=135] (2.1,-0.2)
+                    to [out=-150,in=150] (2.12,-0.6)
+                    to [out=-135,in=-60] (0.84,-0.4)
+                    to [out=50,in=-50] cycle
+                ;
+                \fill [white] (3.05,0.48)
+                    to [out=135,in=30] (2.12,0.6)
+                    to [out=-50,in=50] (2.1,0.2)
+                    to [out=-50,in=50] (2.1,-0.2)
+                    to [out=-50,in=50] (2.12,-0.6)
+                    to [out=-30,in=-135] (3.05,-0.48)
+                    to [out=110,in=-110] cycle
+                ;
+        
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=2pt,
+                    ignore endpoint intersections=false,
+                    background color=bly,
+                    every strand/.append style={blx,very thick}
+                ]
+                    \strand (0,0) ellipse (4mm and 5mm);
+                    \strand (0.6,0) ellipse (4mm and 5mm);
+                    \strand (1.5,0.8)
+                        to [out=180,in=180,looseness=1.6] (1.5,-0.8)
+                        to [out=0,in=-90] (2.2,-0.4)
+                        to [out=90,in=-90] (2,0)
+                        to [out=90,in=-90] (2.2,0.4)
+                        to [out=90,in=0,] cycle
+                    ;
+                    \strand (2.5,0.7)
+                        to [out=0,in=0,looseness=1.8] (2.5,-0.7)
+                        to [out=180,in=-90] (2,-0.4)
+                        to [out=90,in=-90] (2.2,0)
+                        to [out=90,in=-90] (2,0.4)
+                        to [out=90,in=180] cycle
+                    ;
+                    \strand (-0.4,0.8)
+                        to [out=120,in=60,looseness=0.5] (3.2,0.8)
+                        to [out=-120,in=120] (3.2,-0.8)
+                        to [out=-60,in=-120,looseness=0.5] (-0.4,-0.8)
+                        to [out=60,in=-60] cycle
+                    ;
+                    \flipcrossings{1,3,5,7,9,12}
+                \end{knot}
+    
+                \begin{scope}[
+                    every node/.style={circle,draw,fill,inner sep=1.2pt}
+                ]
+                    \node (a) at (-0.34,0.7) {};
+                    \node at (-0.1,0.48) {}
+                        edge (a)
+                    ;
+                    \node (b) at (0.45,0.47) {};
+                    \node at (0.1,0.48) {}
+                        edge (b)
+                    ;
+                    \node (c) at (0.65,0.49) {};
+                    \node at (1.1,0.7) {}
+                        edge (c)
+                    ;
+                    \node (d) at (2.5,0.7) {};
+                    \node at (1.7,0.8) {}
+                        edge (d)
+                    ;
+                    \node (e) at (2.8,0.65) {};
+                    \node at (3.2,0.8) {}
+                        edge (e)
+                    ;
+    
+                    \node (f) at (-0.34,-0.7) {};
+                    \node at (-0.1,-0.48) {}
+                        edge (f)
+                    ;
+                    \node (g) at (0.45,-0.47) {};
+                    \node at (0.1,-0.48) {}
+                        edge (g)
+                    ;
+                    \node (h) at (0.65,-0.49) {};
+                    \node at (1.1,-0.7) {}
+                        edge (h)
+                    ;
+                    \node (i) at (2.5,-0.7) {};
+                    \node at (1.7,-0.8) {}
+                        edge (i)
+                    ;
+                    \node (j) at (2.8,-0.65) {};
+                    \node at (3.2,-0.8) {}
+                        edge (j)
+                    ;
+                \end{scope}
+            \end{tikzpicture}
+            \caption{A subdivision.}
+            \label{fig:boundsurfidentb}
+        \end{subfigure}
+        \caption{Identifying a surface with boundary.}
+        \label{fig:boundsurfident}
+    \end{figure}
+    \begin{itemize}
+        \item Begin by choosing the subdivision in Figure \ref{fig:boundsurfidentb} according to the first technique above.
+        \item Count $V=20$, $E=30$, and $F=7$. Count $BC=5$ where $BC$ is the number of boundary components.
+        \item Thus, $\chi=-3$. Adding $+1$ to $\chi$ for every boundary component, find $\chi$ for the original surface without boundary to be $2$.
+        \item Therefore, the surface without boundary corresponding to Figure \ref{fig:boundsurfidenta} is the sphere.
+    \end{itemize}
+    \item Define the genus of a surface with boundary to be that of the surface without boundary obtained by capping off each of its boundary components.
+    \item Coming back to knot theory, one way to define knots is as the boundary of surfaces, i.e., the unknot could be defined as the boundary of a disk.
+    \item \textbf{Annulus}: A sphere with two boundary components that lies outside one of the factor knots in a composite knot.
+    \begin{itemize}
+        \item Note that this definition necessitates that the knot be thickened from a one-manifold.
+        \item Otherwise, an annulus would be a sphere with two punctures.
+    \end{itemize}
+    \item Therefore, another definition of composite knot is \dq{a knot such that there is a sphere in space punctured twice by the knot such that the knot is nontrivial both inside and outside the sphere}{93}
+    \item \textbf{Conway sphere}: A sphere with four punctures enclosing a tangle.
+    \begin{itemize}
+        \item This is the $\mathbb{R}^3$ analogy to the cyan circles in the projection plane in Figure \ref{fig:tangles}.
+        \item If the knot is thickened, the Conway sphere becomes a sphere with four boundary components.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \colorlet{blx}{blue}
+            \colorlet{bly}{blx!10}
+    
+            \fill [bly] (90:1)
+                \foreach \x in {1,2,3} {
+                    to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                }
+            ;
+            \fill [white] (30:0.57)
+                \foreach \x in {1,2,3} {
+                    to [bend left=10] ({30-120*\x}:0.57)
+                }
+            ;
+    
+            \begin{knot}[
+                clip width=5,
+                clip radius=3pt,
+                background color=bly,
+                every strand/.append style={blx,thick},
+                consider self intersections
+            ]
+                \strand (90:1)
+                    \foreach \x in {1,2,3} {
+                        to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                    }
+                ;
+                \flipcrossings{1,3}
+            \end{knot}
+        \end{tikzpicture}
+        \vspace{-0.7cm}
+        \caption{The trefoil as a M\"{o}bius band.}
+        \label{fig:trefoilmobius}
+    \end{figure}
+    \item Continuing with the idea that a disk defines the unknot, the trefoil knot (for instance) can be defined as the boundary of a M\"{o}bius band of three half-twists, as in Figure \ref{fig:trefoilmobius}.
+    \item Clearly, of particular interest are orientable surfaces with one boundary component such that said boundary component is a knot.
+\end{itemize}
+
+
+\subsection{Genus and Seifert Surfaces}\label{sss:GenusSeifert}
+\begin{itemize}
+    \item There is one type of surface that appears in the complement of any knot.
+    \begin{itemize}
+        \item In 1934, Herbert Seifert developed \dq{an algorithm so that, given any knot, one can create an orientable surface with one boundary component such that the boundary circle is that knot}{95}
+    \end{itemize}
+    \item Seifert's algorithm is summarized as follows.
+    \begin{itemize}
+        \item Take a knot and assign an orientation.
+        \item Eliminate each crossing by connecting the strand flowing in with the adjacent strand flowing out.
+        \item This produces a collection of \textbf{Seifert circles}.
+        \item Each circle bounds a disk in a plane. To avoid intersections, raise and lower the disks to different $z$-heights.
+        \item Finally, connect the disks to one another at the crossings of the knot by twisted bands.
+    \end{itemize}
+    \item \textbf{Seifert circle}: A loop that can be deformed into a circle via a planar isotropy.
+    \item \emph{Exercise 4.18}: Show that the surface that we get doesn't depend on the direction we choose for the orientation on the knot.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.6\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \draw[very thick,-latex] (-0.4,0) -- (0.4,0);
+                \begin{knot}[
+                    xshift=-2.2cm,
+                    clip width=5,
+                    every strand/.append style={
+                        red,thick,
+                        decoration={markings,
+                            mark=at position 0.25 with \arrow{>},
+                            mark=at position 0.75 with \arrow{>}
+                        },
+                        postaction={decorate}
+                    }
+                ]
+                    \strand (-1.4,-1) to (1.4,1);
+                    \strand (-1.4,1) to (1.4,-1);
+                \end{knot}
+                \begin{knot}[
+                    xshift=2.2cm,
+                    clip width=5,
+                    clip radius=3pt,
+                    every strand/.append style={
+                        red,thick,
+                        decoration={markings,
+                            mark=at position 0.25 with \arrow{>},
+                            mark=at position 0.75 with \arrow{>}
+                        },
+                        postaction={decorate}
+                    }
+                ]
+                    \strand (-1.4,-1) to[out=36,in=144] (1.4,-1);
+                    \strand (-1.4,1) to[out=-36,in=-144] (1.4,1);
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Orientation 1.}
+            \label{fig:seifertcrossinga}
+        \end{subfigure}\\
+        \vspace{1em}
+        \begin{subfigure}[b]{0.6\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \draw[very thick,-latex] (-0.4,0) -- (0.4,0);
+                \begin{knot}[
+                    xshift=-2.2cm,
+                    clip width=5,
+                    every strand/.append style={
+                        red,thick,
+                        decoration={markings,
+                            mark=at position 0.25 with \arrow{<},
+                            mark=at position 0.75 with \arrow{<}
+                        },
+                        postaction={decorate}
+                    }
+                ]
+                    \strand (-1.4,-1) to (1.4,1);
+                    \strand (-1.4,1) to (1.4,-1);
+                \end{knot}
+                \begin{knot}[
+                    xshift=2.2cm,
+                    clip width=5,
+                    clip radius=3pt,
+                    every strand/.append style={
+                        red,thick,
+                        decoration={markings,
+                            mark=at position 0.25 with \arrow{<},
+                            mark=at position 0.75 with \arrow{<}
+                        },
+                        postaction={decorate}
+                    }
+                ]
+                    \strand (-1.4,-1) to[out=36,in=144] (1.4,-1);
+                    \strand (-1.4,1) to[out=-36,in=-144] (1.4,1);
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Orientation 2.}
+            \label{fig:seifertcrossingb}
+        \end{subfigure}
+        \caption{The relationship between orientation and crossing changes in Seifert's algorithm.}
+        \label{fig:seifertcrossing}
+    \end{figure}
+    \begin{itemize}
+        \item At each crossing, two strands flow in and two flow out, regardless of the orientation, as in the left part of both subfigures in Figure \ref{fig:seifertcrossing}. In effect, any crossing can be reworked to resemble the aforementioned parts of subfigures.
+        \item One of the strands adjacent to a strand flowing in always flows out and vice versa.
+        \item Because of this, reversing the orientation does not change the above fact (compare the left part of Figure \ref{fig:seifertcrossinga} with that of Figure \ref{fig:seifertcrossingb}).
+        \item Thus, whatever adjacent strands were paired up before will be paired up again (see the right side of Figures \ref{fig:seifertcrossinga} and \ref{fig:seifertcrossingb}).
+        \item Since the Seifert circles determine the final surface, the above proof that said circles will be unchanged verifies that the surfaces will remain unchanged.
+    \end{itemize}
+    \item The surface is orientable because of the following thought experiment.
+    \begin{itemize}
+        \item For any circle with a clockwise orientation, paint the upper face white and the lower face black.
+        \item For any circle with a counterclockwise orientation, paint the upper face black and the lower face white.
+        \item Any two circles above/below one another will have the same orientation, and, thus, the half-twist connects like colored faces.
+        \item Any two circles adjacent to each other will have opposite orientations, and, thus, the half-twist connects like colored faces.
+        \item Therefore, the surface is orientable.
+    \end{itemize}
+    \item \emph{Exercise 4.19}: Note that if we add an edge and two vertices to the surface across each crossing, cutting each band in half, we cut the surface up into valid faces. Use this fact to show that if $c$ is the number of crossings and $s$ is the number of Seifert circles, then $\chi=s-c$ and the genus of the surface is $g=\frac{c-s+1}{2}$.
+    \begin{itemize}
+        \item Every 2-vertices-1-edge addition described above has a predictable effect on $V$ and $E$.
+        \begin{itemize}
+            \item Each vertex adds one new vertex (obviously), so two vertices are added for each 2-vertices-1-edge addition.
+            \item Each vertex splits an existing edge into two edges. Accounting for the addition of the connecting edge, three edges are added for each 2-vertices-1-edge addition.
+            \item Since two vertices and three edges are added each time, the quantity $V-E$ changes by $-1$ with each 2-vertices-1-edge addition.
+            \item Because, by the problem statement, a 2-vertices-1-edge addition occurs at each crossing, there are $c$ such additions.
+            \item Thus, $V-E=-c$ for the entire process.
+        \end{itemize}
+        \item The final subdivision, on the other hand, reveals something about $F$.
+        \begin{itemize}
+            \item Each face is separated from the others at the crossings.
+            \item Thus, since each face is composed of a Seifert circle plus a bit of twisting connection, the number of faces corresponds to the the original number of Seifert circles $s$, or $F=s$.
+        \end{itemize}
+        \item Therefore, the sum of the derived values can be substituted into the sum $V-E+F$ to yield $-c+s$ or $s-c$.
+        \item Since Equation \ref{eqn:eulerchar} gives us $\chi=V-E+F$, the following equation holds by the transitive property.
+        \begin{equation}\label{eqn:chisc}
+            \chi=s-c
+        \end{equation}
+        \item According to Equation \ref{eqn:chig}, $\chi=2-2g$, so $g=\frac{2-\chi}{2}$.
+        \begin{itemize}
+            \item However, the genus of a surface with boundary is that of the surface without boundary acquired via capping off said surface with boundary.
+            \item Since the surface at hand is known to have specifically one boundary component, the $\chi$ that should presently be considered is the $\chi$ of the previous part plus one, or $\chi_1=s-c+1$.
+        \end{itemize}
+        \item Substitute: $g=\frac{2-(s-c+1)}{2}$.
+        \item Simplify.
+        \begin{align*}
+            g &=\frac{2-(s-c+1)}{2}\\
+            &=\frac{2-s+c-1}{2}\\
+            g &=\frac{c-s+1}{2}\stepcounter{equation}\tag{\theequation}\label{eqn:gensei}
+        \end{align*}
+    \end{itemize}
+    \item \emph{Exercise 4.21}: Show that Seifert's algorithm always generates at least two Seifert circles.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.27\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \node (a) at (-1,0) [circle,draw=red,thick,fill=orange!50] {$L_1$};
+                \node (b) at (1,0)  [circle,draw=red,thick,fill=orange!50] {$L_2$};
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand ([xshift=-0.5pt]a.45) to[out=0,in=180] ([xshift=0.5pt]b.-135);
+                    \strand ([xshift=-0.5pt]a.-45) to[out=0,in=180] ([xshift=0.5pt]b.135);
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Two connected loops.}
+            \label{fig:Scirccrossa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.27\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \node (a) at (-1,0) [circle,draw=red,thick,fill=orange!50] {$L_1$};
+                \node (b) at (1,0)  [circle,draw=red,thick,fill=orange!50] {$L_2$};
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={
+                        red,thick,postaction={decorate}
+                    }
+                ]
+                    \strand [
+                        decoration={markings,
+                            mark=at position 0.25 with \arrow{<},
+                            mark=at position 0.75 with \arrow{<}
+                        }
+                    ] ([xshift=-0.5pt]a.45) to[out=0,in=180] ([xshift=0.5pt]b.-135);
+                    \strand [
+                        decoration={markings,
+                            mark=at position 0.25 with \arrow{>},
+                            mark=at position 0.75 with \arrow{>}
+                        },
+                    ] ([xshift=-0.5pt]a.-45) to[out=0,in=180] ([xshift=0.5pt]b.135);
+                \end{knot}
+            \end{tikzpicture}
+            \caption{An orientation.}
+            \label{fig:Scirccrossb}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.27\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \node (a) at (-1,0) [circle,draw=red,thick,fill=orange!50] {$L_1$};
+                \node (b) at (1,0)  [circle,draw=red,thick,fill=orange!50] {$L_2$};
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={
+                        red,thick,postaction={decorate}
+                    }
+                ]
+                    \strand [
+                        decoration={markings,
+                            mark=at position 0.25 with \arrow{<},
+                            mark=at position 0.75 with \arrow{<}
+                        }
+                    ] ([xshift=-0.5pt]a.45) to[out=0,in=0,looseness=3] ([xshift=-0.5pt]a.-45);
+                    \strand [
+                        decoration={markings,
+                            mark=at position 0.25 with \arrow{>},
+                            mark=at position 0.75 with \arrow{>}
+                        },
+                    ] ([xshift=0.5pt]b.-135) to[out=180,in=180,looseness=3] ([xshift=0.5pt]b.135);
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Two Seifert circles.}
+            \label{fig:Scirccrossc}
+        \end{subfigure}
+        \caption{Generating Seifert circles from a crossing.}
+        \label{fig:Scirccross}
+    \end{figure}
+    \begin{itemize}
+        \item In any knot with $c(K)>0$, there exists a region with a crossing between two (possibly knotted) loops $L_1$ and $L_2$, as in Figure \ref{fig:Scirccrossa}.
+        \item When assigning an orientation to this crossing, the directions on the subarcs \emph{must} be reversed.
+        \begin{itemize}
+            \item If they both flowed from left to right (for example), that would imply that there is some point in $L_1$ from which the orientation "flows outward" in both directions and some point in $L_2$ to which the orientation "flows inward" from both directions.
+            \item This is contrary to the definition of an orientation, and, therefore, cannot be the case.
+        \end{itemize}
+        \item Thus, the orientation in Figure \ref{fig:Scirccrossb} is valid.
+        \item Given this orientation, the subarcs must separate into two Seifert circles, as in Figure \ref{fig:Scirccrossc}, according to Seifert's algorithm.
+        \item This separation would hold for the opposite orientation, as demonstrated by Figure \ref{fig:seifertcrossing}.
+    \end{itemize}
+    \item It is possible to create multiple different-looking surfaces for the same knot by having a different starting projection.
+    \item \textbf{Seifert surface} (for $K$): Given a knot $K$, \dq{an orientable surface with one boundary component such that the boundary component of the surface is the knot $K$}{99}
+    \item \textbf{Genus} (of a knot): \dq{The least genus of any Seifert surface for that knot}{99}
+    \item The unknot has genus 0 (and is the only knot with genus 0).
+    \item Seifert's algorithm yields a Seifert surface of genus 1 for the figure-eight knot, and since the figure-eight knot is nontrivial, no Seifert surface of lower genus can exist for it. Therefore, the genus of the figure-eight knot is 1.
+    \item \emph{Exercise 4.22}: The twist knots are the knots obtained by linking together the two ends of a twisted loop. They include the trefoil and figure-eight knots. Show that all of the twist knots have genus 1.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \begin{knot}[
+                clip width=5,
+                clip radius=3pt,
+                consider self intersections,
+                ignore endpoint intersections=false
+            ]
+                \strand [red,thick] (-0.3,1)
+                    to [out=-5,in=90] (0.2,0.5)
+                    to [out=-90,in=90] (-0.2,-0.5)
+                    to [out=-90,in=-90,looseness=3] (0.2,-0.5)
+                    to [out=90,in=-90] (-0.2,0.5)
+                    to [out=90,in=-175] (0.3,1)
+                    to [out=5,in=0,out looseness=1.7,in looseness=2.2] (0,-0.7)
+                    to [out=180,in=175,out looseness=2.2,in looseness=1.7] cycle
+                ;
+                \flipcrossings{3,5}
+            \end{knot}
+            \node [fill=white,inner sep=3mm] at (0,0.1) {\Huge$\vdots$};
+        \end{tikzpicture}
+        \caption{The general twist knot.}
+        \label{fig:twistknots}
+    \end{figure}
+    \begin{itemize}
+        \item This demonstration will follow the format of an induction proof. By Equation \ref{eqn:gensei}, if $g=1$ for a knot, then $s=c-1$. This argument will prove by induction that $s=c-1$.
+        \item Every twist knot can be projected in the mold of Figure \ref{fig:twistknots}, where the dots are replaced by some number of twists.
+        \item For the trefoil knot, this number of twists is 0 and $s\overset{\checkmark}{=}c-1$.
+        \item Each new twist obviously adds one crossing.
+        \item This new crossing, when the knot is assigned an orientation, will perfectly match one of the two left images in Figure \ref{fig:seifertcrossing}.
+        \begin{itemize}
+            \item This is because the orientation weaves its way down all of one of the two "vertical-ish" strands and then changes direction at the bottom loop to weave its way back up.
+        \end{itemize}
+        \item Like in Figure \ref{fig:seifertcrossing}, Seifert's algorithm will yield one of the two products --- separate loops.
+        \item Thus, because every new crossing adds a new place to separate loops, both $s$ and $c$ increase by $+1$ in each subsequent twist knot.
+        \item Therefore, since $s+1=c+1-1$, $s$ always equals $c-1$.
+    \end{itemize}
+    \item \emph{Exercise 4.23}: Show that a minimal genus Seifert surface for a knot $K$ must be incompressible (consider Euler characteristic).
+    \begin{itemize}
+        \item Proof by contradiction: Take a compressible Seifert surface $F$ for a knot $K$ of minimal genus $g_0$.
+        \item Compress it, adding $+2$ to the Euler characteristic $\chi_0$ to get $\chi_1=\chi_0+2$.
+        \item By Equation \ref{eqn:chig}, the following holds.
+        \begin{align*}
+            \chi_0 &=2-2g_0\\
+            \chi_1 &=2-2g_1\\
+            \chi_0+2 &=2-2g_1\\
+            2-2g_0 &=-2g_1\\
+            g_1 &=g_0-1\\
+            g_1 &<g_0
+        \end{align*}
+        \item But since no genus $g$ for $K$ can be lower than $g_0$ by $g_0$'s definition as minimal, we have arrived at a contradiction.
+        \item Therefore, the minimal genus Seifert surface must be incompressible.
+    \end{itemize}
+    \item \dq{Applying Seifert's algorithm to an alternating projection of an alternating knot or link does yield a Seifert surface of minimal genus}{100}
+    \item The following equation holds.
+    \begin{equation}\label{eqn:genuscomp}
+        g(J\#K)=g(J)+g(K)
+    \end{equation}
+    \begin{itemize}
+        \item Clearly, $g(J\#K)\leq g(J)+g(K)$ because taking the composition of the two Seifert surfaces does not add any vertices, edges, or faces.
+        \item \emph{Isotope surfaces, clean up intersections, perform surgeries to lower the number of intersection curves}$^[$\footnote{Return to at a later date. Perhaps surgeries always increase Euler characteristic, lowering genus, until $g(J)$ and $g(K)$ are both at their minimum. Then their sum must be less than or equal to their composition?}$^]$.
+        \item Arrive at $g(J)+g(K)\leq g(J\#K)$.
+        \item Therefore, $g(J\#K)=g(J)+g(K)$.
+    \end{itemize}
+    \item Referencing Section \ref{sss:Composition}, the trivial knot cannot be the composition of two nontrivial knots because $g(K)\geq 1$ where $K$ is nontrivial, so by Equation \ref{eqn:genuscomp}, $g(J\#K)\geq 2>0\Rightarrow g(J\#K)$ is nontrivial.
+    \item \emph{Exercise 4.27}: Show that the genus 1 knots are prime.
+    \begin{itemize}
+        \item For a knot to be nontrivial, its genus must be greater than or equal to 1.
+        \item For a knot to be composite, its genus must be greater than or equal to 2.
+        \item Therefore, all knots with genus 1 have a high enough genus to be nontrivial (prime or composite) but not a low enough genus to not be composite (they are only prime).
+    \end{itemize}
+    \item \emph{Exercise 4.28}: Prove that if we take the composition of $n$ copies of the same nontrivial knot, calling the result $J_n$, then as $n\rightarrow\infty$, $c(J_n)\rightarrow\infty$. Hint: Use the fact that there are only a finite number of knots with a given crossing number, but first use the Dowker notation to prove this fact.
+    \begin{itemize}
+        \item For $c(K)=n$, the Dowker notation will consist of $n$ even numbers ranging from $2$ to $2n$. Therefore, there are $n$ possibilities for the first number, $n-1$ for the second number, and so on and so forth. This compresses down to $n!$ possible knots of $c(K)=n$.
+        \begin{itemize}
+            \item Note that a large number of these knots will not be of this crossing number. This is an upper bound in the most literal sense.
+        \end{itemize}
+        \item One way to prove this would be to use Equation \ref{eqn:genuscomp} to prove that the genus must increase with successive compositions. Since the genus is directly proportional to the quantity $c-s$ (by Equation \ref{eqn:gensei}), $c-s$ must increase with successive compositions. Since $s$ cannot decrease with successive compositions (and certainly cannot decrease infinitely), $c$ must increase with successive compositions.
+        \item I believe that the desired way to prove this is as follows. Composite knots are distinct from their factor knots. Generating a new composite knot creates a new knot. Since there are a finite number of knots of $c(K)=n$, eventually, all low-crossing possibilities (which will not all be reached, but regardless) must be used up. This forces $c(K)$ higher and higher as new knots are created.
+    \end{itemize}
+    \item \emph{Exercise 4.29}: Prove that if $J_n$ is the composition of $n$ copies of the same nontrivial knot, then $c(J_n)\geq n$. Hint: Use the Euler characteristic of a Seifert surface along with Equations \ref{eqn:chisc} and \ref{eqn:gensei} and \emph{Exercise 4.21}. Subsequently, prove that $c(J_n)\geq 2n+1$.
+    \begin{itemize}
+        \item See the first solution to Exercise 4.28.
+    \end{itemize}
+    \item Seifert's algorithm's applicability to finding genus has been extended from alternating links to \textbf{alternative links}, which also include all \textbf{torus links} (see Section \ref{sss:TorusKnots}).
+    \item There are some knots from which the minimal genus Seifert surface cannot be obtained using Seifert's algorithm on any projection of said knot.
+    \item \textbf{Canonical genus} (of a knot): \dq{The minimal genus of any Seifert surface obtained by applying Seifert's algorithm to a projection of the knot}{106} \emph{Also known as} $g_c(K)$.
+    \item Genus was used to tell apart the Kinoshita-Terasaka mutants (see Section \ref{sss:Conway}).
 \end{itemize}
 
 
