@@ -3150,6 +3150,52 @@
     \item \textbf{Canonical genus} (of a knot): \dq{The minimal genus of any Seifert surface obtained by applying Seifert's algorithm to a projection of the knot}{106} \emph{Also known as} $g_c(K)$.
     \item Genus was used to tell apart the Kinoshita-Terasaka mutants (see Section \ref{sss:Conway}).
 \end{itemize}
+\newpage
+
+
+
+\section{Types of Knots}
+\subsection{Torus Knots}\label{sss:TorusKnots}
+\begin{itemize}
+    \item \textbf{Torus knot}: A knot that lies on an unknotted torus such that the subarcs do not cross each other on the torus's surface.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.3\linewidth]{../Notes/Blender/Long-merid.png}
+        \begin{tikzpicture}[remember picture,overlay]
+            \node at (0,2.5) {Longitude}
+                edge [->] (-1.3,2)
+            ;
+            \node at (-5.5,2.5) {Meridian}
+                edge [->] (-4.0,1.5)
+            ;
+        \end{tikzpicture}
+        \caption{Longitude and meridian curves.}
+        \label{fig:longmerid}
+    \end{figure}
+    \item \textbf{Meridian curve}: \dq{A curve that runs once the short way around the torus}{108}
+    \item \textbf{Longitude curve}: \dq{A curve that runs once around the torus the long way}{108}
+    \item Every torus knot is a $(p,q)$-torus knot for some pair of positive integers $p$ and $q$.
+    \begin{itemize}
+        \item $p$ and $q$ will always be \textbf{relatively prime}.
+    \end{itemize}
+    \item \textbf{Relatively prime} (numbers): Two numbers whose greatest common divisor is $1$.
+    \item On the trefoil's torus notation.
+    \begin{itemize}
+        \item Since the trefoil knot crosses a longitude 3 times, it must wrap around the torus thrice meridionally.
+        \item Since the trefoil knot crosses a meridian 2 times, it must wrap around the torus twice longitudinally.
+        \item Therefore, the trefoil knot is a $(3,2)$-torus knot.
+    \end{itemize}
+    \item \emph{Exercise 5.1}: What torus knot is shown in Figure \ref{fig:ex5-1}?
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.2\linewidth]{Blender/ex5-1.png}
+        \caption{A mystery torus knot.}
+        \label{fig:ex5-1}
+    \end{figure}
+    \begin{itemize}
+        \item Since it crosses a longitude curve five times and a meridian curve twice, it is the $(5,2)$-torus knot.
+    \end{itemize}
+\end{itemize}
 
 
 
