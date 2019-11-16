@@ -2207,6 +2207,7 @@
                     scale=0.7
                 ]
                     \draw [blue,thick,latex-latex] plot[smooth,domain=-2:2] (\x,\x*\x);
+                    %could use parabola instead of plot
                 \end{tikzpicture}
                 \caption{A parabola.}
                 \label{fig:1manifoldsb}
@@ -2627,7 +2628,7 @@
         \begin{subfigure}[b]{0.3\linewidth}
             \centering
             \begin{tikzpicture}
-                \colorlet{blx}{black}
+                \colorlet{blx}{blue}
                 \colorlet{bly}{blx!15}
                 
                 \fill [bly] (-0.4,0.8)
@@ -3194,6 +3195,79 @@
     \end{figure}
     \begin{itemize}
         \item Since it crosses a longitude curve five times and a meridian curve twice, it is the $(5,2)$-torus knot.
+    \end{itemize}
+    \item Drawing a $(p,q)$-torus knot.
+    \begin{itemize}
+        \item Begin by drawing two concentric ovals that represent the inner and outer bounds of the torus.
+        \item Draw $p$ evenly spaced dots around the perimiter of both circles in corresponding locations.
+        \item Draw a dashed, curved$^[$\footnote{Draw it curved to highlight the roundness of the torus.}$^]$ line between each corresponding point. This makes it so that the upper lines can account for all $q$ intersections with meridians.
+        \item Draw a curved line between a point on the outer circle and a point that is a $\frac{q}{p}$ clockwise turn away on the inner circle.
+        \item Do this for all points.
+    \end{itemize}
+    \item \emph{Exercise 5.2}: Draw a $(4,3)$-torus knot.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[
+            every path/.style={thick}
+            % cmark/.style={decoration={markings,
+            %     mark=at position #1 with {\fill circle (2pt);}
+            %     },postaction={decorate}
+            % }
+        ]
+            \colorlet{blx}{blue}
+            \colorlet{bly}{blx!10}
+            \colorlet{rex}{red}
+    
+            \foreach \r/\c in {1/bly,0.3/white} {
+                \fill [\c,scale=\r] ellipse (2cm and 1.4cm);
+            }
+            \foreach \r in {0,90,180,270} {
+                \draw [rex,dashed,yscale=0.7,rotate=\r] (0,2) to[bend right=30] (0,0.6);
+                \draw [rex,domain=-1*pi:0.5*pi,samples=500,yscale=0.7,rotate=\r] plot ({deg(\x)}:{0.6+2.8/(3*pi)*(\x+pi)});
+            }
+            \foreach \s in {1,0.3} {
+                \draw [blue,thick,scale=\s,decoration={markings,
+                    mark=between positions 0 and 0.9 step 0.25 with {\fill circle (2pt);}
+                },postaction={decorate}] ellipse (2cm and 1.4cm);
+                % cmark/.list={0,0.25,0.5,0.75}
+            }
+        \end{tikzpicture}
+        \caption{Solution to \emph{Exercise 5.2}.}
+        \label{fig:ex5-2}
+    \end{figure}
+    \item \emph{Exercise 5.3}: What would happen if we tried to draw a torus knot where $p$ and $q$ were not relatively prime? Say a $(3,6)$-torus knot?
+    \begin{itemize}
+        \item If $p$ and $q$ are not relatively prime, then there is some natural number $n$ that, multiplied by either $p$ or $q$ will yield the other.
+        \item Thus, such a torus knot can be denoted as a $(p,np)$-torus knot or as an $(nq,q)$-torus knot where $n\in\mathbb{N}$.
+        \item Let's take this case by case for each of the two above cases.
+        \item Case 1: What knot is a $(p,np)$-torus knot?
+        \begin{itemize}
+            \item By the previously given method of drawing a knot, each point on the outer ellipse is connected with a point on the inner ellipse via a $\frac{q}{p}$ clockwise turn.
+            \item If $np=q$, then such points are connected via $\frac{np}{p}=n$ clockwise turns.
+            \item Thus, the point connected to via the line on the underside of the torus will be the original point.
+            \item Because the strand has only completed one loop the short way around the torus, it is a meridian, and, thus, the unknot.
+            \item Since this process is repeated $p$ times, a $(p,np)$-torus knot is $p$ unknots.
+        \end{itemize}
+        \item Case 2: What knot is an $(nq,q)$-torus knot?
+        \begin{itemize}
+            \item By the previously given method of drawing a knot, each point on the outer ellipse is connected with a point on the inner ellipse via a $\frac{q}{p}$ clockwise turn.
+            \item If $nq=p$, then such points are connected via a $\frac{q}{nq}=\frac{1}{n}$ clockwise turn.
+            \item To get back to either the original point will require 1 full turn, or $n$ turns of value $\frac{1}{n}$ (because $n\times\frac{1}{n}=1$).
+            \item This process can be repeated $q$ times to yield $q$ such loops.
+            \item Since these loops are the same distance apart everywhere on the torus (parallel) and have no intersections, they are a set of deformed, radially stacked unknots.
+            \item Therefore, an $(nq,q)$-torus is $q$ unknots.
+        \end{itemize}
+        \item Therefore, a torus knot where $p$ and $q$ are not relatively prime yields a number of unknots equal to whichever value ($p$ or $q$) is smaller.
+        \item A $(3,6)$-torus knot would be 3 unknots.
+    \end{itemize}
+    \item \emph{Exercise 5.4}: Show that a $(p,q)$-torus knot always has a projection with $p(q-1)$ crossings.
+    \begin{itemize}
+        \item There is a potential underpass every $\frac{1}{p}$ turn.
+        \item In going through a $\frac{q}{p}$ turn, a strand begins at one of these potential underpasses and touches $\frac{q/p}{1/p}=q$ more underpasses.
+        \item Therefore, there are $q+1$ possible crossings.
+        \item However, since the beginning and end "crossings" are just continuations of a line, they are not crossings.
+        \item Thus, each strand generates $q+1-2=q-1$ crossings.
+        \item Therefore, for $p$ strands, the number of crossings is the product $p(q-1)$.
     \end{itemize}
 \end{itemize}
 
