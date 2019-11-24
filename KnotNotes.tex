@@ -118,7 +118,7 @@
     \begin{itemize}
         \item The trefoil is such a knot.
     \end{itemize}
-    \item \emph{Exercise 1.7*}: By changing some of the crossings from over to under or vice versa, any projection of a knot can be made into a projection of the unknot$^[$\footnote{How can I \emph{show} something? How can I do these proofs? What kind of logic solves one of these? See Section \ref{sss:UnknottingNumber} for a direct proof of/solution to Exercise 1.7.}$^]$. See Figure \ref{fig:knottotrivial}.
+    \item \emph{Exercise 1.7*}: By changing some of the crossings from over to under or vice versa, any projection of a knot can be made into a projection of the unknot$^[$\footnote{How can I \emph{show} something? How can I do these proofs? What kind of logic solves one of these? See Section \ref{sss:UnknottingNumber} for a direct proof of/solution to \emph{Exercise 1.7}.}$^]$. See Figure \ref{fig:knottotrivial}.
     \begin{figure}[h!]
         \centering
         \begin{tikzpicture}
@@ -822,7 +822,7 @@
 \end{itemize}
 
 
-\subsection{Knots and Sticks}
+\subsection{Knots and Sticks}\label{sss:KnotsSticks}
 \begin{itemize}
     \item We can also consider knots made out of straight sticks glued to each other at each end.
     \item The first nontrivial knot made out of sticks is the trefoil, with six sticks.
@@ -1579,7 +1579,7 @@
     \end{itemize}
     \item \dq{The fact that every knot has a finite unknotting number follows from the fact that every projection of a knot can be changed into a projection of the unknot by changing some subset of the crossings in the projection}{58}
     \begin{itemize}
-        \item See Exercise 1.7.
+        \item See \emph{Exercise 1.7}.
     \end{itemize}
     \item A proof of the above:
     \begin{itemize}
@@ -1912,7 +1912,7 @@
             \caption{Solution to \emph{Exercise 3.13}.}
             \label{fig:ex3-13-2}
         \end{figure}
-        \item Q.E.D. --- see Figure \ref{fig:ex3-13-2} for the final projection$^[$\footnote{Note that this figure is drawn with the same rules used in Exercise 3.11, i.e. the original "killzone" is marked as well as the start and end of each bridge. Each "bridging move" has been carried out without simplification, so some thought should be able to reveal the connection between the original Dowker reconstruction (unpictured) and this projection.}$^]$.
+        \item Q.E.D. --- see Figure \ref{fig:ex3-13-2} for the final projection$^[$\footnote{Note that this figure is drawn with the same rules used in Exercise 3.11, i.e. the original "killzone" is marked as well as the start and end of each bridge. Each "bridging move" has been carried out without simplification, so some thought should be able to reveal the connection between the original Dowker reconstruction (not pictured) and this projection.}$^]$.
     \end{itemize}
     \item \dq{In 1954, a German mathematician named H. Shubert proved that $b(K_1\#K_2)=b(K_1)+b(K_2)-1$}{67}
     \item \emph{Exercise 3.14}: Explain how Shubert's result implies that rational knots are all prime.
@@ -2412,7 +2412,7 @@
         \item Induction step:
         \begin{align*}
             \chi\left( S_{\text{genus}=g+1} \right) &\overset{?}{=} 2-2(g+1)\\
-            \chi\left( S_{\text{genus}=g} \right)+\chi\left( S_{\text{genus}=1} \right)-2 &\overset{?}{=} 2-2g-2)\\
+            \chi\left( S_{\text{genus}=g} \right)+\chi\left( S_{\text{genus}=1} \right)-2 &\overset{?}{=} 2-2g-2\\
             (2-2g)+0-2 &\overset{?}{=} 0-2g\\
             0-2g &\overset{\checkmark}{=} 0-2g
         \end{align*}
@@ -2438,7 +2438,7 @@
         \item This change of $+2$ changes the genus by $-1$.
     \end{itemize}
     \item \textbf{Incompressible} (surface): A surface that is not compressible.
-    \item Any time we have a composite knot, there exist an incompressible \textbf{swallow-follow torus}.
+    \item Any time we have a composite knot, there exists an incompressible \textbf{swallow-follow torus}.
     %swallow-follow torus image
     \item \textbf{Swallow-follow torus}: A torus that encompases (swallows) one factor knot and wraps around the strand of (follows) the other factor knot.
 \end{itemize}
@@ -2511,11 +2511,11 @@
         \caption{A M\"{o}bius band.}
         \label{fig:mobius}
     \end{figure}
-    \item \textbf{M\"{o}bius band}: One of the simplest surfaces that is not orientable.
+    \item \textbf{M\"{o}bius band}: One of the simplest surfaces that is not orientable (see Figure \ref{fig:mobius}).
     \item \dq{A surface is nonorientable if and only if it contains a M\"{o}bius band within it}{91}
     \item A M\"{o}bius band must have an odd number of half-twists in it.
     \item \emph{Exercise 4.15}: Decide which of the two surfaces in Figure \ref{fig:orients} is orientable and which is nonorientable.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.6\linewidth]{Blender/ex4-15.png}
         \caption{Possibly orientable surfaces.}
@@ -2679,7 +2679,7 @@
                     clip radius=2pt,
                     ignore endpoint intersections=false,
                     background color=bly,
-                    every strand/.append style={blx,very thick}
+                    every strand/.append style={blx,thick}
                 ]
                     \strand (0,0) ellipse (4mm and 5mm);
                     \strand (0.6,0) ellipse (4mm and 5mm);
@@ -2834,7 +2834,7 @@
     \end{itemize}
     \item \textbf{Seifert circle}: A loop that can be deformed into a circle via a planar isotropy.
     \item \emph{Exercise 4.18}: Show that the surface that we get doesn't depend on the direction we choose for the orientation on the knot.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.6\linewidth}
             \centering
@@ -3269,6 +3269,1411 @@
         \item Thus, each strand generates $q+1-2=q-1$ crossings.
         \item Therefore, for $p$ strands, the number of crossings is the product $p(q-1)$.
     \end{itemize}
+    \item \dq{Every $(p,q)$-torus knot is also a $(q,p)$-torus knot}{110}
+    \begin{itemize}
+        \item Remove a disk from the torus that does not intersect the knot.
+        \item Transform it into two attached bands.
+        \item Turn each band inside out.
+        \item Transform it back into a torus.
+        \item Replace the disk.
+    \end{itemize}
+    \item In conjunction with \emph{Exercise 5.4}, this means that a $(p,q)$-torus knot has a projection with $q(p-1)$ crossings.
+    \begin{itemize}
+        \item Therefore, $c(K)\leq \min\left( p(q-1),q(p-1) \right)$.
+        \item In fact, Murasugi (1991) recently proved that $c(K)= \min\left( p(q-1),q(p-1) \right)$.
+    \end{itemize}
+    \item \textbf{Solid torus}: \dq{A doughnut where we include both the interior of the doughnut as well as the surface}{112}
+    \item \textbf{Core curve} (of a solid torus): \dq{The trivial knot that runs once around the center of the doughnut}{112}
+    \item \textbf{Meridional disk} (of a solid torus): \dq{A disk that has a meridian curve as its boundary}{112}
+    \item \emph{Exercise 5.5}: Let $K$ be a $(p,q)$-torus knot sitting on a torus that is the boundary of a solid torus. Let $J$ be the core curve at the center of the solid torus. Determine the linking number of $J$ and $K$. What if $K$ sits on the torus as a $(q,p)$-torus knot?
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.4\linewidth]{Blender/ex5-5.png}
+        \caption{$p$ such regions exist in a solid torus.}
+        \label{fig:ex5-5}
+    \end{figure}
+    \begin{itemize}
+        \item For a $(p,q)$-torus knot, there are $p$ spirals inward and $p$ loops outward.
+        \item The spirals always pass over the core curve while the loops always pass under the core curve.
+        \item For each $p$, there exists a region similar to the one in Figure \ref{fig:ex5-5}. Each of these regions contributes $+1$ to the linking number as drawn (see Figure \ref{fig:linkingnumber}).
+        \item Therefore, the linking number is $p$.
+        \item If $K$ sits on the torus as a $(q,p)$-torus knot, then the linking number is $q$ by the same logic.
+    \end{itemize}
+    \item $u\left( (p,q)\text{-torus knot} \right)=\frac{(p-1)(q-1)}{2}$
+    \item \emph{Exercise 5.7}: Show that in the speific case that $(p,q)=(3,4)$, the $(p,q)$-torus knot can be unknotted with $\frac{(p-1)(q-1)}{2}$ crossing changes.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=\linewidth]{Blender/ex5-7a.png}
+            \caption{Original with orientation.}
+            \label{fig:ex5-7a}
+        \end{subfigure}
+        \hspace{2em}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=\linewidth]{Blender/ex5-7b.png}
+            \caption{Unknotted projection.}
+            \label{fig:ex5-7b}
+        \end{subfigure}
+        \caption{Unknotting the $(3,4)$-torus knot.}
+        \label{fig:ex5-7}
+    \end{figure}
+    \begin{itemize}
+        \item Assign the orientation shown in Figure \ref{fig:ex5-7a} and start at the leftmost point on the outer edge of the torus.
+        \item Use the method conjectured in \emph{Exercise 1.7} and described in detail in Section \ref{sss:UnknottingNumber}.
+        \item This method will end up changing only $\frac{(3-1)(4-1)}{2}=3$ crossings and producing a projection of the unknot (Figure \ref{fig:ex5-7b}). Note the difference between Figures \ref{fig:ex5-7a} and \ref{fig:ex5-7b} to see which crossings were changed.
+    \end{itemize}
+    \item \dq{Seifert's algorithm applied to a projection [like Figure \ref{fig:ex5-2}] will yield a minimal genus Seifert surface}{113}
+    \begin{itemize}
+        \item Remember that both alternating knots and torus knots qualify as alternative knots, as mentioned in Section \ref{sss:GenusSeifert}.
+    \end{itemize}
+    \item \emph{Exercise 5.8} (a): Applying the above result, use a standard projection to determine the genus of a $(p,q)$-torus knot.
+    \begin{itemize}
+        \item Apply Seifert's algorithm to generate $s$ Seifert circles.
+        \begin{itemize}
+            \item Assign a clockwise orientation.
+            \item At every crossing, the entering strand spiraling inward will merdge with the leaving strand looping outward.
+            \item Likewise, the entering strand looping outward will merge with the leaving strand spiraling inward.
+            \item As this process continues, eventually, there will be a distinct Seifert circle for each of $q$ crossings of a meridian.
+            \item Therefore, $s=q$.
+        \end{itemize}
+        \item Count the number of crossings $c$.
+        \begin{itemize}
+            \item According to \emph{Exercise 5.4}, the standard projection of a $(p,q)$-torus knot has $p(q-1)$ crossings.
+            \item Therefore, $c=p(q-1)$.
+        \end{itemize}
+        \item According to Equation \ref{eqn:gensei}, $g=\frac{c-s+1}{2}$.
+        \item Therefore, the following holds.
+        \begin{align*}
+            g &=\frac{p(q-1)-q+1}{2}\\
+            &=\frac{pq-p-q+1}{2}\\
+            g &=\frac{(p-1)(q-1)}{2}\stepcounter{equation}\tag{\theequation}\label{eqn:genpq}
+        \end{align*}
+    \end{itemize}
+    \item \emph{Exercise 5.8} (b): Does it matter if the projection comes from the knot represented as a $(q,p)$-torus knot rather than a $(p,q)$-torus knot?
+    \begin{itemize}
+        \item Substitute $p=q$ and $q=p$ into Equation \ref{eqn:genpq} and employ the commutative property of multiplication to prove that the first equation below is equal to Equation \ref{eqn:genpq}.
+        \begin{align*}
+            g &=\frac{(q-1)(p-1)}{2}\\
+            &=\frac{(p-1)(q-1)}{2}
+        \end{align*}
+    \end{itemize}
+    \item $s((p,p-1)\text{-torus knot})=2p$.
+    \begin{itemize}
+        \item $s(K)$ is the stick number of a knot $K$ (see Section \ref{sss:KnotsSticks}).
+        \item Used the idea of curvature to obtain a lower bound for $p\geq 3$.
+    \end{itemize}
+    \item $s((p,q)\text{-torus knot})=2p$ if $p>q>\frac{p}{2}$.
+    \begin{itemize}
+        \item Used a variation on bridge number called superbridge number to obtain a lower bound.
+    \end{itemize}
+    \item \textbf{\emph{n}-braid}: A $(p,n)$-torus knot.
+    \item \textbf{Torus knot} [formally]: \dq{A nontrivial knot that can be placed on the surface of a \textbf{standardly embedded} torus without crossing over or under itself on the surface}{114}
+    \item \textbf{Standardly embedded} (surface): A surface that is unknotted in space.
+    \item \textbf{Two-embeddable knot}: A knot \dq{that cannot be placed on a standardly embedded torus but that can be placed on a standardly embedded genus two surface}{114}
+    \begin{itemize}
+        \item The figure-eight knot is a two-embeddable knot.
+    \end{itemize}
+    \item \textbf{\emph{n}-embeddable knot}: A knot that \dq{can be placed on a genus $n$ standardly embedded surface without any crossings, but [that] cannot be placed on any standardly embedded surface of lower genus without crossings}{114}
+    \item \emph{Exercise 5.9}: Determine the minimal genus standardly embedded surface that the $5_2$ knot can be embedded on, given that it is not a torus knot.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.65\linewidth]{Blender/ex5-9a.png}
+            \caption{$5_2$ as tangles.}
+            \label{fig:32knota}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.6\linewidth}
+            \centering
+            \includegraphics[width=0.9\linewidth]{Blender/ex5-9b.png}
+            \caption{$5_2$ as a two-embeddable knot.}
+            \label{fig:32knotb}
+        \end{subfigure}
+        \caption{Solution to \emph{Exercise 5.9}.}
+        \label{fig:32knot}
+    \end{figure}
+    \begin{itemize}
+        \item This is far from an ideal method, but it does successfully embed the $5_2$ knot on a genus 2 surface.
+        \item Begin with the Conway notation of the $5_2$ knot, namely $32$.
+        \item This tells us that the knot can be drawn as the product of two elementary rational tangles (see Figure \ref{fig:32knota}).
+        \item Draw a standardly embedded genus 2 surface.
+        \item Draw the $2$ tangle on its left handle and the $3$ tangle on its right handle. Note that the choice of left versus right is arbitrary.
+        \item Based on the red, blue, and green connections in Figure \ref{fig:32knota}, draw the corresponding connections in Figure \ref{fig:32knotb}.
+        \item Since the purple connection cannot leave the torus like in Figure \ref{fig:32knota}, have it pass along the underside of the torus, directly, as in Figure \ref{fig:32knotb}. This will add 3 new crossings, but it will embed $5_2$ on a genus 2 surface.
+    \end{itemize}
+    \item A knot with bridge number $b$ is an $n$-embeddable knot where $n\leq b$.
+    \item Any knot is an $n$-embeddable knot for some $n$.
+    \item If $K$ is an $n$-embeddable knot, then the genus of $K$ is at most $n-1$$^[$\footnote{These last 3 statements all exist as provable exercises that are feasible with more time.}$^]$.
+\end{itemize}
+
+
+\subsection{Satellite Knots}
+\begin{itemize}
+    \item \textbf{Satellite knot}: The knot $K_3$ produced by taking a knot $K_1$, which resides within a solid torus, and then knotting the torus into a distinct knot $K_2$.
+    \begin{itemize}
+        \item $K_1$ must lie within the torus such that it hits every meridional disk and cannot be isotropied to miss any of the disks.
+    \end{itemize}
+    \item \textbf{Companion knot}: The knot $K_2$ in the above description.
+    \begin{itemize}
+        \item $K_2$ must be a nontrivial knot.
+        \item The companion knot is the core curve about which $K_3$ \emph{orbits}. This is why $K_3$ is a \emph{satellite} knot.
+    \end{itemize}
+    \item For every satellite knot, there exists a knotted torus in the complement of the knot.
+    \begin{itemize}
+        \item This knotted torus is always incompressible.
+    \end{itemize}
+    \item \textbf{Whitehead double} (of the companion knot): A satellite knot where $K_1$ is the unknot twisted up as in Figure \ref{fig:whiteheaddouble}.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \colorlet{blx}{blue}
+            \colorlet{bly}{blx!10}
+            \colorlet{rex}{red}
+    
+            \begin{scope}[
+                every path/.style={thick}
+            ]
+                \foreach \r/\c in {1/bly,0.3/white} {
+                    \fill [\c,scale=\r] ellipse (2cm and 1.4cm);
+                }
+                \foreach \s in {1,0.3} {
+                    \draw [blue,thick,scale=\s] ellipse (2cm and 1.4cm);
+                }
+            \end{scope}
+            \begin{knot}[
+                clip width=5,
+                consider self intersections,
+                ignore endpoint intersections=false,
+                every strand/.append style={red,thick},
+                background color={bly}
+            ]
+                \strand (-1.4,0)
+                    to [out=90,in=90,looseness=2] (-0.9,0)
+                    to [out=-90,in=-90,looseness=1.3] (1,0)
+                    to [out=90,in=90,looseness=1.3] (-1.1,0)
+                    to [out=-90,in=-90,looseness=2] (-1.6,0)
+                    to [out=90,in=90,looseness=1.3] (1.5,0)
+                    to [out=-90,in=-90,looseness=1.3] cycle
+                ;
+            \end{knot}
+        \end{tikzpicture}
+        \caption{$K_1$ of a Whitehead double.}
+        \label{fig:whiteheaddouble}
+    \end{figure}
+    \begin{itemize}
+        \item So named because $K_1$ resembles the Whitehead link (see Figure \ref{fig:WhiteheadBorromeana}).
+        \item For example, if we take $K_1$ as the unknot in Figure \ref{fig:whiteheaddouble} and then knot the solid torus into a trefoil, we will have obtained a Whitehead double of the trefoil knot.
+        \item If we perform a $k$-move where $k$ is even$^[$\footnote{This is equivalent to cutting open the torus along a meridional disk, twisting it some number of full revolutions, and gluing it back together.}$^]$ on the unknot in Figure \ref{fig:whiteheaddouble} and then knot the solid torus into a trefoil, we will have obtained another Whitehead double of the trefoil knot.
+        \begin{itemize}
+            \item Both of these Whitehead doubles have the property that if $\mathbb{R}^3$ is cut along the boundary of the knotted torus, the two pieces will be the solid torus at hand and three-space minus a solid torus knotted as $K_2$.
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{Two-strand cable} (of the companion knot): A satellite knot where $K_1$ is the unknot twisted up as in Figure \ref{fig:twostrandcable}.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \colorlet{blx}{blue}
+            \colorlet{bly}{blx!10}
+            \colorlet{rex}{red}
+    
+            \begin{scope}[
+                every path/.style={thick}
+            ]
+                \foreach \r/\c in {1/bly,0.3/white} {
+                    \fill [\c,scale=\r] ellipse (2cm and 1.4cm);
+                }
+                \foreach \s in {1,0.3} {
+                    \draw [blue,thick,scale=\s] ellipse (2cm and 1.4cm);
+                }
+            \end{scope}
+            \begin{knot}[
+                clip width=5,
+                consider self intersections,
+                ignore endpoint intersections=false,
+                every strand/.append style={red,thick},
+                background color={bly}
+            ]
+                \strand ([rotate=10]-1.5,0)
+                    to [out=90,in=-90] ([rotate=-10]-1,0)
+                    to [out=90,in=90,in looseness=1.3] (1,0)
+                    to [out=-90,in=-90,out looseness=1.3] ([rotate=10]-1,0)
+                    to [out=90,in=-90] ([rotate=-10]-1.5,0)
+                    to [out=90,in=90,in looseness=1.3] (1.5,0)
+                    to [out=-90,in=-90,out looseness=1.3] cycle
+                ;
+            \end{knot}
+        \end{tikzpicture}
+        \caption{$K_1$ of a two-strand cable.}
+        \label{fig:twostrandcable}
+    \end{figure}
+    \begin{itemize}
+        \item Again, the two-strand cable will not be unique (even $k$-moves).
+    \end{itemize}
+    \item If $K_1$ has only one strand reaching longitudinally around the solid torus, then $K_3=K_1\#K_2$.
+    \begin{itemize}
+        \item Thus, satellite knots can be thought of as a broader category (a generalization) of composition in that all composite knots are satellite knots but not all satellite knots are composite knots.
+        \item Note that in this case, the knotted torus is a swallow-follow torus.
+    \end{itemize}
+    \item In the same way that every composite knot can be factored into a unique set of prime knots, every satellite knot can be factored into a unique sequence of taking satellites.
+    \item \emph{Exercise 5.14}: Determine how the satellite knot in Figure \ref{fig:ex5-14} was made. Identify its companion and draw it inside the solid torus before the solid torus is knotted.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.25\linewidth]{Blender/ex5-14.png}
+        \caption{A satellite knot.}
+        \label{fig:ex5-14}
+    \end{figure}
+    \begin{itemize}
+        \item I will not answer all parts of this exercise.
+        \item The companion knot is the figure-eight knot, though.
+        \item Furthermore, it appears to be constructed from the composition of 3 trefoil knots, several $k$-moves, and was originally an unknot similar to the one in Figure \ref{fig:whiteheaddouble}.
+    \end{itemize}
+    \item \textbf{Cable knot} (of the companion knot): A satellite knot where $K_1$ is a torus knot.
+    \begin{itemize}
+        \item Cable knots can be iterative, i.e., cables on cables on cables on torus knots.
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Hyperbolic Knots}\label{sss:Hyperbolic}
+\begin{itemize}
+    \item It is suspected that the vast majority of knots are hyperbolic knots.
+    \begin{itemize}
+        \item By "the vast majority of an infinite set," \dq{we mean that for all of the prime knots of $n$ or fewer crossings, a certain large percentage of them are hyperbolic. As $n$ approaches $\infty$, that percentage is expected to approach 100\%}{119}
+    \end{itemize}
+    \item \dq{William Thurston proved in 1978 that the only knots that are not hyperbolic knots are torus knots and satellite knots}{119}
+    \begin{itemize}
+        \item Note that this statement includes all composite knots as satellite knots, a disputed claim.
+    \end{itemize}
+    \item \emph{Interesting tidbit on hyperbolic knot history}.
+    \item \textbf{Hyperbolic knot}: \dq{A knot that has a complement that can be given a \textbf{metric} of constant curvature $-1$}{120}
+    \item \textbf{Metric}: A method of measuring distance.
+    \item \textbf{Euclidean metric}: The typical way to measure distance in three-space, i.e., through the use of Equation \ref{eqn:distance}.
+    \begin{equation}\label{eqn:distance}
+        d(P_0,P_1)=\sqrt{(x_1-x_0)^2+(y_1-y_0)^2+(z_1-z_0)^2}
+    \end{equation}
+    \item On curvature:
+    \begin{itemize}
+        \item A sphere has positive curvature --- at a point on the sphere, cross sections of the sphere through that point yield circles that all curve away in the same direction.
+        \item A plane has zero curvature --- at a point on the plane, lines on the plane through that point are flat.
+        \item A saddle has negative curvature --- at the central point, one cross section opens up while another opens down.
+    \end{itemize}
+    \item The Euclidian metric is a \textbf{flat metric}.
+    \item \textbf{Flat metric}: A metric with curvature 0.
+    \item \textbf{Hyperbolic metric}: A metric with curvature $-1$.
+    \item \textbf{Hyperbolic geometry}: The geometry that results from applying a hyperbolic metric to three-space.
+    \item \textbf{Hyperbolic three-space}: \dq{The simplest example of a three-dimensional space that has a hyperbolic metric}{121} \emph{Also known as} $\mathbb{H}^3$.
+    \item The model of $\mathbb{H}^3$ considered herein is called the \textbf{Pointcar\'{e} model}.
+    \item The points considered by this model are those of three-space inside the unit ball, or the following in set notation.
+    \begin{equation}
+        \mathbb{H}^3=\left\{ (x,y,z):x^2+y^2+z^2<1 \right\}
+    \end{equation}
+    \item On measuring distance in $\mathbb{H}^3$:
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \colorlet{blx}{blue}
+            \colorlet{bly}{blx!10}
+            \colorlet{blz}{blx!50}
+            \colorlet{grx}{green!50!black}
+    
+            \fill [bly] circle (1.5cm);
+            \foreach \r/\n in {0/,45/-,135/,180/-} {
+                \draw [thick,rotate=\r] (0,1.48) rectangle (\n0.1,1.38);
+            }
+    
+            \begin{knot}[
+                clip width=5,
+                background color=bly,
+                flip crossing/.list={3,4},
+                every strand/.append style={thick}
+            ]
+                \strand [blx] (-1.5,0) arc[start angle=-180,end angle=0,x radius=1.5cm,y radius=0.5cm];
+                \strand [blz,only when rendering/.style={dashed}] (-1.5,0) arc[start angle=180,end angle=0,x radius=1.5cm,y radius=0.5cm];
+                \clip circle (1.5cm);
+                \strand [grx] (-2.12,0) circle (1.5cm);
+                \strand [grx] (0,1.5) to (0,-1.5);
+            \end{knot}
+    
+            \draw [blx,ultra thick] circle (1.5cm);
+            \fill [grx] (0,0.8) circle (2pt);
+            \fill [grx] (0,-0.8) circle (2pt);
+            \fill [grx] (-0.85,0.8) circle (2pt);
+            \fill [grx] (-0.85,-0.8) circle (2pt);
+            \node at (-0.4,0.8) {$P_1$};
+            \node at (-0.4,-0.8) {$P_2$};
+        \end{tikzpicture}
+        \caption{Paths between points in $\mathbb{H}^3$.}
+        \label{fig:H3paths}
+    \end{figure}
+    \begin{itemize}
+        \item Refer to Figure \ref{fig:H3paths} throughout the following description.
+        \item Let $P_1$ and $P_2$ be two points in $\mathbb{H}^3$.
+        \item If $P_1$ and $P_2$ both line on a diameter, then define the partiular path between them to lie along that diameter.
+        \item Otherwise, $P_1$ and $P_2$ lie on a circle that intersects both of them, and then the unit ball perpendicularly.
+        \begin{itemize}
+            \item Such a circle is called a \textbf{geodesic}.
+            \item For any two points on a geodesic, the shortest distance between them also lies on the curve.
+            \item Play the same role as straight lines in Euclidean space.
+        \end{itemize}
+        \item \dq{The shortest path in hyperbolic three-space from $P_1$ to $P_2$ is the path within the arc of a circle or vertical line from $P_1$ to $P_2$}{121}
+        \begin{itemize}
+            \item Call this path $w$.
+        \end{itemize}
+        \item To measure the distance between $P_1$ and $P_2$, use the following path integral$^[$\footnote{Perhaps a fun topic to explore at a later date.}$^]$ where $r$ is the distance to the origin.
+        \begin{equation}
+            d(P_1,P_2)=\int_w \frac{2}{1-r^2}\,\text{d}s
+        \end{equation}
+    \end{itemize}
+    \item \textbf{Geodesic} (in $\mathbb{H}^3$): \dq{Any arc of a circle or diameter in $\mathbb{H}^3$ that is perpendicular to the unit sphere}{121}
+    \item \dq{The angles of any triangle in hyperbolic three-space add up to less than $180^\circ$$^[$\footnote{Similar to the discussion of Non-Euclidian geometry and the parallel postulate in \emph{Journey Through Genius}.}$^]$}{122}
+    \item Use tetrahedral pieces of $\mathbb{H}^3$ to obtain a hyperbolic manifold.
+    \begin{itemize}
+        \item The edges of such tetrahedra are geodesics, and the faces are geodesic planes (instead of the circular intersection in Figure \ref{fig:H3paths}, use a sphere that satisfies the same conditions).
+    \end{itemize}
+    \item Similar to gluing together triangles (Figure \ref{fig:triangleintersects}) to form surfaces, glue together tetrahedra in $\mathbb{H}^3$ to form a knot complement.
+    \begin{itemize}
+        \item \dq{If the tetrahedra that we glue together are actually hyperbolic tetrahedra, in that they sit inside hyperbolic space, and if we glue them together along their faces so that their faces match without distortion, in order that the hyperbolic method of measuring distances within the individual tetrahedra match, the result is a hyperbolic knot complement}{123}
+    \end{itemize}
+    \item We can then extrapolate the distance metric of $\mathbb{H}^3$ (applicable to the edges of a tetrahedron) to measure the entire knot complement hyperbolically.
+    \item If this can be done, then the knot is a hyperbolic knot.
+    \item The measurements facilitated by this process allow for the calculation of the \textbf{hyperbolic volume}.
+    \item \textbf{Hyperbolic volume}: A positive real number that is \dq{the sum of the volumes of the individual hyperbolic tetrahedra that make up the knot complement}{123}
+    \begin{itemize}
+        \item Although a knot complement might seem like it's infinite, measured hyperbolically, it's finite.
+    \end{itemize}
+    \item Hyperbolic volume is a knot invariant.
+    \begin{itemize}
+        \item In fact, it is incredibly useful in distinguishing knots.
+        \item However, it obviously cannot distinguish knots that are not hyperbolic.
+        \item It struggles with $k$-moves sometimes.
+        \item Mutants have the same hyperbolic volume.
+    \end{itemize}
+    \item The figure-eight knot does, indeed, have the smallest hyperbolic volume (Meyerhoff and Cao, 1997).
+    \item To compute the hyperbolic volume (very surface-level):
+    \begin{itemize}
+        \item Cut the complement into tetrahedra.
+        \item Place the tetrahedra in hyperbolic three=space.
+        \item In order to ensure that they properly mesh in $\mathbb{H}^3$, a set of polynomial equations must be satisfied.
+        \begin{itemize}
+            \item \dq{If there are $n$ tetrahedra, we obtain $n$ polynomial equations in $n$ variables}{125}
+            \item These variables are complex variables.
+        \end{itemize}
+        \item Use numerical methods to solve the system.
+        \item The solution determines the hyperbolic metric on each tetrahedron.
+        \item The volume can then be computed for each tetrahedron individually.
+        \item The individual volumes can be summed to get the hyperbolic volume.
+    \end{itemize}
+    \item This process can be carried out by hand, but there is also a computer program to do it.
+\end{itemize}
+
+
+\subsection{Braids}
+\begin{itemize}
+    \item \textbf{Braid}: \dq{A set of $n$ strings, all of which are attached to a horizontal bar at the top and at the bottom}{127}
+    \begin{itemize}
+        \item See Figure \ref{fig:braidclosurea}.
+    \end{itemize}
+    \item Each strand can intersect a horizontal plane between the horizontal bars only once.
+    \begin{itemize}
+        \item Each strand must constantly head down --- it cannot loop back upward.
+    \end{itemize}
+    \item \textbf{Equivalent} (braids): Two braids such that one can be rearranged to look like the other \dq{without passing any strings through one another or themselves while keeping the bars fixed and keeping the strings attached to the bars}{128}
+    \begin{itemize}
+        \item The strings cannot be pulled over the upper bar or beneath the bottom bar in rearranging a braid.
+        \item Think of the bars as infinite sheets to discourage this urge.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=3pt,
+                    every strand/.append style={red,thick},
+                    flip crossing/.list={2,4,5}
+                ]
+                    \strand (-0.4,1.7)
+                        to [out=-90,in=90] (0,0)
+                        to [out=-90,in=90] (-0.4,-0.7)
+                        to [out=-90,in=90] (0.4,-1.7)
+                    ;
+                    \strand (0,1.7)
+                        to [out=-90,in=90] (0.4,0.7)
+                        to [out=-90,in=90] (-0.4,0.1)
+                        to [out=-90,in=90] (-0.1,-0.8)
+                        to [out=-90,in=90] (-0.4,-1.7)
+                    ;
+                    \strand (0.4,1.7)
+                        to [out=-90,in=90] (0,0.8)
+                        to [out=-90,in=90] (0.4,0)
+                        to [out=-90,in=90] (0,-1.7)
+                    ;
+                \end{knot}
+    
+                \foreach \y in {,-} {
+                    \draw [thick] (-0.7,\y1.7) -- (0.7,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{A braid.}
+            \label{fig:braidclosurea}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=2pt,
+                    consider self intersections,
+                    ignore endpoint intersections=false,
+                    every strand/.append style={red,thick},
+                    scale=0.6,
+                    flip crossing/.list={2,3,6}
+                ]
+                    \strand (-0.4,1.7)
+                        to [out=-90,in=90] (0,0)
+                        to [out=-90,in=90] (-0.4,-0.7)
+                        to [out=-90,in=90] (0.4,-1.7)
+                        to [out=-90,in=-90,looseness=1.5] (-2.4,-1.7)
+                        to (-2.4,1.7)
+                        to [out=90,in=90,looseness=1.5] (0.4,1.7)
+                        to [out=-90,in=90] (0,0.8)
+                        to [out=-90,in=90] (0.4,0)
+                        to [out=-90,in=90] (0,-1.7)
+                        to [out=-90,in=-90,looseness=1.5] (-2,-1.7)
+                        to (-2,1.7)
+                        to [out=90,in=90,looseness=1.5] (0,1.7)
+                        to [out=-90,in=90] (0.4,0.7)
+                        to [out=-90,in=90] (-0.4,0.1)
+                        to [out=-90,in=90] (-0.1,-0.8)
+                        to [out=-90,in=90] (-0.4,-1.7)
+                        to [out=-90,in=-90,looseness=1.5] (-1.6,-1.7)
+                        to (-1.6,1.7)
+                        to [out=90,in=90,looseness=1.5] cycle
+                    ;
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-0.5em}
+            \caption{The closure of the braid.}
+            \label{fig:braidclosureb}
+        \end{subfigure}
+        \caption{A braid and its closure.}
+        \label{fig:braidclosure}
+    \end{figure}
+    \item \textbf{Closure} (of a braid): The link formed by pulling the bottom bar around and gluing it to the top bar.
+    \begin{itemize}
+        \item See the difference between the braid in Figure \ref{fig:braidclosurea} and the closure of that braid in Figure \ref{fig:braidclosureb}.
+    \end{itemize}
+    \item Imagine an axis perpendicular to the page through the center of Figure \ref{fig:braidclosureb}.
+    \begin{itemize}
+        \item The closure is wrapped around this axis.
+    \end{itemize}
+    \item \textbf{Closed braid representation} (of a knot): A projection where there exists \dq{a choice of orientation on the knot so that, as we traverse the knot in that direction, we always travel clockwise around the axis without any backtracking}{128}
+    \item \emph{Exercise 5.16}: Draw closed braid representations of the knots in Figure \ref{fig:ex5-16}. Hint: You may want to make them out of string or an extention cord and then see if you can rearrange them to travel clockwise around a pencil. Another option is to make a choice of an axis and then start to have the knot travel around the axis clockwise. Whenever it starts to travel counterclockwise, pass that portion of the knot through the axis to fix the problem. It is recommended that you do not try to use the technique that follows this problem in order to do it.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{Blender/ex3-8b.png}
+            \caption{$4_1$}
+            \label{fig:ex5-16a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{Blender/ex2-3b.png}
+            \caption{$6_3$}
+            \label{fig:ex5-16b}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.85\linewidth]{Blender/ex1-22.png}
+            \caption{$7_4$}
+            \label{fig:ex5-16c}
+        \end{subfigure}
+        \caption{Draw these knots as closed braids.}
+        \label{fig:ex5-16}
+    \end{figure}
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{Blender/ex5-16-2a.png}
+            \caption{$4_1$}
+            \label{fig:ex5-16-2a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{Blender/ex5-16-2b.png}
+            \caption{$6_3$}
+            \label{fig:ex5-16-2b}
+        \end{subfigure}
+        \caption{Solution to \emph{Exercise 5.16} (incomplete).}
+        \label{fig:ex5-16-2}
+    \end{figure}
+    \item \dq{Every knot or link is a closed braid}{129}
+    \item This was proven in 1923 by J. W. Alexander of the Alexander polynomial (see Section \ref{sse:polynomials}).
+    \item Let's take a look at this proof.
+    %pictures?
+    \begin{itemize}
+        \item This proof utilizes the idea of bridges from Section \ref{sss:Bridge}.
+        \item Let $L$ be a knot or link.
+        \item Assign an orientation to $L$.
+        \item For each subarc (strand between crossings), choose a point along said subarc.
+        \item Choose a point and label it $P_1$.
+        \item Proceed along the orientation of the knot, labeling each successive point $P_i$ through $P_n$. These points will be vertices (the places where overpasses and underpasses pass through the projection plane).
+        \item Notice that the strand between $P_1$ and $P_2$ is an overpass while the strand between $P_2$ and $P_3$ is an underpass. In fact, the strand between $P_{2i-1}$ and $P_{2i}$ is always an overpass while the strand between $P_{2i}$ and $P_{2i+1}$ is always an underpass.
+        \item Isotope the projection so that the understrands are lined up vertically next to each other. Make sure not to add any new crossings.
+        \item Let $A$ be a straight line in the projection plane that is perpendicular to each underpass.
+        \item Each of the underpasses obviously cross $A$ only once, but make sure that the overpasses only cross $A$ once, too.
+        \begin{itemize}
+            \item Every overpass crosses $A$ an odd number of times (because one must cross at least once to move from $P_{2i-1}$ to $P_{2i}$ and any other crossings could be thought of as Type II Reidemeister moves, which add 2 crossings each time).
+            \item To resolve any issues, go to the problematic overpass's second crossing of $A$ along the orientation.
+            \item Push it beneath $A$, reating a new underpass, a bridge that crosses $A$ once, and a bridge that crosses $A$ two fewer times.
+            \item Repeat this process for all problem areas.
+        \end{itemize}
+        \item For all underpasses, start at $P_{2i}$, decrease $z$ until the crossing with $A$, and then increase $z$ to intersect with $P_{2i+1}$.
+        \item For all overpasses, first make sure that all strands lie over the region contained by the underpasses. If the overpasses have to cross one another, that is fine. Now, start at $P_{2i-1}$, increase $z$ until the crossing with $A$, and then decrease $z$ to intersect $P_{2i}$.
+        \item The result is a closed braid with $A$ as an axis.
+    \end{itemize}
+    \item \textbf{Braid index}: \dq{The least number of strings in a braid corresponding to a closed braid representation of the link}{132} \emph{Also known as} $b(L)$.
+    \begin{table}[h!]
+        \centering
+        \renewcommand{\arraystretch}{1.4}
+        \begin{tabular}{|r|c|c|c|}
+            \hline
+            \textbf{Knot}        & unknot & $3_1$ & $4_1$\\
+            \hline
+            \textbf{Braid index} & 1      & 2     & 3    \\
+            \hline
+        \end{tabular}
+        \caption{Some braid indices.}
+        \label{tab:simpb-L}
+    \end{table}
+    \item \emph{Exercise 5.17}: Describe all of the knots and links of braid index 2.
+    \begin{itemize}
+        \item All of the knots and links of braid index have crossings that can be undone by a single $k$-move, i.e., all such knots and links are $k$-equivalent to the trivial link of 2 components.
+        \item All such knots and links are $(k,2)$-torus knots or links.
+        \item If $k$ is even, the manifold is a link of 2 components of linking number $\frac{k}{2}$.
+        \item If $k$ is odd, the manifold is the $k_1$ knot (Alexander-Briggs notation).
+    \end{itemize}
+    \item The braid index is a link invariant.
+    \begin{itemize}
+        \item Upper bounds are easy to find.
+        \item Lower bounds, however, are difficult to find. One way uses polynomials (see Section \ref{sse:polynomials}).
+    \end{itemize}
+    \item \dq{The braid index of a knot is equal to the least number of Seifert circles in any projection of the knot}{132}
+    \item Given a nonsplittable link $L$ with crossing number $c(L)$ and braid index $b(L)$, Equation \ref{eqn:bLcL} holds.
+    \begin{equation}\label{eqn:bLcL}
+        2(b(L)-1)\leq c(L)
+    \end{equation}
+    \item To describe a braid, use a \textbf{word}.
+    \item \textbf{Word} (for a braid): Given a braid with $n$ strings, first ensure that all crossings are at different vertical heights. Working one's way down the braid from the top, denote the $i^\text{th}$ string crossing over the $(i+1)^\text{th}$ string by $\sigma_i$ and the $i^\text{th}$ string crossing under the $(i+1)^\text{th}$ string by $\sigma_i^{-1}$. Concatenate all such notations.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.15\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (-0.4,1.7)
+                        to (-0.4,0.7)
+                        to [out=-90,in=90] (0,-0.7)
+                        to (0,-1.7)
+                    ;
+                    \strand (0,1.7)
+                        to (0,0.7)
+                        to [out=-90,in=90] (-0.4,-0.7)
+                        to (-0.4,-1.7)
+                    ;
+                    \strand (0.4,1.7)
+                        to (0.4,-1.7)
+                    ;
+                \end{knot}
+    
+                \foreach \y in {,-} {
+                    \draw [thick] (-0.7,\y1.7) -- (0.7,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{$\sigma_1$}
+            \label{fig:braidcrossingsa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.15\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (-0.4,1.7)
+                        to (-0.4,0.7)
+                        to [out=-90,in=90] (0,-0.7)
+                        to (0,-1.7)
+                    ;
+                    \strand (0,1.7)
+                        to (0,0.7)
+                        to [out=-90,in=90] (-0.4,-0.7)
+                        to (-0.4,-1.7)
+                    ;
+                    \strand (0.4,1.7)
+                        to (0.4,-1.7)
+                    ;
+                    \flipcrossings{1}
+                \end{knot}
+    
+                \foreach \y in {,-} {
+                    \draw [thick] (-0.7,\y1.7) -- (0.7,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{$\sigma_1^{-1}$}
+            \label{fig:braidcrossingsb}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.15\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (0,1.7)
+                        to (0,0.7)
+                        to [out=-90,in=90] (0.4,-0.7)
+                        to (0.4,-1.7)
+                    ;
+                    \strand (0.4,1.7)
+                        to (0.4,0.7)
+                        to [out=-90,in=90] (0,-0.7)
+                        to (0,-1.7)
+                    ;
+                    \strand (-0.4,1.7)
+                        to (-0.4,-1.7)
+                    ;
+                \end{knot}
+    
+                \foreach \y in {,-} {
+                    \draw [thick] (-0.7,\y1.7) -- (0.7,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{$\sigma_2$}
+            \label{fig:braidcrossingsc}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.15\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (0,1.7)
+                        to (0,0.7)
+                        to [out=-90,in=90] (0.4,-0.7)
+                        to (0.4,-1.7)
+                    ;
+                    \strand (0.4,1.7)
+                        to (0.4,0.7)
+                        to [out=-90,in=90] (0,-0.7)
+                        to (0,-1.7)
+                    ;
+                    \strand (-0.4,1.7)
+                        to (-0.4,-1.7)
+                    ;
+                    \flipcrossings{1}
+                \end{knot}
+    
+                \foreach \y in {,-} {
+                    \draw [thick] (-0.7,\y1.7) -- (0.7,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{$\sigma_2^{-1}$}
+            \label{fig:braidcrossingsd}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.15\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (-0.4,1.7)
+                        to (-0.4,1.4)
+                        to [out=-90,in=90] (0.4,-1.4)
+                        to (0.4,-1.7)
+                    ;
+                    \strand (0,1.7)
+                        to (0,1.4)
+                        to [out=-90,in=90] (-0.4,0)
+                        to (-0.4,-1.7)
+                    ;
+                    \strand (0.4,1.7)
+                        to (0.4,0)
+                        to [out=-90,in=90] (0,-1.4)
+                        to (0,-1.7)
+                    ;
+                    \flipcrossings{2}
+                \end{knot}
+    
+                \foreach \y in {,-} {
+                    \draw [thick] (-0.7,\y1.7) -- (0.7,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{$\sigma_1\sigma_2^{-1}$}
+            \label{fig:braidcrossingse}
+        \end{subfigure}
+        \caption{Denoting crossings in a braid.}
+        \label{fig:braidcrossings}
+    \end{figure}
+    \item \emph{Exercise 5.18}: Draw the five-string braid given by the word $\sigma_1\sigma_2\sigma_3\sigma_2^{-1}\sigma_4\sigma_1^{-1}$.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.2\linewidth]{../Notes/Blender/ex5-18.png}
+        \caption{Solution to \emph{Exercise 5.18}.}
+        \label{fig:ex5-18}
+    \end{figure}
+    \item \emph{Exercise 5.19}: Identify the knot that has four-string braid word $\left( \sigma_1^{-1}\sigma_2\sigma_3^{-1} \right)^2{\sigma_3}^3$. It is one of the six-crossing knots.
+    \begin{itemize}
+        \item After drawing the closure of the braid, reduce crossings down to six.
+        \item At this point, a 4 tangle and a 2 tangle can be picked out.
+        \item Therefore, this is the $6_1$ knot.
+    \end{itemize}
+    \item \emph{Exercise 5.20}: Find a word such that the closure of the corresponding braid gives the $6_3$ knot.
+    \begin{itemize}
+        \item Use Figure \ref{fig:ex5-16-2b}, which gives a closed braid representation of $6_3$. From this projection, it is possible to pick find the word.
+        \item Therefore, the word is $\sigma_2\sigma_2\sigma_1^{-1}\sigma_2\sigma_1^{-1}\sigma_1^{-1}$.
+    \end{itemize}
+    \item \emph{Exercise 5.21}: Show that the closure of the $n$-string braid $\left( \sigma_1\sigma_2\cdots\sigma_{n-1} \right)^m$ is a knot if and only if $n$ and $m$ are relatively prime.
+    \begin{itemize}
+        % \item If $m=cn$ where $c\in\mathbb{N}$ for the word in question, then every strand touches the bottom and top bar at the same position relative to every other strand. Therefore, a link of $n$ components is generated.
+        % \item If $n=cm$ where $c\in\mathbb{N}$ for the word in question, then every strand shifts $m$ places from top to bottom. Therefore, a loop will pass through the braid $\frac{n}{m}=\frac{cm}{m}=c$ times before reaching its starting point. Therefore, a link of $c$ components is generated.
+        \item Given this particular word, every strand "shifts" $m$ places from top to bottom.
+        \begin{itemize}
+            \item Consider a scenario where $n=3$ and $m=1$.
+            \item The left strand at the top becomes the rightmost strand at the bottom by the definition of the word.
+            \item This means that the right strand at the top becomes the middle strand at the bottom and the middle strand at the top becomes the left strand at the bottom.
+            \item Now consider when $n=3$ and $m=2$.
+            \item The above shifting of strands takes place, but then it takes place again, i.e., every strand shifts twice.
+            \item Thus, from top to bottom, left $\rightarrow$ right $\rightarrow$ middle, middle $\rightarrow$ left $\rightarrow$ right, and right $\rightarrow$ middle $\rightarrow$ left.
+        \end{itemize}
+        \item Take a strand that is $i^\text{th}$ from the left at the top.
+        \item Assuming that $i>m$, the strand will be $(i-m)^\text{th}$ from the left at the bottom.
+        \item Therefore, it will reenter the top of the braid in the $(i-m)^\text{th}$ from the left position.
+        \item It may then leave at the $(i-2m)^\text{th}$ from the left position (or it may shift back to the right side).
+        \item Regardless, it will pass through some number of strands of the braid in this fashion.
+        \item Only if $n$ and $m$ are relatively prime will one loop pass through every strand in a nontrivial fashion.
+    \end{itemize}
+    \item \emph{Exercise 5.22}: Check that the closure of the $n$-string braid $\left( \sigma_1\sigma_2\cdots\sigma_{n-1} \right)^m$ is simply the $(m,n)$-torus knot (assuming $m$ and $n$ are relatively prime).
+    \begin{itemize}
+        \item Indeed, this is the case.
+    \end{itemize}
+    \item The word notation has some useful advantages.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.15\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (0,1.7)
+                        to (0,-1.7)
+                    ;
+                    \strand (-0.4,1.7)
+                        to (-0.4,-1.7)
+                    ;
+                    \strand (0.4,1.7)
+                        to (0.4,-1.7)
+                    ;
+                    \strand (-0.8,1.7)
+                        to (-0.8,-1.7)
+                    ;
+                \end{knot}
+        
+                \foreach \y in {,-} {
+                    \draw [thick] (-1.1,\y1.7) -- (0.7,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{$1$}
+            \label{fig:braidIIa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.15\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (-0.4,1.7)
+                        to [out=-90,in=90] (0,0)
+                        to [out=-90,in=90] (-0.4,-1.7)
+                    ;
+                    \strand (0,1.7)
+                        to [out=-90,in=90] (-0.4,0)
+                        to [out=-90,in=90] (0,-1.7)
+                    ;
+                    \strand (0.4,1.7)
+                        to (0.4,-1.7)
+                    ;
+                    \strand (-0.8,1.7)
+                        to (-0.8,-1.7)
+                    ;
+                \end{knot}
+        
+                \foreach \y in {,-} {
+                    \draw [thick] (-1.1,\y1.7) -- (0.7,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{$\sigma_i\sigma_i^{-1}$}
+            \label{fig:braidIIb}
+        \end{subfigure}
+        \caption{Braids equivalent via a Type II Reidemeister move.}
+        \label{fig:braidII}
+    \end{figure}
+    \begin{itemize}
+        \item If a $\sigma_i\sigma_i^{-1}$ term appears somewhere within a word, it corresponds to the crossings shown in Figure \ref{fig:braidII}.
+        \item These crossings can easily be undone via a Type II Reidemesiter move.
+        \item In the same way, $\sigma_i\sigma_i^{-1}=1$ by the definition of an inverse, so the term reduces out of the word.
+    \end{itemize}
+    \item \emph{Exercise 5.23}: If a given word represents a knot with a particular orientation, what word gives the same knot but with the opposite orientation?
+    \begin{itemize}
+        \item Take the terms of the word and reverse their order.
+    \end{itemize}
+    \item To multiply two $n$-string braids, just stack them on top of each other.
+    \begin{itemize}
+        \item This is reflected by the notation --- stacking tangles means that the word of the top one will be immediately followed by the word of the bottom one.
+    \end{itemize}
+    \item \emph{Exercise 5.24} (a): Describe an $n$-string braid $I_n$ that acts as an identify when it multiplies any other $n$-string braid. That is to say, multiplying a braid $B$ by this braid yields the braid $B$ back again.
+    \begin{itemize}
+        \item $I_n$ is the trivial braid of $n$-strings.
+        \item Multiplication extends the bottom strands, but they can be isotoped back to being shorter.
+    \end{itemize}
+    \item \emph{Exercise 5.24} (b): Describe an inverse braid for a given braid $B$. That is to say, find a braid $B^{-1}$ that has the property that $BB^{-1}=I_n=B^{-1}B$.
+    \begin{itemize}
+        \item $B^{-1}$ is just $B$ but with the inverse of the terms of the word listed in reverse order.
+        \item For example, if $B=\sigma_1\sigma_2^{-1}\sigma_2$, then $B^{-1}=\sigma_2^{-1}\sigma_2\sigma_1^{-1}$.
+    \end{itemize}
+    \item \emph{Exercise 5.24} (c): Show that the multiplication of $n$-string braids is associative, namely $B_1\left( B_2B_3 \right)=\left( B_1B_2 \right)B_3$ for any threee $n$-string braids $B_1$, $B_2$, and $B_3$.
+    \begin{itemize}
+        \item Since the terms of a word follow the normal rules of multiplication, so do words, themselves$^[$\footnote{This is like proving that a vector space is closed under addition and scalar multiplication using the fact the regular numbers (components of vectors) are obey addition and scalar multiplication.}$^]$.
+    \end{itemize}
+    \item $B_n$ will denote the \textbf{group} of $n$-string braids (developed throughout \emph{Exercise 5.24}).
+    \item \textbf{Group}: A set of elements and a way to multiply the elements such that:
+    \begin{enumerate}
+        \item \dq{There exists an identity element that, when multiplying any element, doesn't change it;
+        \item Every element has an inverse;
+        \item The multiplication is associative, that is, $a(bc)=(ab)c$ for any three elements $a$, $b$, and $c$ of the group}{135}
+    \end{enumerate}
+    \item A particular element of $B_n$ is an equivalent class of braids.
+    \item \emph{Exercise 5.26}: Using a picture, show that the two braids $\sigma_i\sigma_{i+1}\sigma_i$ and $\sigma_{i+1}\sigma_i\sigma_{i+1}$ are equivalent.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (-0.4,1.7)
+                        to (-0.4,1.2)
+                        to [out=-90,in=90] (0.4,-0.4)
+                        to (0.4,-1.7)
+                    ;
+                    \strand (0,1.7)
+                        to (0,1.2)
+                        to [out=-90,in=90] (-0.4,0.4)
+                        to (-0.4,-0.4)
+                        to [out=-90,in=90] (0,-1.2)
+                        to (0,-1.7)
+                    ;
+                    \strand (0.4,1.7)
+                        to (0.4,0.4)
+                        to [out=-90,in=90] (-0.4,-1.2)
+                        to (-0.4,-1.7)
+                    ;
+                    \strand (0.8,1.7)
+                        to (0.8,-1.7)
+                    ;
+                    \strand (-0.8,1.7)
+                        to (-0.8,-1.7)
+                    ;
+                \end{knot}
+        
+                \foreach \y in {,-} {
+                    \draw [thick] (-1.1,\y1.7) -- (1.1,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{$\sigma_i\sigma_{i+1}\sigma_i$}
+            \label{fig:braidIIIa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand [rotate=180] (-0.4,1.7)
+                        to (-0.4,1.2)
+                        to [out=-90,in=90] (0.4,-0.4)
+                        to (0.4,-1.7)
+                    ;
+                    \strand [rotate=180] (0,1.7)
+                        to (0,1.2)
+                        to [out=-90,in=90] (-0.4,0.4)
+                        to (-0.4,-0.4)
+                        to [out=-90,in=90] (0,-1.2)
+                        to (0,-1.7)
+                    ;
+                    \strand [rotate=180] (0.4,1.7)
+                        to (0.4,0.4)
+                        to [out=-90,in=90] (-0.4,-1.2)
+                        to (-0.4,-1.7)
+                    ;
+                    \strand (0.8,1.7)
+                        to (0.8,-1.7)
+                    ;
+                    \strand (-0.8,1.7)
+                        to (-0.8,-1.7)
+                    ;
+                \end{knot}
+        
+                \foreach \y in {,-} {
+                    \draw [thick] (-1.1,\y1.7) -- (1.1,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{$\sigma_{i+1}\sigma_i\sigma_{i+1}$}
+            \label{fig:braidIIIb}
+        \end{subfigure}
+        \caption{Braids equivalent via a Type III Reidemeister move.}
+        \label{fig:braidIII}
+    \end{figure}
+    \item If $\sigma_i\sigma_j$ is changed to $\sigma_j\sigma_i$ when $|i-j|>1$, equivalence is maintained.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.25\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (0.4,1.7)
+                        to (0.4,0)
+                        to [out=-90,in=90] (0.8,-1.4)
+                        to (0.8,-1.7)
+                    ;
+                    \strand (0.8,1.7)
+                        to (0.8,0)
+                        to [out=-90,in=90] (0.4,-1.4)
+                        to (0.4,-1.7)
+                    ;
+                    \strand [rotate=180] (0.4,1.7)
+                        to (0.4,0)
+                        to [out=-90,in=90] (0.8,-1.4)
+                        to (0.8,-1.7)
+                    ;
+                    \strand [rotate=180] (0.8,1.7)
+                        to (0.8,0)
+                        to [out=-90,in=90] (0.4,-1.4)
+                        to (0.4,-1.7)
+                    ;
+                    \strand (0,1.7)
+                        to (0,-1.7)
+                    ;
+                    \strand (1.2,1.7)
+                        to (1.2,-1.7)
+                    ;
+                    \strand (-1.2,1.7)
+                        to (-1.2,-1.7)
+                    ;
+                \end{knot}
+        
+                \foreach \y in {,-} {
+                    \draw [thick] (-1.5,\y1.7) -- (1.5,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{$\sigma_i\sigma_j$}
+            \label{fig:braid121a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.25\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (0.4,1.7)
+                        to (0.4,1.4)
+                        to [out=-90,in=90] (0.8,0)
+                        to (0.8,-1.7)
+                    ;
+                    \strand (0.8,1.7)
+                        to (0.8,1.4)
+                        to [out=-90,in=90] (0.4,0)
+                        to (0.4,-1.7)
+                    ;
+                    \strand [rotate=180] (0.4,1.7)
+                        to (0.4,1.4)
+                        to [out=-90,in=90] (0.8,0)
+                        to (0.8,-1.7)
+                    ;
+                    \strand [rotate=180] (0.8,1.7)
+                        to (0.8,1.4)
+                        to [out=-90,in=90] (0.4,0)
+                        to (0.4,-1.7)
+                    ;
+                    \strand (0,1.7)
+                        to (0,-1.7)
+                    ;
+                    \strand (1.2,1.7)
+                        to (1.2,-1.7)
+                    ;
+                    \strand (-1.2,1.7)
+                        to (-1.2,-1.7)
+                    ;
+                \end{knot}
+        
+                \foreach \y in {,-} {
+                    \draw [thick] (-1.5,\y1.7) -- (1.5,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{$\sigma_j\sigma_i$}
+            \label{fig:braid121b}
+        \end{subfigure}
+        \caption{Braids equivalent via a shifting of unconnected strings.}
+        \label{fig:braid121}
+    \end{figure}
+    \begin{itemize}
+        \item Not based on a Type I Reidemeister move.
+        \item Just changes the relative height of two distinct twists.
+    \end{itemize}
+    \item \dq{Two words $w_1$ and $w_2$ represent the same braid if and only if we can get from the one word to the other by a sequence of these operations}{136}
+    \item \emph{Exercise 5.27}: Show that the two words $w_1=\sigma_2\sigma_1\sigma_2\sigma_1\sigma_2^{-1}\sigma_4$ and $w_2={\sigma_2}^2\sigma_3\sigma_1\sigma_3^{-1}\sigma_4$ represent the same five-string braid, up to equivalence.
+    \begin{align*}
+        w_1 =&\ \sigma_2\sigma_1\sigma_2\sigma_1\sigma_2^{-1}\sigma_4\\
+        \xrightarrow{\text{Rule 2}} &\ \sigma_2\sigma_2\sigma_1\sigma_2\sigma_2^{-1}\sigma_4\\
+        \xrightarrow{\text{Rule 1}} &\ \sigma_2\sigma_2\sigma_1\sigma_4\\
+        \xrightarrow{\text{Condense}} &\ {\sigma_2}^2\sigma_1\sigma_4\\
+        \xrightarrow{\text{Rule 1}} &\ {\sigma_2}^2\sigma_1\sigma_3\sigma_3^{-1}\sigma_4\\
+        \xrightarrow{\text{Rule 3}} &\ {\sigma_2}^2\sigma_3\sigma_1\sigma_3^{-1}\sigma_4=w_2
+    \end{align*}
+    \item \textbf{Markov equivalent} (braids): Two braids whose \dq{closures yield the same oriented link}{137}
+    \item \textbf{Markov's theorem}: Two braids are Markov equivalent if and only if they can be transformed into one another via the previous three operations, \textbf{conjugation}, and \textbf{stabilization}.
+    \item \textbf{Conjugation}: Multiply the word by $\sigma_j$ at the beginning and $\sigma_j^{-1}$ at the end (or vice versa).
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (0,1.7)
+                        to (0,-1.7)
+                    ;
+                    \strand (-0.4,1.7)
+                        to (-0.4,-1.7)
+                    ;
+                    \strand (0.4,1.7)
+                        to (0.4,-1.7)
+                    ;
+                    \strand (-0.8,1.7)
+                        to (-0.8,-1.7)
+                    ;
+                \end{knot}
+    
+                \node [draw=red,thick,fill=white,minimum width=1.4cm] at (-0.2,0) {Braid};
+        
+                \foreach \y in {,-} {
+                    \draw [thick] (-1.1,\y1.7) -- (0.7,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{Unconjugated.}
+            \label{fig:braidII2a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (-0.4,1.7)
+                        to [out=-90,in=90] (0,0)
+                        to [out=-90,in=90] (-0.4,-1.7)
+                    ;
+                    \strand (0,1.7)
+                        to [out=-90,in=90] (-0.4,0)
+                        to [out=-90,in=90] (0,-1.7)
+                    ;
+                    \strand (0.4,1.7)
+                        to (0.4,-1.7)
+                    ;
+                    \strand (-0.8,1.7)
+                        to (-0.8,-1.7)
+                    ;
+                \end{knot}
+    
+                \node [draw=red,thick,fill=white,minimum width=1.4cm] at (-0.2,0) {Braid};
+        
+                \foreach \y in {,-} {
+                    \draw [thick] (-1.1,\y1.7) -- (0.7,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{Conjugated.}
+            \label{fig:braidII2b}
+        \end{subfigure}
+        \caption{Braids equivalent via conjugation by $\sigma_j$.}
+        \label{fig:braidII2}
+    \end{figure}
+    \item \textbf{Stabilization}: Multiply the word $w$ corresponding to an $n$-string braid by $\sigma_n$ to yield $w\sigma_n$. Alternatively, given an $(n+1)$-string braid $w\sigma_n$ where $\sigma_n$ is only present as the last term, remove $\sigma_n$ to yield $w$. Multiplying by or removing $\sigma_n^{-1}$ is also valid.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (0,1.7)
+                        to (0,-1.7)
+                    ;
+                    \strand (-0.4,1.7)
+                        to (-0.4,-1.7)
+                    ;
+                    \strand (0.4,1.7)
+                        to (0.4,-1.7)
+                    ;
+                    \strand (-0.8,1.7)
+                        to (-0.8,-1.7)
+                    ;
+                \end{knot}
+    
+                \node [draw=red,thick,fill=white,minimum width=1.4cm] at (-0.2,0) {Braid};
+        
+                \foreach \y in {,-} {
+                    \draw [thick] (-1.1,\y1.7) -- (0.7,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{$n$-strings.}
+            \label{fig:braidIa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (0.4,1.7)
+                        to (0.4,0)
+                        to [out=-90,in=90] (0.8,-1.7)
+                    ;
+                    \strand (0.8,1.7)
+                        to (0.8,0)
+                        to [out=-90,in=90] (0.4,-1.7)
+                    ;
+                    \strand (0,1.7)
+                        to (0,-1.7)
+                    ;
+                    \strand (-0.4,1.7)
+                        to (-0.4,-1.7)
+                    ;
+                    \strand (-0.8,1.7)
+                        to (-0.8,-1.7)
+                    ;
+                \end{knot}
+    
+                \node [draw=red,thick,fill=white,minimum width=1.4cm] at (-0.2,0) {Braid};
+        
+                \foreach \y in {,-} {
+                    \draw [thick] (-1.1,\y1.7) -- (0.7,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{$(n+1)$-strings.}
+            \label{fig:braidIb}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (0.4,1.7)
+                        to [out=-90,in=90] (0.4,0)
+                        to [out=-90,in=90] (0.8,-1.4)
+                        to [out=-90,in=-90,looseness=1.8] (1.2,-1.4)
+                        to (1.2,1.4)
+                        to [out=90,in=90,looseness=1.8] (0.8,1.4)
+                        to [out=-90,in=90] (0.8,0)
+                        to [out=-90,in=90] (0.4,-1.7)
+                    ;
+                    \strand (0,1.7)
+                        to (0,-1.7)
+                    ;
+                    \strand (-0.4,1.7)
+                        to (-0.4,-1.7)
+                    ;
+                    \strand (-0.8,1.7)
+                        to (-0.8,-1.7)
+                    ;
+                \end{knot}
+    
+                \node [draw=red,thick,fill=white,minimum width=1.4cm] at (-0.2,0) {Braid};
+        
+                \foreach \y in {,-} {
+                    \draw [thick] (-1.1,\y1.7) -- (0.7,\y1.7);
+                }
+            \end{tikzpicture}
+            \caption{Showing the loop.}
+            \label{fig:braidIc}
+        \end{subfigure}
+        \caption{Braids equivalent via stabilization by $\sigma_n$.}
+        \label{fig:braidI}
+    \end{figure}
+    \begin{itemize}
+        \item This move changes the number of strings/loops in a closed braid.
+        \item It is kind of like a Type I Reidemeister move.
+    \end{itemize}
+    \item \textbf{Letter}: An individual $\sigma_i^{\pm 1}$ term in a word.
+    \item \textbf{Markov moves}: Formally, the five listed operations (Figures \ref{fig:braidII}, \ref{fig:braidIII}, \ref{fig:braid121}, \ref{fig:braidII2}, and \ref{fig:braidI}).
+\end{itemize}
+
+
+\subsection{Almost Alternating Knots}
+\begin{itemize}
+    \item \textbf{Almost alternating knot}: A nonalternating knot that has a projection where one crossing change would make the knot alternating.
+    \item \dq{Of the 393 nonalternating knots and links of eleven or fewer crossings, all but at most three are almost alternating}{140}
+    \item \dq{An algebraic knot that contains no negative signs in its Conway notation is in fact an alternating knot}{141}
+    \item \dq{An algebraic link that has exactly one negative sign in its Conway notation has an almost alternating projection$^[$\footnote{Available as an exercise.}$^]$}{141}
+    \begin{itemize}
+        \item This statement proves that all but 17 of Conway's nonalternating knots are almost alternating.
+    \end{itemize}
+    \item In this section, results known for alternating knots (many are listed in Section \ref{sss:polynomials}) will be generalized to almost alternating knots.
+    \item \dq{Every alternating knot or link has an almost alternating projection}{141}
+    \begin{itemize}
+        \item A Type II Reidemeister move on the alternating projection produces an almost alternating projection.
+    \end{itemize}
+    \item \dq{A prime almost alternating knot is either a torus knot or a hyperbolic knot}{142}
+    \begin{itemize}
+        \item Thus, no satellite knot is an almost alternating knot.
+        \item This is an extention of the previously known fact that a prime alternating link is either a torus link or a hyperbolic link.
+        \item Because the only alternating torus links are the closures of braids where $b(L)=2$ (see \emph{Exercise 5.17}), almost all prime alternating links are hyperbolic.
+    \end{itemize}
+    \item \textbf{Tongue move}: A Type II Reidemeister move followed by a Type III Reidemeister move about the nonalternating crossing$^[$\footnote{This is a Type II bridging move!}$^]$.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \colorlet{orx}{orange}
+            \colorlet{ory}{orx!10}
+    
+            \begin{scope}[
+                xshift=-3cm
+            ]
+                \fill [ory] (-2,-2) rectangle (2,2);
+                \node at (0,-1.7) {Alternating out here};
+                \filldraw [draw=red,thick,fill=white] circle (1cm);
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=3pt,
+                    ignore endpoint intersections=false,
+                    every strand/.append style={red,thick}
+                ]
+                    \clip circle (1cm);
+                    \strand (-1,0) to (1,0);
+                    \strand (0,-1) to (0,1);
+                    \strand (-1.6,0) circle (1cm);
+                    \strand (1.6,0) circle (1cm);
+                    \strand (0,-1.6) circle (1cm);
+                    \strand (0,1.6) circle (1cm);
+                    \flipcrossings{1,2,3}
+                \end{knot}
+                \draw [cyan,thick,dashed,dash pattern=on 2pt off 1pt,dash phase=1pt] circle (2mm);
+            \end{scope}
+            \draw [very thick,-latex] (-0.4,0) -- (0.4,0);
+            \begin{scope}[
+                xshift=3cm
+            ]
+                \fill [ory] (-2,-2) rectangle (2,2);
+                \node at (0,-1.7) {Alternating out here};
+                \filldraw [draw=red,thick,fill=white] circle (1cm);
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=3pt,
+                    ignore endpoint intersections=false,
+                    every strand/.append style={red,thick}
+                ]
+                    \clip circle (1cm);
+                    \strand (-1,0) to (1,0);
+                    \strand (0,-1) to (0,1);
+                    \strand (-1.6,0) circle (1cm);
+                    \strand (1.6,0) circle (1cm);
+                    \strand (-0.6,-0.8)
+                        to [out=30,in=180] (0,0.3)
+                        to [out=0,in=150] (0.6,-0.8)
+                    ;
+                    \strand (0,1.6) circle (1cm);
+                    \flipcrossings{1,2,3}
+                \end{knot}
+                \draw [cyan,thick,dashed,dash pattern=on 2pt off 1pt,dash phase=1pt] (0,0.3) circle (2mm);
+            \end{scope}
+        \end{tikzpicture}
+        \caption{A tongue move.}
+        \label{fig:tongue}
+    \end{figure}
+    \item \textbf{\emph{m}-almost alternating knot}: \dq{A knot that has a projection where $m$ crossing changes would make the projection alternating, and the knot has no projection that could be made alternating in fewer crossing changes}{144}
+    \begin{itemize}
+        \item Alternating knots are $0$-almost alternating knots and almost alternating knots are $1$-almost alternating knots.
+    \end{itemize}
+    \item The simplest Whitehead double of the trefoil knot is $2$-almost alternating.
+    \begin{itemize}
+        \item It is not alternating.
+        \item It is a satellite knot, and, thus, is not almost alternating.
+        \item There exists a projection of it where two crossing changes would make it alternating.
+    \end{itemize}
+    \item \emph{Exercise 5.33}: Show that every knot is $m$-almost alternating for some $m$.
+    \begin{itemize}
+        \item Take a projection of a knot.
+        \item Assign an orientation.
+        \item Choose a crossing from which to begin traversing the knot.
+        \item Leave on the understrand.
+        \item If the next crossing is not passed through on the overstrand, flip the crossing. Otherwise, continue along.
+        \item If the crossing after that is not passed through on the understrand, flip the crossing. Otherwise, continue along.
+        \item Continue in this manner until you arrive at the original crossing on the understrand. Make sure to not change any single crossing more than once.
+        \item Tally up the crossing changes. This is an upper bound on $m$.
+    \end{itemize}
+    \item \emph{Exercise 5.34}: Show that if a knot has an $m$-almost alternating projection, then it has an $(m+1)$-almost alternating projection.
+    \begin{itemize}
+        \item Take the initial projection and perform any Type II Reidemeister move that adds two crossings (see above).
+        \item This new projection will be $(m+1)$-almost alternating.
+    \end{itemize}
+    \item \emph{Exercise 5.35}: Show that if a knot $K$ has a projection with $n$ crossings, the it is $m$-almost alternating for some $m\leq\frac{n}{2}$.
+    \begin{itemize}
+        \item The worst case scenario (the projection that would need the most crossing changes) is a projection where it is possible to travel through every crossing on the understrand before reaching an overpass (or vice versa).
+        \item In this case, flip every other crossing ($\frac{n}{2}$ crossings if $n$ is even or $\frac{n-1}{2}$ crossings if $n$ is odd).
+        \item Therefore, $m\leq\frac{n}{2}$.
+    \end{itemize}
+    \item $m$ is similar to the unknotting number.
+    \begin{itemize}
+        \item The two are extreme opposites: $u(K)$ measures the distance from the "simplest" version of the knot while $m$ measures the distance from the "most complicated" version of the knot.
+    \end{itemize}
+    \item \textbf{Toroidally alternating knot}: A knot that can be projected onto a torus so that it is alternating when viewed from the outside of the torus. Furthermore, every closed curve on the torus that doesn't bound a disk$^[$\footnote{So then, a longitude?}$^]$ must intersect the projection.
+    \item It is easy to tell if a projection on a torus is alternating. The second qualifier can be determined via this process:
+    \begin{itemize}
+        \item Treat the crossings as vertices and subarcs as edges so that the knot projection becomes a graph.
+        \item Cut along the edges to yield disks.
+        \item \dq{Any closed curve on the torus that doesn't intersect the projection must lie in one of these disks. But then it will bound a disk on the torus. Hence, this is a toroidally alternating knot}{145}
+    \end{itemize}
+    \item Any almost alternating knot is toroidally alternating.
+    \item Any alternating knot is toroidally alternating$^[$\footnote{These statements exist as exercises.}$^]$.
+    \item \dq{Toroidally alternating knots behave similarly to alternating and almost alternating knots}{146}
 \end{itemize}
 
 
