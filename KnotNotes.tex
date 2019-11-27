@@ -18,8 +18,14 @@
 \numberwithin{equation}{section}
 
 \usetikzlibrary{knots,decorations.markings}
+\tikzset{mini/.style={scale=0.15,baseline={(0,-0.09)},every path/.style={knot=red,thick}}}
 
 \newcommand{\dq}[2]{``#1" (#2).}
+\newcommand{\lbq}{<\hspace{-3pt}}
+\newcommand{\rbq}{\hspace{-3pt}>}
+\newcommand{\bpunknot}{\tikz[mini]{\draw circle (1cm);}}
+\newcommand{\vertopen}{\tikz[mini,every to/.style={bend angle=45,looseness=1.3}]{\draw (-1,1) to[bend left] (-1,-1);\draw (1,1) to[bend right] (1,-1);}}
+\newcommand{\horiopen}{\tikz[mini,every to/.style={bend angle=45,looseness=1.3}]{\draw (-1,-1) to[bend left] (1,-1);\draw (-1,1) to[bend right] (1,1);}}
 
 \renewcommand{\labelitemiii}{\scriptsize$\blacksquare$}
 
@@ -4556,7 +4562,7 @@
     \begin{itemize}
         \item This statement proves that all but 17 of Conway's nonalternating knots are almost alternating.
     \end{itemize}
-    \item In this section, results known for alternating knots (many are listed in Section \ref{sss:polynomials}) will be generalized to almost alternating knots.
+    \item In this section, results known for alternating knots (many are listed in Section \ref{sse:polynomials}) will be generalized to almost alternating knots.
     \item \dq{Every alternating knot or link has an almost alternating projection}{141}
     \begin{itemize}
         \item A Type II Reidemeister move on the alternating projection produces an almost alternating projection.
@@ -4674,6 +4680,104 @@
     \item Any almost alternating knot is toroidally alternating.
     \item Any alternating knot is toroidally alternating$^[$\footnote{These statements exist as exercises.}$^]$.
     \item \dq{Toroidally alternating knots behave similarly to alternating and almost alternating knots}{146}
+\end{itemize}
+\newpage
+
+
+
+\section{Polynomials}\label{sse:polynomials}
+\subsection{The Bracket Polynomial and the Jones Polynomial}
+\begin{itemize}
+    \item A knot polynomial is one of the most successful ways to tell knots apart.
+    \begin{itemize}
+        \item From a projection, we can find a polynomial.
+        \item If two projections yield the same polynomial, they represent the same knot.
+        \item If two projections yield different polynomials, they represent different knots.
+    \end{itemize}
+    \item Therefore, knot polynomials are knot invariants.
+    \item \textbf{Laurent polynomial}: A polynomial with both positive and negative powers of $t$.
+    \item J. Alexander introduced the first knot polynomial in 1928.
+    \item John Conway found a way to calculate the Alexander polynomial of a link using a \textbf{skein relation} in 1969.
+    \item \textbf{Skein relation}: An equation that relates the polynomial of a link $L_1$ to the polynomial of a link $L_2$ obtained by changing the crossings in a projection $L_1$.
+    \item Vaughn Jones found a new polynomial for knots and links in 1984.
+    \item Four months later, the HOMFLY polynomial was announced.
+    \begin{itemize}
+        \item So named for its discoverers: Hoste, Ocneau, Millet, Freyd, Lickorish, and Yetter.
+    \end{itemize}
+    \item Since then, many new polynomials have been discovered.
+    \item Many of these discoveries have introduced areas of mathematics previously unrelated to knot theory to knot theory.
+    \item The first polynomial developed will be the \textbf{Bracket polynomial}.
+    \begin{itemize}
+        \item We will take the approach of a mathematician trying to discover a polynomial invariant for knots and links.
+    \end{itemize}
+    \item Let $\lbq K\rbq$ denote the bracket polynomial of a knot $K$.
+    \item Begin by listing basic requirements that we want the polynomial to have.
+    \begin{itemize}
+        \item The polynomial should be $1$ for the trivial knot.
+        \begin{equation*}
+            \text{Rule 1}:\qquad\lbq\bpunknot\rbq\ =1
+        \end{equation*}
+        \item The polynomial for a link should be able to be obtained in terms of the polynomials of simpler links.
+        \begin{itemize}
+            \item Use a skein relation.
+            \item Split open a crossing of $L_1$ vertically and horizontally in order to obtain two new link projections $L_2$ and $L_3$ with one fewer crossing.
+            \item The bracket polynomial of $L_1$ can be given as a linear combination of those for $L_2$ and $L_3$. Use $A$ and $B$ as placeholder coefficients.
+            \item Note that the second equation is just the first equation rotated $90^\circ$.
+        \end{itemize}
+        \begin{align*}
+            \text{Rule 2}:\qquad\lbq\tikz[mini]{\draw (-1,1) to (1,-1);\draw (-1,-1) to (1,1);}\rbq &=A\lbq\vertopen\rbq+B\lbq\horiopen\rbq\\
+            \lbq\tikz[mini]{\draw (1,1) to (-1,-1);\draw (1,-1) to (-1,1);}\rbq &= A\lbq\horiopen\rbq+B\lbq\vertopen\rbq
+        \end{align*}
+        \item The polynomial should be able to account for adding in a trivial component to a link.
+        \begin{equation*}
+            \text{Rule 3}:\qquad\lbq L\cup\bpunknot\rbq\ = C\lbq L\rbq
+        \end{equation*}
+    \end{itemize}
+    \item The most important criterion is that this polynomial be an invariant. Therefore, it must not change under the Reidemeister moves.
+    \item Begin with a Type II Reidemeister move's effect.
+    \begin{itemize}
+        \item In other words, we want $\lbq\tikz[mini]{\draw (0.6,1) to[bend right=80,looseness=1.9] (0.6,-1);\draw (-1,1) to[bend left=80,looseness=1.9] (-1,-1);}\rbq=\lbq\vertopen\rbq$. See the following expansion by the three previous rules.
+        \begin{align*}
+            \lbq\tikz[mini]{\draw (0.6,1) to[bend right=80,looseness=1.9] (0.6,-1);\draw (-1,1) to[bend left=80,looseness=1.9] (-1,-1);}\rbq 
+            &\overset{?}{=} A\lbq\tikz[mini]{\draw (-1,1) to[bend right=45,looseness=1.3] (1,1);\draw (0,0) to[out=180,in=180,out looseness=2] (1,-1);\draw (-1,-1) to[out=0,in=0,in looseness=2] (0,0);}\rbq
+            +B\lbq\tikz[mini]{\draw (-1,1) to[out=0,in=90] (-0.5,0) to[out=-90,in=180] (1,-1);\draw (1,1) to[out=180,in=90] (0.5,0) to[out=-90,in=0] (-1,-1);}\rbq\\
+            &\overset{?}{=} A\left( A\lbq\horiopen\rbq
+            +B\lbq\tikz[scale=0.15,baseline={(0,-0.09)},every path/.style={red,thick}]{\draw (-1,-1) to[bend left=30] (1,-1);\draw (-1,1) to[bend right=30] (1,1);\draw circle (3mm);}\rbq \right)
+            +B\left( A\lbq\vertopen\rbq
+            +B\lbq\horiopen\rbq \right)\\
+            &\overset{?}{=} A\left( A\lbq\horiopen\rbq
+            +BC\lbq\horiopen\rbq \right)
+            +B\left( A\lbq\vertopen\rbq
+            +B\lbq\horiopen\rbq \right)\\
+            &\overset{?}{=} \left( A^2+ABC+B^2 \right)\lbq\horiopen\rbq
+            +BA\lbq\vertopen\rbq\stepcounter{equation}\tag{\theequation}\label{eqn:bracketABC}\\
+            &\overset{?}{=}\ \lbq\vertopen\rbq
+        \end{align*}
+        \item To make the polynomial unchanged, $BA$ must equal $1$ and $A^2+ABC+B^2$ must equal $0$.
+        \item Thus, define $B=A^{-1}$.
+        \begin{itemize}
+            \item This definition makes the following equal to Equation \ref{eqn:bracketABC}.
+        \end{itemize}
+        \begin{equation}\label{eqn:bracketAC}
+            \left( A^2+C+A^{-2} \right)\lbq\horiopen\rbq
+            +\lbq\vertopen\rbq
+        \end{equation}
+        \item Now define $C=-A^2-A^{-2}$.
+        \begin{itemize}
+            \item This definition makes the following equal to Equation \ref{eqn:bracketAC}.
+        \end{itemize}
+        \begin{equation*}
+            \lbq\vertopen\rbq
+        \end{equation*}
+        \item Therefore, the equality associated with Equation \ref{eqn:bracketABC} holds.
+    \end{itemize}
+    \item Based on the substitutions for $B$ and $C$, Rules 1-3 become the following.
+    \begin{align*}
+        \text{Rule 1}:\qquad& \lbq\bpunknot\rbq\ =1\\
+        \text{Rule 2}:\qquad& \lbq\tikz[mini]{\draw (-1,1) to (1,-1);\draw (-1,-1) to (1,1);}\rbq\ =A\lbq\vertopen\rbq+A^{-1}\lbq\horiopen\rbq\\
+        & \lbq\tikz[mini]{\draw (1,1) to (-1,-1);\draw (1,-1) to (-1,1);}\rbq\ = A\lbq\horiopen\rbq+A^{-1}\lbq\vertopen\rbq\\
+        \text{Rule 3}:\qquad& \lbq L\cup\bpunknot\rbq\ = \left( -A^2-A^{-2} \right)\lbq L\rbq
+    \end{align*}
 \end{itemize}
 
 
