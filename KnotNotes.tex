@@ -23,9 +23,17 @@
 \newcommand{\dq}[2]{``#1" (#2).}
 \newcommand{\lbq}{<\hspace{-3pt}}
 \newcommand{\rbq}{\hspace{-3pt}>}
-\newcommand{\bpunknot}{\tikz[mini]{\draw circle (1cm);}}
-\newcommand{\vertopen}{\tikz[mini,every to/.style={bend angle=45,looseness=1.3}]{\draw (-1,1) to[bend left] (-1,-1);\draw (1,1) to[bend right] (1,-1);}}
-\newcommand{\horiopen}{\tikz[mini,every to/.style={bend angle=45,looseness=1.3}]{\draw (-1,-1) to[bend left] (1,-1);\draw (-1,1) to[bend right] (1,1);}}
+\newcommand{\bpunknot}{\tikz[mini]{
+    \draw circle (1cm);
+}}
+\newcommand{\vertopen}{\tikz[mini,every to/.style={bend angle=45,looseness=1.3}]{
+    \draw (-1,1) to[bend left] (-1,-1);
+    \draw (1,1) to[bend right] (1,-1);
+}}
+\newcommand{\horiopen}{\tikz[mini,every to/.style={bend angle=45,looseness=1.3}]{
+    \draw (-1,-1) to[bend left] (1,-1);
+    \draw (-1,1) to[bend right] (1,1);
+}}
 
 \renewcommand{\labelitemiii}{\scriptsize$\blacksquare$}
 
@@ -3167,7 +3175,7 @@
     \item \textbf{Torus knot}: A knot that lies on an unknotted torus such that the subarcs do not cross each other on the torus's surface.
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.3\linewidth]{../Notes/Blender/Long-merid.png}
+        \includegraphics[width=0.3\linewidth]{Blender/Long-merid.png}
         \begin{tikzpicture}[remember picture,overlay]
             \node at (0,2.5) {Longitude}
                 edge [->] (-1.3,2)
@@ -4034,7 +4042,7 @@
     \item \emph{Exercise 5.18}: Draw the five-string braid given by the word $\sigma_1\sigma_2\sigma_3\sigma_2^{-1}\sigma_4\sigma_1^{-1}$.
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.2\linewidth]{../Notes/Blender/ex5-18.png}
+        \includegraphics[width=0.12\linewidth]{Blender/ex5-18.png}
         \caption{Solution to \emph{Exercise 5.18}.}
         \label{fig:ex5-18}
     \end{figure}
@@ -4706,7 +4714,7 @@
     \end{itemize}
     \item Since then, many new polynomials have been discovered.
     \item Many of these discoveries have introduced areas of mathematics previously unrelated to knot theory to knot theory.
-    \item The first polynomial developed will be the \textbf{Bracket polynomial}.
+    \item The first polynomial developed will be the \textbf{bracket polynomial}.
     \begin{itemize}
         \item We will take the approach of a mathematician trying to discover a polynomial invariant for knots and links.
     \end{itemize}
@@ -4725,8 +4733,14 @@
             \item Note that the second equation is just the first equation rotated $90^\circ$.
         \end{itemize}
         \begin{align*}
-            \text{Rule 2}:\qquad\lbq\tikz[mini]{\draw (-1,1) to (1,-1);\draw (-1,-1) to (1,1);}\rbq &=A\lbq\vertopen\rbq+B\lbq\horiopen\rbq\\
-            \lbq\tikz[mini]{\draw (1,1) to (-1,-1);\draw (1,-1) to (-1,1);}\rbq &= A\lbq\horiopen\rbq+B\lbq\vertopen\rbq
+            \text{Rule 2}:\qquad\lbq\tikz[mini]{
+                \draw (-1,1) to (1,-1);
+                \draw (-1,-1) to (1,1);
+            }\rbq &=A\lbq\vertopen\rbq+B\lbq\horiopen\rbq\\
+            \lbq\tikz[mini]{
+                \draw (1,1) to (-1,-1);
+                \draw (1,-1) to (-1,1);
+            }\rbq &= A\lbq\horiopen\rbq+B\lbq\vertopen\rbq
         \end{align*}
         \item The polynomial should be able to account for adding in a trivial component to a link.
         \begin{equation*}
@@ -4736,13 +4750,36 @@
     \item The most important criterion is that this polynomial be an invariant. Therefore, it must not change under the Reidemeister moves.
     \item Begin with a Type II Reidemeister move's effect.
     \begin{itemize}
-        \item In other words, we want $\lbq\tikz[mini]{\draw (0.6,1) to[bend right=80,looseness=1.9] (0.6,-1);\draw (-1,1) to[bend left=80,looseness=1.9] (-1,-1);}\rbq=\lbq\vertopen\rbq$. See the following expansion by the three previous rules.
+        \item In other words, we want $\lbq\tikz[mini]{
+            \draw (0.6,1) to[bend right=80,looseness=1.9] (0.6,-1);
+            \draw (-1,1) to[bend left=80,looseness=1.9] (-1,-1);
+        }\rbq=\lbq\vertopen\rbq$. See the following expansion by the three previous rules.
         \begin{align*}
-            \lbq\tikz[mini]{\draw (0.6,1) to[bend right=80,looseness=1.9] (0.6,-1);\draw (-1,1) to[bend left=80,looseness=1.9] (-1,-1);}\rbq 
-            &\overset{?}{=} A\lbq\tikz[mini]{\draw (-1,1) to[bend right=45,looseness=1.3] (1,1);\draw (0,0) to[out=180,in=180,out looseness=2] (1,-1);\draw (-1,-1) to[out=0,in=0,in looseness=2] (0,0);}\rbq
-            +B\lbq\tikz[mini]{\draw (-1,1) to[out=0,in=90] (-0.5,0) to[out=-90,in=180] (1,-1);\draw (1,1) to[out=180,in=90] (0.5,0) to[out=-90,in=0] (-1,-1);}\rbq\\
+            \lbq\tikz[mini]{
+                \draw (0.6,1) to[bend right=80,looseness=1.9] (0.6,-1);
+                \draw (-1,1) to[bend left=80,looseness=1.9] (-1,-1);
+            }\rbq 
+            &\overset{?}{=} A\lbq\tikz[mini]{
+                \draw (-1,1) to[bend right=45,looseness=1.3] (1,1);
+                \draw (0,0) to[out=180,in=180,out looseness=2] (1,-1);
+                \draw (-1,-1) to[out=0,in=0,in looseness=2] (0,0);
+            }\rbq
+            +B\lbq\tikz[mini]{
+                \draw (-1,1)
+                    to[out=0,in=90] (-0.5,0)
+                    to[out=-90,in=180] (1,-1)
+                ;
+                \draw (1,1)
+                    to[out=180,in=90] (0.5,0)
+                    to[out=-90,in=0] (-1,-1)
+                ;
+            }\rbq\\
             &\overset{?}{=} A\left( A\lbq\horiopen\rbq
-            +B\lbq\tikz[scale=0.15,baseline={(0,-0.09)},every path/.style={red,thick}]{\draw (-1,-1) to[bend left=30] (1,-1);\draw (-1,1) to[bend right=30] (1,1);\draw circle (3mm);}\rbq \right)
+            +B\lbq\tikz[scale=0.15,baseline={(0,-0.09)},every path/.style={red,thick}]{
+                \draw (-1,-1) to[bend left=30] (1,-1);
+                \draw (-1,1) to[bend right=30] (1,1);
+                \draw circle (3mm);
+            }\rbq \right)
             +B\left( A\lbq\vertopen\rbq
             +B\lbq\horiopen\rbq \right)\\
             &\overset{?}{=} A\left( A\lbq\horiopen\rbq
@@ -4774,9 +4811,389 @@
     \item Based on the substitutions for $B$ and $C$, Rules 1-3 become the following.
     \begin{align*}
         \text{Rule 1}:\qquad& \lbq\bpunknot\rbq\ =1\\
-        \text{Rule 2}:\qquad& \lbq\tikz[mini]{\draw (-1,1) to (1,-1);\draw (-1,-1) to (1,1);}\rbq\ =A\lbq\vertopen\rbq+A^{-1}\lbq\horiopen\rbq\\
-        & \lbq\tikz[mini]{\draw (1,1) to (-1,-1);\draw (1,-1) to (-1,1);}\rbq\ = A\lbq\horiopen\rbq+A^{-1}\lbq\vertopen\rbq\\
+        \text{Rule 2}:\qquad& \lbq\tikz[mini]{
+            \draw (-1,1) to (1,-1);
+            \draw (-1,-1) to (1,1);
+        }\rbq\ =A\lbq\vertopen\rbq+A^{-1}\lbq\horiopen\rbq\\
+        & \lbq\tikz[mini]{
+            \draw (1,1) to (-1,-1);
+            \draw (1,-1) to (-1,1);
+        }\rbq\ = A\lbq\horiopen\rbq+A^{-1}\lbq\vertopen\rbq\\
         \text{Rule 3}:\qquad& \lbq L\cup\bpunknot\rbq\ = \left( -A^2-A^{-2} \right)\lbq L\rbq
+    \end{align*}
+    \item Now let's look at the Type III Reidemeister move.
+    \begin{align*}
+        \lbq\tikz[mini]{
+            \draw (-1,0) to[bend left=60,looseness=1.6] (1,0);
+            \draw (1,1) to (-1,-1);
+            \draw (-1,1) to (1,-1);
+        }\rbq\ &=
+        A\lbq\tikz[mini,every to/.style={bend angle=60,looseness=1.6}]{
+            \draw (-1,0) to (1,0);
+            \draw (-1,-1) to[bend left] (1,-1);
+            \draw (-1,1) to[bend right] (1,1);
+        }\rbq
+        +A^{-1}\lbq\tikz[mini,every to/.style={bend angle=45,looseness=1.6}]{
+            \draw (-1,0) to (1,0);
+            \draw (-1,1) to[bend left] (-1,-1);
+            \draw (1,1) to[bend right] (1,-1);
+        }\rbq\\
+        &= A\lbq\tikz[mini,every to/.style={bend angle=60,looseness=1.6}]{
+            \draw (-1,0) to[bend right] (1,0);
+            \draw (-1,-1) to[bend left] (1,-1);
+            \draw (-1,1) to[bend right] (1,1);
+        }\rbq
+        +A^{-1}\lbq\tikz[mini,every to/.style={bend angle=45,looseness=1.6}]{
+            \draw (-1,0) to[bend right] (1,0);
+            \draw (-1,1) to[bend left] (-1,-1);
+            \draw (1,1) to[bend right] (1,-1);
+        }\rbq\\
+        &= \lbq\tikz[mini]{
+            \draw (-1,0) to[bend right=60,looseness=1.6] (1,0);
+            \draw (1,1) to (-1,-1);
+            \draw (-1,1) to (1,-1);
+        }\rbq
+    \end{align*}
+    \begin{itemize}
+        \item Note that the transition from the first to the second line above is allowed because the bracket polynomial has been proven to be unchanged by Type II Reidemeister moves.
+    \end{itemize}
+    \item Calculate the polynomial for a trivial link of two components.
+    \begin{align*}
+        \lbq\bpunknot\cup\bpunknot\rbq &= -\left( A^2+A^{-2} \right)\lbq\bpunknot\rbq\\
+        &= -\left( A^2+A^{-2} \right)1\\
+        &= -A^2-A^{-2}\stepcounter{equation}\tag{\theequation}\label{eqn:bracket2comp}
+    \end{align*}
+    \item \emph{Exercise 6.1}: What would the bracket polynomial of the usual projection of the trivial link of $n$ components be?
+    \begin{itemize}
+        \item It will be given by Equation \ref{eqn:bracketncomp}. This could be proved via mathematical induction.
+        \begin{equation}\label{eqn:bracketncomp}
+            (-A^2-A^{-2})^{n-1}
+        \end{equation}
+    \end{itemize}
+    \item Calculate the bracket polynomial for the Hopf link (see Figure \ref{fig:unlinkHopfb}).
+    \begin{align*}
+        \lbq\tikz[scale=0.15,baseline={(0,-0.09)}]{
+            \begin{knot}[
+                clip width=5,
+                clip radius=2pt,
+                ignore endpoint intersections=false,
+                every strand/.append style={red,thick},
+                flip crossing=2
+            ]
+                \strand (0.5,0) circle (1cm);
+                \strand (-0.5,0) circle (1cm);
+            \end{knot}
+        }\rbq
+        &= A\lbq\hspace{-2pt}\tikz[mini]{
+            \draw (0.5,-1) to[out=180,in=0,out looseness=2] (-0.5,1);
+            \draw (-0.5,1)
+                to[out=180,in=180,looseness=1.8] (-0.5,-1)
+                to[out=0,in=180,out looseness=2] (0.5,1)
+                to[out=0,in=0,looseness=1.8] (0.5,-1)
+            ;
+        }\hspace{-2pt}\rbq
+        +A^{-1}\lbq\hspace{-2pt}\tikz[mini]{
+            \draw (0,0)
+                to[out=180,in=180,out looseness=2] (0.5,-1)
+                to[out=0,in=0,looseness=1.8] (0.5,1)
+                to [out=180,in=0] (0,0.5) to[out=180,in=0] (-0.5,1)
+                to[out=180,in=180,looseness=1.8] (-0.5,-1)
+            ;
+            \draw (0,0) to[out=0,in=0,out looseness=2] (-0.5,-1);
+        }\hspace{-2pt}\rbq\\
+        &= A\left( A\lbq\bpunknot\cup\bpunknot\rbq
+        +A^{-1}\lbq\bpunknot\rbq \right)
+        +A^{-1}\left( A\lbq\bpunknot\rbq
+        +A^{-1}\lbq\bpunknot\cup\bpunknot\rbq \right)\\
+        &= A\left( A\left( -A^2-A^{-2} \right)
+        +A^{-1}(1) \right)
+        +A^{-1}\left( A(1)
+        +A^{-1}\left( -A^2-A^{-2} \right) \right)\\
+        &= A\left( -A^3-A^{-1}+A^{-1} \right)
+        +A^{-1}\left( A-A-A^{-3} \right)\\
+        &= A\left( -A^3 \right)+A^{-1}\left( -A^{-3} \right)\\
+        &= -A^4-A^{-4}\stepcounter{equation}\tag{\theequation}\label{eqn:bracketHopf}
+    \end{align*}
+    \item \emph{Exercise 6.2}: Find the bracket polynomial for the trefoil knot (see Figure \ref{fig:circletrefoilb}).
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.3\linewidth]{Blender/ex6-2a.png}
+            \caption{Trefoil closure.}
+            \label{fig:ex6-2a}
+        \end{subfigure}
+        \begin{subfigure}[b]{\linewidth}
+            \centering
+            \includegraphics[width=\linewidth]{Blender/ex6-2b.png}
+            \caption{Derivation of the bracket polynomial.}
+            \label{fig:ex6-2b}
+        \end{subfigure}
+        \caption{Solution to \emph{Exercise 6.2}.}
+        \label{fig:ex6-2}
+    \end{figure}
+    \begin{itemize}
+        \item To ensure that all of the crossings are aligned the same way, view the trefoil as its closed braid representation (Figure \ref{fig:ex6-2a}).
+        \begin{itemize}
+            \item For simplicity's sake, only the braid (not its closure) is represented in the equations of Figure \ref{fig:ex6-2b}.
+        \end{itemize}
+        \item Start in Equation 1 of Figure \ref{fig:ex6-2b} by employing Rule 2 on the top crossing.
+        \begin{itemize}
+            \item At this point, the left term is $A$ times the unknot while the right term is $A^{-1}$ times the Hopf link (see Figure \ref{fig:unlinkHopfb}).
+            \item While the right term can be substituted for the Hopf link, the left term must continue to be split using Rules 1-3 because the effect of the Type I Reidemeister move on the Bracket polynomial has yet to be dealt with.
+        \end{itemize}
+        \item From Equation 1 to 2 of Figure \ref{fig:ex6-2b}, substitute the right term for the Hopf link and employ Rule 2 to the middle (now upper) crossing of the left term.
+        \item From Equation 2 to 3 of Figure \ref{fig:ex6-2b}, employ Rule 2 on the bottom (now only) crossing of each of the left two terms.
+        \item From Equation 3 to 4 of Figure \ref{fig:ex6-2b}, substitute knot polynomials in for all of the $\lbq K\rbq$ terms.
+        \begin{itemize}
+            \item The leftmost term is an unlink of 3 components, so substitute in Equation \ref{eqn:bracketncomp} with $n=3$.
+            \item The second-from-the-left and middle terms are unlinks of 2 components, so substitute in Equation \ref{eqn:bracket2comp}.
+            \item The second-from-the-right term is the unknot, so substitute in $1$ by Rule 1.
+            \item The rightmost term is the Hopf link, so substitute in Equation \ref{eqn:bracketHopf}.
+        \end{itemize}
+        \item From Equation 4 to 8 of Figure \ref{fig:ex6-2b}, simplify the algebra.
+        \item Equation 8 of Figure \ref{fig:ex6-2b} is the final answer.
+    \end{itemize}
+    \item Now let's look at the Type I Reidemeister move.
+    \begin{align*}
+        \lbq\tikz[mini]{
+            \draw (-1,-1) to[out=0,in=0] (0,1);
+            \draw (0,1) to[out=180,in=180] (1,-1);
+        }\rbq
+        &= A\lbq\tikz[mini]{
+            \draw (-1,-1)
+                to (-0.5,-1)
+                to[out=0,in=180] (0,-0.5)
+                to[out=0,in=180] (0.5,-1)
+                to (1,-1)
+            ;
+            \draw (0,0.7) circle (3mm);
+        }\rbq
+        +A^{-1}\lbq\tikz[mini]{
+            \draw (-1,-1)
+                to[out=0,in=-90] (-0.2,0)
+                to[out=90,in=180,in looseness=2] (0,1)
+                to[out=0,in=90,out looseness=2] (0.2,0)
+                to[out=-90,in=180] (1,-1)
+            ;
+        }\rbq\\
+        &= A\left( -A^2-A^{-2} \right)\lbq\tikz[mini]{
+            \draw (-1,0) to (1,0);
+        }\rbq
+        +A^{-1}\lbq\tikz[mini]{
+            \draw (-1,0) to (1,0);
+        }\rbq\\
+        &= -A^3\lbq\tikz[mini]{
+            \draw (-1,0) to (1,0);
+        }\rbq
+    \end{align*}
+    \begin{align*}
+        \lbq\tikz[mini]{
+            \draw (0,1) to[out=180,in=180] (1,-1);
+            \draw (-1,-1) to[out=0,in=0] (0,1);
+        }\rbq
+        &= A\lbq\tikz[mini]{
+            \draw (-1,-1)
+                to[out=0,in=-90] (-0.2,0)
+                to[out=90,in=180,in looseness=2] (0,1)
+                to[out=0,in=90,out looseness=2] (0.2,0)
+                to[out=-90,in=180] (1,-1)
+            ;
+        }\rbq
+        +A^{-1}\lbq\tikz[mini]{
+            \draw (-1,-1)
+                to (-0.5,-1)
+                to[out=0,in=180] (0,-0.5)
+                to[out=0,in=180] (0.5,-1)
+                to (1,-1)
+            ;
+            \draw (0,0.7) circle (3mm);
+        }\rbq\\
+        &= A\lbq\tikz[mini]{
+            \draw (-1,0) to (1,0);
+        }\rbq
+        +A^{-1}\left( -A^2-A^{-2} \right)\lbq\tikz[mini]{
+            \draw (-1,0) to (1,0);
+        }\rbq\\
+        &= -A^{-3}\lbq\tikz[mini]{
+            \draw (-1,0) to (1,0);
+        }\rbq\stepcounter{equation}\tag{\theequation}\label{eqn:bracketI}
+    \end{align*}
+    \begin{itemize}
+        \item Based on the above, the bracket polynomial \emph{is} changed by a Type I Reidemeister move.
+        \item Therefore, the bracket polynomial is not a knot invariant.
+        \item However, it can still be modified as follows.
+    \end{itemize}
+    \item Assign an orientation to the knot or link.
+    \item At every crossing, assign a $+1$ or $-1$ as directed by Figure \ref{fig:linkingnumber}.
+    \item \textbf{Writhe}: The sum of the $+1$s and $-1$s at every crossing. \emph{Also known as} $w(L)$.
+    \begin{itemize}
+        \item Note that this is different from the linking number in that every crossing contributes, not just those between different link components.
+    \end{itemize}
+    \item \emph{Exercise 6.3}: Calculate the writhe of the oriented link projection in Figure \ref{fig:ex6-3}.
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.2\linewidth]{Blender/ex6-3.png}
+        \caption{Determine the writhe of this link projection.}
+        \label{fig:ex6-3}
+    \end{figure}
+    \begin{table}[h!]
+        \centering
+        \renewcommand{\arraystretch}{1.4}
+        \begin{tabular}{|r|c|c|c|c|c|c|c|c|}
+            \hline
+            \textbf{Crossing number} & $1$  & $2$  & $3$  & $4$  & $5_t$ & $5_b$ & $6_t$ & $6_b$\\
+            \hline
+            \textbf{Writhe value}    & $-1$ & $-1$ & $-1$ & $+1$ & $-1$  & $-1$  & $+1$  & $+1$\\
+            \hline
+        \end{tabular}
+        \caption{Writhe values.}
+        \label{tab:ex6-3}
+    \end{table}
+    \begin{itemize}
+        \item Table \ref{tab:ex6-3} displays the crossings (numbered from left to right and with a top/bottom subscript when necessary) and their corresponding value.
+        \item Summing these values gives $w(L)=-2$.
+    \end{itemize}
+    \item \emph{Exercise 6.4}: Show that the writhe of a link projection is invariant under Reidemeister moves II and III.
+    \begin{itemize}
+        \item Consider both strands of Figure \ref{fig:reidemb} to have a parallel orientation.
+        \begin{itemize}
+            \item In either case, the top crossing is $+1$ and the bottom crossing is $-1$, canceling out.
+            \item If both strands have an antiparallel orientation, the top crossing is $-1$ and the bottom crossing is $+1$, again canceling out.
+        \end{itemize}
+        \item A similar (albeit longer) process can be carried out for every case in Figure \ref{fig:reidemc}.
+    \end{itemize}
+    \item On the other hand, a Type I Reidemeister move always changes the writher by $\pm 1$.
+    \item To counter this, define a new polynomial called the $X$ polynomial as the following.
+    \begin{equation}\label{eqn:XL}
+        X(L)=\left( -A^3 \right)^{-w(L)}\lbq L\rbq
+    \end{equation}
+    \item Since both $\lbq L\rbq$ and $w(L)$ are invariant under Type II and Type III Reidemeister moves, so is $X(L)$.
+    \item Let's see how the $X$ polynomial handles a Type I Reidemeister move.
+    \begin{itemize}
+        \item Let the right half of Figure \ref{fig:reidema} be $L$ and the left half be $L'$. The orientation will be top to bottom$^[$\footnote{Note that if it was the opposite orientation, the math would still work out.}$^]$.
+        \item First, note that $w(L')=w(L)-1$.
+        \item Based on this and Equation \ref{eqn:bracketI}, we find the following equality.
+        \begin{align*}
+            X(L) &= \left( -A^3 \right)^{-w(L)}\lbq L\rbq\\
+            &= \left( -A^3 \right)^{-w(L')+1}\left( -A^{-3} \right)\lbq L'\rbq\\
+            &= \left( -A^3 \right)^{-w(L')}\left( -A^3 \right)\left( -A^{-3} \right)\lbq L'\rbq\\
+            &= \left( -A^3 \right)^{-w(L')}\lbq L'\rbq\\
+            &= X(L')
+        \end{align*}
+    \end{itemize}
+    \item Thus, the $X$ polynomial does not change under any of the three Reidemeister moves.
+    \item \dq{Therefore, $X(L)$ is an invariant for knots and links}{153}
+    \item \emph{Exercise 6.5}: Compute $X(L)$ for the trefoil knot (Figure \ref{fig:circletrefoilb}) and for the Hopf link (Figure \ref{fig:unlinkHopfb}). What happens if we change the orientation from the original used to calculate $X(L)$?
+    \begin{itemize}
+        \item By Equation 8 of Figure \ref{fig:ex6-2b}, $\lbq 3_1\rbq=A^7-A^3-A^{-5}$.
+        \item By Equation \ref{eqn:XL}, $X(L)=\left( -A^3 \right)^{-w(L)}\lbq L\rbq$.
+        \item An examination of Figure \ref{fig:ex6-2a} reveals that $w\left( 3_1 \right)=-3$.
+        \item Thus, $X\left( 3_1 \right)=\left( -A^3 \right)^{3}\left( A^7-A^3-A^{-5} \right)$.
+        \item Therefore, the following equation holds.
+        \begin{equation}\label{eqn:X31}
+            X\left( 3_1 \right)=-A^{16}+A^{12}+A^4
+        \end{equation}
+        \item By Equation \ref{eqn:bracketHopf}, $\lbq 2^2_1\rbq=-A^4-A^{-4}$.
+        \item An examination of Figure \ref{fig:unlinkHopfb} reveals that $w\left( 2^2_1 \right)=2$.
+        \item Thus, $X\left( 2^2_1 \right)=\left( -A^3 \right)^{-2}\left( -A^4-A^{-4} \right)$.
+        \item Therefore, the following equation holds.
+        \begin{equation*}
+            X\left( 2^2_1 \right)=-A^{-2}-A^{-10}
+        \end{equation*}
+        \item Nothing would happen for the trefoil.
+        \item Changing the orientation of one component of the Hopf link would cause the writhe to be multiplied by $-1$. This would give an alternative $X$ polynomial, namely, one with positive exponents instead of negative and the whole thing multiplied by $-1$.
+    \end{itemize}
+    \item \emph{Exercise 6.6 should have a fascinating solution.} 
+    \item \dq{The Jones polynomial is obtained from the $X$ polynomial by replacing each $A$ by $t^{-\frac{1}{4}}$}{154}
+    \item \emph{Exercise 6.7}: Use the solution to \emph{Exercise 6.5} to write the Jones polynomial of the trefoil knot.
+    \begin{itemize}
+        \item If $A=t^{-\frac{1}{4}}$ in Equation \ref{eqn:X31}, then the Jones polynomial can be written as follows.
+        \begin{equation*}
+            V(t)=-t^{-4}+t^{-3}+t^{-1}
+        \end{equation*}
+    \end{itemize}
+    \item Does the Jones polynomial distinguish every other knot from the unknot?
+    \item The Jones polynomial of an $(m,n)$-torus knot is given by the following.
+    \begin{equation*}
+        V(t)=t^{\frac{(m-1)(n-1)}{2}}\left( \frac{1-t^{m+1}-t^{n+1}+t^{m+n}}{1-t^2} \right)
+    \end{equation*}
+    \item The Jones polynomial satisfies its own Skein relation.
+    \begin{itemize}
+        \item \dq{Let $L_+$, $L_-$, and $L_0$ be three oriented link projections that are identical except where they appear in Figure [\ref{fig:ex6-8}]}{155}
+        \item This was the original Skein relation recognized by Vaughan Jones (see Section \ref{sss:Alexander}).
+    \end{itemize}
+    \item \emph{Exercise 6.8}: Use the skein relation of the bracket polynomial in order to show that the Jones polynomial of the three links in Figure \ref{fig:ex6-8} are related through the following equation.
+    \begin{equation}\label{eqn:VtSkein}
+        t^{-1}V(L_+)-tV(L_-)+\left( t^{-\frac{1}{2}}-t^{\frac{1}{2}} \right)V(L_0)=0
+    \end{equation}
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.6\linewidth]{../Notes/Blender/ex6-8a.png}
+            \caption{$L_+$}
+            \label{fig:ex6-8a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.6\linewidth]{../Notes/Blender/ex6-8b.png}
+            \caption{$L_-$}
+            \label{fig:ex6-8b}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \includegraphics[width=0.6\linewidth]{../Notes/Blender/ex6-8c.png}
+            \caption{$L_0$}
+            \label{fig:ex6-8c}
+        \end{subfigure}
+        \caption{Three almost identical link projections.}
+        \label{fig:ex6-8}
+    \end{figure}
+    \begin{itemize}
+        \item This is not a pretty solution. It was reverse engineered from Equation \ref{eqn:VtSkein}, so the algebra may not follow any logical pattern, but it is correct.
+        \item The substitutions come from Rule 2 and the fact that $A=t^{-\frac{1}{4}}$.
+    \end{itemize}
+    \begin{align*}
+        \lbq\horiopen\rbq+\left( A^{-2}+A^2 \right)\lbq\vertopen\rbq
+        &= \lbq\horiopen\rbq+\left( A^2+A^{-2} \right)\lbq\vertopen\rbq\\
+        A^{-1}\left( A\lbq\horiopen\rbq+A^{-1}\lbq\vertopen\rbq \right)+A^2\lbq\vertopen\rbq
+        &= A\left( A\lbq\vertopen\rbq+A^{-1}\lbq\horiopen\rbq \right)+A^{-2}\lbq\vertopen\rbq\\
+        A^{-1}\lbq\tikz[mini]{
+            \draw (1,1) to (-1,-1);
+            \draw (1,-1) to (-1,1);
+        }\rbq+A^2\lbq\vertopen\rbq
+        &= A\lbq\tikz[mini]{
+            \draw (1,-1) to (-1,1);
+            \draw (1,1) to (-1,-1);
+        }\rbq+A^{-2}\lbq\vertopen\rbq\\
+        -A\lbq\tikz[mini]{
+            \draw (1,-1) to (-1,1);
+            \draw (1,1) to (-1,-1);
+        }\rbq+A^2\lbq\vertopen\rbq
+        &= -A^{-1}\lbq\tikz[mini]{
+            \draw (1,1) to (-1,-1);
+            \draw (1,-1) to (-1,1);
+        }\rbq+A^{-2}\lbq\vertopen\rbq\\
+        A^4\left( -A^{-3} \right)\lbq\tikz[mini]{
+            \draw (1,-1) to (-1,1);
+            \draw (1,1) to (-1,-1);
+        }\rbq+A^2\lbq\vertopen\rbq
+        &= A^{-4}\left( -A^3 \right)\lbq\tikz[mini]{
+            \draw (1,1) to (-1,-1);
+            \draw (1,-1) to (-1,1);
+        }\rbq+A^{-2}\lbq\vertopen\rbq\\
+        A^4\left( -A^{3} \right)^{-w(L_+)}\lbq\tikz[mini]{
+            \draw (1,-1) to (-1,1);
+            \draw (1,1) to (-1,-1);
+        }\rbq+A^2\left( -A^3 \right)^{-w(L_0)}\lbq\vertopen\rbq
+        &= A^{-4}\left( -A^3 \right)^{-w(L_-)}\lbq\tikz[mini]{
+            \draw (1,1) to (-1,-1);
+            \draw (1,-1) to (-1,1);
+        }\rbq+A^{-2}\left( -A^3 \right)^{-w(L_0)}\lbq\vertopen\rbq\\
+        A^4V(L_+)+A^2V(L_0) &= A^{-4}V(L_-)+A^{-2}V(L_0)\\
+        t^{-1}V(L_+)+t^{-\frac{1}{2}}V(L_0) &= tV(L_-)+t^{\frac{1}{2}}V(L_0)\\
+        t^{-1}V(L_+)-tV(L_-)+\left( t^{-\frac{1}{2}}-t^{\frac{1}{2}} \right)V(L_0) &= 0
     \end{align*}
 \end{itemize}
 
