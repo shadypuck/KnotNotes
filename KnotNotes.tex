@@ -17,7 +17,7 @@
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
 
-\usetikzlibrary{knots,decorations.markings}
+\usetikzlibrary{knots,decorations.markings,positioning}
 \tikzset{mini/.style={scale=0.15,baseline={(0,-0.09)},every path/.style={knot=red,thick}}}
 
 \newcommand{\dq}[2]{``#1" (#2).}
@@ -4707,7 +4707,7 @@
     \item J. Alexander introduced the first knot polynomial in 1928.
     \item John Conway found a way to calculate the Alexander polynomial of a link using a \textbf{skein relation} in 1969.
     \item \textbf{Skein relation}: An equation that relates the polynomial of a link $L_1$ to the polynomial of a link $L_2$ obtained by changing the crossings in a projection $L_1$.
-    \item Vaughn Jones found a new polynomial for knots and links in 1984.
+    \item Vaughan Jones found a new polynomial for knots and links in 1984.
     \item Four months later, the HOMFLY polynomial was announced.
     \begin{itemize}
         \item So named for its discoverers: Hoste, Ocneau, Millet, Freyd, Lickorish, and Yetter.
@@ -4801,7 +4801,7 @@
         \end{equation}
         \item Now define $C=-A^2-A^{-2}$.
         \begin{itemize}
-            \item This definition makes the following equal to Equation \ref{eqn:bracketAC}.
+            \item This definition makes the following equal to Equation \ref{eqn:bracketAC} (and, by extention, Equation \ref{eqn:bracketABC}).
         \end{itemize}
         \begin{equation*}
             \lbq\vertopen\rbq
@@ -5063,7 +5063,7 @@
         \end{itemize}
         \item A similar (albeit longer) process can be carried out for every case in Figure \ref{fig:reidemc}.
     \end{itemize}
-    \item On the other hand, a Type I Reidemeister move always changes the writher by $\pm 1$.
+    \item On the other hand, a Type I Reidemeister move always changes the writhe by $\pm 1$.
     \item To counter this, define a new polynomial called the $X$ polynomial as the following.
     \begin{equation}\label{eqn:XL}
         X(L)=\left( -A^3 \right)^{-w(L)}\lbq L\rbq
@@ -5123,11 +5123,11 @@
         \item \dq{Let $L_+$, $L_-$, and $L_0$ be three oriented link projections that are identical except where they appear in Figure [\ref{fig:ex6-8}]}{155}
         \item This was the original Skein relation recognized by Vaughan Jones (see Section \ref{sss:Alexander}).
     \end{itemize}
-    \item \emph{Exercise 6.8}: Use the skein relation of the bracket polynomial in order to show that the Jones polynomial of the three links in Figure \ref{fig:ex6-8} are related through the following equation.
+    \item \emph{Exercise 6.8}: Use the skein relation of the bracket polynomial in order to show that the Jones polynomial of the three links in Figure \ref{fig:ex6-8} are related through Equation \ref{eqn:VtSkein}.
     \begin{equation}\label{eqn:VtSkein}
         t^{-1}V(L_+)-tV(L_-)+\left( t^{-\frac{1}{2}}-t^{\frac{1}{2}} \right)V(L_0)=0
     \end{equation}
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \begin{subfigure}[b]{0.2\linewidth}
             \centering
@@ -5152,49 +5152,119 @@
     \end{figure}
     \begin{itemize}
         \item This is not a pretty solution. It was reverse engineered from Equation \ref{eqn:VtSkein}, so the algebra may not follow any logical pattern, but it is correct.
-        \item The substitutions come from Rule 2 and the fact that $A=t^{-\frac{1}{4}}$.
+        \item The substitutions come from Rule 2, the definition of the $X$ polynomial, and the fact that $A=t^{-\frac{1}{4}}$.
     \end{itemize}
-    \begin{align*}
-        \lbq\horiopen\rbq+\left( A^{-2}+A^2 \right)\lbq\vertopen\rbq
-        &= \lbq\horiopen\rbq+\left( A^2+A^{-2} \right)\lbq\vertopen\rbq\\
-        A^{-1}\left( A\lbq\horiopen\rbq+A^{-1}\lbq\vertopen\rbq \right)+A^2\lbq\vertopen\rbq
-        &= A\left( A\lbq\vertopen\rbq+A^{-1}\lbq\horiopen\rbq \right)+A^{-2}\lbq\vertopen\rbq\\
-        A^{-1}\lbq\tikz[mini]{
-            \draw (1,1) to (-1,-1);
-            \draw (1,-1) to (-1,1);
-        }\rbq+A^2\lbq\vertopen\rbq
-        &= A\lbq\tikz[mini]{
-            \draw (1,-1) to (-1,1);
-            \draw (1,1) to (-1,-1);
-        }\rbq+A^{-2}\lbq\vertopen\rbq\\
-        -A\lbq\tikz[mini]{
-            \draw (1,-1) to (-1,1);
-            \draw (1,1) to (-1,-1);
-        }\rbq+A^2\lbq\vertopen\rbq
-        &= -A^{-1}\lbq\tikz[mini]{
-            \draw (1,1) to (-1,-1);
-            \draw (1,-1) to (-1,1);
-        }\rbq+A^{-2}\lbq\vertopen\rbq\\
-        A^4\left( -A^{-3} \right)\lbq\tikz[mini]{
-            \draw (1,-1) to (-1,1);
-            \draw (1,1) to (-1,-1);
-        }\rbq+A^2\lbq\vertopen\rbq
-        &= A^{-4}\left( -A^3 \right)\lbq\tikz[mini]{
-            \draw (1,1) to (-1,-1);
-            \draw (1,-1) to (-1,1);
-        }\rbq+A^{-2}\lbq\vertopen\rbq\\
-        A^4\left( -A^{3} \right)^{-w(L_+)}\lbq\tikz[mini]{
-            \draw (1,-1) to (-1,1);
-            \draw (1,1) to (-1,-1);
-        }\rbq+A^2\left( -A^3 \right)^{-w(L_0)}\lbq\vertopen\rbq
-        &= A^{-4}\left( -A^3 \right)^{-w(L_-)}\lbq\tikz[mini]{
-            \draw (1,1) to (-1,-1);
-            \draw (1,-1) to (-1,1);
-        }\rbq+A^{-2}\left( -A^3 \right)^{-w(L_0)}\lbq\vertopen\rbq\\
-        A^4V(L_+)+A^2V(L_0) &= A^{-4}V(L_-)+A^{-2}V(L_0)\\
-        t^{-1}V(L_+)+t^{-\frac{1}{2}}V(L_0) &= tV(L_-)+t^{\frac{1}{2}}V(L_0)\\
-        t^{-1}V(L_+)-tV(L_-)+\left( t^{-\frac{1}{2}}-t^{\frac{1}{2}} \right)V(L_0) &= 0
-    \end{align*}
+    \begin{figure}[H]
+        \centering
+        \begin{align*}
+            \lbq\horiopen\rbq+\left( A^{-2}+A^2 \right)\lbq\vertopen\rbq
+            &=\ \lbq\horiopen\rbq+\left( A^2+A^{-2} \right)\lbq\vertopen\rbq\\
+            A^{-1}\left( A\lbq\horiopen\rbq+A^{-1}\lbq\vertopen\rbq \right)+A^2\lbq\vertopen\rbq
+            &= A\left( A\lbq\vertopen\rbq+A^{-1}\lbq\horiopen\rbq \right)+A^{-2}\lbq\vertopen\rbq\\
+            A^{-1}\lbq\tikz[mini]{
+                \draw (1,1) to (-1,-1);
+                \draw (1,-1) to (-1,1);
+            }\rbq+A^2\lbq\vertopen\rbq
+            &= A\lbq\tikz[mini]{
+                \draw (1,-1) to (-1,1);
+                \draw (1,1) to (-1,-1);
+            }\rbq+A^{-2}\lbq\vertopen\rbq\\
+            -A\lbq\tikz[mini]{
+                \draw (1,-1) to (-1,1);
+                \draw (1,1) to (-1,-1);
+            }\rbq+A^2\lbq\vertopen\rbq
+            &= -A^{-1}\lbq\tikz[mini]{
+                \draw (1,1) to (-1,-1);
+                \draw (1,-1) to (-1,1);
+            }\rbq+A^{-2}\lbq\vertopen\rbq\\
+            A^4\left( -A^{-3} \right)\lbq\tikz[mini]{
+                \draw (1,-1) to (-1,1);
+                \draw (1,1) to (-1,-1);
+            }\rbq+A^2\lbq\vertopen\rbq
+            &= A^{-4}\left( -A^3 \right)\lbq\tikz[mini]{
+                \draw (1,1) to (-1,-1);
+                \draw (1,-1) to (-1,1);
+            }\rbq+A^{-2}\lbq\vertopen\rbq\\
+            A^4\left( -A^{3} \right)^{-w(L_+)}\lbq\tikz[mini]{
+                \draw (1,-1) to (-1,1);
+                \draw (1,1) to (-1,-1);
+            }\rbq+A^2\left( -A^3 \right)^{-w(L_0)}\lbq\vertopen\rbq
+            &= A^{-4}\left( -A^3 \right)^{-w(L_-)}\lbq\tikz[mini]{
+                \draw (1,1) to (-1,-1);
+                \draw (1,-1) to (-1,1);
+            }\rbq+A^{-2}\left( -A^3 \right)^{-w(L_0)}\lbq\vertopen\rbq\\
+            A^4V(L_+)+A^2V(L_0) &= A^{-4}V(L_-)+A^{-2}V(L_0)\\
+            t^{-1}V(L_+)+t^{-\frac{1}{2}}V(L_0) &= tV(L_-)+t^{\frac{1}{2}}V(L_0)\\
+            t^{-1}V(L_+)-tV(L_-)+\left( t^{-\frac{1}{2}}-t^{\frac{1}{2}} \right)V(L_0) &= 0
+        \end{align*}
+        \caption{Solution to \emph{Exercise 6.8}.}
+        \label{fig:ex6-8-2}
+    \end{figure}
+\end{itemize}
+
+
+\subsection{Polynomials of Alternating Knots}
+\begin{itemize}
+    \item Goal: develop a second way to consider the bracket polynomial.
+    \item Four regions of the projection plane (each bounded by two strands) intersect at a crossing (see Figure \ref{fig:ABAB}).
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \begin{knot}[
+                clip width=5,
+                every strand/.append style={red,thick}
+            ]
+                \strand (-1.8,1) -- (1.8,-1);
+                \strand (-1.8,-1) -- (1.8,1);
+            \end{knot}
+            \foreach \pos/\letter/\dis in {above/B/2mm,right/A/4mm,below/B/2mm,left/A/4mm} {
+                \node [\pos=\dis of knot 1] {$\letter$};
+            }
+            \foreach \r in {1,1.4,1.8} {
+                \foreach \a in {-25,155} {
+                    \draw [thick,-latex] (\a:\r) arc[start angle=\a,end angle={\a+50},radius=\r cm];
+                }
+            }
+        \end{tikzpicture}
+        \caption{Labeling a crossing with $A$ and $B$.}
+        \label{fig:ABAB}
+    \end{figure}
+    \begin{itemize}
+        \item Imagine rotating the overstrand counterclockwise over the understrand so that two of the regions disappear.
+        \item Label each of these disappearing regions $A$.
+        \item Label each region that did not disappear $B$.
+    \end{itemize}
+    \item In Rule 2 for calculating the bracket polynomial, each crossing is split open two ways.
+    \item \textbf{\emph{A}-split}: The Rule 2 split that combines the two regions labeled $A$.
+    \item \textbf{\emph{B}-split}: The Rule 2 split that combines the two regions labeled $B$.
+    \item Suppose $L$ is a link of $n$ crossings.
+    \item Rule 2 allows the bracket polynomial of $L$ to be calculated in terms of the bracket polynomials of $L_1$ and $L_2$.
+    \begin{itemize}
+        \item $L_1$ and $L_2$ each have one fewer crossing than $L$.
+        \item Note that $L_1$ and $L_2$ are obtained via an $A$-split and then a $B$-split.
+    \end{itemize}
+    \item Continuing splitting crossings eventually gives the bracket polynomial of $L$ in terms of the bracket polynomials of $2^n$ links.
+    \begin{itemize}
+        \item Each of these links is an unlink of $m$ components where $m\leq n$.
+        \item Each of these links is a \textbf{state}.
+        \item Denote one of these links $L'$.
+    \end{itemize}
+    \item \textbf{State}: \dq{A choice of how to split all of the $n$ crossings in the projection of $L$}{157}
+    \item Let $|S|$ be the number of loops in $L'$.
+    \item By Equation \ref{eqn:bracketncomp}, the bracket polynomial of $L'$ is $\left(-A^2-A^{-2}\right)^{|S|-1}$.
+    \item However, each split requires that a the bracket polynomial of the simpler link be multiplied by either $A$ or $A^{-1}$.
+    \item Every time an $A$-split occurs, $A$ is the factor multiplied.
+    \item Every time a $B$-split occurs, $A^{-1}$ is the factor multiplied.
+    \item Thus, the factor multiplied by $L'$ is $A^{a(S)}A^{-b(S)}$.
+    \begin{itemize}
+        \item Let $a(S)$ denote the number of $A$-splits needed to create $S$.
+        \item Let $b(S)$ denote the number of $B$-splits needed to create $S$.
+    \end{itemize}
+    \item Thus, the contribution of $L'$ to the bracket polynomial of $L$ is $A^{a(S)}A^{-b(S)}\left(-A^2-A^{-2}\right)^{|S|-1}$.
+    \item Therefore, the bracket polynomial of $L$ is given by Equation \ref{eqn:sumnew}.
+    \begin{equation}\label{eqn:sumnew}
+        \lbq L\rbq\ =\sum_s \left( A^{a(S)}A^{-b(S)}\left(-A^2-A^{-2}\right)^{|S|-1} \right)
+    \end{equation}
 \end{itemize}
 
 
