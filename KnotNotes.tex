@@ -2010,7 +2010,7 @@
         \caption{Easily removed crossings in an alternating knot projection.}
         \label{fig:easilyremoved}
     \end{figure}
-    \item However, in 1986, Lou Kauffman, Kunio Murasugi, and Morwen Thistlethwaite all independently proved that \dq{an alternating knot in a reduced alternating projection of $n$ crossings has crossing number $n$}{68}.
+    \item However, in 1986, Lou Kauffman, Kunio Murasugi, and Morwen Thistlethwaite all independently proved that \dq{an alternating knot in a reduced alternating projection of $n$ crossings has crossing number $n$}{68}
     \begin{itemize}
         \item They utilized the Jones polynomial (see Section \ref{sse:polynomials}).
         \item Because we can visually tell whether or not a projection is reduced (and reduce it if it's not), we can determine $c(K)$ for any alternating knot.
@@ -5205,7 +5205,7 @@
 
 \subsection{Polynomials of Alternating Knots}
 \begin{itemize}
-    \item Goal: develop a second way to consider the bracket polynomial.
+    \item Goal (from here to Equation \ref{eqn:sumnew}): develop a second way to consider the bracket polynomial.
     \item Four regions of the projection plane (each bounded by two strands) intersect at a crossing (see Figure \ref{fig:ABAB}).
     \begin{figure}[h!]
         \centering
@@ -5265,6 +5265,328 @@
     \begin{equation}\label{eqn:sumnew}
         \lbq L\rbq\ =\sum_s \left( A^{a(S)}A^{-b(S)}\left(-A^2-A^{-2}\right)^{|S|-1} \right)
     \end{equation}
+    \item Recall reduced alternating projections (see Figure \ref{fig:easilyremoved}).
+    \item Prove that two reduced alternating projections of the same knot have the same number of crossings.
+    \item First, define \textbf{span}.
+    \item \textbf{Span} (of a polynomial): \dq{The difference between the highest power that occurs in the polynomial and the lowest power that occurs in the polynomial}{159}
+    \item The span of the bracket polynomial is a knot invariant.
+    \begin{itemize}
+        \item This is because the bracket polynomial does not change under Type II and III Reidemeister moves and Type I Reidemeister moves change all exponents by $\pm 3$, which doesn't affect the span (the delta of the exponents).
+    \end{itemize}
+    \item Now, prove a lemma$^[$\footnote{\textbf{Lemma}: A subsidiary or intermediate theorem in an argument or proof (Google).}$^]$.
+    \item \underline{Lemma}: If $K$ has a reduced alternating projection of $n$ crossings, then $\text{span}(\lbq K\rbq)=4n$.
+    \begin{itemize}
+        \item Since the span doesn't depend on the projection, choose the reduced alternating projection.
+        \item First, find the highest power. Then, find the lowest power.
+        \item Each state contributes a term in the form $A^{a(S)}A^{-b(S)}\left( -A^2-A^{-2} \right)^{|S|-1}$.
+        \item Upon expanding, the highest power of $A$ occurs with $A^{a(S)}A^{-b(S)}\left( A^2 \right)^{|S|-1}$.
+        \item In other words, we need to make $a(S)-b(S)+2(|S|-1)$ as large as possible.
+        \begin{itemize}
+            \item When $a(S)=n$ and $b(S)=0$, what is $|S|$?
+            \item In an alternating projection, every region has only $A$s or only $B$s (see how white regions are $A$ regions and blue regions are $B$ regions in Figure \ref{fig:trefoilmobius}).
+            \item When all of the $A$-channels are opened, white "waters" flood the crossings, leaving only blue islands in Figure \ref{fig:trefoilmobius}.
+            \item Let $D$ be the number of dark (shaded/blue) regions in the original projection. Thus, $|S|=D$.
+        \end{itemize}
+        \item The highest power of $A$ is $n+2(D-1)$.
+        \item Every other power is lower than this because of the following.
+        \begin{itemize}
+            \item Let $S_1$ be the state with all $A$-splits.
+            \item No other state besides $S_1$ has all $A$-splits, so the closest is an $S_2$ with one $B$-split.
+            \item However, this implies that $a(S_2)-b(S_2)+2(|S_2|-1)=(a(S_1)-1)-(b(S_1)+1)+2(|S_2|-1)$.
+            \item Since changing one $A$-split can only change $|S|$ by $\pm 1$ (which would either counteract the change to $a(S)$ and $b(S)$ or double it), no power can be higher.
+            \item Note that another state could only be equal by this logic.
+            \item By \emph{Exercise 6.10}$^[$\footnote{Possibly within my grasp.}$^]$, \dq{the highest power of $A$ that occurs in an all-$A$-split state is strictly greater than the highest power of $A$ that occurs in a state with exactly one $B$-split}{161}
+        \end{itemize}
+        \item By a similar argument, the lowest power of $A$ is $-n-2(W-1)$, where $W$ is the number of white regions in a projection of all $B$-splits.
+        \item Thus, the following holds (see \emph{Exercise 6.11} for the transition from step 2 to 3).
+        \begin{align*}
+            \text{span}(\lbq K\rbq) &= n+2(D-1)-(-n-2(W-1))\\
+            &= 2n+2(D+W-2)\\
+            &= 2n+2n\\
+            &= 4n
+        \end{align*}
+        \item Q.E.D.
+    \end{itemize}
+    \item \emph{Exercise 6.11}: Show that the number of regions $R$ in a connected knot or link projection is always two more than the number of crossings (including the region outside the knot). Hint: Either use the fact that the Euler characteristic of a disk is always 1 or simply draw a knot, keeping count of the number of regions created whenever you create a new crossing$^[$\footnote{Could be done rigorously with more time.}$^]$.
+    \begin{itemize}
+        \item The unknot divides space into two regions with 0 crossings.
+        \item If it is twisted to generate 1 crossing and a edge that resembles the infinity symbol, space is now divided into three regions.
+        \item Subsequent crossings behave in a similar way.
+    \end{itemize}
+    \item \emph{Exercise 6.12}: As a simple corollary$^[$\footnote{\textbf{Corollary}: A proposition that follows from (and is often appended to) one already proved.}$^]$ to the lemma, show that if $K$ has a reduced alternating projection of $n$ crossings, then the span of its Jones polynomial is exactly $n$. Note that this implies that $c(K)$ for an alternating knot is exactly the span of its Jones polynomial.
+    \begin{itemize}
+        \item Since $\text{span}(\lbq K\rbq)=4n$ and the transition from the bracket polynomial to the Jones polynomial involves dividing each exponent by 4, $\text{span}(V(K))=n$.
+    \end{itemize}
+    \item \underline{Theorem}: \dq{Two reduced alternating projections of the same knot have the same number of crossings}{162}
+    \begin{itemize}
+        \item If the first projection $P_1$ has $n$ crossings, the lemma implies that $\text{span}(P_1)=4n$.
+        \item Since the span of the bracket polynomial is a knot invariant, the span of the second projection $P_2$ is also $4n$.
+        \item Therefore, by the transitive property, both projections have $n$ crossings.
+    \end{itemize}
+    \item William Menasco proved in 1983 that if $K_1\#K_2$ is alternating, then it appears composite in any alternating projection.
+    \begin{itemize}
+        \item Appears composite: In any alternating projection, a circle that intersects the knot twice can fully enclose one alternating factor knot.
+    \end{itemize}
+    \item Menasco's result implies the following corollary.
+    \item \underline{Corollary}: $c(K_1\#K_2)=c(K_1)+c(K_2)$ for all $K_1\#K_2$ alternating knots.
+    \begin{itemize}
+        \item Choose a reduced alternating projection of $K_1\#K_2$.
+        \item By Menasco's result, $K_1$ and $K_2$ are both parts of this projection.
+        \item Thus, both factor knots are in their minimal-crossing projections.
+        \item Therefore, $c(K_1\#K_2)$ is a simple sum of $c(K)$ for the two factor knots.
+    \end{itemize}
+    \item The above corollary holds true for \textbf{adequate knots}.
+    \item Furthermore, \dq{for an alternating graph with an even number of edges hitting each vertex, the minimal crossing number is realized in any reduced alternating projection such that every edge has a crossing}{163}
+    \begin{itemize}
+        \item Think of one of these graphs as having a single vertex and edge for each component in the knot or link. The edge exits the vertex, loops around and knots in space, and returns to the vertex.
+        \item \dq{More generally, any graph consisting of a set of vertices connected by edges can be embedded in space. The edges can twist, curve and knot in space. The vertices can have any number of edges coming out of them}{163}
+    \end{itemize}
+    \item On the \textbf{Tait Flyping Conjecture}:
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \colorlet{orx}{orange}
+            \colorlet{ory}{orx!50}
+            \colorlet{orz}{orx!10}
+
+            \begin{scope}[xshift=-2cm]
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (-1,0.2)
+                        to (0,0.2)
+                        to [out=0,in=180] (0.6,-0.2)
+                        to (1,-0.2)
+                    ;
+                    \strand (-1,-0.2)
+                        to (0,-0.2)
+                        to [out=0,in=180] (0.6,0.2)
+                        to (1,0.2)
+                    ;
+                \end{knot}
+                \node [draw=red,circle,thick] at (-0.3,0) [top color=ory,bottom color=orz] {$T$};
+            \end{scope}
+            \draw [very thick,-latex] (-0.4,0) -- (0.4,0);
+            \begin{scope}[xshift=2cm,scale=-1]
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (-1,0.2)
+                        to (0,0.2)
+                        to [out=0,in=180] (0.6,-0.2)
+                        to (1,-0.2)
+                    ;
+                    \strand (-1,-0.2)
+                        to (0,-0.2)
+                        to [out=0,in=180] (0.6,0.2)
+                        to (1,0.2)
+                    ;
+                \end{knot}
+                \node [draw=red,circle,thick,scale=-1] at (-0.3,0) [top color=ory,bottom color=orz] {$T$};
+            \end{scope}
+        \end{tikzpicture}
+        \caption{A flype.}
+        \label{fig:flype}
+    \end{figure}
+    \begin{itemize}
+        \item Conjectured by Peter Guthrie Tait (1831-1901) in the 1890s.
+        \item If true, it would allow the generation of all possible reduced alternating projections of a given alternating knot.
+        \item This process generates a finite number of projections.
+        \item In 1990, William Menasco and Morwen Thistlethwaite together proved the Tait Flyping Conjecture using a blend of geometric techniques and new polynomials.
+    \end{itemize}
+    \item \textbf{Tait Flyping Conjecture}: Two reduced alternating projections of the same knot are equivalent when projected on a sphere (see Section \ref{sss:Dowker}) if and only if they are related through a series of \textbf{flypes}.
+    \item \textbf{Flype}: A $180^\circ$ rotation of a tangle (see Figure \ref{fig:flype}).
+\end{itemize}
+
+
+\subsection{The Alexander and HOMFLY Polynomials}
+\begin{itemize}
+    \item The Alexander polynomial $\Delta$ was invented in 1928 and was the first polynomial to be invented.
+    \item It is a polynomial for oriented links in $t$.
+    \item J. W. Alexander initially defined it in rather abstract mathematical concepts. In fact, it wasn't until 1969 that John Conway showed that the Alexander polynomial could be computed using just two rules.
+    \item First is the usual rule, except that this holds true for any projection of the trivial knot instead of just the zero-crossing one.
+    \begin{equation*}
+        \text{Rule 1}:\qquad\Delta(\bpunknot)=1
+    \end{equation*}
+    \item Consider Figure \ref{fig:ex6-8} to understand the second rule.
+    \begin{equation*}
+        \Delta(L_+)-\Delta(L_-)+\left( t^{\frac{1}{2}}-t^{-\frac{1}{2}} \right)\Delta(L_0)=0
+    \end{equation*}
+    \item It will not be proven herein, but these two rules suffice to ensure that the Alexander polynomial is an invariant for knots and links.
+    \item \emph{Exercise 6.15}: The Alexander polynomial of a splittable link is always 0. Hint: Picture the splittable link as $L_0$.
+    \item Let's calculate the Alexander polynomial for the trefoil knot.
+    \begin{itemize}
+        \item Orient the trefoil and consider the upper-left crossing in the leftmost term of Equation \ref{eqn:Alextrefoil1} to be $L_+$. Employ Rule 2.
+        \begin{equation}\label{eqn:Alextrefoil1}
+            \Delta(\tikz[scale=0.3,baseline={(0,-0.09)}]{
+                \begin{knot}[
+                    clip width=8,
+                    clip radius=2pt,
+                    consider self intersections=no splits,
+                    end tolerance=3pt
+                ]
+                    \strand [red,thin,
+                    decoration={markings,
+                    mark=at position 0.2 with {\arrow{>}}},
+                    postaction={decorate}] (90:1)
+                        to [bend left=117,looseness=1.9] (210:1)
+                        to [bend left=117,looseness=1.9] (330:1)
+                        to [bend left=117,looseness=1.9] cycle
+                    ;
+                    \flipcrossings{2}
+                \end{knot}
+            })
+            -\Delta(\tikz[scale=0.3,baseline={(0,-0.09)}]{
+                \begin{knot}[
+                    clip width=8,
+                    clip radius=2pt,
+                    consider self intersections=no splits,
+                    end tolerance=3pt
+                ]
+                    \strand [red,thin,
+                    decoration={markings,
+                    mark=at position 0.2 with {\arrow{>}}},
+                    postaction={decorate}] (90:1)
+                        to [bend left=117,looseness=1.9] (210:1)
+                        to [bend left=117,looseness=1.9] (330:1)
+                        to [bend left=117,looseness=1.9] cycle
+                    ;
+                    \flipcrossings{2,3}
+                \end{knot}
+            })
+            +\left( t^{\frac{1}{2}}-t^{-\frac{1}{2}} \right)\Delta(\hspace{3pt}\tikz[scale=0.2,baseline={(0,-0.09)}]{
+                \begin{knot}[
+                    clip width=8,
+                    clip radius=2pt,
+                    ignore endpoint intersections=false,
+                    every strand/.append style={red,thin,decoration={
+                        markings,
+                        mark=at position 0.5 with \arrow{<}
+                    },postaction={decorate}},
+                    flip crossing=1
+                ]
+                    \strand (0.5,0) circle (1cm);
+                    \strand (-0.5,0) circle (1cm);
+                \end{knot}
+            }\hspace{3pt})
+            =0
+        \end{equation}
+        \item Employ Rule 1 on the second term of Equation \ref{eqn:Alextrefoil1}.
+        \begin{equation*}
+            \Delta(\tikz[scale=0.3,baseline={(0,-0.09)}]{
+                \begin{knot}[
+                    clip width=8,
+                    clip radius=2pt,
+                    consider self intersections=no splits,
+                    end tolerance=3pt
+                ]
+                    \strand [red,thin,
+                    decoration={markings,
+                    mark=at position 0.2 with {\arrow{>}}},
+                    postaction={decorate}] (90:1)
+                        to [bend left=117,looseness=1.9] (210:1)
+                        to [bend left=117,looseness=1.9] (330:1)
+                        to [bend left=117,looseness=1.9] cycle
+                    ;
+                    \flipcrossings{2,3}
+                \end{knot}
+            })
+            =\Delta(\bpunknot)=1
+        \end{equation*}
+        \item Employ Rule 2 on the third term of Equation \ref{eqn:Alextrefoil1}, considering the upper crossing in the leftmost term of Equation \ref{eqn:Alextrefoil2} to be $L_+$.
+        \begin{equation}\label{eqn:Alextrefoil2}
+            \Delta(\hspace{3pt}\tikz[scale=0.2,baseline={(0,-0.09)}]{
+                \begin{knot}[
+                    clip width=8,
+                    clip radius=2pt,
+                    ignore endpoint intersections=false,
+                    every strand/.append style={red,thin,decoration={
+                        markings,
+                        mark=at position 0.5 with \arrow{<}
+                    },postaction={decorate}},
+                    flip crossing=1
+                ]
+                    \strand (0.5,0) circle (1cm);
+                    \strand (-0.5,0) circle (1cm);
+                \end{knot}
+            }\hspace{3pt})
+            -\Delta(\hspace{3pt}\tikz[scale=0.2,baseline={(0,-0.09)}]{
+                \begin{knot}[
+                    clip width=8,
+                    clip radius=2pt,
+                    ignore endpoint intersections=false,
+                    every strand/.append style={red,thin,decoration={
+                        markings,
+                        mark=at position 0.5 with \arrow{<}
+                    },postaction={decorate}}
+                ]
+                    \strand (0.5,0) circle (1cm);
+                    \strand (-0.5,0) circle (1cm);
+                \end{knot}
+            }\hspace{3pt})
+            +\left( t^{\frac{1}{2}}-t^{-\frac{1}{2}} \right)\Delta(\bpunknot)
+            =0
+        \end{equation}
+        \item By \emph{Exercise 6.15},
+            $\Delta(\hspace{3pt}\tikz[scale=0.2,baseline={(0,-0.09)}]{
+                \begin{knot}[
+                    clip width=8,
+                    clip radius=2pt,
+                    ignore endpoint intersections=false,
+                    every strand/.append style={red,thin,decoration={
+                        markings,
+                        mark=at position 0.5 with \arrow{<}
+                    },postaction={decorate}}
+                ]
+                    \strand (0.5,0) circle (1cm);
+                    \strand (-0.5,0) circle (1cm);
+                \end{knot}
+            }\hspace{3pt})=0$,
+        so the following holds.
+        \begin{equation*}
+            \Delta(\hspace{3pt}\tikz[scale=0.2,baseline={(0,-0.09)}]{
+                \begin{knot}[
+                    clip width=8,
+                    clip radius=2pt,
+                    ignore endpoint intersections=false,
+                    every strand/.append style={red,thin,decoration={
+                        markings,
+                        mark=at position 0.5 with \arrow{<}
+                    },postaction={decorate}},
+                    flip crossing=1
+                ]
+                    \strand (0.5,0) circle (1cm);
+                    \strand (-0.5,0) circle (1cm);
+                \end{knot}
+            }\hspace{3pt})
+            =-t^{\frac{1}{2}}+t^{-\frac{1}{2}}
+        \end{equation*}
+        \item Therefore, the following holds, giving Equation \ref{eqn:Alextrefoil3} as the final Alexander polynomial for the trefoil knot.
+        \begin{align*}
+            \Delta(\tikz[scale=0.3,baseline={(0,-0.09)}]{
+                \begin{knot}[
+                    clip width=8,
+                    clip radius=2pt,
+                    consider self intersections=no splits,
+                    end tolerance=3pt
+                ]
+                    \strand [red,thin,
+                    decoration={markings,
+                    mark=at position 0.2 with {\arrow{>}}},
+                    postaction={decorate}] (90:1)
+                        to [bend left=117,looseness=1.9] (210:1)
+                        to [bend left=117,looseness=1.9] (330:1)
+                        to [bend left=117,looseness=1.9] cycle
+                    ;
+                    \flipcrossings{2}
+                \end{knot}
+            })
+            &=\left( t^{\frac{1}{2}}-t^{-\frac{1}{2}} \right)^2+1\\
+            &= t-1+t^{-1}\stepcounter{equation}\tag{\theequation}\label{eqn:Alextrefoil3}
+        \end{align*}
+    \end{itemize}
 \end{itemize}
 
 
