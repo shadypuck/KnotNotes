@@ -5064,7 +5064,7 @@
         \item A similar (albeit longer) process can be carried out for every case in Figure \ref{fig:reidemc}.
     \end{itemize}
     \item On the other hand, a Type I Reidemeister move always changes the writhe by $\pm 1$.
-    \item To counter this, define a new polynomial called the $X$ polynomial as the following.
+    \item To counter this, define a new polynomial called the \textbf{\emph{X} polynomial} as the following.
     \begin{equation}\label{eqn:XL}
         X(L)=\left( -A^3 \right)^{-w(L)}\lbq L\rbq
     \end{equation}
@@ -5105,7 +5105,7 @@
         \item Changing the orientation of one component of the Hopf link would cause the writhe to be multiplied by $-1$. This would give an alternative $X$ polynomial, namely, one with positive exponents instead of negative and the whole thing multiplied by $-1$.
     \end{itemize}
     \item \emph{Exercise 6.6 should have a fascinating solution.} 
-    \item \dq{The Jones polynomial is obtained from the $X$ polynomial by replacing each $A$ by $t^{-\frac{1}{4}}$}{154}
+    \item \dq{The \textbf{Jones polynomial} is obtained from the $X$ polynomial by replacing each $A$ by $t^{-\frac{1}{4}}$}{154}
     \item \emph{Exercise 6.7}: Use the solution to \emph{Exercise 6.5} to write the Jones polynomial of the trefoil knot.
     \begin{itemize}
         \item If $A=t^{-\frac{1}{4}}$ in Equation \ref{eqn:X31}, then the Jones polynomial can be written as follows.
@@ -5384,7 +5384,7 @@
                         to (1,0.2)
                     ;
                 \end{knot}
-                \node [draw=red,circle,thick,scale=-1] at (-0.3,0) [top color=ory,bottom color=orz] {$T$};
+                \node [draw=red,circle,thick,scale=-1] at (-0.3,0) [top color=orz,bottom color=ory] {$T$};
             \end{scope}
         \end{tikzpicture}
         \caption{A flype.}
@@ -5403,7 +5403,7 @@
 
 \subsection{The Alexander and HOMFLY Polynomials}
 \begin{itemize}
-    \item The Alexander polynomial $\Delta$ was invented in 1928 and was the first polynomial to be invented.
+    \item The \textbf{Alexander polynomial} $\Delta$ was invented in 1928 and was the first polynomial to be invented.
     \item It is a polynomial for oriented links in $t$.
     \item J. W. Alexander initially defined it in rather abstract mathematical concepts. In fact, it wasn't until 1969 that John Conway showed that the Alexander polynomial could be computed using just two rules.
     \item First is the usual rule, except that this holds true for any projection of the trivial knot instead of just the zero-crossing one.
@@ -5412,7 +5412,7 @@
     \end{equation*}
     \item Consider Figure \ref{fig:ex6-8} to understand the second rule.
     \begin{equation*}
-        \Delta(L_+)-\Delta(L_-)+\left( t^{\frac{1}{2}}-t^{-\frac{1}{2}} \right)\Delta(L_0)=0
+        \text{Rule 2}:\qquad\Delta(L_+)-\Delta(L_-)+\left( t^{\frac{1}{2}}-t^{-\frac{1}{2}} \right)\Delta(L_0)=0
     \end{equation*}
     \item It will not be proven herein, but these two rules suffice to ensure that the Alexander polynomial is an invariant for knots and links.
     \item \emph{Exercise 6.15}: The Alexander polynomial of a splittable link is always 0. Hint: Picture the splittable link as $L_0$.
@@ -5586,6 +5586,262 @@
             &=\left( t^{\frac{1}{2}}-t^{-\frac{1}{2}} \right)^2+1\\
             &= t-1+t^{-1}\stepcounter{equation}\tag{\theequation}\label{eqn:Alextrefoil3}
         \end{align*}
+    \end{itemize}
+    \item \dq{Unlike the Jones polynomial, there are known examples of nontrivial knots with Alexander polynomial equal to 1}{166}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[
+            dtwist/.style={out=-90,in=90},
+            utwist/.style={out=90,in=-90},
+            dwloop/.style={out=-90,in=-90,looseness=0.5},
+            uploop/.style={out=90,in=90,looseness=0.5}
+        ]
+            \begin{knot}[
+                clip width=5,
+                clip radius=4pt,
+                consider self intersections,
+                ignore endpoint intersections=false
+            ]
+                \strand [red,thick] (0.2,1)
+                    to [dtwist] (-0.2,0.6)
+                    to [dtwist] (0.2,0.2)
+                    to [dtwist] (-0.2,-0.2)
+                    to [dtwist] (0.2,-0.6)
+                    to [dtwist] (-0.2,-1)
+                    to [dwloop] (-1.8,-1)
+                    to          (-1.8,-0.6)
+                    to [utwist] (-2.2,-0.2)
+                    to [utwist] (-1.8,0.2)
+                    to [utwist] (-2.2,0.6)
+                    to          (-2.2,1.4)
+                    to [uploop] (2.2,1.4)
+                    to [dtwist] (1.8,1)
+                    to [dtwist] (2.2,0.6)
+                    to [dtwist] (1.8,0.2)
+                    to [dtwist] (2.2,-0.2)
+                    to [dtwist] (1.8,-0.6)
+                    to [dtwist] (2.2,-1)
+                    to [dtwist] (1.8,-1.4)
+                    to [dwloop] (0.2,-1.4)
+                    to          (0.2,-1)
+                    to [utwist] (-0.2,-0.6)
+                    to [utwist] (0.2,-0.2)
+                    to [utwist] (-0.2,0.2)
+                    to [utwist] (0.2,0.6)
+                    to [utwist] (-0.2,1)
+                    to [uploop] (-1.8,1)
+                    to          (-1.8,0.6)
+                    to [dtwist] (-2.2,0.2)
+                    to [dtwist] (-1.8,-0.2)
+                    to [dtwist] (-2.2,-0.6)
+                    to          (-2.2,-1.4)
+                    to [dwloop] (2.2,-1.4)
+                    to [utwist] (1.8,-1)
+                    to [utwist] (2.2,-0.6)
+                    to [utwist] (1.8,-0.2)
+                    to [utwist] (2.2,0.2)
+                    to [utwist] (1.8,0.6)
+                    to [utwist] (2.2,1)
+                    to [utwist] (1.8,1.4)
+                    to [uploop] (0.2,1.4)
+                    to          cycle
+                ;
+                \flipcrossings{3,5,8,11,13,15}
+            \end{knot}
+        \end{tikzpicture}
+        \caption{The $(-3,5,7)$-pretzel knot.}
+        \label{fig:-357pretzel}
+    \end{figure}
+    \begin{itemize}
+        \item One such example is the $(-3,5,7)$-pretzel knot (see Figure \ref{fig:-357pretzel}).
+    \end{itemize}
+    \item Like the Jones polynomial, the Alexander polynomial can always be calculated.
+    \begin{itemize}
+        \item Choose the crossing that is modified by the skein relation to be one of the crossings that would be changed to unknot the knot in question (see Section \ref{sss:UnknottingNumber}).
+        \item Rule 2 takes the crossing as either $L_+$ or $L_-$, so Rule 2 produces a knot with one less crossing and a knot that is one crossing closer to being the unknot.
+        \item Iteratively, this process will once again produces several series of trivial links.
+        \item Displayed visually, this process forms a \textbf{resolving tree}.
+    \end{itemize}
+    \item \textbf{Resolving tree}: A tree of links formed through the \dq{process of repeatedly choosing a crossing, and then applying the skein relation to obtain two simpler links}{167}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \begin{knot}[
+                clip width=8,
+                clip radius=2pt,
+                consider self intersections=no splits,
+                end tolerance=3pt,
+                scale=0.3
+            ]
+                \strand [red,thin,
+                decoration={markings,
+                mark=at position 0.2 with {\arrow{>}}},
+                postaction={decorate}] (90:1)
+                    to [bend left=117,looseness=1.9] (210:1)
+                    to [bend left=117,looseness=1.9] (330:1)
+                    to [bend left=117,looseness=1.9] cycle
+                ;
+                \flipcrossings{2}
+            \end{knot}
+            \begin{knot}[
+                clip width=8,
+                clip radius=2pt,
+                consider self intersections=no splits,
+                end tolerance=3pt,
+                scale=0.3,
+                xshift=-4cm,yshift=-4cm
+            ]
+                \strand [red,thin,
+                decoration={markings,
+                mark=at position 0.2 with {\arrow{>}}},
+                postaction={decorate}] (90:1)
+                    to [bend left=117,looseness=1.9] (210:1)
+                    to [bend left=117,looseness=1.9] (330:1)
+                    to [bend left=117,looseness=1.9] cycle
+                ;
+                \flipcrossings{2,3}
+                \draw [red,thick,xshift=-3cm] circle (5mm);
+                \node [xshift=-5mm] {=};
+            \end{knot}
+            \begin{knot}[
+                clip width=8,
+                clip radius=2pt,
+                ignore endpoint intersections=false,
+                every strand/.append style={red,thin,decoration={
+                    markings,
+                    mark=at position 0.5 with \arrow{<}
+                },postaction={decorate}},
+                flip crossing=1,
+                scale=0.2,
+                xshift=6cm,yshift=-6cm
+            ]
+                \strand (0.5,0) circle (1cm);
+                \strand (-0.5,0) circle (1cm);
+            \end{knot}
+            \begin{knot}[
+                clip width=8,
+                clip radius=2pt,
+                ignore endpoint intersections=false,
+                every strand/.append style={red,thin,decoration={
+                    markings,
+                    mark=at position 0.5 with \arrow{<}
+                },postaction={decorate}},
+                scale=0.2,
+                yshift=-12cm
+            ]
+                \strand (0.5,0) circle (1cm);
+                \strand (-0.5,0) circle (1cm);
+                \draw [red,thick,xshift=-4.5cm] circle (7.5mm);
+                \draw [red,thick,xshift=-6.5cm] circle (7.5mm);
+                \node [xshift=-5mm] {=};
+            \end{knot}
+            \draw [red,thick,scale=0.3,xshift=8cm,yshift=-8cm] circle (5mm);
+            \draw [-latex] (-0.4,-0.4) -- (-0.9,-0.9);
+            \draw [-latex] (0.4,-0.4) -- (0.9,-0.9);
+            \draw [-latex] (1.6,-1.6) -- (2.1,-2.1);
+            \draw [-latex] (0.8,-1.6) -- (0.3,-2.1);
+        \end{tikzpicture}
+        \caption{The resolving tree for the trefoil knot.}
+        \label{fig:trefoilrestree}
+    \end{figure}
+    \item \textbf{Depth} (of a resolving tree): \dq{The number of levels of links in the tree, not including the initial level at the top}{168}
+    \begin{itemize}
+        \item For example, the resolving tree in Figure \ref{fig:trefoilrestree} has depth 2.
+    \end{itemize}
+    \item \textbf{Depth} (of a link $L$): The minimal depth for any resolving tree of $L$.
+    \begin{itemize}
+        \item A knot invariant.
+        \item Measures the complexity of the calculation of the Alexander polynomial.
+        \item Links of depth 0 are trivial links.
+        \item A knot of depth 1 is trivial.
+        \item A link of depth 1 is the Hopf link, possibly with some extra disentangled trivial components.
+        \item The links of depth 2 have been classified.
+    \end{itemize}
+    \item On the other hand, the \textbf{HOMFLY polynomial} $P$ is a two-variable Laurent polynomial in $m$ and $l$ satisfying the following two rules.
+    \begin{align*}
+        \text{Rule 1}:\qquad& P(\bpunknot)=1\\
+        \text{Rule 2}:\qquad& lP(L_+)+l^{-1}P(L_-)+mP(L_0)=0
+    \end{align*}
+    \begin{itemize}
+        \item Like the Alexander polynomial, Rule 1 holds for any projection of the trivial knot.
+        \item Note that once again, Rule 2 is very similar to that of the Alexander polynomial and of the Jones polynomial's skein relation. Refer to Figure \ref{fig:ex6-8}.
+    \end{itemize}
+    \item Find $P(L)$ for the trivial link of two components (Figure \ref{fig:HOMFLYtrivial2compc}).
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    every strand/.append style={red,thick,decoration={
+                        markings,
+                        mark=at position 0.17 with \arrow{<},
+                        mark=at position 0.67 with \arrow{<}
+                    },postaction={decorate}}
+                ]
+                    \strand (1,0)
+                        to [out=90,in=-90,looseness=2] (-1,0)
+                        to [out=90,in=-90,looseness=2] cycle
+                    ;
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-3em}
+            \caption{$L_+$}
+            \label{fig:HOMFLYtrivial2compa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    every strand/.append style={red,thick,decoration={
+                        markings,
+                        mark=at position 0.17 with \arrow{<},
+                        mark=at position 0.67 with \arrow{<}
+                    },postaction={decorate}},
+                    flip crossing=1
+                ]
+                    \strand (1,0)
+                        to [out=90,in=-90,looseness=2] (-1,0)
+                        to [out=90,in=-90,looseness=2] cycle
+                    ;
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-3em}
+            \caption{$L_-$}
+            \label{fig:HOMFLYtrivial2compb}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}[
+                every path/.style={red,thick}
+            ]
+                \draw [decoration={
+                    markings,
+                    mark=at position 0.17 with \arrow{>}
+                },postaction={decorate}] (-0.7,0) circle (5mm);
+                \draw [decoration={
+                    markings,
+                    mark=at position 0.37 with \arrow{<}
+                },postaction={decorate}] (0.7,0) circle (5mm);
+            \end{tikzpicture}
+            \caption{$L_0$}
+            \label{fig:HOMFLYtrivial2compc}
+        \end{subfigure}
+        \caption{Finding the HOMFLY polynomial of the trivial link of two components.}
+        \label{fig:HOMFLYtrivial2comp}
+    \end{figure}
+    \begin{itemize}
+        \item By Figure \ref{fig:HOMFLYtrivial2comp} and Rule 2, $lP(L_+)+l^{-1}P(L_-)+mP(L_0)=0$.
+        \item Because Figures \ref{fig:HOMFLYtrivial2compa} and \ref{fig:HOMFLYtrivial2compb} are representations of the unknot, $P(L_+)=P(L_-)=1$.
+        \item Thus, $mP(L_0)=-\left( l+l^{-1} \right)$.
+        \item Therefore, the HOMFLY polynomial $P(L_0)$ for the trivial link of two components is given by the following. Note that Equation \ref{eqn:HOMFLYtrivial2} is an acceptable way to leave the HOMFLY polynomial.
+        \begin{equation}\label{eqn:HOMFLYtrivial2}
+            P(L_0)=-m^{-1}\left( l+l^{-1} \right)
+        \end{equation}
     \end{itemize}
 \end{itemize}
 
