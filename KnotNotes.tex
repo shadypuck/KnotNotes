@@ -5843,6 +5843,107 @@
             P(L_0)=-m^{-1}\left( l+l^{-1} \right)
         \end{equation}
     \end{itemize}
+    \item \emph{Exercise 6.19}: Show that the HOMFLY polynomial of a knot is identical to the HOMFLY polynomial of the same knot but with the opposite orientation.
+    \begin{itemize}
+        \item Consider how the HOMFLY polynomial is constructed (Figure \ref{fig:ex6-8}).
+        \item Take each of the three projections in Figure \ref{fig:ex6-8} and reverse the orientations.
+        \begin{itemize}
+            \item The orientations on both strands must change because the knot is continuous.
+        \end{itemize}
+        \item Immediately, this may look like something has changed. However, if these new projections are rotated $180^\circ$ about an axis through the page, they will be identical to the original pictures.
+        \item Thus, since reversing the orientation does not change which crossings correspond to $L_+$, $L_-$, and $L_0$, the new HOMFLY polynomial is calculated the same way, and is therefore identical to the original.
+    \end{itemize}
+    \item With links, however, changing some of the orientations can have an effect.
+    \item The HOMFLY polynomial \emph{can} always be computed, but the computations can take a long time.
+    \begin{itemize}
+        \item A 100 crossing knot would resolve into $2^{100}$ unlinks.
+        \item However, Hugh Morton and Hamish Short created an algorithm applicable to closed braids of nine or fewer strings that can successfully compute the polynomial of knots of several hundred crossings.
+    \end{itemize}
+    \item \textbf{Split union} (of two links): A link $L_1\cup L_2$ where $L_1$ and $L_2$ can be separated by a sphere.
+    \item The HOMFLY polynomial of a split union is given by Equation \ref{eqn:HOMFLYsplitunion}$^[$\footnote{The proof of this is uses the rules for calculating the HOMFLY polynomial. However, it does get messy.}$^]$.
+    \begin{equation}\label{eqn:HOMFLYsplitunion}
+        P(L_1\cup L_2)=-m^{-1}\left( l+l^{-1} \right)P(L_1)P(L_2)
+    \end{equation}
+    \item This does lead to second interesting property (Equation \ref{eqn:HOMFLYcomposite}).
+    \begin{equation}\label{eqn:HOMFLYcomposite}
+        P(L_1\#L_2)=P(L_1)P(L_2)
+    \end{equation}
+    \item Note that all distinct composite links with the same factor knots will have the same HOMFLY polynomial.
+    \item Prove Equation \ref{eqn:HOMFLYcomposite} using Equation \ref{eqn:HOMFLYsplitunion}.
+    \begin{figure}[h!]
+        \centering
+        \colorlet{orx}{orange}
+        \colorlet{ory}{orx!50}
+        \colorlet{orz}{orx!10}
+        \begin{subfigure}[b]{0.9\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \node (a) [draw=red,circle,thick] at (-1,0) [top color=ory,bottom color=orz] {$L_1$};
+                \node (b) [draw=red,circle,thick] at (1,0) [top color=ory,bottom color=orz] {$L_2$}
+                    ([xshift=0.5pt]b.150) edge [red,thick,decoration={markings,mark=at position 0.5 with \arrow{>}},postaction={decorate}] ([xshift=-0.5pt]a.30)
+                    ([xshift=0.5pt]b.-150) edge [red,thick,decoration={markings,mark=at position 0.5 with \arrow{<}},postaction={decorate}] ([xshift=-0.5pt]a.-30)
+                ;
+            \end{tikzpicture}
+            \caption{A projection of $L_1\#L_2$.}
+            \label{fig:HOMFLYcompositea}
+        \end{subfigure}\\
+        \vspace{1em}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \node (a) [draw=red,circle,thick] at (-1,0) [top color=ory,bottom color=orz] {$L_1$};
+                \node (b) [draw=red,circle,thick,yscale=-1] at (1,0) [top color=orz,bottom color=ory] {$L_2$};
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand ([xshift=0.5pt]b.-150) -- ([xshift=-0.5pt]a.-30);
+                    \strand ([xshift=0.5pt]b.150) -- ([xshift=-0.5pt]a.30);
+                \end{knot}
+            \end{tikzpicture}
+            \caption{$L_+$.}
+            \label{fig:HOMFLYcompositeb}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \node (a) [draw=red,circle,thick] at (-1,0) [top color=ory,bottom color=orz] {$L_1$};
+                \node (b) [draw=red,circle,thick,yscale=-1] at (1,0) [top color=orz,bottom color=ory] {$L_2$};
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand ([xshift=0.5pt]b.150) -- ([xshift=-0.5pt]a.30);
+                    \strand ([xshift=0.5pt]b.-150) -- ([xshift=-0.5pt]a.-30);
+                \end{knot}
+            \end{tikzpicture}
+            \caption{$L_-$.}
+            \label{fig:HOMFLYcompositec}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \node (a) [draw=red,circle,thick] at (-1,0) [top color=ory,bottom color=orz] {$L_1$}
+                    ([xshift=-0.5pt]a.30) edge[out=-20,in=20,looseness=2,red,thick] ([xshift=-0.5pt]a.-30)
+                ;
+                \node (b) [draw=red,circle,thick,yscale=-1] at (1,0) [top color=orz,bottom color=ory] {$L_2$}
+                    ([xshift=0.5pt]b.150) edge[out=160,in=-160,looseness=2,red,thick] ([xshift=0.5pt]b.-150)
+                ;
+            \end{tikzpicture}
+            \caption{$L_0$.}
+            \label{fig:HOMFLYcomposited}
+        \end{subfigure}
+        \caption{Proving the formula for the HOMFLY polynomial of a composite knot.}
+        \label{fig:HOMFLYcomposite}
+    \end{figure}
+    \begin{itemize}
+        \item Figure \ref{fig:HOMFLYcompositea} shows any composite link, and Figures \ref{fig:HOMFLYcompositeb}, \ref{fig:HOMFLYcompositec}, and \ref{fig:HOMFLYcomposited} show the connecting strands twisted in such a way as to match Figure \ref{fig:ex6-8}.
+        \item Equation \ref{eqn:HOMFLYsplitunion} governs Figure \ref{fig:HOMFLYcomposited} since Figure \ref{fig:HOMFLYcomposited} is a split union.
+        \item Rule 2 connects Figures \ref{fig:HOMFLYcompositeb}, \ref{fig:HOMFLYcompositec}, and \ref{fig:HOMFLYcomposited} via the following.
+        \begin{equation*}
+            lP(L_1\#L_2)+l^{-1}P(L_1\#L_2)+mP(L_1\cup L_2)=0
+        \end{equation*}
+    \end{itemize}
 \end{itemize}
 
 
