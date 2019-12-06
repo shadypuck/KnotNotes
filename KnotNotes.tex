@@ -305,7 +305,7 @@
 \end{itemize}
 
 
-\subsection{Reidemeister Moves}
+\subsection{Reidemeister Moves}\label{sss:Reidemeister}
 \begin{itemize}
     \item \textbf{Ambient isotropy}: \dq{The movement of the string through three-dimensional space without letting it pass through itself}{12}
     \item \textbf{Planar isotropy}: A deformation of \dq{the projection plane as if it were made of ruber with the projection drawn upon it}{12}
@@ -389,7 +389,7 @@
     \item \textbf{Amphicheiral}: A knot that \dq{is equivalent to its mirror image, that is, the knot obtained by changing every crossing\dots to the opposite crossing}{14-15} \emph{Also known as} \textbf{achiral} \emph{by chemists.}
     \begin{itemize}
         \item A knot and its mirror image are distinct unless the knot is amphicheiral.
-        \item See Section \ref{sse:biochemphys} for more on amphicheirality.
+        \item See Sections \ref{sss:Amphicheirality} and \ref{sse:biochemphys} for more on amphicheirality.
     \end{itemize}
     \newpage
     \item \emph{Exercise 1.10}: Show that the two projections in Figure \ref{fig:ex1-10} represent the same knot by finding a series of Reidemeister moves from one to the other.
@@ -5297,7 +5297,7 @@
             \item Note that another state could only be equal by this logic.
             \item By \emph{Exercise 6.10}$^[$\footnote{Possibly within my grasp.}$^]$, \dq{the highest power of $A$ that occurs in an all-$A$-split state is strictly greater than the highest power of $A$ that occurs in a state with exactly one $B$-split}{161}
         \end{itemize}
-        \item By a similar argument, the lowest power of $A$ is $-n-2(W-1)$, where $W$ is the number of white regions in a projection of all $B$-splits.
+        \item By a similar argument, the lowest power of $A$ is $-n-2(W-1)$, where $W$ is the number of white regions in the original projection.
         \item Thus, the following holds (see \emph{Exercise 6.11} for the transition from step 2 to 3).
         \begin{align*}
             \text{span}(\lbq K\rbq) &= n+2(D-1)-(-n-2(W-1))\\
@@ -5943,6 +5943,135 @@
         \begin{equation*}
             lP(L_1\#L_2)+l^{-1}P(L_1\#L_2)+mP(L_1\cup L_2)=0
         \end{equation*}
+        \item Substitute in Equation \ref{eqn:HOMFLYsplitunion}.
+        \begin{equation*}
+            lP(L_1\#L_2)+l^{-1}P(L_1\#L_2)+m\left( -m^{-1}\left( l+l^{-1} \right)P(L_1)P(L_2) \right)=0
+        \end{equation*}
+        \item Simplify and solve for $P(L_1\#L_2)$.
+        \begin{align*}
+            \left( l+l^{-1} \right)P(L_1\#L_2)-\left( l+l^{-1} \right)P(L_1)P(L_2) &=0\\
+            \left( l+l^{-1} \right)P(L_1\#L_2) &=\left( l+l^{-1} \right)P(L_1)P(L_2)\\
+            P(L_1\#L_2) &=P(L_1)P(L_2)
+        \end{align*}
+    \end{itemize}
+    \item The property described by Equation \ref{eqn:HOMFLYcomposite} continues the analogy of composition to multiplication introduced in Section \ref{sss:Composition}.
+    \item The HOMFLY polynomial is not a \textbf{complete invariant} for knots.
+    \begin{itemize}
+        \item The HOMFLY polynomial cannot distinguish between mutant knots.
+    \end{itemize}
+    \item \textbf{Complete invariant}: An characteristic that distinguishes all entities in a set.
+    \item The HOMFLY polynomial is better at telling apart knots and links than either the Jones or Alexander polynomials because these other polynomials are simply a special case of the HOMFLY polynomial.
+    \begin{itemize}
+        \item To convert a HOMFLY polynomial into a Jones polynomial, make the following substitutions where $i=\sqrt{-1}$.
+        \begin{align*}
+            l &= it^{-1}\\
+            m &= i\left( t^{-\frac{1}{2}}-t^\frac{1}{2} \right)
+        \end{align*}
+        \item To convert a HOMFLY polynomial into an Alexander polynomial, make the following substitutions where $i=\sqrt{-1}$ (\emph{Exercise 6.21}).
+        \begin{align*}
+            l &= i\\
+            m &= i\left( t^\frac{1}{2}-t^{-\frac{1}{2}} \right)
+        \end{align*}
+    \end{itemize}
+    \item \dq{Let $E$ be the largest exponent of $l$ in the HOMFLY polynomial of the oriented link $L$ and $e$ be the smallest exponent of $l$}{174} In this case, the braid index $n$ of the link $L$ satisfies the inequality in Equation \ref{eqn:HOMFLYinequality}.
+    \begin{equation}\label{eqn:HOMFLYinequality}
+        n\geq\frac{E-e}{2}+1
+    \end{equation}
+    \begin{itemize}
+        \item This inequality was proven by Robert Williams, John Franks, and (independently) Hugh Morton.
+        \item It is \textbf{sharp} for \dq{all but five prime knots of 10 or fewer crossings (the exceptions being $9_{42}$, $9_{49}$, $10_{132}$, $10_{150}$, and $10_{156}$)}{174}
+    \end{itemize}
+    \item \textbf{Sharp} (inequality): An inequality where both sides are equal.
+    \item Several other polynomials exist, but they will not be explored herein$^[$\footnote{Idea for paper: Find a polynomial as a function of a knot's Dowker notation.}$^]$.
+\end{itemize}
+
+
+\subsection{Amphicheirality}\label{sss:Amphicheirality}
+\begin{itemize}
+    \item See Section \ref{sss:Reidemeister} for a refresher on amphicheirality.
+    \item Let $K^{*}$ be the mirror image of $K$.
+    \item \emph{Exercise 6.22}: Show that the bracket polynomial of $K^{*}$ is just the bracket polynomial of $K$ where the variable $A$ is replaced everywhere by the variable $A^{-1}$. Show that the same is true for the $X$ polynomial.
+    \begin{itemize}
+        \item If every crossing is flipped from $K$ to $K^{*}$, then the version of Rule 2 used to split every crossing switches as well.
+        \item Thus, every split assigned $A$ is now assigned $A^{-1}$ and vice versa.
+        \item Thus, the coefficient before $\left( -A^2-A^{-2} \right)$ that was $A^n$ becomes $A^{-n}$.
+        \item Furthermore, every unlink is eventually resolved with $\left( -A^2-A^{-2} \right)$.
+        \item So if we were multiplying $A^n$ through the above to yield $-A^{n+2}-A^{n-2}$, and now we're multiplying $A^{-n}$, we get $-A^{-(n-2)}-A^{-(n+2)}$, which is identical to replacing all of the $A$s in the first expression with $A^{-1}$.
+        \item Considering the $X$ polynomial as Equation \ref{eqn:XL} relates it to the bracket polynomial, flipping every crossing has the effect of multiplying the former writhe by $-1$.
+        \item However, this is offset by the substitution of $-A^3$ for $-A^{-3}$ since a power to a power multiplies the exponents and $-1\times -1=1$.
+    \end{itemize}
+    \item If $K$ is amphicheiral, then $K^{*}$ is simply a different projection of $K$. Thus, $X_K(A)=X_{K^{*}}(A)$$^[$\footnote{Let the notation $X_K(A)$ denote the $X$ polynomial of $K$ in the variable $A$.}$^]$.
+    \item By \emph{Exercise 6.22}, $X_K(A)=X_{K^{*}}\left( A^{-1} \right)$.
+    \item Therefore, if $K$ is amphicheiral, then Equation \ref{eqn:Xamphicheiral} must hold.
+    \begin{equation}\label{eqn:Xamphicheiral}
+        X_K(A)=X_{K^{*}}\left( A^{-1} \right)=X_K\left( A^{-1} \right)
+    \end{equation}
+    \item To satisfy Equation \ref{eqn:Xamphicheiral}, the $X$ polynomial must be \textbf{palindromic}.
+    \item \textbf{Palindromic} (polynomial): A polynomial where the absolute values of the ordered coefficients read the same backwards and forwards. Replacing every variable by the inverse of that variable gives the original polynomial.
+    \item Section \ref{sss:Reidemeister} showed that the figure-eight knot was amphicheiral. This can be further shown by the fact that the $X$ polynomial of $4_1$ is $A^8+A^4-3+A^{-4}+A^{-8}$, which is clearly palindromic.
+    \item Similarly, the fact that the $X$ polynomial of the trefoil knot is not palindromic likely means that the trefoil knot is not amphicheiral.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections
+                ]
+                    \strand[red,thick] (90:1)
+                        \foreach \x in {1,2,3} {
+                            to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                        }
+                    ;
+                    \flipcrossings{1,3}
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-2em}
+            \caption{The left-hand trefoil.}
+            \label{fig:trefoilLRa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections
+                ]
+                    \strand[red,thick] (90:1)
+                        \foreach \x in {1,2,3} {
+                            to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                        }
+                    ;
+                    \flipcrossings{2}
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-2em}
+            \caption{The right-hand trefoil.}
+            \label{fig:trefoilLRb}
+        \end{subfigure}
+        \caption{The two versions of the trefoil knot.}
+        \label{fig:trefoilLR}
+    \end{figure}
+    \begin{itemize}
+        \item The two variations of the trefoil knot have the common sense names highlighted by Figure \ref{fig:trefoilLR}.
+    \end{itemize}
+    \item There exist some implications of this for alternating knots.
+    \begin{itemize}
+        \item It was previously shown that $\text{max deg}\lbq K\rbq=n+2(D-1)$ and $\text{min deg}\lbq K\rbq=-n-2(W-1)$.
+        \item This can be adapted for the $X$ polynomial. Namely, through $\text{max deg}X(K)=n+2(D-1)-3w(K)$ and $\text{min deg}X(K)=-n-2(W-1)-3w(K)$.
+        \item Since $X_K(A)=X_K\left( A^{-1} \right)$ for an amphicheiral knot (an amphicheiral knot is palindromic), then $\text{max deg}X(K)=-\text{min deg}X(K)$.
+        \item Thus, $n+2(D-1)-3w(K)=-(-n-2(W-1)-3w(K))$.
+        \item Therefore, $3w(K)=D-W$ for any reduced alternating projection of an amphicheiral knot.
+    \end{itemize}
+    \item For alternating knots, if $\frac{c(K)}{2}\notin\mathbb{N}$, then the knot is not amphicheiral.
+    \begin{itemize}
+        \item This conjecture does not hold true for nonalternating knots or links.
+    \end{itemize}
+    \item Equation \ref{eqn:Xamphicheiral} is also applicable to the HOMFLY polynomial (since the HOMFLY carries within it the information of the $X$ polynomial). However, it is not infallible at determining amphicheirality, e.g., in the case of $9_{42}$.
+    \begin{itemize}
+        \item In other words, if a knot is amphicheiral, Equation \ref{eqn:Xamphicheiral} holds true.
+        \item However, the converse of the above statement is false.
     \end{itemize}
 \end{itemize}
 
