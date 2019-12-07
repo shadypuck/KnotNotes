@@ -10,6 +10,8 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{float}
+\usepackage{chemfig}
+\usepackage{mhchem}
 
 \MakeOuterQuote{"}
 
@@ -17,7 +19,7 @@
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
 
-\usetikzlibrary{knots,decorations.markings,positioning}
+\usetikzlibrary{knots,decorations.markings,positioning,shapes.geometric}
 \tikzset{mini/.style={scale=0.15,baseline={(0,-0.09)},every path/.style={knot=red,thick}}}
 
 \newcommand{\dq}[2]{``#1" (#2).}
@@ -5769,6 +5771,7 @@
     \item Find $P(L)$ for the trivial link of two components (Figure \ref{fig:HOMFLYtrivial2compc}).
     \begin{figure}[h!]
         \centering
+        \vspace{-3em}
         \begin{subfigure}[b]{0.2\linewidth}
             \centering
             \begin{tikzpicture}
@@ -5870,7 +5873,7 @@
     \end{equation}
     \item Note that all distinct composite links with the same factor knots will have the same HOMFLY polynomial.
     \item Prove Equation \ref{eqn:HOMFLYcomposite} using Equation \ref{eqn:HOMFLYsplitunion}.
-    \begin{figure}[h!]
+    \begin{figure}[H]
         \centering
         \colorlet{orx}{orange}
         \colorlet{ory}{orx!50}
@@ -6072,6 +6075,56 @@
     \begin{itemize}
         \item In other words, if a knot is amphicheiral, Equation \ref{eqn:Xamphicheiral} holds true.
         \item However, the converse of the above statement is false.
+    \end{itemize}
+\end{itemize}
+\newpage
+
+
+
+\section{Biology, Chemistry, and Physics}\label{sse:biochemphys}
+\subsection{DNA}
+\begin{itemize}
+    \item Begins with a general, elementary introduction to DNA.
+    \item \textbf{Topo-isomerase}: An enzyme that manipulates DNA topologically.
+    \begin{itemize}
+        \item Used to expose various sequences for replication, transcription, and recombination.
+    \end{itemize}
+    \item Topo-isomerases perform actions that range from simple to very sophisticated.
+    \item Some such enzymes take two strands of DNA and replace them with a nontrivial tangle.
+    \begin{itemize}
+        \item If DNA is linear, a knot, once formed, could easily "slip off" one end or the other.
+        \item Thus, scientists allow specific topo-isomerases to act on circular DNA, because if the enzyme in question causes knotting, the knot will be captured in the circle.
+    \end{itemize}
+    \item Recently, scientists have learned to artificially create cyclic DNA. It is this DNA that is subjected to various topo-isomerases.
+    \item Focus on duplex cyclic DNA.
+    \begin{figure}[h!]
+        \centering
+        \vspace{2.3em}
+        \chemfig{[:-126]O*5(-(-[2]C\rlap{\ce{H2}}-[4]O-[4]P(=[4]O)(-[6]O\rlap{${}^-$})(-[2]O\rlap{${}^-$}))-(-[6]O-[6]P(=[4]O)(-[6]O\rlap{${}^-$})(-[0]O-[0]C\rlap{\ce{H2}}-[6]*5([@{CB2}:-18]-(-[6]OH)--(-[:90]\tikz{\node[ellipse,draw,thick,inner sep=2pt]{base};})-O-)))--(-[:90]\tikz{\node[ellipse,draw,thick,inner sep=2pt]{base};})-)}
+        \begin{tikzpicture}[remember picture,overlay]
+            \node [draw,thick] at (-6.9,2.2) {$5'$ end};
+            \node [draw,thick] at (-2,-7.4) {$3'$ end};
+        \end{tikzpicture}
+        \vspace{2.3em}
+        \caption{A segment of a strand of DNA.}
+        \label{fig:DNA2bits}
+    \end{figure}
+    \begin{itemize}
+        \item Each phosphate is bonded to two different sugars. This forms the backbone.
+        \item These sugars are, in turn, bonded to cytosine, thymine, guanine, or adanine bases.
+        \item A single phosphate binds to the $3'$ site of one sugar and the $5'$ site of another.
+        \item This means that one end of the molecule will have an open $5'$ site while the other will have an open $3'$ site.
+        \item Thus, an orientation is created based on the convention of moving from $5'$ to $3'$.
+    \end{itemize}
+    \item However, because linear duplex DNA has an open $3'$ and $5'$ end on both sides, it cannot be oriented (only linear single-stranded DNA can be oriented).
+    \item Thus, when the ends of a linear strand of DNA are joined, each end must join its own end, giving two linked strands in space as opposed to one strand that loops around twice.
+    \begin{itemize}
+        \item In other words, there must be \dq{an even number of half-twists in the cyclic duplex DNA}{184}
+    \end{itemize}
+    \item This cyclic duplex can be modeled as a ribbon in space, whose edges are bounded by the cyclic duplex (because of the above, it is never a M\"{o}bius band).
+    \item \textbf{Axis}: The curve that runs along the center of the ribbon.
+    \begin{itemize}
+        \item The axis does not correspond to a specific part of the molecule, but if it and the edges are all similarly oriented, it conveys the extent of the molecule's contortion in space.
     \end{itemize}
 \end{itemize}
 
