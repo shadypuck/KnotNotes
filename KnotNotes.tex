@@ -6121,11 +6121,40 @@
     \begin{itemize}
         \item In other words, there must be \dq{an even number of half-twists in the cyclic duplex DNA}{184}
     \end{itemize}
-    \item This cyclic duplex can be modeled as a ribbon in space, whose edges are bounded by the cyclic duplex (because of the above, it is never a M\"{o}bius band).
+    \item This cyclic duplex can be modeled as a ribbon in space, whose edges are bounded by the cyclic duplex (because of the above, it is never a M\"{o}bius band; is orientable).
     \item \textbf{Axis}: The curve that runs along the center of the ribbon.
     \begin{itemize}
         \item The axis does not correspond to a specific part of the molecule, but if it and the edges are all similarly oriented, it conveys the extent of the molecule's contortion in space.
     \end{itemize}
+    \item \textbf{Twist}: A measure of how much the ribbon twists around its axis. \emph{Also known as} \textbf{Tw(\emph{R})}.
+    \begin{itemize}
+        \item The definition listed below is only applicable when the ribbon is static/rigid and lies within the projection plane.
+        \item Take one of the two link components bounding the ribbon (it doesn't matter which one) and the axis.
+        \item Note $+1$ or $-1$ for every crossing (of the link component and axis) according to Figure \ref{fig:linkingnumber}.
+        \item Sum these values and divide by 2.
+        \item If we wish to calculate $\text{Tw}(R)$ for a malleable ribbon in space, we must sum \dq{the incremental twist of the ribbon about the axis, integrated as we traverse the axis once}{185}
+        \item This value need not be an integer.
+    \end{itemize}
+    \item \textbf{Writhe}: A measure of how contorted the axis of the ribbon is in space. \emph{Also known as} \textbf{Wr(\emph{R})}.
+    \begin{itemize}
+        \item Take the average of the \textbf{signed crossover number} over every possible projection of the axis, i.e., \dq{the planar pictures that would result as we looked at the fixed axis from all possible vantage points on a [unit] sphere that surrounds it}{185}
+        \item Determined using integrals ($\int\text{d}A=4\pi$ since $4\pi$ is the surface area of the unit sphere):
+        \begin{align*}
+            \text{Wr}(R) &= \frac{\int\text{signed crossover number}\,\text{d}A}{\int\text{d}A}\\
+            &= \frac{\int\text{signed crossover number}\,\text{d}A}{4\pi}
+        \end{align*}
+        \item The writhe also need not be an integer.
+    \end{itemize}
+    \item \textbf{Signed crossover number}: For any particular projection of the axis, the sum of all the $\pm 1$s occuring at crossings where the axis crosses itself assigned according to Figure \ref{fig:linkingnumber}.
+    \item If the ribbon axis lies in a plane, $\text{Wr}(R)=0$ because the only vantage points with a nonzero number of crossings (technically undefined crossings) is the equator of the sphere, which makes up $0\%$ of the sphere's area.
+    \item Linking number: See Section \ref{sss:Links}. \emph{Also known as} \textbf{Lk(\emph{R})}.
+    \begin{itemize}
+        \item This characteristic does not depend on the specific projection, unlike twist and writhe.
+    \end{itemize}
+    \item James White, Brock Fuller, and G. C\u{a}lug\u{a}reanu all independently discovered Equation \ref{eqn:LkTwWr}.
+    \begin{equation}\label{eqn:LkTwWr}
+        \text{Lk}(R)=\text{Tw}(R)+\text{Wr}(R)
+    \end{equation}
 \end{itemize}
 
 
