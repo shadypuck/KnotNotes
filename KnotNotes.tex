@@ -19,7 +19,7 @@
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
 
-\usetikzlibrary{knots,decorations.markings,positioning,shapes.geometric}
+\usetikzlibrary{knots,decorations.markings,positioning,shapes.geometric,calc}
 \tikzset{mini/.style={scale=0.15,baseline={(0,-0.09)},every path/.style={knot=red,thick}}}
 
 \newcommand{\dq}[2]{``#1" (#2).}
@@ -689,7 +689,7 @@
     \end{itemize}
     \item \textbf{Brunnian link}: A nontrivial link where the removal of any one component leaves behind a set of trivial unlinked circles.
     \begin{itemize}
-        \item The Borromean rings (Figure \ref{fig:WhiteheadBorromeanb}) are Brunnian$^[$\footnote{How can I draw a Brunnian link with four components? Or more?}$^]$.
+        \item The Borromean rings (Figure \ref{fig:WhiteheadBorromeanb}) are Brunnian$^[$\footnote{How can I draw a Brunnian link with four components? Or more? $\text{Lk}(R)$ between any two components is 0.}$^]$.
     \end{itemize}
 \end{itemize}
 
@@ -6093,10 +6093,10 @@
     \item Some such enzymes take two strands of DNA and replace them with a nontrivial tangle.
     \begin{itemize}
         \item If DNA is linear, a knot, once formed, could easily "slip off" one end or the other.
-        \item Thus, scientists allow specific topo-isomerases to act on circular DNA, because if the enzyme in question causes knotting, the knot will be captured in the circle.
+        \item Thus, scientists allow specific topo-isomerases to act on circular DNA, because if the enzyme in question causes knotting, the knot will be captured in the loop.
     \end{itemize}
     \item Recently, scientists have learned to artificially create cyclic DNA. It is this DNA that is subjected to various topo-isomerases.
-    \item Focus on duplex cyclic DNA.
+    \item Focus on cyclic duplex DNA.
     \begin{figure}[h!]
         \centering
         \vspace{2.3em}
@@ -6155,6 +6155,630 @@
     \begin{equation}\label{eqn:LkTwWr}
         \text{Lk}(R)=\text{Tw}(R)+\text{Wr}(R)
     \end{equation}
+    \item In simple cases, Equation \ref{eqn:LkTwWr} can be used to determine one of the three elements when the other two are known.
+    \item Furthermore, Equation \ref{eqn:LkTwWr} implies that under an isotropy, any change in $\text{Tw}(R)$ must be exactly balanced by $\text{Wr}(R)$ since $\text{Lk}(R)$ is unchanged.
+    \item \dq{In its relaxed state, DNA twists around its axis at a rate of 10.5 base pairs per helical twist}{187}
+    \begin{itemize}
+        \item Say a relaxed strand has 105 bases. Thus $\text{Lk}(R)=\text{Tw}(R)=10$ while $\text{Wr}(R)=0$.
+        \item Say this strand is twisted twice as tight. In this case, $\text{Lk}(R)=\text{Tw}(R)=20$ while $\text{Wr}(R)=0$.
+        \item However, this is painfully overwound. Some of the stress can be relieved by increasing the writhe and decreasing the twist such that now $\text{Tw}(R)=\text{Wr}(R)=10$, a process known as \textbf{supercoiling}.
+        \item This is the same effect as twisting a shoe lace until the lace bends about its axis.
+    \end{itemize}
+    \item \textbf{Supercoiling}: The relief of helical stress in a ribbon via twisting around itself.
+    \item Supercoiling has an interesting application to biochemistry.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \foreach \n in {-,+} {
+                \node at (\n3,0) [circle,draw=green!50!black,fill=green!50!black!20,label={above:$\n$}] {};
+            }
+            \draw [-latex,green!50!black] (-3,-1) -- node[below]{\footnotesize\emph{Direction of movement.}} (3,-1);
+            \begin{knot}[
+                clip width=5,
+                clip radius=2pt,
+                consider self intersections,
+                end tolerance=0.2pt,
+                every strand/.append style={red,thick}
+            ]
+                \strand (-1,0) circle (5mm);
+                \strand [xshift=1cm,scale=0.3] (-0.3,1)
+                    to [out=-5,in=90] (0.2,0.5)
+                    to [out=-90,in=90] (-0.2,-0.6)
+                    to [out=-90,in=-90,looseness=3] (0.2,-0.6)
+                    to [out=90,in=-90] (-0.2,0.5)
+                    to [out=90,in=-175] (0.3,1)
+                    to [out=5,in=0,out looseness=1.7,in looseness=2.2] (0,-0.7)
+                    to [out=180,in=175,out looseness=2.2,in looseness=1.7] cycle
+                ;
+            \end{knot}
+        \end{tikzpicture}
+        \caption{Supercoiled molecules move faster through the gel.}
+        \label{fig:gelelectro}
+    \end{figure}
+    \begin{itemize}
+        \item If a relaxed molecule is wound tighter by an enzyme, it will relieve stress by supercoiling and buckling out of the plane.
+        \item This serves to compress the molecule.
+        \item Such compressed, supercoiled molecules can then be separated from relaxed molecules via gel electrophoresis --- since they are compressed, they move faster (Figure \ref{fig:gelelectro}).
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \begin{scope}[xshift=-2.6cm]
+                \foreach \x in {-0.3,0.3} {
+                    \draw [red,thick] (\x,1) -- (\x,-1);
+                    \draw [green!50!black,thick] ({\x-0.12},-0.4) rectangle ({\x+0.12},0.4);
+                }
+            \end{scope}
+            \draw [very thick,-latex,xshift=-1.3cm] (-0.4,0) -- (0.4,0);
+            \begin{scope}
+                \foreach \x in {-0.3,0.3} {
+                    \foreach \y in {,-} {
+                        \draw [red,thick] (\x,\y1) -- (\x,\y0.3);
+                    }
+                }
+            \end{scope}
+            \draw [very thick,-latex,xshift=1.3cm] (-0.4,0) -- (0.4,0);
+            \begin{knot}[
+                clip width=5,
+                every strand/.append style={red,thick},
+                xshift=2.6cm
+            ]
+                \strand (-0.3,1)
+                    to (-0.3,0.3)
+                    to [out=-90,in=90] (0.3,-0.3)
+                    to (0.3,-1)
+                ;
+                \strand (0.3,1)
+                    to (0.3,0.3)
+                    to [out=-90,in=90] (-0.3,-0.3)
+                    to (-0.3,-1)
+                ;
+            \end{knot}
+        \end{tikzpicture}
+        \caption{One of the simplest site-specific recombinations.}
+        \label{fig:site-specirec}
+    \end{figure}
+    \item \textbf{Site-specific recombination}: \dq{A process whereby an enzyme attaches to two\dots\textbf{recombination sites}\dots each of which corresponds to a particular sequence of base pairs that the enzyme recognizes. After lining the sites up, the enzyme cuts the two strands open and recombines the four ends in some manner}{190}
+    \item \textbf{Recombination site}: A specific site along a strand of DNA characterized by a certain sequence of base pairs.
+    \item Again, circular DNA is used to determine the specific action of an enzyme.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \draw [red,thick] ellipse (8mm and 15mm);
+                \draw [draw=red,thick,fill=white] (-0.95,-0.5) rectangle (-0.65,0.5);
+                \draw [draw=red,thick,fill=white] (0.95,-0.5) rectangle (0.65,0.5);
+                \draw [thick,-latex] (-0.8,-0.4) -- (-0.8,0.4);
+                \draw [thick,latex-] (0.8,-0.4) -- (0.8,0.4);
+            \end{tikzpicture}
+            \caption{Direct repeats.}
+            \label{fig:directinverteda}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \draw [red,thick] ellipse (8mm and 15mm);
+                \draw [draw=red,thick,fill=white] (-0.95,-0.5) rectangle (-0.65,0.5);
+                \draw [draw=red,thick,fill=white] (0.95,-0.5) rectangle (0.65,0.5);
+                \draw [thick,-latex] (-0.8,-0.4) -- (-0.8,0.4);
+                \draw [thick,-latex] (0.8,-0.4) -- (0.8,0.4);
+            \end{tikzpicture}
+            \caption{Inverted repeats.}
+            \label{fig:directinvertedb}
+        \end{subfigure}
+        \caption{Recombination site orientations in a cyclic DNA molecule.}
+        \label{fig:directinverted}
+    \end{figure}
+    \begin{itemize}
+        \item The circular DNA is created such that it contains both recombination sites within it.
+        \item Because these sites must have nonpalindromic base sequences, they can be oriented.
+        \item Because of their orientation, the molecule can either have \textbf{direct repeats} or \textbf{inverted repeats} (see Figure \ref{fig:directinverted}).
+        \item During the reaction, the two sites are lined up such that their orientations match.
+    \end{itemize}
+    \item \textbf{Direct repeats}: Orientations that point in the same direction as the molecule is traversed.
+    \item \textbf{Inverted repeats}: Orientations that point in opposite directions as the molecule is traversed.
+    \item \textbf{Substrate}: The DNA molecule before the reaction.
+    \item \textbf{Product}: The DNA molecule after the reaction.
+    \begin{itemize}
+        \item Can be a knot, an unknot, or a two-component link.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \node (T) [circle,draw=red,thick,fill=orange!50] at (0.8,0)  {$T$};
+                \node (S) [circle,draw=red,thick,fill=orange!50] at (-0.8,0) {$S$}
+                    (S.65)   edge [out=80,in=100,looseness=2,red,thick]   (T.115)
+                    (S.115)  edge [out=80,in=100,looseness=2,red,thick]   (T.65)
+                    (S.-65)  edge [out=-80,in=-100,looseness=2,red,thick] (T.-115)
+                    (S.-115) edge [out=-80,in=-100,looseness=2,red,thick] (T.-65)
+                ;
+            \end{tikzpicture}
+            \caption{The substrate.}
+            \label{fig:STRtanglesa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \node (R) [circle,draw=red,thick,fill=orange!50] at (0.8,0)  {$R$};
+                \node (S) [circle,draw=red,thick,fill=orange!50] at (-0.8,0) {$S$}
+                    (S.65)   edge [out=80,in=100,looseness=2,red,thick]   (R.115)
+                    (S.115)  edge [out=80,in=100,looseness=2,red,thick]   (R.65)
+                    (S.-65)  edge [out=-80,in=-100,looseness=2,red,thick] (R.-115)
+                    (S.-115) edge [out=-80,in=-100,looseness=2,red,thick] (R.-65)
+                ;
+            \end{tikzpicture}
+            \caption{The product.}
+            \label{fig:STRtanglesb}
+        \end{subfigure}
+        \caption{Cyclic DNA as two tangles.}
+        \label{fig:STRtangles}
+    \end{figure}
+    \item Think of the substrate as being made of two possibly nontrivial tangles, the \textbf{substrate tangle} and the \textbf{site tangle} (see Figure \ref{fig:STRtanglesa}).
+    \item \textbf{Substrate tangle}: The tangle that is unchanged by the enzyme. \emph{Also known as} \textbf{\emph{S}}.
+    \item \textbf{Site tangle}: The tangle upon which the enzyme acts. \emph{Also known as} \textbf{\emph{T}}.
+    \item In the course of the reaction, the enzyme replaces the site tangle with the \textbf{recombination tangle}.
+    \item \textbf{Recombination tangle}: The tangle that the enzyme generates. \emph{Also known as} \textbf{\emph{R}}.
+    \item Notation:
+    \begin{itemize}
+        \item Let $N(Q)$ denote the knot or link obtained by connecting the two top strands and, independently, the bottom two strands of a tangle $Q$.
+        \item Let $Q+V$ denote the tangle formed by adding the tangles $Q$ and $V$.
+    \end{itemize}
+    \item Thus, the following two equations hold.
+    \begin{align*}
+        N(S+T) &= \text{substrate}\\
+        N(S+R) &= \text{product}
+    \end{align*}
+    \item Because the above are two equations with three unknowns, $S$, $T$, and $R$ cannot be determined from the knotting of the substrate and the product.
+    \begin{itemize}
+        \item However, being given one of the three would allow the determination of the other two.
+    \end{itemize}
+    \item There is also a biological assumption that can help: \dq{The tangles $T$ and $T$ do not depend on the tangle $S$}{193}
+    \begin{itemize}
+        \item For example, the enzyme, Tn3 resolvase replaces $T$ (in a cyclic duplex with direct repeats) with a single $R$ most of the time, but can repeat this process several times.
+        \item Thus, biochemists were able to determine what products resulted upon these repeated actions, yielding the following equations.
+        \begin{align*}
+            N(S+T)     &= N(1)     & &\hspace{-2cm}(\text{the unknot})\\
+            N(S+R)     &= N(2)     & &\hspace{-2cm}(\text{the Hopf link})\\
+            N(S+R+R)   &= N(211)   & &\hspace{-2cm}(\text{the figure-eight knot})\\
+            N(S+R+R+R) &= N(11111) & &\hspace{-2cm}(\text{the Whitehead link})\\
+        \end{align*}
+        \item From these equations, De Witt Sumners and Claus Ernst proved$^[$\footnote{Track down Sumners (1993) for a proof.}$^]$ that $S=(-3,0)$ and $R=(1)$.
+    \end{itemize}
+    \item A discussion of the Int enzyme (interesting, but nothing new).
+\end{itemize}
+
+
+\subsection{Synthesis of Knotted Molecules}
+\begin{itemize}
+    \item Since knotted and/or linked molecules are a different kind of isomer, their synthesis could someday reveal a molecule with novel properties.
+    \item \dq{Two molecules made up of the same set of atoms, bonded in the same way, can form distinct molecules}{196}
+    \item One example is mirror-image molecules.
+    \begin{itemize}
+        \item Mirror-image molecules do have the same molecular graph, however, so it is essential to know the identities of the individual atoms in order to distinguish them.
+    \end{itemize}
+    \item \textbf{Topological stereoisomers}: \dq{A pair of molecules that are homeomorphic but not isotropic}{197}
+    \item Another example of topological stereoisomers are two chains of atoms bonded in the same order in a loop except one chain is a circle while the other is knotted (say, as the trefoil).
+    \begin{itemize}
+        \item A last example is the left- and right-hand M\"{o}bius band ladders with four rungs.
+    \end{itemize}
+    \item \textbf{Catenane}: \dq{A set of linked molecular rings}{198}
+    \item In 1960, Wasserman synthesized the first catenane.
+    \begin{itemize}
+        \item He began by using \textbf{macrocyclization}.
+        \item Then, he threaded a second linear molecule through his cyclic one and glued the ends of the linear molecule together.
+    \end{itemize}
+    \item \textbf{Macrocyclization}: \dq{The formation of cyclic molecules with at least 20 atoms}{198}
+    \item Similar to forming a catenane, forming a knotted molecule requires a lot of atoms (think back to the difficulty with $s(K)$ in Section \ref{sss:KnotsSticks}).
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \begin{knot}[
+                clip width=5,
+                every strand/.append style={red,thick},
+                flip crossing=1,
+                xshift=-3.6cm
+            ]
+                \fill [gray] circle (3pt);
+                \strand (-1,-1) to[out=90,in=90,looseness=2.5] (1,-1);
+                \strand (-1,1) to[out=-90,in=-90,looseness=2.5] (1,1);
+            \end{knot}
+            \draw [very thick,-latex,xshift=-1.8cm] (-0.4,0) -- (0.4,0);
+            \begin{knot}[
+                clip width=5,
+                every strand/.append style={red,thick},
+                flip crossing=1
+            ]
+                \fill [gray] circle (3pt);
+                \strand (-1,-1)
+                    to [out=90,in=90,looseness=2.5] (1,-1)
+                    to [out=-90,in=-90]             cycle
+                ;
+                \strand (-1,1)
+                    to [out=-90,in=-90,looseness=2.5] (1,1)
+                    to [out=90,in=90]                 cycle
+                ;
+            \end{knot}
+            \draw [very thick,-latex,xshift=1.8cm] (-0.4,0) -- (0.4,0);
+            \begin{knot}[
+                clip width=5,
+                every strand/.append style={red,thick},
+                flip crossing=1,
+                xshift=3.6cm
+            ]
+                \strand (-1,-1)
+                    to [out=90,in=90,looseness=2.5] (1,-1)
+                    to [out=-90,in=-90]             cycle
+                ;
+                \strand (-1,1)
+                    to [out=-90,in=-90,looseness=2.5] (1,1)
+                    to [out=90,in=90]                 cycle
+                ;
+            \end{knot}
+        \end{tikzpicture}
+        \caption{Using a template to synthesize a catenane.}
+        \label{fig:template}
+    \end{figure}
+    \item Christina Dietrich-Buchecker and Jean-Pierre Sauvage developed a method for synthesizing catenanes by using a transition metal as a "template" to wrap two linear molecules around before allowing for knotting and removing the transition metal (see Figure \ref{fig:template}).
+    \item They then realized that by doubling the template, they could create 3 crossings.
+    \item Indeed, in 1988, they announced the first successful synthesis of a knotted molecule.
+    \item Wasserman and van Gulick independently suggested in the 1950s that the synthesis of a M\"{o}bius band ladder with extra twists followed by the breaking of the rungs would yield a knot or link (see Figure \ref{fig:ladder}).
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{scope}[yshift=1cm]
+                    \begin{knot}[
+                        clip width=5,
+                        consider self intersections,
+                        ignore endpoint intersections=false
+                    ]
+                        \strand [red,thick,scale=0.5] (0,0)
+                            arc [start angle=-70,end angle=250,x radius=2cm,y radius=0.5cm]
+                            to [out=0,in=180,looseness=1.2] (0,-0.7)
+                            arc [start angle=-70,end angle=250,x radius=2cm,y radius=0.5cm]
+                            to [out=0,in=180,looseness=1.2] cycle
+                        ;
+                    \end{knot}
+                    \draw [red,thin] ([xshift=6mm,yshift=2mm]knot 4) -- ([xshift=6mm,yshift=-1.3mm]knot 4);
+                    \draw [red,thin] ([xshift=6.5mm,yshift=2mm]knot 4) -- ([xshift=6.5mm,yshift=-1.3mm]knot 4);
+                    \draw [red,thin] ([xshift=-6mm,yshift=2mm]knot 4) -- ([xshift=-6mm,yshift=-1.3mm]knot 4);
+                    \draw [red,thin] ([xshift=-6.5mm,yshift=2mm]knot 4) -- ([xshift=-6.5mm,yshift=-1.3mm]knot 4);
+                    \draw [red,thin] ([xshift=4mm,yshift=6.4mm]knot 4) -- ([xshift=4mm,yshift=3mm]knot 4);
+                    \draw [red,thin] ([xshift=3.5mm,yshift=6.4mm]knot 4) -- ([xshift=3.5mm,yshift=3mm]knot 4);
+                    \draw [red,thin] ([xshift=-4mm,yshift=6.4mm]knot 4) -- ([xshift=-4mm,yshift=3mm]knot 4);
+                    \draw [red,thin] ([xshift=-3.5mm,yshift=6.4mm]knot 4) -- ([xshift=-3.5mm,yshift=3mm]knot 4);
+                \end{scope}
+                \draw [very thick,-latex] ([yshift=-0.4cm]knot 4) -- ([yshift=-1.2cm]knot 4);
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    ignore endpoint intersections=false,
+                    yshift=-1cm
+                ]
+                    \strand [red,thick,scale=0.5] (0,0)
+                        arc [start angle=-70,end angle=250,x radius=2cm,y radius=0.5cm]
+                        to [out=0,in=180,looseness=1.2] (0,-0.7)
+                        arc [start angle=70,end angle=-250,x radius=2cm,y radius=0.5cm]
+                        to [out=0,in=180,looseness=1.2] cycle
+                    ;
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Unknot.}
+            \label{fig:laddera}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{scope}[yshift=1cm]
+                    \begin{knot}[
+                        clip width=5,
+                        ignore endpoint intersections=false,
+                        flip crossing=1
+                    ]
+                        \strand [red,thick,scale=0.5] (0,-0.7)
+                            to [out=0,in=180,looseness=1.2] (1,0)
+                            arc [start angle=-70,end angle=250,x radius=3cm,y radius=0.5cm]
+                            to [out=0,in=180,looseness=1.2] cycle
+                        ;
+                        \strand [red,thick,scale=0.5] (0,0)
+                            to [out=0,in=180,looseness=1.2] (1,-0.7)
+                            arc [start angle=-70,end angle=250,x radius=3cm,y radius=0.5cm]
+                            to [out=0,in=180,looseness=1.2] cycle
+                        ;
+                    \end{knot}
+                    \draw [red,thin] ([xshift=6mm,yshift=2mm]knot 1) -- ([xshift=6mm,yshift=-1.3mm]knot 1);
+                    \draw [red,thin] ([xshift=6.5mm,yshift=2mm]knot 1) -- ([xshift=6.5mm,yshift=-1.3mm]knot 1);
+                    \draw [red,thin] ([xshift=-6mm,yshift=2mm]knot 4) -- ([xshift=-6mm,yshift=-1.3mm]knot 4);
+                    \draw [red,thin] ([xshift=-6.5mm,yshift=2mm]knot 4) -- ([xshift=-6.5mm,yshift=-1.3mm]knot 4);
+                    \draw [red,thin] ([xshift=4mm,yshift=6.4mm]knot 1) -- ([xshift=4mm,yshift=3mm]knot 1);
+                    \draw [red,thin] ([xshift=3.5mm,yshift=6.4mm]knot 1) -- ([xshift=3.5mm,yshift=3mm]knot 1);
+                    \draw [red,thin] ([xshift=-4mm,yshift=6.4mm]knot 4) -- ([xshift=-4mm,yshift=3mm]knot 4);
+                    \draw [red,thin] ([xshift=-3.5mm,yshift=6.4mm]knot 4) -- ([xshift=-3.5mm,yshift=3mm]knot 4);
+                \end{scope}
+                \draw [very thick,-latex] ([yshift=-0.4cm]$(knot 4)!0.5!(knot 1)$) -- ([yshift=-1.2cm]$(knot 4)!0.5!(knot 1)$);
+                \begin{knot}[
+                    clip width=5,
+                    ignore endpoint intersections=false,
+                    flip crossing=1,
+                    yshift=-1cm
+                ]
+                    \strand [red,thick,scale=0.5] (0,-0.7)
+                        to [out=0,in=180,looseness=1.2] (1,0)
+                        arc [start angle=-70,end angle=250,x radius=3cm,y radius=0.5cm]
+                        to [out=0,in=180,looseness=1.2] cycle
+                    ;
+                    \strand [red,thick,scale=0.5] (0,0)
+                        to [out=0,in=180,looseness=1.2] (1,-0.7)
+                        arc [start angle=70,end angle=-250,x radius=3cm,y radius=0.5cm]
+                        to [out=0,in=180,looseness=1.2] cycle
+                    ;
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Hopf link.}
+            \label{fig:ladderb}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{scope}[yshift=1cm]
+                    \begin{knot}[
+                        clip width=5,
+                        clip radius=6pt,
+                        consider self intersections,
+                        ignore endpoint intersections=false,
+                    ]
+                        \strand [red,thick,scale=0.5] (0,-0.7)
+                            to [out=0,in=180,looseness=1.2] (1,0)
+                            to [out=0,in=180,looseness=1.2] (2,-0.7)
+                            arc [start angle=-65,end angle=245,x radius=3.5cm,y radius=0.5cm]
+                            to [out=0,in=180,looseness=1.2] (0,0)
+                            to [out=0,in=180,looseness=1.2] (1,-0.7)
+                            to [out=0,in=180,looseness=1.2] (2,0)
+                            arc [start angle=-65,end angle=245,x radius=3.5cm,y radius=0.5cm]
+                            to [out=0,in=180,looseness=1.2] cycle
+                        ;
+                        \flipcrossings{1,4,5,6}
+                    \end{knot}
+                    \draw [scale=0.5,white,ultra thick,double=red,double distance=0.8pt] (2,0) arc [start angle=-65,end angle=245,x radius=3.5cm,y radius=0.5cm];
+                    \draw [red,thin] ([xshift=6mm,yshift=2mm]knot 3) -- ([xshift=6mm,yshift=-1.3mm]knot 3);
+                    \draw [red,thin] ([xshift=6.5mm,yshift=2mm]knot 3) -- ([xshift=6.5mm,yshift=-1.3mm]knot 3);
+                    \draw [red,thin] ([xshift=-6mm,yshift=2mm]knot 6) -- ([xshift=-6mm,yshift=-1.3mm]knot 6);
+                    \draw [red,thin] ([xshift=-6.5mm,yshift=2mm]knot 6) -- ([xshift=-6.5mm,yshift=-1.3mm]knot 6);
+                    \draw [red,thin] ([xshift=4mm,yshift=6.2mm]knot 3) -- ([xshift=4mm,yshift=2.8mm]knot 3);
+                    \draw [red,thin] ([xshift=3.5mm,yshift=6.2mm]knot 3) -- ([xshift=3.5mm,yshift=2.8mm]knot 3);
+                    \draw [red,thin] ([xshift=-4mm,yshift=6.2mm]knot 6) -- ([xshift=-4mm,yshift=2.8mm]knot 6);
+                    \draw [red,thin] ([xshift=-3.5mm,yshift=6.2mm]knot 6) -- ([xshift=-3.5mm,yshift=2.8mm]knot 6);
+                \end{scope}
+                \draw [very thick,-latex] ([yshift=-0.4cm]knot 1) -- ([yshift=-1.2cm]knot 1);
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=6pt,
+                    consider self intersections,
+                    ignore endpoint intersections=false,
+                    yshift=-1cm
+                ]
+                    \strand [red,thick,scale=0.5] (0,-0.7)
+                        to [out=0,in=180,looseness=1.2] (1,0)
+                        to [out=0,in=180,looseness=1.2] (2,-0.7)
+                        arc [start angle=65,end angle=-245,x radius=3.5cm,y radius=0.5cm]
+                        to [out=0,in=180,looseness=1.2] (0,0)
+                        to [out=0,in=180,looseness=1.2] (1,-0.7)
+                        to [out=0,in=180,looseness=1.2] (2,0)
+                        arc [start angle=-65,end angle=245,x radius=3.5cm,y radius=0.5cm]
+                        to [out=0,in=180,looseness=1.2] cycle
+                    ;
+                    \flipcrossings{1,4}
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Trefoil knot.}
+            \label{fig:ladderc}
+        \end{subfigure}
+        \caption{Obtaining knots and links from M\"{o}bius ladders.}
+        \label{fig:ladder}
+    \end{figure}
+    \begin{itemize}
+        \item Unfortunately, the molecules tested proved too stiff.
+    \end{itemize}
+    \item However, in 1990, Qun Yi Zheng, under David Walba, added a \textbf{clasp} to a M\"{o}bius band to generate a new knotted molecule.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \begin{knot}[
+                clip width=5,
+                every strand/.append style={red,thick},
+                flip crossing=2
+            ]
+                \strand (-1.5,0.3)
+                    to (-0.3,0.3)
+                    to [out=0,in=0,looseness=3] (-0.3,-0.3)
+                    to (-1.5,-0.3)
+                ;
+                \strand (1.5,0.3)
+                    to (0.3,0.3)
+                    to [out=180,in=180,looseness=3] (0.3,-0.3)
+                    to (1.5,-0.3)
+                ;
+            \end{knot}
+            \foreach \xa in {-1,1} {
+                \foreach \xb in {-0.05,0} {
+                    \draw [red,thin] ({\xa+\xb},0.3) -- ({\xa+\xb},-0.3);
+                }
+            }
+        \end{tikzpicture}
+        \caption{A clasp.}
+        \label{fig:clasp}
+    \end{figure}
+    \begin{itemize}
+        \item Changing the number of half-twists in the clasped M\"{o}bius band varies the knot produced.
+        \begin{itemize}
+            \item 0 half-twists give the unknot, 1 gives the trefoil, 2 give the figure-eight, etc.
+        \end{itemize}
+        \item In theory, this method could be generalized to knots with a higher braid index with more rungs and clasps.
+    \end{itemize}
+    \item \textbf{Clasp}: A 2 tangle between rungs.
+    \begin{itemize}
+        \item See Figure \ref{fig:clasp}.
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Chirality of Molecules}
+\begin{itemize}
+    \item \textbf{Topologically chiral}: \dq{A molecular graph in space that cannot be deformed through space to its mirror image}{201}
+    \item \textbf{Topologically achiral}: \dq{A molecular graph in space that can be deformed to its mirror image}{201}
+    \item For knots, amphicheiral and topologically achiral mean the same thing.
+    \item However, because a molecule has isotropic limitations such as bond angle and bond length, it may be topologically achiral to its mirror image, but not physically be able to be deformed into said mirror image.
+    \begin{itemize}
+        \item In other words, a molecule may be topologically achiral but not chemically achiral.
+    \end{itemize}
+    \item That being said, if a molecule is topologically chiral, it \emph{must} be chemically chiral.
+    \item Jonathan Simon proved in 1986 that a M\"{o}bius ladder with four or more rungs is always topologically chiral.
+    \begin{itemize}
+        \item This result implies that any molecule with a molecular graph in the above-specified form has a topological stereoisomer (namely, its mirror image).
+    \end{itemize}
+    \item Scientists have been trying to synthesize M\"{o}bius ladders with indistinguishable rungs and edges.
+    \begin{itemize}
+        \item Such a molecule would be topologically achiral in more circumstances.
+        \item Note that edges are marked by the type of bonds along them.
+    \end{itemize}
+    \item A M\"{o}bius band with three rungs can be deformed into its mirror image if one does not distinguish between edges and rungs.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[scale=0.9]
+            \begin{scope}[xshift=-6cm]
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    ignore endpoint intersections=false,
+                    flip crossing=4
+                ]
+                    \strand [red,thick] (0,0)
+                        arc [start angle=-70,end angle=-40,x radius=2cm,y radius=0.7cm]
+                        arc [start angle=-40,end angle=220,x radius=2cm,y radius=0.7cm]
+                        arc [start angle=220,end angle=250,x radius=2cm,y radius=0.7cm]
+                        to [out=0,in=180,looseness=1.2] (0,-0.7)
+                        arc [start angle=-70,end angle=-40,x radius=2cm,y radius=0.7cm]
+                        arc [start angle=-40,end angle=220,x radius=2cm,y radius=0.7cm]
+                        arc [start angle=220,end angle=250,x radius=2cm,y radius=0.7cm]
+                        to [out=0,in=180,looseness=1.2] cycle
+                    ;
+                \end{knot}
+                \node (c) [circle,fill=red,draw=red,inner sep=1pt,label={[yshift=-1.3mm]above left:$c$}] at ([xshift=1.52cm,yshift=0.55cm]knot 4) {};
+                \node (f) [circle,fill=red,draw=red,inner sep=1pt,label={below:$f$}] at ([xshift=1.52cm,yshift=-0.15cm]knot 4) {}
+                    edge [ultra thick,red] (c)
+                ;
+                \node (a) [circle,fill=red,draw=red,inner sep=1pt,label={[yshift=-1.3mm]above right:$a$}] at ([xshift=-1.52cm,yshift=0.55cm]knot 4) {};
+                \node (d) [circle,fill=red,draw=red,inner sep=1pt,label={below:$d$}] at ([xshift=-1.52cm,yshift=-0.15cm]knot 4) {}
+                    edge [ultra thick,red] (a)
+                ;
+                \node (b) [circle,fill=red,draw=red,inner sep=1pt,label={above:$b$}] at ([yshift=1.7cm]knot 4) {};
+                \node (e) [circle,fill=red,draw=red,inner sep=1pt,label={below:$e$}] at ([yshift=1cm]knot 4) {}
+                    edge [ultra thick,red] (b)
+                ;
+            \end{scope}
+            \draw [very thick,-latex,xshift=-4cm] (-0.4,0) -- (0.4,0);
+            \begin{scope}[xshift=-2cm]
+                \draw [red,thick] ellipse (1cm and 2cm);
+    
+                \node (a) [circle,fill=red,draw=red,inner sep=1pt,label={above left:$a$}] at (-0.71,1.41) {};
+                \node (b) [circle,fill=red,draw=red,inner sep=1pt,label={above:$b$}] at (0,2) {};
+                \node (c) [circle,fill=red,draw=red,inner sep=1pt,label={above right:$c$}] at (0.71,1.41) {};
+                \node (d) [circle,fill=red,draw=red,inner sep=1pt,label={below left:$d$}] at (-0.71,-1.41) {};
+                \node (e) [circle,fill=red,draw=red,inner sep=1pt,label={below:$e$}] at (0,-2) {};
+                \node (f) [circle,fill=red,draw=red,inner sep=1pt,label={below right:$f$}] at (0.71,-1.41) {};
+    
+                \draw [red,ultra thick] (a) arc (135:225:1cm and 2cm);
+                \draw [red,ultra thick] (c) arc (45:-45:1cm and 2cm);
+    
+                \begin{knot}[
+                    clip width=5
+                ]
+                    \strand [red,thick] (c) to (d);
+                    \strand [red,thick] (a) to (f);
+                    \strand [red,ultra thick] (b) to [out=-110,in=110,distance=2cm] (e);
+                \end{knot}
+            \end{scope}
+            \draw [very thick,-latex] (-0.4,0) -- (0.4,0);
+            \begin{scope}[xshift=2cm]
+                \draw [red,thick] ellipse (1cm and 2cm);
+    
+                \node (a) [circle,fill=red,draw=red,inner sep=1pt,label={above right:$a$}] at (0.71,1.41) {};
+                \node (b) [circle,fill=red,draw=red,inner sep=1pt,label={above:$b$}] at (0,2) {};
+                \node (c) [circle,fill=red,draw=red,inner sep=1pt,label={above left:$c$}] at (-0.71,1.41) {};
+                \node (d) [circle,fill=red,draw=red,inner sep=1pt,label={below left:$d$}] at (-0.71,-1.41) {};
+                \node (e) [circle,fill=red,draw=red,inner sep=1pt,label={below:$e$}] at (0,-2) {};
+                \node (f) [circle,fill=red,draw=red,inner sep=1pt,label={below right:$f$}] at (0.71,-1.41) {};
+    
+                \begin{knot}[
+                    clip width=3
+                ]
+                    \strand [red,ultra thick] (c) to (f);
+                    \strand [red,ultra thick] (a) to (d);
+                    \strand [red,ultra thick] (b) to [out=-110,in=110,distance=2cm] (e);
+                \end{knot}
+            \end{scope}
+            \draw [very thick,-latex,xshift=4cm] (-0.4,0) -- (0.4,0);
+            \begin{scope}[xshift=7.5cm]
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    ignore endpoint intersections=false,
+                    flip crossing=4
+                ]
+                    \strand [red,thick] (0,0)
+                        arc [start angle=-70,end angle=-40,x radius=2cm,y radius=0.7cm]
+                        arc [start angle=-40,end angle=220,x radius=2cm,y radius=0.7cm]
+                        arc [start angle=220,end angle=250,x radius=2cm,y radius=0.7cm]
+                        to [out=0,in=180,looseness=1.2] (0,-0.7)
+                        arc [start angle=-70,end angle=-40,x radius=2cm,y radius=0.7cm]
+                        arc [start angle=-40,end angle=220,x radius=2cm,y radius=0.7cm]
+                        arc [start angle=220,end angle=250,x radius=2cm,y radius=0.7cm]
+                        to [out=0,in=180,looseness=1.2] cycle
+                    ;
+                \end{knot}
+    
+                \draw [red,ultra thick] ([xshift=-1.52cm,yshift=0.55cm]knot 4)
+                    arc (220:250:2cm and 0.7cm)
+                    to [out=-5,in=180,looseness=1.2] (0,-0.7)
+                    arc (-70:-40:2cm and 0.7cm)
+                ;
+                \draw [white,ultra thick,double=red,double distance=1.6pt] ([xshift=-1.52cm,yshift=-0.15cm]knot 4)
+                    arc (220:250:2cm and 0.7cm)
+                    to [out=-5,in=180,looseness=1.2] (0,0)
+                    arc (-70:-40:2cm and 0.7cm)
+                ;
+    
+                \node (c) [circle,fill=red,draw=red,inner sep=1pt,label={[yshift=-1.3mm]above left:$c$}] at ([xshift=1.52cm,yshift=0.55cm]knot 4) {};
+                \node (f) [circle,fill=red,draw=red,inner sep=1pt,label={below:$f$}] at ([xshift=1.52cm,yshift=-0.15cm]knot 4) {}
+                    edge [thick,red] (c)
+                ;
+                \node (a) [circle,fill=red,draw=red,inner sep=1pt,label={[yshift=-1.3mm]above right:$a$}] at ([xshift=-1.52cm,yshift=0.55cm]knot 4) {};
+                \node (d) [circle,fill=red,draw=red,inner sep=1pt,label={below:$d$}] at ([xshift=-1.52cm,yshift=-0.15cm]knot 4) {}
+                    edge [thick,red] (a)
+                ;
+                \node (b) [circle,fill=red,draw=red,inner sep=1pt,label={above:$b$}] at ([yshift=1.7cm]knot 4) {};
+                \node (e) [circle,fill=red,draw=red,inner sep=1pt,label={below:$e$}] at ([yshift=1cm]knot 4) {}
+                    edge [ultra thick,red] (b)
+                ;
+            \end{scope}
+        \end{tikzpicture}
+        \caption{Isotropy of a three-rung M\"{o}bius ladder.}
+        \label{fig:threerungs}
+    \end{figure}
+    \begin{itemize}
+        \item It cannot be deformed into its mirror image if one does distinguish, i.e., if one requires that every rung must isotrope to a rung and every edge must isotrope to an edge.
+    \end{itemize}
+    \item Knowing which knots are chiral and which are achiral lets chemists know with which molecules it makes sense to search for a topological stereoisomer.
+    \item Molecules can also be synthesized in the form of various graphs.
+    \begin{itemize}
+        \item Planar graphs are rather simple.
+        \item Nonplanar graphs still have molecular equivalents in some cases.
+        \item Howard Simmons III and Leo Paquette independently synthesized a molecule corresponding to $\mathcal{K}_5$ in 1981.
+    \end{itemize}
 \end{itemize}
 
 
