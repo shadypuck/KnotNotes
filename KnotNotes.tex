@@ -6335,7 +6335,7 @@
     \begin{itemize}
         \item However, being given one of the three would allow the determination of the other two.
     \end{itemize}
-    \item There is also a biological assumption that can help: \dq{The tangles $T$ and $T$ do not depend on the tangle $S$}{193}
+    \item There is also a biological assumption that can help: \dq{The tangles $T$ and $R$ do not depend on the tangle $S$}{193}
     \begin{itemize}
         \item For example, the enzyme, Tn3 resolvase replaces $T$ (in a cyclic duplex with direct repeats) with a single $R$ most of the time, but can repeat this process several times.
         \item Thus, biochemists were able to determine what products resulted upon these repeated actions, yielding the following equations.
@@ -6699,7 +6699,7 @@
                 ]
                     \strand [red,thick] (c) to (d);
                     \strand [red,thick] (a) to (f);
-                    \strand [red,ultra thick] (b) to [out=-110,in=110,distance=2cm] (e);
+                    \strand [red,ultra thick] (b) to [out=-110,in=110,distance=1.7cm] (e);
                 \end{knot}
             \end{scope}
             \draw [very thick,-latex] (-0.4,0) -- (0.4,0);
@@ -6718,7 +6718,7 @@
                 ]
                     \strand [red,ultra thick] (c) to (f);
                     \strand [red,ultra thick] (a) to (d);
-                    \strand [red,ultra thick] (b) to [out=-110,in=110,distance=2cm] (e);
+                    \strand [red,ultra thick] (b) to [out=-110,in=110,distance=1.7cm] (e);
                 \end{knot}
             \end{scope}
             \draw [very thick,-latex,xshift=4cm] (-0.4,0) -- (0.4,0);
@@ -6741,22 +6741,22 @@
                     ;
                 \end{knot}
     
-                \draw [red,ultra thick] ([xshift=-1.52cm,yshift=0.55cm]knot 4)
+                \draw [red,ultra thick] ([xshift=-1.52cm,yshift=-0.15cm]knot 4)
                     arc (220:250:2cm and 0.7cm)
-                    to [out=-5,in=180,looseness=1.2] (0,-0.7)
+                    to [out=0,in=180,looseness=1.2] (0,0)
                     arc (-70:-40:2cm and 0.7cm)
                 ;
-                \draw [white,ultra thick,double=red,double distance=1.6pt] ([xshift=-1.52cm,yshift=-0.15cm]knot 4)
+                \draw [white,ultra thick,double=red,double distance=1.6pt] ([xshift=-1.52cm,yshift=0.55cm]knot 4)
                     arc (220:250:2cm and 0.7cm)
-                    to [out=-5,in=180,looseness=1.2] (0,0)
+                    to [out=0,in=180,looseness=1.2] (0,-0.7)
                     arc (-70:-40:2cm and 0.7cm)
                 ;
     
-                \node (c) [circle,fill=red,draw=red,inner sep=1pt,label={[yshift=-1.3mm]above left:$c$}] at ([xshift=1.52cm,yshift=0.55cm]knot 4) {};
+                \node (c) [circle,fill=red,draw=red,inner sep=1pt,label={[yshift=-1.3mm]above left:$a$}] at ([xshift=1.52cm,yshift=0.55cm]knot 4) {};
                 \node (f) [circle,fill=red,draw=red,inner sep=1pt,label={below:$f$}] at ([xshift=1.52cm,yshift=-0.15cm]knot 4) {}
                     edge [thick,red] (c)
                 ;
-                \node (a) [circle,fill=red,draw=red,inner sep=1pt,label={[yshift=-1.3mm]above right:$a$}] at ([xshift=-1.52cm,yshift=0.55cm]knot 4) {};
+                \node (a) [circle,fill=red,draw=red,inner sep=1pt,label={[yshift=-1.3mm]above right:$c$}] at ([xshift=-1.52cm,yshift=0.55cm]knot 4) {};
                 \node (d) [circle,fill=red,draw=red,inner sep=1pt,label={below:$d$}] at ([xshift=-1.52cm,yshift=-0.15cm]knot 4) {}
                     edge [thick,red] (a)
                 ;
@@ -6779,6 +6779,112 @@
         \item Nonplanar graphs still have molecular equivalents in some cases.
         \item Howard Simmons III and Leo Paquette independently synthesized a molecule corresponding to $\mathcal{K}_5$ in 1981.
     \end{itemize}
+\end{itemize}
+
+
+\subsection{Statistical Mechanics and Knots}
+\begin{itemize}
+    \item Statistical mechanics deals with the aggregate behavior of very large systems of particles.
+    \begin{itemize}
+        \item For example, the temperature (average kinetic energy) of a system as opposed to the speed of each particle.
+        \item Only interested in those quantities that do not depend on the number of particles.
+    \end{itemize}
+    \item This viewpoint can be beneficial for certain happenings such as phase transitions because a phase transition happens for every molecule in a very short amount of time once the desired temperature is reached.
+    \item Another example is the magnetization of a metal bar --- all of the magnetic domains snap into alignment almost simultaneously.
+    \item Mathematically modeling such systems is one of the most difficult physics problems.
+    \item Let's look at one such model with regard to magnetization. It's called the \textbf{Ising model}.
+    \item \textbf{Ising model}: Developed by E. Ising in 1925, only particles that are directly next to each other can interact.
+    \item Consider each molecule in the metal to be the vertex of a graph.
+    \item These vertices are connected by edges, and only vertices that are connected by edges can interact by the definition of the Ising model.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[scale=0.5]
+            \foreach \x in {1,...,4} {
+                \foreach \y in {1,...,4} {
+                    \fill (\x,\y) circle (5pt);
+                }
+            }
+            \draw [thick] (0.1,0.1) grid (4.9,4.9);
+        \end{tikzpicture}
+        \caption{The planar square lattice.}
+        \label{fig:2-lattice}
+    \end{figure}
+    \item This specific type of graph is a \textbf{lattice} in three-space.
+    \item \textbf{Lattice}: A graph where \dq{the vertices and edges form a regular repeating pattern in space}{205}
+    \item However, consider the planar square lattice, instead, because the three-dimensional versions have as of yet proved to be too complex to solve.
+    \item In this case, every vertex interacts with its four nearest neighbors.
+    \item In the Ising model, each particle can be in one of two different states, denoted $+1$ and $-1$. These correspond to whether the \textbf{spin vector} points up or down, respectively.
+    \item \textbf{Spin vector}: The magnetic axis.
+    \item Given a finite number of particles $1,\dots,n$, denote the state of particle $i$ as $s_i$.
+    \item \textbf{State} (of a lattice): A choice of a state $s_i$ for each particle in a system. \emph{Also known as} $S$.
+    \begin{itemize}
+        \item $S=\left( s_1,\dots,s_n \right)$.
+    \end{itemize}
+    \item Each edge has an associated energy. If the states of the particles at its ends are equal, the energy is one quantity. If they are not equal, then it's another.
+\end{itemize}
+
+
+\subsection{Mrs. Meer}
+\begin{itemize}
+    \item \textbf{Enantiomers}: Two chiral molecules that are mirror images of each other.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{Blender/enantiomers.jpg}
+        \caption{Two enantiomers.}
+        \label{fig:enantiomers}
+    \end{figure}
+    \item Glucose has two enantiomers (D-glucose and L-glucose).
+    \item \textbf{Diastereomers}: Non-mirror image non-identical stereoisomers.
+    \begin{itemize}
+        \item Two stereoisomers that have different configurations at one or more (but not all) of the related \textbf{stereocenters} and are not mirror images of each other.
+        \item Two groups in a long chain are flipped.
+    \end{itemize}
+    \item \textbf{Stereocenter}: Any point in a molecule bearing groups such that an interchanging of any two groups leads to a stereoisomer.
+    \begin{itemize}
+        \item The black atom in Figure \ref{fig:enantiomers} is a stereocenter.
+    \end{itemize}
+    \item Galactose is a diastereomer of glucose.
+    \item Drugs and their enantiomers:
+    \begin{itemize}
+        \item \textit{Ibuprofen} --- Pain reliever. One enantiomer acts quickly. The other one converts to the first over time, subsequently beginning to work.
+        \item \textit{Prozac} --- Antidepressent. Both enantionmers are generally prescribed together. One works, and the other one helps with migraines.
+        \item \textit{Thalidomide} --- Morning sickness (1950s). Too expensive to seperate enantiomers, but the other one causes birth defects like flipper children.
+        \begin{itemize}
+            \item Module 57: Toxicology and Chemical Risks. Terrasphere Unit Notes from APEGS.
+        \end{itemize}
+        \item \textit{$(+)$-Limonene} and \textit{$(-)$-Limonene} --- The former is from citrus, and the latter is from pine trees. The plus and minus refer to \textbf{plane polarized light} and the fact that the former is \textbf{dextrorotatory} while the latter is \textbf{levorotatory}.
+    \end{itemize}
+    \item \textbf{Plane polarized} (light): Light such that all waves are vibrating in the same (parallel) direction.
+    \item \textbf{Dextrorotatory} (compound): A compound that has the ability to rotate the plane of plane polarized light to the right, or clockwise facing the oncoming radiation.
+    \item \textbf{Levorotatory} (compound): A compound that has the ability to rotate the plane of plane polarized light to the left, or counterclockwise facing the oncoming radiation.
+    \item \textbf{Chiral} (molecule): A molecule that has a mirror image that is not \textbf{superimposable}.
+    \item \textbf{Superimposable} (molecules): Two molecules that can be placed ontop of one another to give the same molecule.
+    \item \textbf{Chiral} (carbon): A carbon atom that has four unique groups attached to it.
+    \item \textbf{Meso-compound}: A compound with a line of symmetry.
+    \begin{itemize}
+        \item These are achiral.
+        \item A molecule with multiple stereocenters that is superimposable on its mirror image.
+    \end{itemize}
+    \item The five rules of \textbf{aromaticity}: If these rules are followed, the molecule is extra stable.
+    \begin{itemize}
+        \item Has to be a ring.
+        \item Has to have an uninterupted flow of $p$ orbitals.
+        \item Has to be \textbf{conjugated}.
+        \item Has to have flat geometry.
+        \item Has to have $4n+2$ $\pi$ electrons where $n\in\mathbb{N}$.
+    \end{itemize}
+    \item \textbf{Conjugated} (molecule): A molecule where bonds alternate double, single, double, single\dots
+    \item There does not have to be a benzene ring.
+    \item Regions can be aromatic, too --- it does not have to be the whole molecule.
+    \item \textbf{M\"{o}bius aromaticity}: Compounds with a monocyclic array of molecular orbitals in which there is an odd number of out-of-phase overlaps.
+    \begin{itemize}
+        \item The plane of the orbitals, viewed as a ribbon, is a M\"{o}bius band.
+    \end{itemize}
+    \item Figure 7.29 side chains that attract and some that don't.
+    \item When synthesizing a linked molecule, use specific side chains on the two that attract to each other. Then glue the ends together via more side-chain reactions. Then remove the side chains the bond the two components.
+    \item Albuterol is an \textbf{agonist} while Ventolin is an \textbf{antagonist}.
+    \item \textbf{Agonist}: A molecule that binds to a receptor, activating a biological response.
+    \item \textbf{Antagonist}: A molecule that binds to a receptor, inhibiting a biological response.
 \end{itemize}
 
 
