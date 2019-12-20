@@ -6811,7 +6811,7 @@
     \end{figure}
     \item This specific type of graph is a \textbf{lattice} in three-space.
     \item \textbf{Lattice}: A graph where \dq{the vertices and edges form a regular repeating pattern in space}{205}
-    \item However, consider the planar square lattice, instead, because the three-dimensional versions have as of yet proved to be too complex to solve.
+    \item However, consider the planar square lattice (see Figure \ref{fig:2-lattice}), instead, because the three-dimensional versions have as of yet proved to be too complex to solve.
     \item In this case, every vertex interacts with its four nearest neighbors.
     \item In the Ising model, each particle can be in one of two different states, denoted $+1$ and $-1$. These correspond to whether the \textbf{spin vector} points up or down, respectively.
     \item \textbf{Spin vector}: The magnetic axis.
@@ -6821,6 +6821,148 @@
         \item $S=\left( s_1,\dots,s_n \right)$.
     \end{itemize}
     \item Each edge has an associated energy. If the states of the particles at its ends are equal, the energy is one quantity. If they are not equal, then it's another.
+    \item Thus, denote the energy of the edge as a function of the states of the particles at its ends: $E(s_i,s_j)$.
+    \begin{align*}
+        E_= &= E(+1,+1) = E(-1,-1)\\
+        E_{\neq} &= E(+1,-1) = E(-1,+1)
+    \end{align*}
+    \item There are no specific values for $E_=$ and $E_{\neq}$ because they depend on the modeled system.
+    \item For each edge, define the following equation$^[$\footnote{It may be useful to refer to page 65 of APChemNotes.pdf.}$^]$.
+    \begin{equation*}
+        w(s_i,s_j) = \exp\left( \frac{-E(s_i,s_j)}{kT} \right)
+    \end{equation*}
+    \begin{itemize}
+        \item $T$ is temperature in Kelvin.
+        \item $k=1.38\times 10^{-23} \frac{J}{{}^\circ K}$ is the Boltzmann constant.
+        \item Like $E$ has two possible values, $w$ has $w_=$ and $w_{\neq}$.
+    \end{itemize}
+    \item The energy of the system can be calculated as the sum of the energies of the edges.
+    \begin{equation*}
+        E(S) = \sum E(s_i,s_j)
+    \end{equation*}
+    \item Define a function $Q(S)$ to be equal to the following. Note that it is subsequently equal to every other line.
+    \begin{align*}
+        Q(S) &= \exp\left( \frac{-E(S)}{kT} \right)\\
+        &= \exp\left( \frac{-\sum E(s_i,s_j)}{kT} \right)\\
+        &= \prod \exp\left( \frac{-E(s_i,s_j)}{kT} \right)\\
+        &= \prod w(s_i,s_j)
+    \end{align*}
+    \item \textbf{Partition function}: A function $P$ equal to the sum of $Q(S)$ over all possible states of the system.
+    \begin{equation*}
+        P = \sum_s\exp\left( \frac{-E(S)}{kT} \right) = \sum_s\left( \prod w(s_i,s_j) \right)
+    \end{equation*}
+    \begin{itemize}
+        \item Allows the calculation of \dq{any observable property of the system}{208}
+    \end{itemize}
+    \item The probability that a system of particles is in state $S_0$ is given by the following.
+    \begin{equation*}
+        \frac{\exp\left( \frac{-E(S_0)}{kT} \right)}{P}
+    \end{equation*}
+    \item \emph{Exercise 7.6}: Determine the partition function of the Ising model corresponding to a $2\times 2$ planar lattice, also known as a square. Note that there are $2^4$ possible states of the system, generating 16 terms in the partition function. However, many of them are the same. Write the resulting function in terms of $w_=$ and $w_{\neq}$.
+    \begin{figure}[h!]
+        \centering
+        \colorlet{grx}{green!50!black}
+        \colorlet{rex}{red}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}[
+                every path/.style={thick}
+            ]
+                \node (11) [circle,draw,fill,inner sep=1pt,label={south west:$+1$}] at (1,1) {};
+                \node (12) [circle,draw,fill,inner sep=1pt,label={north west:$+1$}] at (1,2) {};
+                \node (21) [circle,draw,fill,inner sep=1pt,label={south east:$+1$}] at (2,1) {};
+                \node (22) [circle,draw,fill,inner sep=1pt,label={north east:$+1$}] at (2,2) {};
+
+                \draw [grx] (11) -- (21);
+                \draw [grx] (21) -- (22);
+                \draw [grx] (11) -- (12);
+                \draw [grx] (12) -- (22);
+            \end{tikzpicture}
+            \caption{$S_1$}
+            \label{fig:squarelatticea}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}[
+                every path/.style={thick}
+            ]
+                \node (11) [circle,draw,fill,inner sep=1pt,label={south west:$+1$}] at (1,1) {};
+                \node (12) [circle,draw,fill,inner sep=1pt,label={north west:$-1$}] at (1,2) {};
+                \node (21) [circle,draw,fill,inner sep=1pt,label={south east:$+1$}] at (2,1) {};
+                \node (22) [circle,draw,fill,inner sep=1pt,label={north east:$+1$}] at (2,2) {};
+
+                \draw [grx] (11) -- (21);
+                \draw [grx] (21) -- (22);
+                \draw [rex] (11) -- (12);
+                \draw [rex] (12) -- (22);
+            \end{tikzpicture}
+            \caption{$S_2$}
+            \label{fig:squarelatticeb}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}[
+                every path/.style={thick}
+            ]
+                \node (11) [circle,draw,fill,inner sep=1pt,label={south west:$-1$}] at (1,1) {};
+                \node (12) [circle,draw,fill,inner sep=1pt,label={north west:$-1$}] at (1,2) {};
+                \node (21) [circle,draw,fill,inner sep=1pt,label={south east:$+1$}] at (2,1) {};
+                \node (22) [circle,draw,fill,inner sep=1pt,label={north east:$+1$}] at (2,2) {};
+
+                \draw [rex] (11) -- (21);
+                \draw [grx] (21) -- (22);
+                \draw [grx] (11) -- (12);
+                \draw [rex] (12) -- (22);
+            \end{tikzpicture}
+            \caption{$S_3$}
+            \label{fig:squarelatticec}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}[
+                every path/.style={thick}
+            ]
+                \node (11) [circle,draw,fill,inner sep=1pt,label={south west:$+1$}] at (1,1) {};
+                \node (12) [circle,draw,fill,inner sep=1pt,label={north west:$-1$}] at (1,2) {};
+                \node (21) [circle,draw,fill,inner sep=1pt,label={south east:$-1$}] at (2,1) {};
+                \node (22) [circle,draw,fill,inner sep=1pt,label={north east:$+1$}] at (2,2) {};
+
+                \draw [rex] (11) -- (21);
+                \draw [rex] (21) -- (22);
+                \draw [rex] (11) -- (12);
+                \draw [rex] (12) -- (22);
+            \end{tikzpicture}
+            \caption{$S_4$}
+            \label{fig:squarelatticed}
+        \end{subfigure}
+        \caption{Possible states $S$ of a square lattice.}
+        \label{fig:squarelattice}
+    \end{figure}
+    \begin{itemize}
+        \colorlet{grx}{green!50!black}
+        \colorlet{rex}{red}
+        \item $P$ is given as the sum of the $Q$ function over every state $S$ in which a system can exist.
+        \item $Q(S)$ is given as the product of the $w$ function over every edge in one state $S$ of a system.
+        \item In a system $S_1$ (as in Figure \ref{fig:squarelatticea}) where every particle is in the same state, every edge is assigned $\color{grx}w_=$ by the $w$ function. Thus, $Q(S_1)={\color{grx}w_=}^4$.
+        \item In a system $S_2$ (as in Figure \ref{fig:squarelatticeb}) where every particle is in the same state save one, two edges are assigned $\color{grx}w_=$ and two are assigned $\color{rex}w_{\neq}$. Thus, $Q(S_2)={\color{grx}w_=}^2{\color{rex}w_{\neq}}^2$.
+        \item In a system $S_3$ (as in Figure \ref{fig:squarelatticec}) where there are two pairs of adjacent, same-state particles, two edges are assigned $\color{grx}w_=$ and two are assigned $\color{rex}w_{\neq}$. Thus, $Q(S_3)={\color{grx}w_=}^2{\color{rex}w_{\neq}}^2$.
+        \item In a system $S_4$ (as in Figure \ref{fig:squarelatticed}) where every particle is adjacent to one in a dissimilar state, every edge is assigned $\color{rex}w_{\neq}$. Thus, $Q(S_1)={\color{rex}w_{\neq}}^4$.
+        \item Every other state of the system can flip its states and/or rotate to be superimposable with the states in Figure \ref{fig:squarelattice}. The act of flipping and rotating would not affect the $w$ function.
+        \item Counting up the $2^4=16$ possible states gives the following result.
+        \begin{itemize}
+            \item 2 states match Figure \ref{fig:squarelatticea}.
+            \item 8 states match Figure \ref{fig:squarelatticeb}.
+            \item 4 states match Figure \ref{fig:squarelatticec}.
+            \item 2 states match Figure \ref{fig:squarelatticed}.
+        \end{itemize}
+        \item By the number of iterations of every state and the predetermined values of the $Q$ function for each type of state, the following math gives the partition function.
+        \begin{align*}
+            P &= \sum_s Q(S)\\
+            &= 2Q(S_1)+8Q(S_2)+4Q(S_3)+2Q(S_4)\\
+            &= 2{w_=}^4+8{w_=}^2{w_{\neq}}^2+4{w_=}^2{w_{\neq}}^2+2{w_{\neq}}^4\\
+            &= 2{w_=}^4+12{w_=}^2{w_{\neq}}^2+2{w_{\neq}}^4
+        \end{align*}
+    \end{itemize}
 \end{itemize}
 
 
@@ -6880,7 +7022,6 @@
     \begin{itemize}
         \item The plane of the orbitals, viewed as a ribbon, is a M\"{o}bius band.
     \end{itemize}
-    \item Figure 7.29 side chains that attract and some that don't.
     \item When synthesizing a linked molecule, use specific side chains on the two that attract to each other. Then glue the ends together via more side-chain reactions. Then remove the side chains the bond the two components.
     \item Albuterol is an \textbf{agonist} while Ventolin is an \textbf{antagonist}.
     \item \textbf{Agonist}: A molecule that binds to a receptor, activating a biological response.
