@@ -19,7 +19,7 @@
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
 
-\usetikzlibrary{knots,decorations.markings,positioning,shapes.geometric,calc}
+\usetikzlibrary{knots,decorations.markings,positioning,shapes.geometric,calc,backgrounds}
 \tikzset{mini/.style={scale=0.15,baseline={(0,-0.09)},every path/.style={knot=red,thick}}}
 
 \newcommand{\dq}[2]{``#1" (#2).}
@@ -1433,7 +1433,7 @@
 \end{itemize}
 
 
-\subsection{Knots and Planar Graphs}
+\subsection{Knots and Planar Graphs}\label{sss:SignedGraphs}
 \begin{itemize}
     \item This section's notation bridges knot theory and graph theory.
     \begin{itemize}
@@ -1446,49 +1446,9 @@
         \item \dq{Shade every other region of the link projection so that the infinite outermost region is not shaded}{51}
         \item \dq{Put a vertex at the center of each shaded region and then connect with an edge any two vertices that are in regions that share a crossing}{52}
         \item Assign an orientation.
-        \item \dq{Label each edge in the planar graph with a $+$ or a $-$, depending on whether the edge passes through a $+$ crossing or a $-$ crossing}{52} See Figure \ref{fig:crossingsign}. Recall computing link numbers in Section \ref{sss:Links} (see Figure \ref{fig:linkingnumber}, specifically).
+        \item \dq{Label each edge in the planar graph with a $+$ or a $-$, depending on whether the edge passes through a $+$ crossing or a $-$ crossing}{52} See Figure \ref{fig:linkingnumber}.
         \item The result is a \textbf{signed planar graph}. See Figure \ref{fig:graphtrefoil} for an original example.
     \end{itemize}
-    \begin{figure}[h!]
-        \centering
-        \begin{subfigure}[b]{0.2\linewidth}
-            \centering
-            \begin{tikzpicture}
-                \fill[orange!50] (-0.8,1) -- (0,0) -- (0.8,1);
-                \fill[orange!50] (-0.8,-1) -- (0,0) -- (0.8,-1);
-                \begin{knot}[
-                    clip width=5,
-                    clip radius=2pt,
-                    every strand/.append style={red,thick,->}
-                ]
-                    \strand (-0.8,-1) to (0.8,1);
-                    \strand (-0.8,1) to (0.8,-1);
-                \end{knot}
-            \end{tikzpicture}
-            \caption{Denote $+$.}
-            \label{fig:crossingsigna}
-        \end{subfigure}
-        \begin{subfigure}[b]{0.2\linewidth}
-            \centering
-            \begin{tikzpicture}
-                \fill[orange!50] (-0.8,1) -- (0,0) -- (0.8,1);
-                \fill[orange!50] (-0.8,-1) -- (0,0) -- (0.8,-1);
-                \begin{knot}[
-                    clip width=5,
-                    clip radius=2pt,
-                    every strand/.append style={red,thick,->},
-                    flip crossing=1
-                ]
-                    \strand (-0.8,-1) to (0.8,1);
-                    \strand (-0.8,1) to (0.8,-1);
-                \end{knot}
-            \end{tikzpicture}
-            \caption{Denote $-$.}
-            \label{fig:crossingsignb}
-        \end{subfigure}
-        \caption{Computing signs per crossing.}
-        \label{fig:crossingsign}
-    \end{figure}
     \begin{figure}[h!]
         \centering
         \begin{subfigure}[b]{0.3\linewidth}
@@ -1525,13 +1485,13 @@
                     \flipcrossings{1,3}
                 \end{knot}
     
-                \node (a) [circle,line width=0pt,fill=brown!60!black,inner sep=1.5pt] at (90:0.7){};
-                \node (b) [circle,line width=0pt,fill=brown!60!black,inner sep=1.5pt] at (-30:0.7){}
-                    edge [brown!60!black,thick,bend right=33] node[anchor=-150]{$+$} (a)
+                \node (a) [circle,line width=0pt,fill,inner sep=1.5pt] at (90:0.7){};
+                \node (b) [circle,line width=0pt,fill,inner sep=1.5pt] at (-30:0.7){}
+                    edge [thick,bend right=33] node[anchor=-150]{$-$} (a)
                 ;
-                \node (c) [circle,line width=0pt,fill=brown!60!black,inner sep=1.5pt] at (-150:0.7){}
-                    edge [brown!60!black,thick,bend right=33] node[anchor=north]{$+$} (b)
-                    edge [brown!60!black,thick,bend left=33]  node[anchor=-30]  {$+$} (a)
+                \node (c) [circle,line width=0pt,fill,inner sep=1.5pt] at (-150:0.7){}
+                    edge [thick,bend right=33] node[anchor=north]{$-$} (b)
+                    edge [thick,bend left=33]  node[anchor=-30]  {$-$} (a)
                 ;
             \end{tikzpicture}
             \vspace{-0.7cm}
@@ -1541,13 +1501,13 @@
         \begin{subfigure}[b]{0.3\linewidth}
             \centering
             \begin{tikzpicture}
-                \node (a) [circle,line width=0pt,fill=brown!60!black,inner sep=1.5pt] at (90:0.7){};
-                \node (b) [circle,line width=0pt,fill=brown!60!black,inner sep=1.5pt] at (-30:0.7){}
-                    edge [brown!60!black,thick] node[anchor=-150]{$+$} (a)
+                \node (a) [circle,line width=0pt,fill,inner sep=1.5pt] at (90:0.7){};
+                \node (b) [circle,line width=0pt,fill,inner sep=1.5pt] at (-30:0.7){}
+                    edge [thick] node[anchor=-150]{$-$} (a)
                 ;
-                \node (c) [circle,line width=0pt,fill=brown!60!black,inner sep=1.5pt] at (-150:0.7){}
-                    edge [brown!60!black,thick] node[anchor=north]{$+$} (b)
-                    edge [brown!60!black,thick] node[anchor=-30]  {$+$} (a)
+                \node (c) [circle,line width=0pt,fill,inner sep=1.5pt] at (-150:0.7){}
+                    edge [thick] node[anchor=north]{$-$} (b)
+                    edge [thick] node[anchor=-30]  {$-$} (a)
                 ;
             \end{tikzpicture}
             \vspace{-0.2cm}
@@ -1569,7 +1529,7 @@
     \begin{itemize}
         \item Type I Reidemeister move: Extend an edge from one vertex to a newly created one. Either sign is acceptable (the sign option is analogous to the over-under crossing option).
         \item Type II Reidemeister move: Add two edges connecting two, specific vertices and intersecting no other edges. The signs on the new edges must be opposite, but it either can be positive (or negative; this option is analogous to the over-under crossing option).
-        \item Type III Reidemeister move: I do not know$^[$\footnote{Return to this later.}$^]$.
+        \item Type III Reidemeister move: I do not know$^[$\footnote{Return to this later. Directly referenced in Section \ref{sss:StatisticalMechanics}!}$^]$.
     \end{itemize}
     \item See Section \ref{sss:StatisticalMechanics} for more on signed planar graphs.
 \end{itemize}
@@ -6782,7 +6742,7 @@
 \end{itemize}
 
 
-\subsection{Statistical Mechanics and Knots}
+\subsection{Statistical Mechanics and Knots}\label{sss:StatisticalMechanics}
 \begin{itemize}
     \item Statistical mechanics deals with the aggregate behavior of very large systems of particles.
     \begin{itemize}
@@ -6792,16 +6752,27 @@
     \item This viewpoint can be beneficial for certain happenings such as phase transitions because a phase transition happens for every molecule in a very short amount of time once the desired temperature is reached.
     \item Another example is the magnetization of a metal bar --- all of the magnetic domains snap into alignment almost simultaneously.
     \item Mathematically modeling such systems is one of the most difficult physics problems.
+    \item Plan:
+    \begin{enumerate}
+        \item Define a model of a system of particles.
+        \item Focus in on equations describing the energy contained between two particles.
+        \item Define a characteristic of the system in the form of a function that sums variations of the little bits of energy.
+        \item Discuss easier ways to calculate said characteristic.
+        \item Relate the model of the system of particles to signed planar graphs (from Section \ref{sss:SignedGraphs}).
+        \item Define a new knot invariant based on the preceding discussion.
+    \end{enumerate}
     \item Let's look at one such model with regard to magnetization. It's called the \textbf{Ising model}.
     \item \textbf{Ising model}: Developed by E. Ising in 1925, only particles that are directly next to each other can interact.
     \item Consider each molecule in the metal to be the vertex of a graph.
     \item These vertices are connected by edges, and only vertices that are connected by edges can interact by the definition of the Ising model.
+    \item This specific type of graph is a \textbf{lattice} in three-space.
+    \item \textbf{Lattice}: A graph where \dq{the vertices and edges form a regular repeating pattern in space}{205}
     \begin{figure}[h!]
         \centering
         \begin{tikzpicture}[scale=0.5]
             \foreach \x in {1,...,4} {
                 \foreach \y in {1,...,4} {
-                    \fill (\x,\y) circle (5pt);
+                    \fill (\x,\y) circle (4pt);
                 }
             }
             \draw [thick] (0.1,0.1) grid (4.9,4.9);
@@ -6809,9 +6780,7 @@
         \caption{The planar square lattice.}
         \label{fig:2-lattice}
     \end{figure}
-    \item This specific type of graph is a \textbf{lattice} in three-space.
-    \item \textbf{Lattice}: A graph where \dq{the vertices and edges form a regular repeating pattern in space}{205}
-    \item However, consider the planar square lattice (see Figure \ref{fig:2-lattice}), instead, because the three-dimensional versions have as of yet proved to be too complex to solve.
+    \item However, consider the planar square lattice, instead, because the three-dimensional versions have as of yet proved to be too complex to solve.
     \item In this case, every vertex interacts with its four nearest neighbors.
     \item In the Ising model, each particle can be in one of two different states, denoted $+1$ and $-1$. These correspond to whether the \textbf{spin vector} points up or down, respectively.
     \item \textbf{Spin vector}: The magnetic axis.
@@ -6833,14 +6802,14 @@
     \end{equation*}
     \begin{itemize}
         \item $T$ is temperature in Kelvin.
-        \item $k=1.38\times 10^{-23} \frac{J}{{}^\circ K}$ is the Boltzmann constant.
+        \item $k=1.38\times 10^{-23} \frac{J}{K}$ is the Boltzmann constant.
         \item Like $E$ has two possible values, $w$ has $w_=$ and $w_{\neq}$.
     \end{itemize}
     \item The energy of the system can be calculated as the sum of the energies of the edges.
     \begin{equation*}
         E(S) = \sum E(s_i,s_j)
     \end{equation*}
-    \item Define a function $Q(S)$ to be equal to the following. Note that it is subsequently equal to every other line.
+    \item Define a function $Q(S)$ to be equal to the following. It is subsequently equal to every other line.
     \begin{align*}
         Q(S) &= \exp\left( \frac{-E(S)}{kT} \right)\\
         &= \exp\left( \frac{-\sum E(s_i,s_j)}{kT} \right)\\
@@ -6941,13 +6910,13 @@
     \begin{itemize}
         \colorlet{grx}{green!50!black}
         \colorlet{rex}{red}
-        \item $P$ is given as the sum of the $Q$ function over every state $S$ in which a system can exist.
+        \item $P$ is given as the sum of $Q(S)$ for every possible state $S$ in which a system can exist.
         \item $Q(S)$ is given as the product of the $w$ function over every edge in one state $S$ of a system.
         \item In a system $S_1$ (as in Figure \ref{fig:squarelatticea}) where every particle is in the same state, every edge is assigned $\color{grx}w_=$ by the $w$ function. Thus, $Q(S_1)={\color{grx}w_=}^4$.
         \item In a system $S_2$ (as in Figure \ref{fig:squarelatticeb}) where every particle is in the same state save one, two edges are assigned $\color{grx}w_=$ and two are assigned $\color{rex}w_{\neq}$. Thus, $Q(S_2)={\color{grx}w_=}^2{\color{rex}w_{\neq}}^2$.
         \item In a system $S_3$ (as in Figure \ref{fig:squarelatticec}) where there are two pairs of adjacent, same-state particles, two edges are assigned $\color{grx}w_=$ and two are assigned $\color{rex}w_{\neq}$. Thus, $Q(S_3)={\color{grx}w_=}^2{\color{rex}w_{\neq}}^2$.
         \item In a system $S_4$ (as in Figure \ref{fig:squarelatticed}) where every particle is adjacent to one in a dissimilar state, every edge is assigned $\color{rex}w_{\neq}$. Thus, $Q(S_1)={\color{rex}w_{\neq}}^4$.
-        \item Every other state of the system can flip its states and/or rotate to be superimposable with the states in Figure \ref{fig:squarelattice}. The act of flipping and rotating would not affect the $w$ function.
+        \item Every other state of the system could have its states flipped and or rotated to be superimposable with the states in Figure \ref{fig:squarelattice}. The act of flipping and rotating would not affect the $w$ function.
         \item Counting up the $2^4=16$ possible states gives the following result.
         \begin{itemize}
             \item 2 states match Figure \ref{fig:squarelatticea}.
@@ -6963,13 +6932,438 @@
             &= 2{w_=}^4+12{w_=}^2{w_{\neq}}^2+2{w_{\neq}}^4
         \end{align*}
     \end{itemize}
+    \item The partition function cannot be realistically computed if the number of particles $n$ is in any way large --- for $n$ particles, it is necessary to sum over $2^n$ states.
+    \item The \textbf{Yang-Baxter equation}, also known as the \textbf{star-triangle relation}, is a clever way to get around this arduous calculation.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}[
+                particle/.style 2 args={circle,draw,fill,inner sep=1pt,label={#1:$#2$}},
+                every path/.style={thick}
+            ]
+                \node (A) [particle={right}{A}] {};
+                \foreach \d/\n/\pos in {90/B/right,230/C/above,310/D/above} {
+                    \node (\n) [particle={\pos}{\n}] at (\d:1) {};
+                }
+
+                \foreach \n in {B,C,D} {
+                    \draw (A) -- (\n);
+                }
+            \end{tikzpicture}
+            \caption{The star.}
+            \label{fig:startrianglea}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}[
+                particle/.style 2 args={circle,draw,fill,inner sep=1pt,label={#1:$#2$}},
+                every path/.style={thick}
+            ]
+                \foreach \d/\n/\pos in {90/B/above,230/C/left,310/D/right} {
+                    \node (\n) [particle={\pos}{\n}] at (\d:1) {};
+                }
+
+                \draw (B) -- (C);
+                \draw (C) -- (D);
+                \draw (D) -- (B);
+            \end{tikzpicture}
+            \caption{The triangle.}
+            \label{fig:startriangleb}
+        \end{subfigure}
+        \caption{The star and the triangle.}
+        \label{fig:startriangle}
+    \end{figure}
+    \item Say that there exists within the graph a star (see Figure \ref{fig:startrianglea}), or a vertex with three edges coming out.
+    \item Given this star, it is possible to write the $Q$ function in terms of the edges incident to $A$ times every other edge.
+    \begin{equation*}
+        Q(S) = w(s_A,s_B)w(s_A,s_C)w(s_A,s_D)\prod w(s_i,s_j)
+    \end{equation*}
+    \item Let $S$ be a state such that $s_A=1$ and let $S'$ be a state identical to $S$ except that $s'_A=-1$. Thus, the following holds.
+\end{itemize}
+\begin{align*}
+    Q(S)+Q(S') &= w(+1,s_B)w(+1,s_C)w(+1,s_D)\prod w(s_i,s_j) + w(-1,s_B)w(-1,s_C)w(-1,s_D)\prod w(s_i,s_j)\\
+    &= \left( w(+1,s_B)w(+1,s_C)w(+1,s_D) + w(-1,s_B)w(-1,s_C)w(-1,s_D) \right)\prod w(s_i,s_j)
+\end{align*}
+\begin{itemize}
+    \item Since every state $S$ has a corresponding state $S'$ (i.e., one that differs from it only at $A$), it is possible to write the entire partition function as the following, which sums over states of the system without $A$.
+    \begin{equation*}
+        P = \sum_S \left( w(+1,s_B)w(+1,s_C)w(+1,s_D) + w(-1,s_B)w(-1,s_C)w(-1,s_D) \right)\prod w(s_i,s_j)
+    \end{equation*}
+    \item Since the coefficient of the product in the above equation no longer references $A$, we can exchange it for a term solely dependent on $B$, $C$, and $D$.
+    \item Thus, replace the star in Figure \ref{fig:startrianglea} with the triangle in Figure \ref{fig:startriangleb}.
+    \item To ensure that we can do this$^[$\footnote{Note that \dq{In general, we would not be able to do this, except for the fact that the energies of interaction along the three new edges need not be the same energies of interaction along the rest of the edges in the graph}{210}}$^]$, begin by letting $w'(s_i,s_j)$ denote the energies of interaction along the three new edges.
+    \item Goal: find values for $s_B$, $s_C$, and $s_D$ such that the following equation holds.
+\end{itemize}
+\begin{equation}\label{eqn:ABCDtoBCD}
+    \left( w(+1,s_B)w(+1,s_C)w(+1,s_D) + w(-1,s_B)w(-1,s_C)w(-1,s_D) \right) = w'(s_B,s_C)w'(s_C,s_D)w'(s_D,s_B)
+\end{equation}
+\begin{itemize}
+    \item When $s_B,s_C,s_D=1$, the above equation reduces to the following.
+    \begin{equation*}
+        {w_=}^3+{w_{\neq}}^3 = {w'_=}^3
+    \end{equation*}
+    \item \emph{Exercise 7.7}: Show that as we plug in various choices of $\pm 1$ for $s_B$, $s_C$, and $s_D$ in Equation \ref{eqn:ABCDtoBCD}, two distinct equations are generated. Solve these two equations to find $w'_=$ and $w'_{\neq}$ in therms of $w_=$ and $w_{\neq}$.
+    \begin{itemize}
+        \item There $2^3=8$ possible choices of states for $B$, $C$, and $D$.
+        \item The following equation is generated by:
+        \begin{itemize}
+            \item $s_B=+1$, $s_C=+1$, and $s_D=+1$.
+            \item $s_B=-1$, $s_C=-1$, and $s_D=-1$.
+        \end{itemize}
+    \end{itemize}
+    \begin{equation*}
+        {w_=}^3+{w_{\neq}}^3 = {w'_=}^3
+    \end{equation*}
+    \begin{itemize}
+        \item The following equation is generated by:
+        \begin{itemize}
+            \item $s_B=-1$, $s_C=+1$, and $s_D=+1$.
+            \item $s_B=+1$, $s_C=-1$, and $s_D=+1$.
+            \item $s_B=+1$, $s_C=+1$, and $s_D=-1$.
+            \item $s_B=-1$, $s_C=-1$, and $s_D=+1$.
+            \item $s_B=-1$, $s_C=+1$, and $s_D=-1$.
+            \item $s_B=+1$, $s_C=-1$, and $s_D=-1$.
+        \end{itemize}
+    \end{itemize}
+    \begin{equation*}
+        {w_=}^2{w_{\neq}}+{w_=}{w_{\neq}}^2 = {w'_=}{w'_{\neq}}^2
+    \end{equation*}
+    \begin{itemize}
+        \item Although it may not look like it, these two equations are a two-variable system of equations in $w'_=$ and $w'_{\neq}$. The solution may be obtained via substitution and similar basic algebraic methods.
+        \begin{align*}
+            w'_= &= \sqrt[3]{{w_=}^3+{w_{\neq}}^3} & 
+            w'_{\neq} &= \sqrt{\frac{{w_=}^2{w_{\neq}}+{w_=}{w_{\neq}}^2}{\sqrt[3]{{w_=}^3+{w_{\neq}}^3}}}
+        \end{align*}
+    \end{itemize}
+    \item Given the solution to \emph{Exercise 7.7}, it is possible to write the partition function as the following.
+    \begin{equation*}
+        P = \sum w'(s_B,s_C)w'(s_C,s_D)w'(s_D,s_B)\prod w(s_i,s_j)
+    \end{equation*}
+    \item The implication of this result is that it is possible to calculate the partition function for a graph by considering a graph with one less vertex.
+    \begin{itemize}
+        \item This halves the number of possible states.
+        \item This process could be iterated to further minimize calculations.
+    \end{itemize}
+    \item Let's bring this back to knot theory.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \def\d{10}
+            \colorlet{orx}{orange!50}
+
+            \begin{scope}[xshift=-3cm,node distance=1mm]
+                \coordinate (a) at ({210+\d}:2);
+                \coordinate (b) at ({30-\d}:2);
+                \coordinate (c) at ({150-\d}:2);
+                \coordinate (d) at ({-30+\d}:2);
+                \coordinate (e) at ({90+\d}:2);
+                \coordinate (f) at ({-90-\d}:2);
+
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=2pt,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (a) -- (b);
+                    \strand (c) -- (d);
+                    \strand (e) -- (f);
+                \end{knot}
+
+                \node [below=of knot 1] {$-$};
+                \node [left=of knot 2] {$+$};
+                \node [right=of knot 3] {$-$};
+
+                \begin{pgfonlayer}{background}
+                    \fill [orx] (b) -- (d) -- (knot 1);
+                    \fill [orx] (a) -- (f) -- (knot 2);
+                    \fill [orx] (c) -- (e) -- (knot 3);
+                    \fill [orx] (knot 1) -- (knot 2) -- (knot 3);
+
+                    \coordinate (1) at (0,0);
+                    \foreach \p [count = \n] in {b,d,knot 1} {
+                        \coordinate (1) at ($(1)!1/\n!(\p)$);
+                    }
+                    \coordinate (2) at (0,0);
+                    \foreach \p [count = \n] in {a,f,knot 2} {
+                        \coordinate (2) at ($(2)!1/\n!(\p)$);
+                    }
+                    \coordinate (3) at (0,0);
+                    \foreach \p [count = \n] in {c,e,knot 3} {
+                        \coordinate (3) at ($(3)!1/\n!(\p)$);
+                    }
+                    \coordinate (4) at (0,0);
+                    \foreach \p [count = \n] in {knot 1,knot 2,knot 3} {
+                        \coordinate (4) at ($(4)!1/\n!(\p)$);
+                    }
+                    
+                    \fill (4) circle (2pt);
+                    \foreach \x in {1,2,3} {
+                        \fill (\x) circle (2pt);
+                        \draw [thick] (4) -- (\x);
+                    }
+                \end{pgfonlayer}
+            \end{scope}
+            \draw [very thick,-latex] (-0.4,0) -- (0.4,0);
+            \begin{scope}[xshift=3cm,node distance=1mm,rotate=180]
+                \coordinate (a) at ({210+\d}:2);
+                \coordinate (b) at ({30-\d}:2);
+                \coordinate (c) at ({150-\d}:2);
+                \coordinate (d) at ({-30+\d}:2);
+                \coordinate (e) at ({90+\d}:2);
+                \coordinate (f) at ({-90-\d}:2);
+
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=2pt,
+                    every strand/.append style={red,thick}
+                ]
+                    \strand (a) -- (b);
+                    \strand (c) -- (d);
+                    \strand (e) -- (f);
+                \end{knot}
+
+                \node [left=of knot 1] {$+$};
+                \node [right=of knot 2] {$-$};
+                \node [right=of knot 3] {$+$};
+
+                \begin{pgfonlayer}{background}
+                    \fill [orx] (a) -- (knot 2) -- (knot 3) -- (c);
+                    \fill [orx] (b) -- (knot 1) -- (knot 3) -- (e);
+                    \fill [orx] (d) -- (knot 1) -- (knot 2) -- (f);
+
+                    \coordinate (12) at ($(knot 1)!0.5!(knot 2)$);
+                    \coordinate (13) at ($(knot 1)!0.5!(knot 3)$);
+                    \coordinate (23) at ($(knot 2)!0.5!(knot 3)$);
+                    \coordinate (g) at ($(knot 3)!2!(12)$);
+                    \coordinate (h) at ($(knot 2)!2!(13)$);
+                    \coordinate (i) at ($(knot 1)!2!(23)$);
+
+                    \foreach \x in {g,h,i} {
+                        \fill (\x) circle (2pt);
+                    }
+                    \draw [thick] (g) -- (h);
+                    \draw [thick] (g) -- (i);
+                    \draw [thick] (h) -- (i);
+                \end{pgfonlayer}
+            \end{scope}
+        \end{tikzpicture}
+        \caption{The Type III Reidemeister move and the star-triangle relation.}
+        \label{fig:IIIstartriangle}
+    \end{figure}
+    \item Recall \emph{Exercise 2.31} and its exploration of the effect of the Type III Reidemeister move on a signed planar graph (see also Figure \ref{fig:IIIstartriangle}).
+    \item Now, it is possible to see via Figure \ref{fig:IIIstartriangle} that the effect is also a star-triangle exchange.
+    \item Define a partition function for a signed planar graph.
+    \begin{itemize}
+        \item This function will have two types of energies of interaction --- one for $E(s_i,s_j)$ when the edge connecting $s_i$ and $s_j$ is signed $+$ and one for $E(s_i,s_j)$ when said edge is signed $-$.
+        \item Thus, there will be two corresponding terms $w_+(s_i,s_j)$ and $w_-(s_i,s_j)$.
+        \item Because of this signing, there will be $2^2=4$ possible values of the $w$ function.
+    \end{itemize}
+    \item \dq{Each of $w_+$ and $w_-$ takes on two possible values depending on whether $s_i=s_j$ or $s_i\neq s_j$. Given an appropriate choice for these values, the partition function of a signed planar graph will also satisfy the star-triangle relation, thereby making it an invariant of the Type III Reidemeister move}{211}
+    \item If we can choose interaction energies that satisfy the Type I and Type II relations as well, then the partition function becomes a knot and link invariant$^[$\footnote{This forms the basis for the link between knot theory and statistical mechanics.}$^]$.
+    \item There are two possibilities for a Type II Reidemeister move's effect on the signed planar graph (see Figure \ref{fig:IIstartriangle}).
+    \begin{figure}[h!]
+        \centering
+        \colorlet{orx}{orange!50}
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{scope}[
+                    xshift=-2cm,
+                    edges/.style={red,thick,distance=1.2cm}
+                ]
+                    \clip (-1,1)
+                        to (1,1)
+                        to[bend left=30] (1,-1)
+                        to (-1,-1)
+                        to[bend left=30] cycle
+                    ;
+
+                    \foreach \s in {-,} {
+                        \fill [orx] (\s1,1)
+                            to[bend right=\s45,distance=1.2cm] (\s1,-1)
+                            to (\s3,0)
+                            to cycle
+                        ;
+                        \fill (\s0.8,0) circle (2pt);
+                        \draw [thick] (\s0.8,0) -- (\s3,0);
+                        \draw [thick] (\s0.8,0) -- (\s3,2);
+                        \draw [thick] (\s0.8,0) -- (\s3,-2);
+                        \draw [edges] (\s1,1) to[bend right=\s45] (\s1,-1);
+                    }
+                \end{scope}
+                \draw [very thick,latex-latex] (-0.4,0) -- (0.4,0);
+                \begin{scope}[
+                    xshift=1.5cm,
+                    edges/.style={red,thick,distance=1.2cm}
+                ]
+                    \begin{knot}[
+                        clip width=5,
+                        clip radius=2pt
+                    ]
+                        \strand [edges] (-0.5,1) to[bend right=-45] (-0.5,-1);
+                        \strand [edges] (0.5,1) to[bend right=45] (0.5,-1);
+                    \end{knot}
+
+                    \node [below=of knot 1] {$-$};
+                    \node [above=of knot 2] {$+$};
+
+                    \begin{pgfonlayer}{background}
+                        \clip (-0.5,1)
+                            to (0.5,1)
+                            to[bend left=30] (0.5,-1)
+                            to (-0.5,-1)
+                            to[bend left=30] cycle
+                        ;
+                        \foreach \s in {-,} {
+                            \fill [orx] (\s0.5,1)
+                                to[bend right=\s45,distance=1.2cm] (\s0.5,-1)
+                                to (\s3,0)
+                                to cycle
+                            ;
+                            \fill (\s0.3,0) circle (2pt);
+                            \draw [thick] (\s0.3,0) -- (\s3,0);
+                            \draw [thick] (\s0.3,0) -- (\s3,2);
+                            \draw [thick] (\s0.3,0) -- (\s3,-2);
+                            \draw [thick] (\s0.3,0) to[bend right=\s45] (knot 1);
+                            \draw [thick] (\s0.3,0) to[bend left=\s45] (knot 2);
+                        }
+                        \fill [white] (knot 1)
+                            to[bend right=30] (knot 2)
+                            to[bend right=30] cycle
+                        ;
+                    \end{pgfonlayer}
+                \end{scope}
+            \end{tikzpicture}
+            \caption{Start with two vertices.}
+            \label{fig:IIstartrianglea}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.4\linewidth}
+            \centering
+            \begin{tikzpicture}[node distance=1mm]
+                \begin{scope}[
+                    xshift=-2cm,
+                    edges/.style={red,thick,distance=1.2cm}
+                ]
+                    \clip (-1,1)
+                        to[bend left=10] (1,1)
+                        to (1,-1)
+                        to[bend left=10] (-1,-1)
+                        to cycle
+                    ;
+
+                    \fill [orx] (-1,1)
+                        to[bend left=45,distance=1.2cm] (-1,-1)
+                        to (0,-3)
+                        to (1,-1)
+                        to[bend left=45,distance=1.2cm] (1,1)
+                        to (0,3)
+                        to cycle
+                    ;
+                    \foreach \s in {-,} {
+                        \draw [edges] (\s1,1) to[bend right=\s45] (\s1,-1);
+                    }
+                    \fill circle (2pt);
+                    \foreach \r in {70,110,250,270,290} {
+                        \draw [thick] (0,0) -- (\r:3);
+                    }
+                \end{scope}
+                \draw [very thick,latex-latex] (-0.4,0) -- (0.4,0);
+                \begin{scope}[
+                    xshift=1.5cm,
+                    edges/.style={red,thick,distance=1.2cm}
+                ]
+                    \begin{knot}[
+                        clip width=5,
+                        clip radius=2pt
+                    ]
+                        \strand [edges] (-0.5,1) to[bend left=45] (-0.5,-1);
+                        \strand [edges] (0.5,1) to[bend right=45] (0.5,-1);
+                    \end{knot}
+
+                    \node [right=of knot 1] {$-$};
+                    \node [right=of knot 2] {$+$};
+
+                    \begin{pgfonlayer}{background}
+                        \clip (-0.5,1)
+                            to[bend left=10] (0.5,1)
+                            to (0.5,-1)
+                            to[bend left=10] (-0.5,-1)
+                            to cycle
+                        ;
+                        \fill [orx] (-0.5,1)
+                            to[bend left=45,distance=1.2cm] (-0.5,-1)
+                            to (0,-3)
+                            to (0.5,-1)
+                            to[bend left=45,distance=1.2cm] (0.5,1)
+                            to (0,3)
+                            to cycle
+                        ;
+                        \fill circle (2pt);
+                        \fill (0,0.8) circle (2pt);
+                        \fill (0,-0.8) circle (2pt);
+                        \draw [thick] (0,-0.8) -- (0,0.8);
+                        \foreach \r/\s in {70/,110/,250/-,270/-,290/-} {
+                            \draw [thick] (0,\s0.8) -- ($(\r:3)+(0,\s0.8)$);
+                        }
+                    \end{pgfonlayer}
+                \end{scope}
+            \end{tikzpicture}
+            \caption{Start with one vertex.}
+            \label{fig:IIstartriangleb}
+        \end{subfigure}
+        \caption{The Type II Reidemeister move and the signed planar graph.}
+        \label{fig:IIstartriangle}
+    \end{figure}
+    \begin{itemize}
+        \item In Figure \ref{fig:IIstartrianglea}, $w_+$ and $w_-$ must satisfy the following equation for all $a,b\in s_i$.
+        \begin{equation*}
+            w_+(a,b)w_-(a,b) = 1
+        \end{equation*}
+        \item In Figure \ref{fig:IIstartriangleb}, $w_+$ and $w_-$ must satisfy the following equation for all $a,b\in s_i$ where $\delta(a,b)$ is the \textbf{Kronecker delta function}.
+        \begin{equation*}
+            w_-(a,1)w_+(1,b)+w_-(a,-1)w_+(-1,b) = 2\delta(a,b)
+        \end{equation*}
+    \end{itemize}
+    \item \textbf{Kronecker delta function}: A function $\delta$ of two values $a,b$ defined by the following. \emph{Also known as} \textbf{Dirac delta function}.
+    \begin{equation*}
+        \delta(a,b)=
+        \begin{cases}
+            1 & \text{if }a=b\\
+            0 & \text{if }a\neq b
+        \end{cases}
+    \end{equation*}
+    \item The following values satisfy the two aforementioned cases for the Type II Reidemeister move.
+    \begin{align*}
+        w_+(a,b) &=
+        \begin{cases}
+            1 & \text{if }a=b\\
+            i & \text{if }a\neq b
+        \end{cases}&
+        w_-(a,b) &=
+        \begin{cases}
+            1 & \text{if }a=b\\
+            -i & \text{if }a\neq b
+        \end{cases}
+    \end{align*}
+    \item Such stipulations also exist for the Type III Reidemeister moves, and values can satisfy those (sometimes, the above values).
+    \item As with the bracket polynomial, the Type I move causes $P$ to vary, but we can, again, place a factor in front of $P$ to accommodate this variation.
+    \item In the case of the Ising model, $P$ is known as the \textbf{Arf invariant}.
+    \begin{itemize}
+        \item The Arf invariant is used in Section \ref{sss:KnotsinGraphs}.
+    \end{itemize}
+    \item The Ising model is generalized to the \textbf{Potts model}, which allows $q$ states at each vertex, in Section \ref{sss:PolynomialsofGraphs}.
+    \begin{itemize}
+        \item For the Potts model with appropriate choices of $w_+$ and $w_-$, $P\propto V(t)$ where $q=2+t+t^{-1}$.
+    \end{itemize}
+    \item Much of this is available as good exercises.
 \end{itemize}
 
 
 \subsection{Mrs. Meer}
 \begin{itemize}
     \item \textbf{Enantiomers}: Two chiral molecules that are mirror images of each other.
-    \begin{figure}[H]
+    \begin{figure}[h!]
         \centering
         \includegraphics[width=0.4\linewidth]{Blender/enantiomers.jpg}
         \caption{Two enantiomers.}
