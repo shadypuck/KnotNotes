@@ -11,3 +11,7 @@ Extra Ch. 3 Math.gdoc
 *.fdb*
 *.fls
 *.gdoc
+"Icon^M"
+Icon^M
+Icon\r
+"Icon\r"
