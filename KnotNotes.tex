@@ -7421,6 +7421,106 @@
     \item \textbf{Agonist}: A molecule that binds to a receptor, activating a biological response.
     \item \textbf{Antagonist}: A molecule that binds to a receptor, inhibiting a biological response.
 \end{itemize}
+\newpage
+
+
+
+\section{Knots, Links, and Graphs}
+\subsection{Links in Graphs}
+\begin{itemize}
+    \item \textbf{Isomorphic} (graphs): Two equivalent graphs that sit in space in different ways such that one cannot be continuously deformed into the other without allowing edges to pass through one another. \emph{Also known as} graphs with the same \textbf{isomorphism type}.
+    \item \textbf{Complete graph on \emph{n} vertices}: The graph of $n$ vertices where every vertex is connected to every other vertex by exactly one edge. \emph{Also known as} $\mathcal{K}_n$.
+    \item \textbf{Isotropic} (graphs): Two equivalent graphs that sit in space in different ways such that one can be continuously deformed into the other.
+    \item \textbf{Embedding} (of a graph): A particular way to place a graph in space.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}[
+                node distance=1cm,
+                every node/.append style={circle,draw,fill,inner sep=1pt,transform shape}
+            ]
+                \begin{scope}[
+                    every node/.append style={rotate=30},
+                    thick
+                ]
+                    \node (A)                                   {};
+                    \node (B) [right=of A]                      {};
+                    \node (C) at ($(A)!1!60:(B)$) {};
+                \end{scope}
+                \begin{scope}[
+                    every node/.append style={rotate=-30},
+                    thick,
+                    xshift=-0.6cm,yshift=-0.2cm
+                ]
+                    \node (D)                                   {};
+                    \node (E) [right=of D]                      {};
+                    \node (F) at ($(D)!1!60:(E)$) {};
+                \end{scope}
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=3pt,
+                    ignore endpoint intersections=false,
+                    every strand/.append style={thick}
+                ]
+                    \strand (A) -- (B) -- (C) -- (A);
+                    \strand (D) -- (E) -- (F) -- (D);
+                    \flipcrossings{2}
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Linked.}
+            \label{fig:un-linktrisa}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}[
+                node distance=1cm,
+                every node/.append style={circle,draw,fill,inner sep=1pt,transform shape}
+            ]
+                \begin{scope}[
+                    every node/.append style={rotate=30},
+                    thick
+                ]
+                    \node (A)                                   {};
+                    \node (B) [right=of A]                      {};
+                    \node (C) at ($(A)!1!60:(B)$) {};
+                    \draw (A) -- (B) -- (C) -- (A);
+                \end{scope}
+                \begin{scope}[
+                    every node/.append style={rotate=-30},
+                    thick,
+                    xshift=-1.5cm,yshift=-0.2cm
+                ]
+                    \node (D)                                   {};
+                    \node (E) [right=of D]                      {};
+                    \node (F) at ($(D)!1!60:(E)$) {};
+                    \draw (D) -- (E) -- (F) -- (D);
+                \end{scope}
+            \end{tikzpicture}
+            \caption{Uninked.}
+            \label{fig:un-linktrisb}
+        \end{subfigure}
+        \caption{Linked and unlinked triangles.}
+        \label{fig:un-linktris}
+    \end{figure}
+    \item \textbf{Triangle}: A set of three vertices with an edge joining each pair$^[$\footnote{From Section 2.2 in GIEPNotes.pdf. This part of my linear algebra notes on graph theory may prove helpful throughout this chapter of \emph{The Knot Book}.}$^]$.
+    \item In an embedding of a graph, triangles can be linked or unlinked (see Figure \ref{fig:un-linktris}).
+    \item John Conway and Cameron Gordon (see Section \ref{sse:poincare} for their other exploits) published "Knots and Links in Spatial Graphs" in 1983, which proved the following theorem.
+    \item \underline{Theorem}: Every embedding of $\mathcal{K}_6$ contains at least one pair of linked triangles.
+    \begin{itemize}
+        \item In any embedding of $\mathcal{K}_6$, there are 10 pairs of disjoint triangles.
+        \begin{itemize}
+            \item Picking any three vertices selects one triangle, and the other three vertices become the other triangle.
+            \item There are $6\times 5\times 4=\frac{6!}{(6-3)!}=120$ ways to pick three vertices.
+            \item However, since order doesn't matter and there are 6 ways to arrange any choice of vertices, there are $\frac{120}{6}=\frac{6!}{3!(6-3)!}=20$ ways to pick three vertices.
+            \item However, since a choice of three vertices and the opposite three vertices yield the same set, there are $\frac{20}{2}=10$ pairs of disjoint triangles.
+        \end{itemize}
+        \item Let $\mathcal{U}$ be \dq{the positive integer obtained by taking the sum of the absolute values of the linking numbers for all 10 pairs of disjoint triangles in the embedding}{218}
+        \begin{itemize}
+            \item This could be thought of as an invariant for the embeddings.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
 
 
 
