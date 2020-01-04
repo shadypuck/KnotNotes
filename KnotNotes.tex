@@ -7507,6 +7507,40 @@
     \item In an embedding of a graph, triangles can be linked or unlinked (see Figure \ref{fig:un-linktris}).
     \item John Conway and Cameron Gordon (see Section \ref{sse:poincare} for their other exploits) published "Knots and Links in Spatial Graphs" in 1983, which proved the following theorem.
     \item \underline{Theorem}: Every embedding of $\mathcal{K}_6$ contains at least one pair of linked triangles.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[
+            node distance=1cm,
+            every node/.append style={circle,draw,fill,inner sep=1pt}
+        ]
+            \colorlet{grx}{green!50!black}
+            
+            \node (A) {};
+            \node (B) [right=of A] {};
+            \node (C) at ($(B)!1!-120:(A)$) {};
+            \node (D) at ($(C)!1!-120:(B)$) {};
+            \node (E) [left=of D] {};
+            \node (F) at ($(E)!1!-120:(D)$) {};
+
+            \draw [thick] (A) -- (B) -- (C) -- (D) -- (E) -- (F) -- (A);
+            \begin{knot}[
+                clip width=5,
+                clip radius=3pt
+            ]
+                \strand [thick,grx] (B) -- (D) -- (F) -- (B);
+                \strand [thick,grx] (A) -- (C) -- (E) -- (A);
+                \strand [thick] (A) -- (D);
+                \strand [thick] (B) -- (E);
+                \strand [thick] (C)
+                    to [bend left=20] (F)
+                ;
+                \flipcrossings{5,7,10}
+                \redraw{1}{(0,0.63)}
+            \end{knot}
+        \end{tikzpicture}
+        \caption{An embedding of $\mathcal{K}_6$ with $\mathcal{U}=1$.}
+        \label{fig:k6u1}
+    \end{figure}
     \begin{itemize}
         \item In any embedding of $\mathcal{K}_6$, there are 10 pairs of disjoint triangles.
         \begin{itemize}
@@ -7517,7 +7551,50 @@
         \end{itemize}
         \item Let $\mathcal{U}$ be \dq{the positive integer obtained by taking the sum of the absolute values of the linking numbers for all 10 pairs of disjoint triangles in the embedding}{218}
         \begin{itemize}
-            \item This could be thought of as an invariant for the embeddings.
+            \item This could be thought of as an invariant for embeddings.
+        \end{itemize}
+        \item \textbf{Mod 2 reduction of $\mathcal{U}$}: The quantity $\mathcal{V}$ that is \dq{equal to zero if $\mathcal{U}$ is even and one if $\mathcal{U}$ is odd}{219}
+        \begin{itemize}
+            \item So named because $\mathcal{V}$ is the remainder when $\mathcal{U}$ is divided by 2.
+        \end{itemize}
+        \item Prove that any crossing change does not affect $\mathcal{V}$. Since Figure \ref{fig:k6u1} is a projection of an embedding of $\mathcal{K}_6$ with $\mathcal{U}=1$ and $\mathcal{V}=1$ (that, obviously, could be changed into any other embedding via crossing changes), a proof that no crossing change affects $\mathcal{V}$ would prove that $\mathcal{U}$ can never be an even number like 0.
+        \begin{figure}[h!]
+            \centering
+            \begin{tikzpicture}
+                \begin{scope}[
+                    node distance=1cm,
+                    every node/.append style={circle,draw,fill,inner sep=1pt}
+                ]
+                    \node (A) {};
+                    \node (B) [right=of A,label={[yshift=-0.1cm]right:$V_2$}] {};
+                    \node (C) at ($(B)!1!-120:(A)$) {};
+                    \node (D) at ($(C)!1!-120:(B)$) {};
+                    \node (E) [left=of D,label={[yshift=0.1cm]left:$V_1$}] {};
+                    \node (F) at ($(E)!1!-120:(D)$) {};
+                \end{scope}
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=3pt
+                ]
+                    \strand [thick] (A) -- node[below left=(5.5mm and -1mm)]{\footnotesize$E_1$} (D);
+                    \strand [thick,only when rendering/.style={help lines}] (A) -- (B) -- (D);
+                    \strand [thick,only when rendering/.style={help lines}] (C) -- (B) -- (F);
+                    \strand [thick,only when rendering/.style={help lines}] (A) -- (E) -- (D);
+                    \strand [thick,only when rendering/.style={help lines}] (C) -- (E) -- (F);
+                    \strand [thick] (C) -- node[above left=(-0.5mm and 4.5mm)]{\footnotesize$E_2$} (F);
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Two nonadjacent edges in $\mathcal{K}_6$.}
+            \label{fig:E12V12}
+        \end{figure}
+        \begin{itemize}
+            \item If a changed crossing is between an edge and itself, the crossing change cannot affect $\mathcal{U}$ or $\mathcal{V}$ because two disjoint triangles cannot share the same edge.
+            \item If a changed crossing is between two edges stemming from the same vertex, the crossing change cannot affect $\mathcal{U}$ or $\mathcal{V}$ because two disjoint triangles cannot share the same vertex.
+            \item Thus, only if the crossing changed is between two nonadjacent edges $E_1$ and $E_2$ (see Figure \ref{fig:E12V12}) could $\mathcal{U}$ and/or $\mathcal{V}$ be affected.
+            \item Because $E_1$ and $E_2$ end at four of the six vertices, only the two remaining vertices $V_1$ and $V_2$ in a one-to-one correspondence with $E_1$ and $E_2$ can form disjoint triangles (two pairs can be formed).
+            \item The crossing change shifts the linking number of both pairs of disjoint triangles by $\pm 1$.
+            \item Thus, the crossing change shifts $\mathcal{U}$ by any one of $+2,0,-2$.
+            \item Because $\mathcal{U}$ is changed by an even number, $\mathcal{V}$ cannot change under crossing changes.
         \end{itemize}
     \end{itemize}
 \end{itemize}
