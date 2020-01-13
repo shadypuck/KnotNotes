@@ -21,6 +21,7 @@
 
 \usetikzlibrary{knots,decorations.markings,positioning,shapes.geometric,calc,backgrounds}
 \tikzset{mini/.style={scale=0.15,baseline={(0,-0.09)},every path/.style={knot=red,thick}}}
+\tikzset{minigph/.style={scale=0.15,baseline={(0,-0.09)}}}
 
 \newcommand{\dq}[2]{``#1" (#2).}
 \newcommand{\lbq}{<\hspace{-3pt}}
@@ -2014,7 +2015,7 @@
             \end{tikzpicture}
             \vspace{-0.4cm}
             \caption{$3_1$ and $3_1$.}
-            \label{fig:alternatingcomposa}
+            \label{fig:ex3-15a}
         \end{subfigure}
         \begin{subfigure}[b]{0.3\linewidth}
             \centering
@@ -2039,7 +2040,7 @@
             \end{tikzpicture}
             \vspace{-0.4cm}
             \caption{$3_1\#3_1$.}
-            \label{fig:alternatingcomposb}
+            \label{fig:ex3-15b}
         \end{subfigure}
         \begin{subfigure}[b]{0.4\linewidth}
             \centering
@@ -2071,7 +2072,7 @@
             \end{tikzpicture}
             \vspace{-0.4cm}
             \caption{$3_1$ and $3_1$'s mirror image.}
-            \label{fig:alternatingcomposc}
+            \label{fig:ex3-15c}
         \end{subfigure}
         \begin{subfigure}[b]{0.3\linewidth}
             \centering
@@ -2096,7 +2097,7 @@
             \end{tikzpicture}
             \vspace{-0.4cm}
             \caption{$3_1\#3_1$ nonalternating.}
-            \label{fig:alternatingcomposd}
+            \label{fig:ex3-15d}
         \end{subfigure}
         \begin{subfigure}[b]{0.3\linewidth}
             \centering
@@ -2124,18 +2125,18 @@
             \end{tikzpicture}
             \vspace{-0.4cm}
             \caption{$3_1\#3_1$ made alternating.}
-            \label{fig:alternatingcompose}
+            \label{fig:ex3-15e}
         \end{subfigure}
         \caption{Drawing an alternating projection of $K_1\#K_2$ where $K_1$ and $K_2$ are alternating.}
-        \label{fig:alternatingcompos}
+        \label{fig:ex3-15}
     \end{figure}
     \begin{itemize}
-        \item When composing alternating knots, there are two cases, as exemplified by Figure \ref{fig:alternatingcomposa} and \ref{fig:alternatingcomposc}, respectively.
+        \item When composing alternating knots, there are two cases, as exemplified by Figure \ref{fig:ex3-15a} and \ref{fig:ex3-15c}, respectively.
         \begin{itemize}
             \item Case 1: the composite knot will be in an alternating projection.
             \item Case 2: the composite knot will not be in an alternating projection.
         \end{itemize}
-        \item For Case 1, the theorem evidently holds. See Figure \ref{fig:alternatingcomposb}
+        \item For Case 1, the theorem evidently holds. See Figure \ref{fig:ex3-15b}
         \item For Case 2, first consider the definition of an alternating knot (see Section \ref{sss:Introduction}), which states that an alternating knot need only have \underline{a} projection that is alternating, i.e., \underline{every} projection need not be alternating.
         \item Therefore, if we can prove that every nonalternating projection obtained through a composition has an alternating equivalent, the theorem will be true. To begin, consider several subcases to determine a pattern in the nonalternation.
         \begin{itemize}
@@ -2144,8 +2145,8 @@
             \item Case A: Leaving from an understrand in $K_1$, enter $K_2$ on an understrand. The next crossing (continuing through $K_2$) will be an overstrand, and then an understrand, \dots\ Eventually, by the above, we will return from $K_2$ on an overstrand into an overstrand on $K_1$. The next crossing (continuing through $K_1$) will be an understrand, and then an overstrand, \dots\ Eventually, we will return to where we started.
             \item Case B: Leaving from an overstrand in $K_1$, enter $K_2$ on an overstrand. The next crossing (continuing through $K_2$) will be an understrand, and then an overstrand, \dots\ Eventually, by the above, we will return from $K_2$ on an understrand into an understrand on $K_1$. The next crossing (continuing through $K_1$) will be an overstrand, and then an understrand, \dots\ Eventually, we will return to where we started.
         \end{itemize}
-        \item In both Cases A and B, the only moments of nonalternation are two consecutive underpasses (or overpasses) followed by a factor knot followed by two consecutive overpasses (or underpasses). Notice this pattern in Figure \ref{fig:alternatingcomposd}.
-        \item Thus, "slide" one strand of a factor knot over the other knot to eliminate the nonalternation, as in Figure \ref{fig:alternatingcompose}.
+        \item In both Cases A and B, the only moments of nonalternation are two consecutive underpasses (or overpasses) followed by a factor knot followed by two consecutive overpasses (or underpasses). Notice this pattern in Figure \ref{fig:ex3-15d}.
+        \item Thus, "slide" one strand of a factor knot over the other knot to eliminate the nonalternation, as in Figure \ref{fig:ex3-15e}.
         \item Q.E.D.
     \end{itemize}
 \end{itemize}
@@ -4656,7 +4657,7 @@
 
 
 \section{Polynomials}\label{sse:polynomials}
-\subsection{The Bracket Polynomial and the Jones Polynomial}
+\subsection{The Bracket Polynomial and the Jones Polynomial}\label{sss:Bracket}
 \begin{itemize}
     \item A knot polynomial is one of the most successful ways to tell knots apart.
     \begin{itemize}
@@ -7513,7 +7514,7 @@
             node distance=1cm,
             every node/.append style={circle,draw,fill,inner sep=1pt}
         ]
-            \colorlet{grx}{green!50!black}
+            \colorlet{grx}{green!50!black!60!white}
             
             \node (A) {};
             \node (B) [right=of A] {};
@@ -7596,6 +7597,410 @@
             \item Thus, the crossing change shifts $\mathcal{U}$ by any one of $+2,0,-2$.
             \item Because $\mathcal{U}$ is changed by an even number, $\mathcal{V}$ cannot change under crossing changes.
         \end{itemize}
+    \end{itemize}
+    \item Note that any graph containing $\mathcal{K}_6$ as a subgraph will also contain a nontrivial link in any embedding in three-space.
+    \item \textbf{Intrinsically linked} (graph): A graph that \dq{has the property that any embedding of it in three-space contains a nontrivial link}{220}
+    \item Let $\mathcal{K}_{x,y,z}$ be the graph given by taking three sets of disjoint vertices containing $x$, $y$, and $z$ vertices, respectively, and joining every vertex in a set to every vertex not in its set.
+    \item \textbf{Expansion} (of a graph): Given a graph $\mathcal{G}$, the graph obtained from $\mathcal{G}$ by \dq{replacing a particular vertexi $v$ of $\mathcal{G}$ by two vertices $u$ and $w$ connected by a new edge, and replacing each of the old edges that ended at $v$ by a new edge that begins where the old edge began and ends at either $u$ or $w$}{221}
+    \item \emph{Exercise 8.4} If $\mathcal{G}$ is intrinsically linked, then so is any expansion of $\mathcal{G}$.
+    \item In 1993, Neil Robertson, P. D. Seymour, and Robin Thomas proved that a graph is intrinsically linked if and only if it contains one of the \textbf{Petersen graphs} or an expansion of one of the Petersen graphs.
+    \item \textbf{Petersen graphs}: Seven special graphs \dq{obtainable from $\mathcal{K}_6$ by repeated \textbf{triangle-$\mathbf{\gamma}$ exchanges}}{221}
+    \item \textbf{Triangle-$\mathbf{\gamma}$ exchange}: \dq{Three edges that from a triangle in a graph are replaced by three edges and a new vertex that form a $\gamma$}{221} The inverse operation counts, as well. See Figure \ref{fig:startriangle} for a visualization.
+    \item \emph{Exercise 8.5}: Show that $\mathcal{K}_{3,3,1}$ is a Petersen graph by demonstrating that it can be obtained from $\mathcal{K}_6$ by triangle-$\gamma$ exchanges.
+\end{itemize}
+
+
+\subsection{Knots in Graphs}\label{sss:KnotsinGraphs}
+\begin{itemize}
+    \item \textbf{Hamiltonian cycle}: \dq{A sequence of edges in the graph such that any two consecutive edges share a vertex, the last edge and the first edge share a vertex, and every vertex is hit by a pair of consecutive edges exactly once}{222}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[
+            node distance=1cm,
+            every node/.append style={circle,draw,fill,inner sep=1pt}
+        ]
+            \colorlet{grx}{green!50!black!60!white}
+            
+            \node (A) {};
+            \node (B) [right=of A] {};
+            \node (C) at ($(B)!1!-120:(A)$) {};
+            \node (D) at ($(C)!1!-120:(B)$) {};
+            \node (E) [left=of D] {};
+            \node (F) at ($(E)!1!-120:(D)$) {};
+
+            \draw [thick,grx] (A) -- (B);
+            \draw [thick] (B) -- (C);
+            \draw [thick,grx] (C) -- (D);
+            \draw [thick] (D) -- (E);
+            \draw [thick,grx] (E) -- (F);
+            \draw [thick] (F) -- (A);
+            \begin{knot}[
+                clip width=5,
+                clip radius=3pt
+            ]
+                \strand [thick,grx] (B) -- (D);
+                \strand [thick] (D) -- (F);
+                \strand [thick] (A) -- (D);
+                \strand [thick] (A) -- (C);
+                \strand [thick] (B) -- (F);
+                \strand [thick,grx] (A) -- (E);
+                \strand [thick] (C) -- (E);
+                \strand [thick] (B) -- (E);
+                \strand [thick,grx] (C)
+                    to [bend left=20] (F)
+                ;
+                \redraw{5}{(0,0.63)}
+            \end{knot}
+        \end{tikzpicture}
+        \caption{A Hamiltonian cycle in $\mathcal{K}_6$.}
+        \label{fig:hamiltonian}
+    \end{figure}
+    \item Using the same method as above, Gordon and Conway, in 1983, proved that every embedding of $\mathcal{K}_7$ contains a knotted Hamiltonian cycle.
+    \item \emph{Exercise 8.7}: Find an embedding of $\mathcal{K}_7$ containing no trefoil knots. Hint: Use the fact that the trefoil knot is prime and make sure all of the knots in your embedding are composite.
+    \item \textbf{Pass-move}: A change in a projection where each of the four crossings between two pairs of oppositely oriented strands is flipped. See Figure \ref{fig:passmove}.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \begin{knot}[
+                clip width=5,
+                every strand/.append style={red,thick},
+                xshift=-2cm
+            ]
+                \strand [->] (-0.2,-1) -- (-0.2,1);
+                \strand [<-] (0.2,-1) -- (0.2,1);
+                \strand [<-] (-1,0.2) -- (1,0.2);
+                \strand [->] (-1,-0.2) -- (1,-0.2);
+            \end{knot}
+            \draw [very thick,latex-latex] (-0.4,0) -- (0.4,0);
+            \begin{knot}[
+                clip width=5,
+                every strand/.append style={red,thick},
+                xshift=2cm
+            ]
+                \strand [<-] (-1,0.2) -- (1,0.2);
+                \strand [->] (-1,-0.2) -- (1,-0.2);
+                \strand [->] (-0.2,-1) -- (-0.2,1);
+                \strand [<-] (0.2,-1) -- (0.2,1);
+            \end{knot}
+        \end{tikzpicture}
+        \caption{A pass-move.}
+        \label{fig:passmove}
+    \end{figure}
+    \item \textbf{Pass equivalent} (knots): Two knots such that a sequence of pass-moves and isotropies can change one into the other.
+    \item \emph{Exercise 8.8}: Show that a knot with part of its projection as in Figure \ref{fig:ex8-8a} is pass equivalent to a knot with that part of its projection as in Figure \ref{fig:ex8-8b}. A belt may help you see this, where the edges of the belt correspond to the strands of the knot.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{../Notes/Blender/ex8-8a.png}
+            \caption{Section with 4 crossings.}
+            \label{fig:ex8-8a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{../Notes/Blender/ex8-8b.png}
+            \caption{Section with 0 crossings.}
+            \label{fig:ex8-8b}
+        \end{subfigure}
+        \caption{Two pass equivalent sections of a knot.}
+        \label{fig:ex8-8}
+    \end{figure}
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.25\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{../Notes/Blender/ex8-8-2a.png}
+            \caption{Strands.}
+            \label{fig:ex8-8-2a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.15\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{../Notes/Blender/ex8-8-2b.png}
+            \caption{Looped.}
+            \label{fig:ex8-8-2b}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.15\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{../Notes/Blender/ex8-8-2c.png}
+            \caption{Passed.}
+            \label{fig:ex8-8-2c}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.25\linewidth}
+            \centering
+            \includegraphics[width=0.8\linewidth]{../Notes/Blender/ex8-8-2d.png}
+            \caption{Stretched.}
+            \label{fig:ex8-8-2d}
+        \end{subfigure}
+        \caption{Solution to \emph{Exercise 8.8}.}
+        \label{fig:ex8-8-2}
+    \end{figure}
+    \begin{itemize}
+        \item Recall the relationship between twist and writhe throughout the following.
+        \item Figure \ref{fig:ex8-8-2a} resembles Figure \ref{fig:ex8-8b}.
+        \item From Figure \ref{fig:ex8-8-2a} to \ref{fig:ex8-8-2b}, perform a Type I Reidemeister move on each strand of Figure \ref{fig:ex8-8-2a} and then "slide" the top one over the bottom one using a sequence of Type II and III Reidemeister moves.
+        \item From Figure \ref{fig:ex8-8-2b} to \ref{fig:ex8-8-2c}, perform a pass-move.
+        \item From Figure \ref{fig:ex8-8-2c} to \ref{fig:ex8-8-2d}, imagine pulling the right two ends in Figure \ref{fig:ex8-8-2c} farther to the right and vice versa for the left two ends. As it stretches, it assumes the projection of the braid shown, which is equivalent to Figure \ref{fig:ex8-8a}. This transition could be accomplished through a series of Reidemeister moves as well.
+    \end{itemize}
+    \item \dq{Every knot is either pass equivalent to the unknot or to the trefoil knot}{224}
+    \begin{itemize}
+        \item Apply Seifert's algorithm to generate a Seifert surface for the knot.
+        \item The Seifert surface can then be isotoped to be a disk with bands.
+        \begin{itemize}
+            \item Because Seifert surfaces are always orientable, each band has an even number of half-twists in it.
+        \end{itemize}
+        \item \emph{Exercise 8.9}: If we put an orientation on the boundary of the Seifert surface, then the two edges of each band are always oriented oppositely.
+        \item Thus, pass-moves can be applied to bands.
+        \item Pass-moves allow bands to be disentangled, or unhooked.
+        \item Furthermore, since \emph{Exercise 8.8} proved that a $\pm 4$-move can be accomplished via a pass-move, the number of half-twists in every band can be lowered to 0 or 2.
+        \begin{figure}[h!]
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    every strand/.append style={blue,thick},
+                    xshift=-2cm
+                ]
+                    \strand (-0.7,0) to[bend left=80,looseness=3.5] (0.7,0);
+                    \strand (-1,0) to[bend left=80,looseness=1.9] (1,0);
+                    \flipcrossings{2}
+                \end{knot}
+                \draw [very thick,-latex] (-0.4,1) -- (0.4,1);
+                \begin{knot}[
+                    clip width=5,
+                    clip radius=3pt,
+                    consider self intersections,
+                    end tolerance=0pt,
+                    every strand/.append style={blue,thick},
+                    xshift=2cm
+                ]
+                    \strand (-0.7,0)
+                        to[out=80,in=0,out looseness=0.5,in looseness=2] (0,2)
+                        to[out=180,in=100,out looseness=2,in looseness=0.5] (0.7,0)
+                    ;
+                    \strand (-1,0)
+                        to[out=80,in=0,in looseness=1] (0,1.7)
+                        to[out=180,in=100,out looseness=1] (1,0)
+                    ;
+                    \flipcrossings{4}
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Two half-twists can be replaced by a curl.}
+            \label{fig:twistcurl}
+        \end{figure}
+        \item By replacing each band with two half-twists with a curl (see Figure \ref{fig:twistcurl}), we can eliminate all twists in the bands.
+        \item \dq{If one of the ends of each of two distinct bands $B_1$ and $B_2$ lie between the two ends of a third band $B_3$ on the edge of the disk, we can slide the end of $B_1$ along one edge of $B_2$ to move it outside the two ends of $B_3$}{226}
+        \item Thus, there is \dq{at most one end of a band between the two ends of any single band on the edge of the disk}{226}
+        \item \emph{Exercise 8.10}: Explain why every band must have another end of a band between its two ends on the boundary of the disk.
+        \begin{itemize}
+            \item Otherwise, there would be an isolated boundary component (the inside between the band and the disk) other than the regular boundary component.
+            \item This is a contradiction with the definition of the Seifert surface for a knot.
+        \end{itemize}
+        \item Thus, the bands match up in pairs.
+        \item Thus, there is an even number of bands.
+        \item Thus, if there are $2n$ bands, the surface can be divided into $n$ pieces, each with two bands.
+        \item There are only three types of pieces
+        \begin{enumerate}
+            \item Both bands are untwisted.
+            \item Both bands are curls.
+            \item There is one of each.
+        \end{enumerate}
+        \item The boundary component of the first and the third is the unknot while that of the second is the trefoil knot.
+        \item Thus, the Seifert surface for every knot reduces, through pass moves, to the composition of unknots and trefoil knots.
+        \item Therefore, every knot is pass equivalent to either the unknot or a composition of trefoil knots.
+        \item The trefoil knot is pass equivalent to its mirror image.
+        \item \emph{Exercise 8.12*}: If $K$ is a trefoil knot, then $K\#K^*$ (see Figure \ref{fig:ex3-15d}) is pass equivalent to the trivial knot. A single pass move can accomplish this.
+        \item Thus, a knot that reduces to an odd number of trefoil factors is pass equivalent to the trefoil knot, and a knot that reduces to an even number of trefoil factors is pass equivalent to the unknot.
+        \item Therefore, the original statement holds.
+    \end{itemize}
+    \item It can be proved that the trefoil knot and unknot are not pass equivalent.
+    \item \textbf{Arf invariant}: Let the value be 0 if the knot is pass equivalent to the unknot and 1 if the knot is pass equivalent to the trefoil knot. \emph{Also known as} \emph{\textbf{a(K)}}.
+    \item Let $K_+$, $K_-$, and $L$ correspond to unoriented versions of Figures \ref{fig:ex6-8a}, \ref{fig:ex6-8b}, and \ref{fig:ex6-8c}, respectively.
+    \begin{itemize}
+        \item $K_+$ and $K_-$ are knots identical everywhere outside the region shown.
+        \item $L$ is a two-component link where each of the strands shown in Figure \ref{fig:ex6-8c} correspond to a distinct component.
+    \end{itemize}
+    \item Thus, the following relationship holds.
+    \begin{equation}\label{eqn:arf}
+        a(K_+) = a(K_-)+Lk(L_1,L_2)
+    \end{equation}
+    \item The Arf invariant can be determined from the Alexander polynomial and that polynomial's Skein relation can verify Equation \ref{eqn:arf}.
+    \item Every embedding of $\mathcal{K}_7$ contains a knotted Hamiltonian cycle.
+    \begin{itemize}
+        \item Let $\omega$ be the sum of the Arf invariants for every Hamiltonian cycle in an embedding of $\mathcal{K}_7$.
+        \item \emph{Exercise 8.14}: There are 360 Hamiltonian cycles in $\mathcal{K}_7$.
+        \item Let $\Omega$ be the mod 2 reduction of $\omega$.
+        \item A crossing change leaves $\Omega$ unchanged.
+        \item An embedding of $\mathcal{K}_7$ (not shown) has all unknotted Hamiltonian cycles save one as a trefoil knot.
+        \item Thus, $\Omega=1$ for that embedding and for all embeddings, proving the theorem.
+    \end{itemize}
+    \item Miki Shimabara proved in 1988 that any embedding of the \textbf{bipartite} graph $\mathcal{K}_{5,5}$ contains a knotted Hamiltonian cycle.
+    \item \textbf{Bipartite} (graph): A graph obtained by taking two sets of vertices and attaching with edges only vertices between the two sets, i.e., no two vertices in the same set can be connected by edges.
+    \item \textbf{Intrinsically knotted} (graph): A graph such that every embedding of the graph in three-space contains a knotted cycle (not necessarily a Hamiltonian cycle).
+    \item If a graph contains a subgraph that is intrinsically knotted, than it is intrinsically knotted, too.
+    \item Robertson, Seymour, and Thomas proved in 1993 that an intrinsically knotted graph is always intrinsically linked.
+\end{itemize}
+
+
+\subsection{Polynomials of Graphs}\label{sss:PolynomialsofGraphs}
+\begin{itemize}
+    \item The \textbf{dichromatic polynomial} $Z_\mathcal{G}(q,v)$ is a two variable polynomial for abstract graphs, meaning that it does not depend on the embedding of $\mathcal{G}$ but on its isomorphism type.
+    \item It is defined by the following three rules.
+    \begin{align*}
+        1.\qquad & Z(\tikz[minigph]{
+            \fill circle (3mm);
+        })=q\\
+        2.\qquad & Z(\tikz[minigph]{
+            \fill circle (3mm);
+        }\, \mathcal{G})=qZ(\mathcal{G})\\
+        3.\qquad & Z(\tikz[minigph]{
+            \fill (-2,0) circle (3mm);
+            \fill (2,0) circle (3mm);
+            \draw [thick] (-2,0) -- (2,0);
+            \draw [thick] (-3.5,0) -- (-2,0);
+            \draw [thick] (-3,1) -- (-2,0);
+            \draw [thick] (-3,-1) -- (-2,0);
+            \draw [thick] (3,1) -- (2,0);
+            \draw [thick] (3,-1) -- (2,0);
+        })=Z(\tikz[minigph]{
+            \fill (-2,0) circle (3mm);
+            \fill (2,0) circle (3mm);
+            \draw [thick] (-3.5,0) -- (-2,0);
+            \draw [thick] (-3,1) -- (-2,0);
+            \draw [thick] (-3,-1) -- (-2,0);
+            \draw [thick] (3,1) -- (2,0);
+            \draw [thick] (3,-1) -- (2,0);
+        })+vZ(\tikz[minigph]{
+            \fill circle (3mm);
+            \draw [thick] (-1.5,0) -- (0,0);
+            \draw [thick] (-1,1) -- (0,0);
+            \draw [thick] (-1,-1) -- (0,0);
+            \draw [thick] (1,1) -- (0,0);
+            \draw [thick] (1,-1) -- (0,0);
+        })
+    \end{align*}
+    \begin{itemize}
+        \item Rule 1 means that the graph consisting of a single vertex has dichromatic polynomial $q$.
+        \item Rule 2 means that adding a new, unattached vertex to a graph causes the dichromatic polynomial of the graph to be multiplied by $q$.
+        \item Rule 3 means that the dichromatic polynomial of a graph $\mathcal{G}$ with a certain edge $\mathcal{E}$ is equal to the sum of the dichromatic polynomial of $\mathcal{G}$ without $\mathcal{E}$ and $v$ times the inverse expansion of $\mathcal{G}$ with respect to $\mathcal{E}$.
+    \end{itemize}
+    \item The dichromatic polynomial for a graph $\mathcal{G}$ with a loop equals $1+v$ times the dichromatic polynomial of $\mathcal{G}$ without said loop.
+    \begin{equation*}
+        Z(\tikz[minigph]{
+            \fill circle (3mm);
+            \draw [thick] (-1.5,0) -- (0,0);
+            \draw [thick] (-1,1) -- (0,0);
+            \draw [thick] (-1,-1) -- (0,0);
+            \draw [thick] (1,0) ellipse (1cm and 0.7cm);
+        })=Z(\tikz[minigph]{
+            \fill circle (3mm);
+            \draw [thick] (-1.5,0) -- (0,0);
+            \draw [thick] (-1,1) -- (0,0);
+            \draw [thick] (-1,-1) -- (0,0);
+        })+vZ(\tikz[minigph]{
+            \fill circle (3mm);
+            \draw [thick] (-1.5,0) -- (0,0);
+            \draw [thick] (-1,1) -- (0,0);
+            \draw [thick] (-1,-1) -- (0,0);
+        })=(1+v)Z(\tikz[minigph]{
+            \fill circle (3mm);
+            \draw [thick] (-1.5,0) -- (0,0);
+            \draw [thick] (-1,1) -- (0,0);
+            \draw [thick] (-1,-1) -- (0,0);
+        })
+    \end{equation*}
+    \item Find $Z(\mathcal{K}_2)$.
+    \begin{align*}
+        Z(\tikz[minigph]{
+            \fill (-2,0) circle (3mm);
+            \fill (2,0) circle (3mm);
+            \draw [thick] (-2,0) -- (2,0);
+        }) &= Z(\tikz[minigph]{
+            \fill (-2,0) circle (3mm);
+            \fill (2,0) circle (3mm);
+        })+vZ(\tikz[minigph]{
+            \fill circle (3mm);
+        })\\
+        &= qZ(\tikz[minigph]{
+            \fill circle (3mm);
+        })+vZ(\tikz[minigph]{
+            \fill circle (3mm);
+        })\\
+        &= q^2+vq
+    \end{align*}
+    \item $Z(\mathcal{K}_3)=q^3+3vq^2+3v^2q+v^3q$.
+    \item \textbf{Vertex coloring}: A version of a graph where each vertex is colored one of $q$ possible colors such that no edge connects two vertices of the same color.
+    \item If we set $v=-1$ in the dichromatic polynomial of a graph $\mathcal{G}$, then $Z(\mathcal{G})$ gives precisely the number of vertex colorings possible with $q$ colors.
+    \begin{itemize}
+        \item In the instance of $\mathcal{K}_3$, $Z_{\mathcal{K}_3}(v=-1)=q^3-3q^2+2q$.
+        \item This squares with the logic that the number of vertex colorings would be given by $\frac{q!}{(q-3)!}$ because $\frac{q!}{(q-3)!}=q(q-1)(q-2)=q^3-3q^2+2q$.
+    \end{itemize}
+    \item \emph{Exercise 8.17}: Show that any graph $\mathcal{G}$ that consists only of vertices and no edges has its number of vertex colorings given by $Z_\mathcal{G}(q,-1)$. In fact, for a graph of this type, this will be true no matter what value is given to $v$.
+    \begin{itemize}
+        \item For a graph $\mathcal{G}$ of $n$ vertices and no edges, by Rule 2, $Z(\mathcal{G})=q^n$.
+        \item For every vertex, there are $q$ possible color choices because no vertices are joined by edges.
+        \item Thus, the number of vertex colorings is given by $q$ times itself $n$ times, or $q^n$.
+        \item Therefore, the original statement has been shown to be true, and the number of vertex colorings in such a graph is entirely independent of $v$.
+    \end{itemize}
+    \item Prove that the dichromatic polynomial of a graph yields the number of vertex colorings when evaluated at $v=-1$.
+    \begin{itemize}
+        \item This will be an induction proof.
+        \item Suppose that the theorem has been proved for a graph of $m$ edges.
+        \item Let $\mathcal{G}$ be a graph with $m+1$ edges.
+        \item Let $\mathcal{E}$ be an edge connecting two distinct vertices $\mathcal{A}$ and $\mathcal{B}$ of $\mathcal{G}$.
+        \item By Rule 3, $
+            Z(\tikz[minigph]{
+                \fill (-2,0) circle (3mm);
+                \fill (2,0) circle (3mm);
+                \draw [thick] (-2,0) -- (2,0);
+                \draw [thick] (-3.5,0) -- (-2,0);
+                \draw [thick] (-3,1) -- (-2,0);
+                \draw [thick] (-3,-1) -- (-2,0);
+                \draw [thick] (3,1) -- (2,0);
+                \draw [thick] (3,-1) -- (2,0);
+            })=Z(\tikz[minigph]{
+                \fill (-2,0) circle (3mm);
+                \fill (2,0) circle (3mm);
+                \draw [thick] (-3.5,0) -- (-2,0);
+                \draw [thick] (-3,1) -- (-2,0);
+                \draw [thick] (-3,-1) -- (-2,0);
+                \draw [thick] (3,1) -- (2,0);
+                \draw [thick] (3,-1) -- (2,0);
+            })-Z(\tikz[minigph]{
+                \fill circle (3mm);
+                \draw [thick] (-1.5,0) -- (0,0);
+                \draw [thick] (-1,1) -- (0,0);
+                \draw [thick] (-1,-1) -- (0,0);
+                \draw [thick] (1,1) -- (0,0);
+                \draw [thick] (1,-1) -- (0,0);
+            })
+        $, where the portion of $\mathcal{G}$ containing $\mathcal{A}$, $\mathcal{B}$, and $\mathcal{E}$ is shown in the leftmost term. Also let $\mathcal{G}'$ denote the graph shown in the left term on the right side and let $\mathcal{G}''$ denote the graph shown in the rightmost term.
+        \item By what was supposed in the beginning, $Z(\mathcal{G}')$ gives the number of vertex colorings of $\mathcal{G}'$ and $Z(\mathcal{G}'')$ gives the number of vertex colorings of $\mathcal{G}''$.
+        \item Since the number of vertex colorings in $\mathcal{G}$ will be $Z(\mathcal{G'})$ minus those where $\mathcal{A}$ and $\mathcal{B}$ have the same coloring, since $Z(\mathcal{G}'')$ gives this second value, and since $Z(\mathcal{G})=Z(\mathcal{G}')-Z(\mathcal{G}'')$, $Z(\mathcal{G})$ gives the number of vertex colorings in $\mathcal{G}$.
+    \end{itemize}
+    \item Proving the Four-Color Theorem is equivalent to proving that $Z(\mathcal{G})\neq 0$, where $q=4$ and $v=-1$ for all $\mathcal{G}$.
+    \item Let $[K]$ denote the \textbf{square bracket polynomial} of a knot $K$.
+    \item It has two variables $q$ and $v$ and is defined by the same rules as the bracket polynomial of Section \ref{sss:Bracket} except using different coefficients. The rules follow.
+    \begin{align*}
+        \text{Rule 1}:\qquad & [\bpunknot] = q^\frac{1}{2}\\
+        \text{Rule 2}:\qquad & [L\cup\bpunknot] = q^\frac{1}{2}[L]\\
+        \text{Rule 3}:\qquad & [\tikz[mini]{
+            \draw (-1,1) to (1,-1);
+            \draw (-1,-1) to (1,1);
+        }] = q^{-\frac{1}{2}}v[\vertopen]+[\horiopen]
+    \end{align*}
+    \item Let $L(G)$ be the alternating link generated from $\mathcal{G}$ using the methods of Section \ref{sss:SignedGraphs}. Every crossing is assumed to be a $+$ crossing as indicated by Figure \ref{fig:linkingnumber}.
+    \item $Z_\mathcal{G}(q,v)=q^\frac{N}{2}[L(G)]$, where $N$ is the number of vertices in $\mathcal{G}$.
+    \begin{itemize}
+        \item Case 1: $\mathcal{G}$ contains 1 vertex and 0 edges.
+        \begin{itemize}
+            \item $L(\mathcal{G})$ is the unknot.
+            \item By the rules determining the square bracket polynomial and the dichromatic polynomial, the following holds.
+        \end{itemize}
+        \begin{align*}
+            Z(\mathcal{G}) &\stackrel{?}{=} q^\frac{1}{2}[L(\mathcal{G})]\\
+            q &\stackrel{?}{=} q^\frac{1}{2}q^\frac{1}{2}\\
+            q &= q
+        \end{align*}
     \end{itemize}
 \end{itemize}
 
