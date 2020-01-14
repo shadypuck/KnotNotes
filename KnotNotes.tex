@@ -7514,7 +7514,7 @@
             node distance=1cm,
             every node/.append style={circle,draw,fill,inner sep=1pt}
         ]
-            \colorlet{grx}{green!50!black!60!white}
+            \colorlet{grx}{green!50!black!60}
             
             \node (A) {};
             \node (B) [right=of A] {};
@@ -7619,7 +7619,7 @@
             node distance=1cm,
             every node/.append style={circle,draw,fill,inner sep=1pt}
         ]
-            \colorlet{grx}{green!50!black!60!white}
+            \colorlet{grx}{green!50!black!60}
             
             \node (A) {};
             \node (B) [right=of A] {};
@@ -8001,6 +8001,186 @@
             q &\stackrel{?}{=} q^\frac{1}{2}q^\frac{1}{2}\\
             q &= q
         \end{align*}
+        \item \emph{Exercise 8.19}: Show that the theorem is true for any graph consisting only of vertices and no edges. Note that if $\mathcal{G}$ is a graph consisting only of vertices, $L(\mathcal{G})$ is the link obtained by taking a set of trivial link components, such that one surrounds each of the vertices.
+        \begin{itemize}
+            \item For a graph $\mathcal{G}$ of $N$ vertices and no edges, by Rule 2, $Z(\mathcal{G})=q^N$.
+            \item For a trivial link $L(\mathcal{G})$ of $N$ components, by repeated applications of Rule 2 and one final application of Rule 1, $[L(\mathcal{G})]=\left( q^\frac{1}{2} \right)^N=q^\frac{N}{2}$.
+            \item Dividing the above two results reveals that the following holds.
+        \end{itemize}
+        \begin{align*}
+            Z(\mathcal{G}) &\stackrel{?}{=} q^\frac{N}{2}[L(\mathcal{G})]\\
+            q^N &\stackrel{?}{=} q^\frac{N}{2}q^\frac{N}{2}\\
+            q^N &= q^N
+        \end{align*}
+        \item Case 3: $\mathcal{G}$ contains some amount of edges and the theorem has been proved for all graphs with fewer than that amount of edges.
+        \begin{figure}[h!]
+            \centering
+            \colorlet{orx}{orange!50}
+            \begin{subfigure}[b]{0.15\linewidth}
+                \centering
+                \begin{tikzpicture}
+                    \fill [orx] (-0.6,1) -- (0.6,-1) -- (-0.6,-1) -- (0.6,1) -- cycle;
+                    \begin{knot}[
+                        clip width=5,
+                        clip radius=2pt,
+                        every strand/.append style={red,thick}
+                    ]
+                        \strand (0.6,1) -- (-0.6,-1);
+                        \strand (-0.6,1) -- (0.6,-1);
+                    \end{knot}
+                    \fill (0,0.7) circle (2pt);
+                    \fill (0,-0.7) circle (2pt);
+                    \draw [thick]
+                        (-0.3,1) -- (0,0.7) -- (0.3,1)
+                        (0,1) -- (0,0.7) -- (0,-0.7)
+                        (-0.3,-1) -- (0,-0.7) -- (0.3,-1)
+                    ;
+                \end{tikzpicture}
+                \caption{$\mathcal{G}$}
+                \label{fig:ZGsqbkta}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.15\linewidth}
+                \centering
+                \begin{tikzpicture}
+                    \filldraw [draw=red,thick,fill=orx]
+                        (-0.6,1) to[bend right=60,looseness=2.2] (0.6,1)
+                        (-0.6,-1) to[bend left=60,looseness=2.2] (0.6,-1)
+                    ;
+                    \fill (0,0.7) circle (2pt);
+                    \fill (0,-0.7) circle (2pt);
+                    \draw [thick]
+                        (-0.3,1) -- (0,0.7) -- (0.3,1)
+                        (0,1) -- (0,0.7)
+                        (-0.3,-1) -- (0,-0.7) -- (0.3,-1)
+                    ;
+                \end{tikzpicture}
+                \caption{$\mathcal{G}'$}
+                \label{fig:ZGsqbktb}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.15\linewidth}
+                \centering
+                \begin{tikzpicture}
+                    \fill [orx] (-0.6,1) to[bend left=30,looseness=1] (-0.6,-1) --
+                    (0.6,-1) to[bend left=30,looseness=1] (0.6,1) -- cycle;
+                    \draw [red,thick]
+                        (-0.6,1) to[bend left=30] (-0.6,-1)
+                        (0.6,-1) to[bend left=30] (0.6,1)
+                    ;
+                    \fill circle (2pt);
+                    \draw [thick]
+                        (-0.3,1) -- (0,0) -- (0.3,1)
+                        (0,1) -- (0,0)
+                        (-0.3,-1) -- (0,0) -- (0.3,-1)
+                    ;
+                \end{tikzpicture}
+                \caption{$\mathcal{G}''$}
+                \label{fig:ZGsqbktc}
+            \end{subfigure}
+            \caption{Three related graphs.}
+            \label{fig:ZGsqbkt}
+        \end{figure}
+        \begin{itemize}
+            \item Let $\mathcal{G}$, $\mathcal{G}'$, and $\mathcal{G}''$ be the graphs depicted in Figures \ref{fig:ZGsqbkta}, \ref{fig:ZGsqbktb}, and \ref{fig:ZGsqbktc}.
+            \item Since $\mathcal{G}'$ and $\mathcal{G}''$ both have fewer edges then $\mathcal{G}$, the following holds.
+            \begin{align*}
+                Z(\mathcal{G}') &= q^\frac{N}{2}[L(\mathcal{G}')]&
+                Z(\mathcal{G}'') &= q^\frac{N-1}{2}[L(\mathcal{G}'')]
+            \end{align*}
+            \item By the Rule 3 for computing the dichromatic polynomial and substitutions, the following holds, proving the theorem.
+        \end{itemize}
+        \begin{align*}
+            Z(\mathcal{G}) &= Z(\mathcal{G}')+vZ(\mathcal{G}'')\\
+            &= q^\frac{N}{2}[L(\mathcal{G}')]+vq^\frac{N-1}{2}[L(\mathcal{G}'')]\\
+            &= q^\frac{N}{2}\left( [L(\mathcal{G}')]+vq^{-\frac{1}{2}}[L(\mathcal{G}'')] \right)\\
+            &= q^\frac{N}{2}[L(\mathcal{G})]
+        \end{align*}
+    \end{itemize}
+    \item \textbf{Potts model}: A generalization of the Ising model, where $q$ states (instead of 2) are allowed at each vertex.
+    \item Let $E(s_i,s_j)=\delta(s_i,s_j)$.
+    \item \dq{Let $v=\exp\left( -\frac{1}{kT} \right)-1$. Then the dichromatic polynomial $Z_\mathcal{G}(q,v)$ for the planar graph $\mathcal{G}$ becomes the partition function of the Potts model on the graph $\mathcal{G}$, with the variable $q$ from the polynomial giving the number of possible states at each vertex}{240}
+    \begin{itemize}
+        \item Rewrite the partition function$^[$\footnote{Note that the transition from the next-to-last step to the last step is facilitated by the fact that $\delta$ can only be 1 or 0 and the equality holds in either case.}$^]$.
+        \begin{align*}
+            P &= \sum\exp\left( -\frac{E(S)}{kT} \right)\\
+            &= \sum\exp\left( -\frac{\sum\delta(S_i,S_j)}{kT} \right)\\
+            &= \sum\prod\exp\left( -\frac{1}{kT} \right)^{\delta(S_i,S_j)}\\
+            &= \sum\prod(1+v\delta(S_i,S_j))\stepcounter{equation}\tag{\theequation}\label{eqn:dichromaticpartition}
+        \end{align*}
+        \item Show that Equation \ref{eqn:dichromaticpartition} satisfies the rules governing the dichromatic polynomial.
+        \item Rule 1: $
+            P(\tikz[minigph]{
+                \fill circle (3mm);
+            }) = q
+        $.
+        \begin{itemize}
+            \item For a single vertex, $P$ reduces to the following because there are no edges.
+            \begin{equation*}
+                P = \sum 1
+            \end{equation*}
+            \item Since the range of the summation includes all states (of which there are $q$), the following holds.
+            \begin{equation*}
+                P(\tikz[minigph]{
+                    \fill circle (3mm);
+                }) = \sum_q 1
+                = q
+            \end{equation*}
+        \end{itemize}
+        \item \emph{Exercise 8.20}: Show that $
+            P(\tikz[minigph]{
+                \fill circle (3mm);
+            }\, \mathcal{G}) = qP(\mathcal{G})
+        $.
+        \begin{itemize}
+            \item For every state (of which there are $q$) of the new vertex, there is a complete partition function for the graph without the vertex. Thus, the following holds.
+            \begin{align*}
+                P(\tikz[minigph]{
+                    \fill circle (3mm);
+                }\, \mathcal{G}) &= \sum_q\sum\prod(1+v\delta(S_i,S_j))\\
+                &= q\sum\prod(1+v\delta(S_i,S_j))\\
+                &= qP(\mathcal{G})
+            \end{align*}
+        \end{itemize}
+        \item Rule 3: $
+            P(\tikz[minigph]{
+                \fill (-2,0) circle (3mm);
+                \fill (2,0) circle (3mm);
+                \draw [thick] (-2,0) -- (2,0);
+                \draw [thick] (-3.5,0) -- (-2,0);
+                \draw [thick] (-3,1) -- (-2,0);
+                \draw [thick] (-3,-1) -- (-2,0);
+                \draw [thick] (3,1) -- (2,0);
+                \draw [thick] (3,-1) -- (2,0);
+            })=P(\tikz[minigph]{
+                \fill (-2,0) circle (3mm);
+                \fill (2,0) circle (3mm);
+                \draw [thick] (-3.5,0) -- (-2,0);
+                \draw [thick] (-3,1) -- (-2,0);
+                \draw [thick] (-3,-1) -- (-2,0);
+                \draw [thick] (3,1) -- (2,0);
+                \draw [thick] (3,-1) -- (2,0);
+            })+vP(\tikz[minigph]{
+                \fill circle (3mm);
+                \draw [thick] (-1.5,0) -- (0,0);
+                \draw [thick] (-1,1) -- (0,0);
+                \draw [thick] (-1,-1) -- (0,0);
+                \draw [thick] (1,1) -- (0,0);
+                \draw [thick] (1,-1) -- (0,0);
+            })
+        $.
+        \begin{itemize}
+            \item Let $\mathcal{G}$ be the leftmost graph above, let $\mathcal{G}'$ be the middle graph above, and let $\mathcal{G}''$ be the rightmost graph above.
+            \item Label all vertices in $\mathcal{G}$ by the integers $1,\dots,n$.
+            \item Let $a$ and $b$ be two of the integers such that they label vertices connected by an edge $e$, as shown in the leftmost term above.
+            \begin{align*}
+                P_s(\mathcal{G}) &= \prod(1+v\delta(s_i,s_j))\stepcounter{equation}\tag{\theequation}\label{eqn:P_s1}\\
+                &= (1+v\delta(s_a,s_b))\prod(1+v\delta(s_i,s_j))\\
+                &= \prod(1+v\delta(s_i,s_j))+v\delta(s_a,s_b)\prod(1+v\delta(s_i,s_j))\stepcounter{equation}\tag{\theequation}\label{eqn:P_s3}\\
+                &= P_s(\mathcal{G}')+vP_s(\mathcal{G}'')
+            \end{align*}
+            \item The term in Equation \ref{eqn:dichromaticpartition} for a given state $s$ of $\mathcal{G}$ is shown in Equation \ref{eqn:P_s1}.
+            \item The left term in Equation \ref{eqn:P_s3} is exactly $P_s(\mathcal{G}')$.
+            \item The right term in Equation \ref{eqn:P_s3} is nonzero only when $s_a=s_b$. Thus, it is $v$ times $P_s(\mathcal{G}'')$.
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 
