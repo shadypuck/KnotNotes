@@ -8183,6 +8183,69 @@
         \end{itemize}
     \end{itemize}
 \end{itemize}
+\newpage
+
+
+
+\section{Topology}
+\subsection{Knot Complements and Three-Manifolds}
+\begin{itemize}
+    \item \textbf{Three-manifold}: Any object such that every point in that object has a neighborhood in the object that is a (possible not smooth) sphere.
+    \item $\mathbb{R}^3$, or three-dimensional space, is the simplest three-manifold.
+    \item The spatial universe is a three-manifold.
+    \begin{itemize}
+        \item Note that we cannot confirm this for parts very far away, but it is a reasonable assumption.
+        \item Black holes could be points in the universe that do not have three-dimensional balls surrounding them (so-called \textbf{singularities}).
+    \end{itemize}
+    \item Knot complements (like $\mathbb{R}^3-K$) are three-manifolds because points far away from the knot are obviously encased in balls and points near to the knot are just encased in smaller balls.
+    \item Mathematicians have been trying to determine all three-manifolds, but this is complicated by the fact that they largely exist in higher dimensional spaces ($\mathbb{R}^{\geq 4}$).
+\end{itemize}
+
+
+\subsection{The Three-Sphere and Lens Spaces}
+\begin{itemize}
+    \item \textbf{Three-sphere}: An analog of the two-sphere surface, only one dimension up. It lives in four-space ($\mathbb{R}^4$).
+    \begin{itemize}
+        \item A two-sphere can be thought of as two curved disks being glued together along their boundaries.
+        \begin{itemize}
+            \item Think of an abstract gluing together of two solid spheres.
+            \item If we are walking around inside one of the spheres, we can walk up to its boundary and pass through into the second sphere.
+            \item Any point on the boundary derives half of its surrounding ball of points from one solid sphere and half from the other.
+        \end{itemize}
+        \item Alternatively, take all of the points in $\mathbb{R}^3$ and one extra point (denoted $\infty$) that is off at infinity.
+        \begin{figure}[h!]
+            \centering
+            \begin{tikzpicture}
+                \colorlet{blx}{yellow!80!black}
+                \colorlet{bly}{blx!50}
+                \colorlet{blz}{blx!10}
+
+                \fill [blz] circle (1cm);
+
+                \draw [->] (1,1) -- (-1,-1) node[below left]{$x$};
+                \draw [->] (-1.2,0) -- (1.2,0) node[right]{$y$};
+                \draw [->] (0,-1.2) -- (0,1.2) node[above]{$z$};
+
+                \draw [thick,blx] circle (1cm);
+                \draw [thick,blx] (-1,0) arc[start angle=-180,end angle=0,x radius=1cm,y radius=3mm];
+                \draw [thick,bly,dashed] (-1,0) arc[start angle=180,end angle=0,x radius=1cm,y radius=3mm];
+
+                \node [fill=blz,inner sep=0pt] at (-0.25,0.2) {$B_1$};
+                \node at (2,1) {$B_2$};
+                \node [circle,fill,inner sep=1.5pt,label={right:$\infty$}] at (5,0.5) {};
+            \end{tikzpicture}
+            \caption{The three-sphere.}
+            \label{fig:3-sphere}
+        \end{figure}
+        \begin{itemize}
+            \item The three-sphere $S^3$ is then $S^3=\mathbb{R}^3\cup\{\infty\}$.
+            \item If a point is distance $d$ from the origin, it is distance $\frac{1}{d}$ from $\{\infty\}$.
+            \item The points a distance $d$, where $d\leq 1$ from the origin, form the first ball.
+            \item The points $d\geq 1$ and $\{\infty\}$ become the second ball.
+            \item $\{\infty\}$ is the center of the second ball.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
 
 
 
