@@ -8187,7 +8187,7 @@
 
 
 
-\section{Topology}
+\section{Topology}\label{sse:topology}
 \subsection{Knot Complements and Three-Manifolds}
 \begin{itemize}
     \item \textbf{Three-manifold}: Any object such that every point in that object has a neighborhood in the object that is a (possible not smooth) sphere. \emph{Also known as} \textbf{3-manifold}.
@@ -8320,14 +8320,275 @@
                 \draw [ylx,thick,dashed,dash pattern=on 3pt off 1pt] (-\r,0) arc[start angle=180,end angle=0,x radius=\r,y radius=0.5*\r];
             }
 
-            \foreach \r in {0,15,35,60,90,120,145,165,180,195,215,240,270,300,325,345} {
+            \foreach \r in {0,15,35,60,90,120,145,165,180} {
                 \draw [ylx,thick] (\r:0.3) -- (\r:{(1+3*sin(\r)^2)^(-0.5)});
+            }
+            \foreach \r in {195,215,240,270,300,325,345} {
+                \draw [ylx,thick] (\r:{0.3*(1+3*sin(\r)^2)^(-0.5)}) -- (\r:{(1+3*sin(\r)^2)^(-0.5)});
             }
         \end{tikzpicture}
         \caption{Glue successive concentric spheres to each other to obtain $S^2\times S^1$.}
         \label{fig:s2s1concentric}
     \end{figure}
     \item Alternatively, imagine a solid ball with a spherical cavity in the middle, as in Figure \ref{fig:s2s1concentric}. Glue every concentric infinitesimal spherical sliver to the next one along a radius, and glue the outer one to the innermost one. Thus, a radius becomes the circle and the spherical shells (2-spheres) become the spheres from the original description.
+    \item \emph{Exercise 9.3}: If this new description of $S^2\times S^1$ is giving us the same manifold as in the previous description, then we should be able to see that the two solid tori that make up the first description in the picture that gives the second description in Figure \ref{fig:s2s1concentric}. Find a torus in Figure \ref{fig:s2s1concentric} that cuts the manifold into those two solid tori.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \colorlet{ylx}{yellow!80!black}
+    
+                \foreach \r in {1,0.3} {
+                    \draw [ylx,thick] circle (\r);
+                    \draw [ylx,thick] (-\r,0) arc[start angle=-180,end angle=0,x radius=\r,y radius=0.5*\r];
+                    \draw [ylx,thick,dashed,dash pattern=on 3pt off 1pt] (-\r,0) arc[start angle=180,end angle=0,x radius=\r,y radius=0.5*\r];
+                }
+    
+                \foreach \r in {0,15,35,60,90,120,145,165,180} {
+                    \draw [ylx,thick] (\r:0.3) -- (\r:{(1+3*sin(\r)^2)^(-0.5)});
+                }
+                \foreach \r in {195,215,240,270,300,325,345} {
+                    \draw [ylx,thick] (\r:{0.3*(1+3*sin(\r)^2)^(-0.5)}) -- (\r:{(1+3*sin(\r)^2)^(-0.5)});
+                }
+            \end{tikzpicture}
+            \caption{Step 1.}
+            \label{fig:ex9-3a}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \colorlet{ylx}{yellow!80!black}
+    
+                \begin{scope}[yshift=1cm]
+                    \foreach \r in {1,0.3} {
+                        \draw [ylx,thick] (-\r,0) arc[start angle=180,end angle=0,radius=\r];
+                        \draw [ylx,thick] (-\r,0) arc[start angle=-180,end angle=0,x radius=\r,y radius=0.5*\r];
+                        \draw [ylx,thick,dashed,dash pattern=on 3pt off 1pt] (-\r,0) arc[start angle=180,end angle=0,x radius=\r,y radius=0.5*\r];
+                    }
+        
+                    \foreach \r in {0,15,35,60,90,120,145,165,180} {
+                        \draw [ylx,thick] (\r:0.3) -- (\r:{(1+3*sin(\r)^2)^(-0.5)});
+                    }
+                    \foreach \r in {195,215,240,270,300,325,345} {
+                        \draw [ylx,thick] (\r:{0.3*(1+3*sin(\r)^2)^(-0.5)}) -- (\r:{(1+3*sin(\r)^2)^(-0.5)});
+                    }
+                \end{scope}
+                \begin{scope}[yshift=-1cm]
+                    \foreach \r in {1,0.3} {
+                        \draw [ylx,thick] (-\r,0) arc[start angle=-180,end angle=0,radius=\r];
+                        \draw [ylx,thick] ellipse ({\r} and {0.5*\r});
+                    }
+        
+                    \foreach \r in {0,15,35,60,90,120,145,165,180,195,215,240,270,300,325,345} {
+                        \draw [ylx,thick] (\r:{0.3*(1+3*sin(\r)^2)^(-0.5)}) -- (\r:{(1+3*sin(\r)^2)^(-0.5)});
+                    }
+                \end{scope}
+            \end{tikzpicture}
+            \caption{Step 2.}
+            \label{fig:ex9-3b}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \colorlet{ylx}{yellow!80!black}
+    
+                \begin{scope}[yshift=1cm]
+                    \draw [ylx,thick] (0,1) ellipse (0.65 and 0.325);
+                    \draw [ylx,thick] (-0.65,0) arc[start angle=-180,end angle=0,x radius=0.65,y radius=0.325];
+                    \draw [ylx,thick,dashed,dash pattern=on 3pt off 1pt] (-0.65,0) arc[start angle=180,end angle=0,x radius=0.65,y radius=0.325];
+                    \foreach \r in {15,35,60,90,120,145,165} {
+                        \draw [ylx,thick,dashed,dash pattern=on 3pt off 1pt] (\r:{0.65*(1+3*sin(\r)^2)^(-0.5)}) -- ([yshift=1cm]\r:{0.65*(1+3*sin(\r)^2)^(-0.5)});
+                    }
+                    \foreach \r in {0,180,195,215,240,270,300,325,345} {
+                        \draw [ylx,thick] (\r:{0.65*(1+3*sin(\r)^2)^(-0.5)}) -- ([yshift=1cm]\r:{0.65*(1+3*sin(\r)^2)^(-0.5)});
+                    }
+                \end{scope}
+                \begin{scope}[yshift=-1cm]
+                    \draw [ylx,thick] (0,1) ellipse (0.65 and 0.325);
+                    \draw [ylx,thick] (-0.65,0) arc[start angle=-180,end angle=0,x radius=0.65,y radius=0.325];
+                    \draw [ylx,thick,dashed,dash pattern=on 3pt off 1pt] (-0.65,0) arc[start angle=180,end angle=0,x radius=0.65,y radius=0.325];
+                    \foreach \r in {15,35,60,90,120,145,165} {
+                        \draw [ylx,thick,dashed,dash pattern=on 3pt off 1pt] (\r:{0.65*(1+3*sin(\r)^2)^(-0.5)}) -- ([yshift=1cm]\r:{0.65*(1+3*sin(\r)^2)^(-0.5)});
+                    }
+                    \foreach \r in {0,180,195,215,240,270,300,325,345} {
+                        \draw [ylx,thick] (\r:{0.65*(1+3*sin(\r)^2)^(-0.5)}) -- ([yshift=1cm]\r:{0.65*(1+3*sin(\r)^2)^(-0.5)});
+                    }
+                \end{scope}
+            \end{tikzpicture}
+            \caption{Step 3.}
+            \label{fig:ex9-3c}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \colorlet{ylx}{yellow!80!black}
+    
+                \begin{scope}[yshift=1cm]
+                    \draw [ylx,thick] ellipse (1.5 and 0.9);
+                    \draw [ylx,thick] (-0.2,0) arc[start angle=-180,end angle=0,x radius=0.2,y radius=0.05];
+                    \draw [ylx,thick] (-0.15,-0.03) arc[start angle=180,end angle=0,x radius=0.15,y radius=0.03];
+                \end{scope}
+                \begin{scope}[yshift=-1cm]
+                    \draw [ylx,thick] ellipse (1.5 and 0.9);
+                    \draw [ylx,thick] (-0.2,0) arc[start angle=-180,end angle=0,x radius=0.2,y radius=0.05];
+                    \draw [ylx,thick] (-0.15,-0.03) arc[start angle=180,end angle=0,x radius=0.15,y radius=0.03];
+                \end{scope}
+            \end{tikzpicture}
+            \caption{Step 4.}
+            \label{fig:ex9-3d}
+        \end{subfigure}
+        \caption{Finding tori in $S^2\times S^1$.}
+        \label{fig:ex9-3}
+    \end{figure}
+    \begin{itemize}
+        \item Begin with the definition of the 2-sphere as the union of two curved disks.
+        \item If each spherical shell in Figure \ref{fig:s2s1concentric} is a 2-sphere, then each shell should be able to be "sliced" into two curved disks. The two "hemispherical" halves of $S^2\times S^1$ can then be separated to be investigated separately, as between Steps 1 and 2 of Figure \ref{fig:ex9-3}.
+        \item The curved disks in each half can be continuously deformed stacked flat disks, or "cylinders," as between Steps 2 to 3 of Figure \ref{fig:ex9-3}. Note that the radii become vertical, parallel lines along the outside of the "cylinders."
+        \item However, by the definition of $S^2\times S^1$, the innermost disk in Figure \ref{fig:ex9-3a} is "glued" to the outermost disk. Thus, after the deformation to "cylinders," the top disk of each cylinder should be glued to its bottom disk. This can be accomplished by deforming the top of each cylinder to meet the bottom of its respective cylinder in three-space, as between Steps 3 and 4 of Figure \ref{fig:ex9-3}.
+        \item By this matching, two tori have been generated in Figure \ref{fig:ex9-3d}. Note that the radii would have eventually become longitudes on the tori, but these are not shown.
+    \end{itemize}
+    \item Knot theory is quite different in $S^2\times S^1$ from that in $S^3$.
+    \begin{itemize}
+        \item Imagine a knotted string anchored to the north pole of the outer sphere in Figure \ref{fig:s2s1concentric} at one end and anchored to the north pole of the inner sphere in Figure \ref{fig:s2s1concentric} at the other end.
+        \item Because these shells are joined, this string is actually a knotted loop in $S^2\times S^3$.
+        \item However, it can be unknotted by passing loops around the inner sphere.
+    \end{itemize}
+    \item \textbf{Snarl}: A segment of an unlooped 1-manifold that is knotted.
+    \item Even though snarls can be undone, they are not trivial, because they do not bound disks in $S^2\times S^1$.
+    \item \dq{There are [also] knots that pass through the spheres more than once that cannot be untangled in this manner}{254}
+    \item \textbf{(\emph{p},\emph{q})-curve}: Any nontrivial curve on the boundary of a solid torus that doesn't intersect itself and has $p$ meridians and $q$ longitudes.
+    \item \textbf{Lens space} (of $p$ and $q$): \dq{The three-manifold obtained by gluing the boundaries of two solid tori together, so that the meridian of the first solid torus goes to a $(p,q)$-curve on the second solid torus}{254} \emph{Also known as} \textbf{\emph{L}(\emph{p},\emph{q})}.
+    \item Lens spaces do not depend on longitudinal relationships --- meridional ones, alone, determine the resulting three-manifold.
+    \item All lens spaces are compact three-manifolds.
+    \item \textbf{Handlebody}: A solid two-manifold.
+    \item \textbf{Heegaard splitting}: The "cutting open" of a compact three-manifold along a surface such that two handlebodies of the same genus result.
+    \item Every compact orientable three-manifold $M$ can be obtained by gluing together the boundaries of a pair of handlebodies with the same genus.
+    \begin{itemize}
+        \item Every compact three-manifold has a finite tetrahedralization.
+        \item Thicken up the \textbf{one-skeleton} to create handlebody $H_1$.
+        \item Thicken up the \textbf{dual graph} to create handlebody $H_2$.
+        \item If the two are thickened up enough, they fill all of the space in the three-manifold  and share a common boundary.
+        \item Therefore, $H_1$ and $H_2$ form a Heegaard splitting of $M$.
+    \end{itemize}
+    \item \textbf{One-skeleton}: A graph embedded in a three-manifold that is the union of all of the vertices and edges of a tetrahedralization.
+    \item \textbf{Dual graph}: A graph embedded in a tetrahedralated three-manifold in which each vertex lies in the center of a tetrahedron and each edge connects vertices in adjacent tetrahedra.
+    \item It is now possible to tabulate every compact three-manifold.
+    \begin{itemize}
+        \item Genus 0: $S^3$.
+        \item Genus 1: Lens spaces.
+        \item Genus $2+$: ? --- No complete list exists.
+    \end{itemize}
+    \item Note that there are repeats in this method of tabulation.
+    \item Furthermore, if a given three-manifold is not defined by a splitting, it cannot be sorted.
+\end{itemize}
+
+
+\subsection{The Poincar\'{e} Conjecture, Dehn Surgery, and the Gordon-Luecke Theorem}
+\begin{itemize}
+    \item Henri Poincar\'{e} conjectured the following in 1904.
+    \item Poincar\'{e} conjecture (informal): \dq{If an object looks like a ball and acts like a ball, it is a ball}{257}
+    \item Balls:
+    \begin{itemize}
+        \item Have one spherical boundary component.
+        \item Are \textbf{connected}.
+        \item Have an interior that is a three-manifold.
+        \item Are compact$^[$\footnote{Note that a single tetrahedron will suffice as a tetrahedralization.}$^]$.
+        \item Are \textbf{simply connected}.
+    \end{itemize}
+    \item \textbf{Connected} (manifold): A manifold such that it is possible to get from any one point to any other without leaving it.
+    \item \textbf{Simply connected} (manifold): A manifold such that any loop within the space can be continuously deformed to a point without having any part ever leave the space$^[$\footnote{Tori are not simply connected because the core curve (and many others) cannot shrink to a point.}$^]$.
+    \item Poincar\'{e} conjecture (formal [1]): \dq{If there is a three-manifold $M$ with one boundary component, that boundary component being a sphere, and if that three-manifold is compact, connected, and simply connected, then that three-manifold is a ball}{258}
+    \item Poincar\'{e} conjecture (formal [2]): \dq{Let $M$ be a compact, connected, simply connected, three-manifold without boundary. Then $M$ must be the three-sphere $S^3$}{258}
+    \item The Poincar\'{e} conjecture was$^[$\footnote{It was unsolved at the time of this book's publishing. It was subsequently named one of the seven Millenium Prize Problems and solved by Grigori Perelman in 2003.}$^]$ the biggest open question in topology.
+    \item To prove the Poincar\'{e} conjecture, show that if a three-manifold constructed by taking the union of two handlebodies is simply connected, it must be $S^3$.
+    \begin{itemize}
+        \item This has worked with genus 1 and 2 handlebodies.
+    \end{itemize}
+    \item \textbf{Knot exterior}: The complement of an open solid torus knotted like a knot.
+    \item \textbf{Tubular neighborhood} (of a knot): The open solid torus removed to form a knot exterior.
+    \item \textbf{Dehn surgery}: Given a knot $K$ in $S^3$, the operation of drilling out the tubular neighborhood of $K$ and then gluing in a solid torus so that its meridian curves match $(p,q)$-curves on the torus boundary of the knot exterior.
+    \item The lens spaces come from Dehn surgery on the trivial knot.
+    \item Dehn surgery can be performed with a $n$-component link complement and $n$ tori. 
+    \item Raymond Lickorish and Andrew Wallace independently proved in the early 1960s with different methods that \dq{every compact connected three-manifold comes from Dehn surgery on a link in $S^3$}{260}
+    \item The above idea forms the connection between knot theory and three-manifolds --- if all knots and links and their Dehn surgeries can be understood, then all compact three-manifolds can be understood.
+    \item Unfortunately and as before, there are repeats.
+    \item Cameron Gordon and John Luecke, using results from David Gabai, proved in 1988 that two distinct knots cannot have the same exterior.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \begin{knot}[
+                clip width=5,
+                clip radius=3pt,
+                consider self intersections,
+                end tolerance=1pt,
+                every strand/.append style={red,thick},
+                scale=0.5
+            ]
+                \strand (1,-2) ellipse (0.7 and 0.3);
+                \strand (-1.2,2)
+                    to[out=90,in=90,looseness=1.8] (1.2,2)
+                    to[out=-90,in=90] (0.8,0)
+                    to[out=-90,in=90] (1.2,-2)
+                    to[out=-90,in=-90,looseness=1.8] (-1.2,-2)
+                    to cycle
+                ;
+                \strand (-0.8,2)
+                    to[out=90,in=90,looseness=1.8] (0.8,2)
+                    to[out=-90,in=-90,looseness=1.4] (1.8,1.8)
+                    to[out=90,in=90,looseness=1.4] (0.8,1.6)
+                    to[out=-90,in=90] (1.2,0)
+                    to[out=-90,in=90] (0.8,-2)
+                    to[out=-90,in=-90,looseness=1.8] (-0.8,-2)
+                    to cycle
+                ;
+                \flipcrossings{1,2,6,8,9}
+            \end{knot}
+            \begin{knot}[
+                clip width=5,
+                clip radius=3pt,
+                consider self intersections,
+                end tolerance=1pt,
+                every strand/.append style={red,thick},
+                scale=0.5,
+                xshift=5cm
+            ]
+                \strand (1,-2) ellipse (0.7 and 0.3);
+                \strand (-1.2,2)
+                    to[out=90,in=90,looseness=1.8] (1.2,2)
+                    to (1.2,-2)
+                    to[out=-90,in=-90,looseness=1.8] (-1.2,-2)
+                    to cycle
+                ;
+                \strand (-0.8,2)
+                    to[out=90,in=90,looseness=1.8] (0.8,2)
+                    to[out=-90,in=-90,looseness=1.4] (1.8,1.8)
+                    to[out=90,in=90,looseness=1.4] (0.8,1.6)
+                    to (0.8,-2)
+                    to[out=-90,in=-90,looseness=1.8] (-0.8,-2)
+                    to cycle
+                ;
+                \flipcrossings{1,2,6,7}
+            \end{knot}
+        \end{tikzpicture}
+        \caption{Two distinct links with homeomorphic exteriors.}
+        \label{fig:homeoexterior}
+    \end{figure}
+    \item There exist differing links with the same exterior (see Figure \ref{fig:homeoexterior}). These link exteriors are homeomorphic.
+    \item \textbf{Property \emph{P}}: A property satisfied by a knot that has no surgery that could possibly yield a counterexample to the Poincar\'{e} conjecture.
+    \item Property $P$ holds for the rational knots.
+    \item Robion Kirby proved in 1978 the existence of the \textbf{Kirby calculus}.
+    \item \textbf{Kirby calculus}: \dq{A set of simple operations that one can do to a Dehn surgery description of a three-manifold, such that if two different Dehn surgery descriptions yield the same three-manifold, they must be related through a sequence of these operations}{263}
+    \begin{itemize}
+        \item Similar to the Reidemeister moves.
+    \end{itemize}
+    \item Like the Reidemeister moves, there is no meaningful upper bound on the number of operations necessary to get from one Dehn surgery description of a three-manifold to another.
+    \item Edward Witten proposed that the polynomial invariants for knots and links could be generalized (via the Kirby calculus) to new invariants for distinguishing three-manifolds.
+    \begin{itemize}
+        \item These invariants are averages of link polynomials that are unchanged by the operations of the Kirby calculus.
+        \item Primarily developed by Nikolai Reshetikhin and V. G. Turaev.
+    \end{itemize}
+    \item This is an example of where knot theory, generally classified as a subfield of topology, had an impact well beyond its boundaries.
 \end{itemize}
 
 
