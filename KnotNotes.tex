@@ -8590,6 +8590,175 @@
     \end{itemize}
     \item This is an example of where knot theory, generally classified as a subfield of topology, had an impact well beyond its boundaries.
 \end{itemize}
+\newpage
+
+
+
+\section{Higher Dimensional Knotting}
+\subsection{Picturing Four Dimensions}
+\begin{itemize}
+    \item Generalizing is key to math, so why not generalize knot theory in $\mathbb{R}^3$ to higher dimensions?
+    \item \textbf{Codimension \emph{n}} ($m$-manifold in $r$-space): An $m$-manifold in $\mathbb{R}^r$, where $m,r\in\mathbb{N}^+$, has codimension $n=r-m$.
+    \begin{itemize}
+        \item For example, a circle in three-space has codimension two.
+    \end{itemize}
+    \item In four-space, we still want the objects being knotted to have codimension two. Therefore, the knotted objects will be two-manifolds, or surfaces.
+    \item Instead of knotted circles (a circle is a one-manifold), consider knotted spheres (a sphere is a two-manifold).
+    \item \emph{Exercise 10.1}: If a sphere is the analog of a circle one dimension up, what's the analog of a circle one dimension down?
+    \begin{itemize}
+        \item A circle is a 1-manifold that is the set of all points exactly a distance 1 from the origin $(0,0)$ in the $xy$-plane.
+        \item A sphere is a 2-manifold that is the set of all points exactly a distance 1 from the origin $(0,0,0)$ in the $xyz$-space.
+        \item The analog should then be a 0-manifold that is the set of all points exactly a distance 1 from the origin $(0)$ in the $x$-line.
+        \item In other words, the analog will be the two points at $1$ and $-1$ along the number line.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \draw [help lines,dashed]
+                (0.3,0.3) rectangle (1.3,0.7)
+                (0,0) rectangle (1,0.4)
+                (0,0) -- (0.3,0.3)
+                (0,0.4) -- (0.3,0.7)
+                (1,0) -- (1.3,0.3)
+                (1,0.4) -- (1.3,0.7)
+            ;
+            \node [circle,fill,inner sep=1.5pt,label={right:$(x,y,z)$}] at (1.3,0.7) {};
+
+            \draw [->] (-1.4,0) -- (1.4,0) node[right]{$y$};
+            \draw [->] (0,-1.4) -- (0,1.4) node[above]{$z$};
+            \draw [->] (1,1) -- (-1,-1) node[below left]{$x$};
+        \end{tikzpicture}
+        \caption{Picturing three-space using Cartesian coordinates.}
+        \label{fig:cartesian}
+    \end{figure}
+    \item Picturing three dimensions: Use \textbf{Cartesian coordinates} (see Figure \ref{fig:cartesian}).
+    \item \textbf{Cartesian coordinates}: Use three spatial dimensions $x$, $y$, and $z$.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \draw [->] (-1.4,0) -- (1.4,0) node[right]{$t$} node[below left]{Time};
+                \draw [->] (0,-1.4) -- (0,1.4) node[above]{$z$};
+                \draw [->] (1,1) -- (-1,-1) node[below left]{$x$};
+            \end{tikzpicture}
+            \caption{Axes.}
+            \label{fig:t-horiza}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.3\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \foreach \x in {0,0.15,...,0.75} {
+                    \filldraw [thick,fill=white] (\x,0) -- (\x,1.5) -- ({\x+0.8},2.3) -- ({\x+0.8},0.8) -- cycle;
+                }
+                \draw [thick,-stealth] (1.5,0) node[above right]{Time} -- (2.8,0);
+            \end{tikzpicture}
+            \caption{Stacked planes.}
+            \label{fig:t-horizb}
+        \end{subfigure}
+        \caption{Time as a horizontal dimension.}
+        \label{fig:t-horiz}
+    \end{figure}
+    \item Alternatively, use two spatial dimensions $x$ and $z$ and time $t$ as a third dimension (see Figure \ref{fig:t-horiza}).
+    \begin{itemize}
+        \item Think of three-space as having been sliced into planes (Figure \ref{fig:t-horizb}).
+        \item As time progresses, move through the sequence of planes, seeing what appears on each slice.
+    \end{itemize}
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[scale=0.7]
+            \fill (-8,-1.6) rectangle (8,1.6);
+            \foreach \x in {-8,-6,...,8} {
+                \fill [white,xshift=\x cm] (-0.8,-0.8) rectangle (0.8,0.8);
+            }
+            \foreach \s in {-,} {
+                \foreach \x in {-7.75,-7.25,...,7.75} {
+                    \fill [white,xshift=\x cm,yshift=\s1.35cm] (-0.1,-0.15) rectangle (0.1,0.15);
+                }
+            }
+
+            \begin{scope}[xshift=-4cm]
+                \fill [blue] circle (3pt);
+            \end{scope}
+            \begin{scope}[xshift=-2cm]
+                \draw [blue,thick] circle (12pt);
+            \end{scope}
+            \begin{scope}[xshift=0cm]
+                \draw [blue,thick] circle (15pt);
+            \end{scope}
+            \begin{scope}[xshift=2cm]
+                \draw [blue,thick] circle (12pt);
+            \end{scope}
+            \begin{scope}[xshift=4cm]
+                \fill [blue] circle (3pt);
+            \end{scope}
+        \end{tikzpicture}
+        \caption{A sphere in three-space, when one dimension is time.}
+        \label{fig:movie-sphere3}
+    \end{figure}
+    \item For example, using such a coordinate system, a sphere centered at the origin will appear as a series of frames (like a movie; see Figure \ref{fig:movie-sphere3}) of a dot growing larger and then shrinking.
+    \item Figure \ref{fig:movie-sphere3} describes a sphere in three-space using only two spatial dimensions.
+    \item To describe four dimensions, use three spatial dimensions ($x$, $y$, and $z$) and one temporal dimension ($t$).
+    \item Consider an unknotted sphere in four-space.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[scale=0.7]
+            \fill (-6,-1.6) rectangle (6,1.6);
+            \foreach \x in {-6,-4,...,6} {
+                \fill [white,xshift=\x cm] (-0.8,-0.8) rectangle (0.8,0.8);
+            }
+            \foreach \s in {-,} {
+                \foreach \x in {-5.75,-5.25,...,5.75} {
+                    \fill [white,xshift=\x cm,yshift=\s1.35cm] (-0.1,-0.15) rectangle (0.1,0.15);
+                }
+            }
+
+            \foreach \x in {-4,-2,...,4} {
+                \draw [->,xshift=\x cm] (-0.7,-0.3) -- (0.1,-0.3);
+                \draw [->,xshift=\x cm] (-0.3,-0.7) -- (-0.3,0.1);
+                \draw [->,xshift=\x cm] (0,0) -- (-0.6,-0.6);
+            }
+            \begin{scope}[xshift=-4cm]
+                \fill (0.4,0.1) [blue] circle (3pt);
+            \end{scope}
+            \begin{scope}[xshift=-2cm]
+                \draw (0.4,0.1) [blue,thick] circle (6pt);
+            \end{scope}
+            \begin{scope}[xshift=0cm]
+                \draw (0.4,0.1) [blue,thick] circle (8pt);
+            \end{scope}
+            \begin{scope}[xshift=2cm]
+                \draw (0.4,0.1) [blue,thick] circle (6pt);
+            \end{scope}
+            \begin{scope}[xshift=4cm]
+                \fill (0.4,0.1) [blue] circle (3pt);
+            \end{scope}
+        \end{tikzpicture}
+        \caption{Movie of a sphere in four-space.}
+        \label{fig:movie-sphere4}
+    \end{figure}
+    \begin{itemize}
+        \item As we slice four-space, the sphere is sliced into circles that grow and then shrink in three-space.
+    \end{itemize}
+    \item Consider $S^3$ in four-space.
+    \begin{itemize}
+        \item $S^3 = \left\{ x,y,z,t:x^2+y^2+z^2+t^2=1\right\}$.
+        \item $x^2+y^2+z^2=1-t^2$.
+        \item Thus, $t\in[-1,1]$.
+        \item As $t$ varies, two-spheres (the shape defined by $x^2+y^2+z^2$) of radii varying between $0$ and $1$ appear in three-space.
+        \begin{itemize}
+            \item For example, when $t=\frac{1}{2}$, $x^2+y^2+z^2=\frac{3}{4}$.
+            \item Therefore, the frame at $t=\frac{1}{2}$ shows a two-sphere of radius $\frac{\sqrt{3}}{2}$.
+        \end{itemize}
+    \end{itemize}
+    \item \emph{Exercise 10.5}: Describe the movie of the unit three-sphere in four-space that results from the preceding paragraph.
+    \begin{itemize}
+        \item At $t=-1$, three-space is empty.
+        \item During $t\in(-1,0)$, a point appears that grows into a two-sphere. Radius increases nonlinearly.
+        \item At $t=0$, a two-sphere of maximum radius (1) is present.
+        \item Then, size shrinks again until the two-sphere disappears at $t=1$.
+    \end{itemize}
+\end{itemize}
 
 
 
