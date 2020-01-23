@@ -19,7 +19,7 @@
 \numberwithin{table}{section}
 \numberwithin{equation}{section}
 
-\usetikzlibrary{knots,decorations.markings,positioning,shapes.geometric,calc,backgrounds}
+\usetikzlibrary{knots,decorations.markings,positioning,shapes.geometric,calc,backgrounds,fadings}
 \tikzset{mini/.style={scale=0.15,baseline={(0,-0.09)},every path/.style={knot=red,thick}}}
 \tikzset{minigph/.style={scale=0.15,baseline={(0,-0.09)}}}
 
@@ -8757,6 +8757,116 @@
         \item During $t\in(-1,0)$, a point appears that grows into a two-sphere. Radius increases nonlinearly.
         \item At $t=0$, a two-sphere of maximum radius (1) is present.
         \item Then, size shrinks again until the two-sphere disappears at $t=1$.
+    \end{itemize}
+    \item As an alternative to time, consider the fourth dimension as a \textbf{color dimension}.
+    \begin{itemize}
+        \item Imagine wearing a pair of color-adjustable tinted glasses.
+        \item When they are, say, yellow, we are in the yellow slice of the fourth dimension.
+        \item As we change the color along a spectrum, we move through the fourth dimension.
+    \end{itemize}
+    \item Use the color model of four-space to show that every knotted loop in four space is equivalent to the unknot.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzfadingfrompicture}[name=colorized]
+            \shade[inner color=transparent!0,outer color=transparent!100] (0,0) rectangle (2,2);
+        \end{tikzfadingfrompicture}
+        \begin{subfigure}[b]{0.19\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=2.5,
+                    consider self intersections
+                ]
+                    \strand[red,line width=1mm] (90:1)
+                        \foreach \x in {1,2,3} {
+                            to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                        }
+                    ;
+                    \flipcrossings{1,3}
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-0.8cm}
+            \caption{$3_1$ in red slice.}
+            \label{fig:trefoil-colorizeda}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.19\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=2.5,
+                    consider self intersections
+                ]
+                    \strand[red,line width=1mm] (90:1)
+                        \foreach \x in {1,2,3} {
+                            to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                        }
+                    ;
+                    \flipcrossings{1,3}
+                \end{knot}
+                \draw [path fading=colorized,fit fading=false,fading transform={xshift=5mm,yshift=3mm,scale=0.8},yellow,line width=1mm] (210:1) to[bend left=117,looseness=1.9] (330:1);
+            \end{tikzpicture}
+            \vspace{-0.8cm}
+            \caption{$3_1$ in mixed slices.}
+            \label{fig:trefoil-colorizedb}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.19\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \draw [red,line width=1mm] (210:1) to[bend left=117,looseness=1.9] (330:1);
+                \begin{knot}[
+                    clip width=2.5,
+                    consider self intersections
+                ]
+                    \strand [path fading=colorized,fit fading=false,fading transform={xshift=5mm,yshift=3mm,scale=0.8},yellow,line width=1mm] (210:1)to[bend left=117,looseness=1.9] (330:1);
+                    \strand [red,line width=1mm] (330:1)to[bend left=117,looseness=1.9] (450:1);
+                    \strand [red,line width=1mm] (90:1)to[bend left=117,looseness=1.9] (210:1);
+                    \flipcrossings{1,2,3}
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-0.8cm}
+            \caption{Unknotted $3_1$.}
+            \label{fig:trefoil-colorizedc}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.19\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \draw [red,line width=1mm] circle (1cm);
+                \draw [path fading=colorized,fit fading=false,fading transform={xshift=7mm,yshift=7mm,scale=0.8},yellow,line width=1mm] circle (1cm);
+            \end{tikzpicture}
+            \caption{Mixed loop.}
+            \label{fig:trefoil-colorizedd}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.19\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \draw [red,line width=1mm] circle (1cm);
+            \end{tikzpicture}
+            \caption{Monocolor loop.}
+            \label{fig:trefoil-colorizede}
+        \end{subfigure}
+        \caption{The trefoil knot is equivalent to the unknot in four-space.}
+        \label{fig:trefoil-colorized}
+    \end{figure}
+    \begin{itemize}
+        \item By passing certain parts of the knot through itself in specific areas (flipping crossings), the knot can be unknotted.
+        \begin{itemize}
+            \item The number of crossings that must be flipped is, of course, $u(K)$.
+        \end{itemize}
+        \item We want to pass the trefoil knot in Figure \ref{fig:trefoil-colorizeda} through itself at the upper-right crossing.
+        \item Push the segment of the loop at that crossing into four-space by making it yellow with a falloff gradient, as in Figure \ref{fig:trefoil-colorizedb}.
+        \item Since the red and yellow three-dimensional worlds are distinct, the red strand can be passed through where the yellow strand no longer is, as in Figure \ref{fig:trefoil-colorizedc}.
+        \item Repeat this process for any other crossings. Since there is only the one in the trefoil, isotope it to a zero-crossing projection, as in Figure \ref{fig:trefoil-colorizedd}.
+        \item Lastly, bring the entire loop back to the same slice of four-space, as in Figure \ref{fig:trefoil-colorizede}.
+    \end{itemize}
+    \item \emph{Exercise 10.6}: Explain why a sphere in four-space does not separate four-space into two separate pieces (as it does in three-space). That is to say, show that a red bug that is outside a red sphere in four-space could get inside the red sphere. Note that we are assuming that a bug that lives in four-dimensional space can change its color, but again it cannot skip colors in between, in going from one color to another.
+    \begin{itemize}
+        \item This occurs for the same reason that the unknot separates two-space into two separate pieces but not three-space, i.e., in three space, it is possible to go "over" the boundary of the unknot.
+        \item A red bug could become green, move through the no-longer-impeding spherical boundary, and become red again.
+        \item In fact, I would generalize to say that manifolds of codimension one separate their space into two pices while those of codimension two, plus, do not.
+    \end{itemize}
+    \item \emph{Exercise 10.7}: Describe how to build a house in four-dimensional space that can keep out such bugs.
+    \begin{itemize}
+        \item Its walls should be three-manifolds.
     \end{itemize}
 \end{itemize}
 
