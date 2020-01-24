@@ -8693,7 +8693,7 @@
                 \fill [blue] circle (3pt);
             \end{scope}
         \end{tikzpicture}
-        \caption{A sphere in three-space, when one dimension is time.}
+        \caption{A two-sphere in three-space, when one dimension is time.}
         \label{fig:movie-sphere3}
     \end{figure}
     \item For example, using such a coordinate system, a sphere centered at the origin will appear as a series of frames (like a movie; see Figure \ref{fig:movie-sphere3}) of a dot growing larger and then shrinking.
@@ -8734,7 +8734,7 @@
                 \fill (0.4,0.1) [blue] circle (3pt);
             \end{scope}
         \end{tikzpicture}
-        \caption{Movie of a sphere in four-space.}
+        \caption{Movie of a two-sphere in four-space.}
         \label{fig:movie-sphere4}
     \end{figure}
     \begin{itemize}
@@ -8867,6 +8867,197 @@
     \item \emph{Exercise 10.7}: Describe how to build a house in four-dimensional space that can keep out such bugs.
     \begin{itemize}
         \item Its walls should be three-manifolds.
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Knotted Spheres in Four Dimensions}
+\begin{itemize}
+    \item The movie for an unknotted sphere in four-space is shown in Figure \ref{fig:movie-sphere4}. It consists of variously sized loops.
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}[scale=0.7]
+            \fill (-6,-1.6) rectangle (6,1.6);
+            \foreach \x in {-6,-4,...,6} {
+                \fill [white,xshift=\x cm] (-0.8,-0.8) rectangle (0.8,0.8);
+            }
+            \foreach \s in {-,} {
+                \foreach \x in {-5.75,-5.25,...,5.75} {
+                    \fill [white,xshift=\x cm,yshift=\s1.35cm] (-0.1,-0.15) rectangle (0.1,0.15);
+                }
+            }
+
+            \foreach \x in {-4,-2,...,4} {
+                \draw [->,xshift=\x cm] (-0.7,-0.3) -- (0.1,-0.3);
+                \draw [->,xshift=\x cm] (-0.3,-0.7) -- (-0.3,0.1);
+                \draw [->,xshift=\x cm] (0,0) -- (-0.6,-0.6);
+            }
+            \begin{scope}[xshift=-4cm]
+                \fill (0.4,0.4) [blue] circle (3pt);
+            \end{scope}
+            \begin{knot}[
+                clip width=5,
+                clip radius=1.5pt,
+                consider self intersections,
+                ignore endpoint intersections=false,
+                xshift=-2cm
+            ]
+                \strand [
+                    blue,thick,
+                    xshift=4mm,yshift=4mm,
+                    scale=0.2
+                ] (90:1)
+                    \foreach \x in {1,2,3} {
+                        to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                    }
+                ;
+                \flipcrossings{1,4}
+            \end{knot}
+            \begin{knot}[
+                clip width=5,
+                clip radius=1.8pt,
+                consider self intersections,
+                ignore endpoint intersections=false
+            ]
+                \strand [
+                    blue,thick,
+                    xshift=4mm,yshift=4mm,
+                    scale=0.3
+                ] (90:1)
+                    \foreach \x in {1,2,3} {
+                        to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                    }
+                ;
+                \flipcrossings{1,4}
+            \end{knot}
+            \begin{knot}[
+                clip width=5,
+                clip radius=1.5pt,
+                consider self intersections,
+                ignore endpoint intersections=false,
+                xshift=2cm
+            ]
+                \strand [
+                    blue,thick,
+                    xshift=4mm,yshift=4mm,
+                    scale=0.2
+                ] (90:1)
+                    \foreach \x in {1,2,3} {
+                        to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                    }
+                ;
+                \flipcrossings{1,4}
+            \end{knot}
+            \begin{scope}[xshift=4cm]
+                \fill (0.4,0.4) [blue] circle (3pt);
+            \end{scope}
+        \end{tikzpicture}
+        \caption{Movie of a knotted two-sphere in four-space.}
+        \label{fig:movie-trefoilsphere}
+    \end{figure}
+    \item These loops can be knotted. Such knotting, as in Figure \ref{fig:movie-trefoilsphere}, depicts a knotted sphere in four-space.
+    \item While Figure \ref{fig:movie-trefoilsphere} is the simplest way to visualize a knotted two-sphere in four-space, it has problems, too.
+    \item Because of the zero-dimensional end points, the manifold cannot be modeled with differentiable functions.
+    \item The ideal manifold would be \textbf{smooth}.
+    \item \textbf{Smooth} (manifold): A manifold described by functions, all of whose derivatives exist.
+    \item If the first and last frames of the movie have two or more \textbf{saddle points}, the problem is solved.
+    \item \textbf{Saddle point}: A point on the surface of a manifold where the slopes (derivatives) in all orthogonal directions are zero.
+    \item Use the Euler characteristic to prove that the surface pictured in Figure \ref{fig:movie-trefoilsphere} is still a sphere.
+    \begin{itemize}
+        \item Let the trefoil knot in the middle frame be represented by a stick picture, as in Figure \ref{fig:sticktrefoil}.
+        \item Let the points in the first and last frames be vertices.
+        \item Because $s(3_1)=6$ and the first and last points count as vertices, $V=8$.
+        \item Six edges are present in the stick picture. Twelve further edges connect each vertex in the stick picture to the vertex in the first and last frames. Thus, $E=18$.
+        \item Counting up faces (note that some of them intersect in three-dimensions) reveals that $F=12$.
+        \item Therefore, the following proves that the manifold in Figure \ref{fig:movie-trefoilsphere} is a two-sphere.
+        \begin{equation*}
+            \chi = 8-18+12 = 2
+        \end{equation*}
+    \end{itemize}
+    \item It can be proved that the knotted two sphere in Figure \ref{fig:movie-trefoilsphere} cannot be unknotted via a \textbf{rubber deformation}$^[$\footnote{A more casual term for an ambient isotropy. Used throughout the book, but generally not mentioned in favor of the formal term.}$^]$ in four-space.
+\end{itemize}
+
+
+\subsection{Knotted Three-Spheres in Five-Space}
+\begin{itemize}
+    \item Using both the color model and the temporal model at the same time, it is possible to picture five-space.
+    \item Use three spatial dimensions ($x$, $y$, and $z$), one temporal dimension ($t$), and one color dimension $c$.
+    \item Visualizing the three-sphere in five-space:
+    \begin{figure}[h!]
+        \centering
+        \begin{tikzpicture}
+            \colorlet{rex}{red}
+            \colorlet{orx}{orange}
+            \colorlet{ylx}{yellow!80!black}
+            \colorlet{grx}{green!50!black}
+            \colorlet{blx}{blue}
+            \colorlet{inx}{red!20!blue!80}
+            \colorlet{vlx}{violet}
+            \def\r{0.2}
+            \def\rr{0.33}
+            \def\rrr{0.4}
+
+            \draw [help lines] (0.1,0.1) grid (8,8);
+            \foreach \y in {1,...,8} {
+                \draw [help lines] (-0.5,\y) -- (0.1,\y);
+            }
+            \foreach \y in {1,...,7} {
+                \node at (0.2,{\y+0.5}) {$t=\y$};
+            }
+            \foreach \x/\l in {
+                1.5/R,
+                2.5/O,
+                3.5/Y,
+                4.5/G,
+                5.5/B,
+                6.5/I,
+                7.5/V
+            } {
+                \node at (\x,0.5) {\l};
+            }
+
+            \fill [rex] (1.5,4.5) circle (3pt);
+            \fill [orx] (2.5,3.5) circle (3pt);
+            \fill [ylx] (3.5,2.5) circle (3pt);
+            \fill [grx] (4.5,1.5) circle (3pt);
+            \fill [blx] (5.5,2.5) circle (3pt);
+            \fill [inx] (6.5,3.5) circle (3pt);
+            \fill [vlx] (7.5,4.5) circle (3pt);
+            \fill [inx] (6.5,5.5) circle (3pt);
+            \fill [blx] (5.5,6.5) circle (3pt);
+            \fill [grx] (4.5,7.5) circle (3pt);
+            \fill [ylx] (3.5,6.5) circle (3pt);
+            \fill [orx] (2.5,5.5) circle (3pt);
+
+            \draw [orx,thick] (2.5,4.5) circle (\r);
+            \draw [ylx,thick] (3.5,3.5) circle (\r);
+            \draw [grx,thick] (4.5,2.5) circle (\r);
+            \draw [blx,thick] (5.5,3.5) circle (\r);
+            \draw [inx,thick] (6.5,4.5) circle (\r);
+            \draw [blx,thick] (5.5,5.5) circle (\r);
+            \draw [grx,thick] (4.5,6.5) circle (\r);
+            \draw [ylx,thick] (3.5,5.5) circle (\r);
+
+            \draw [ylx,thick] (3.5,4.5) circle (\rr);
+            \draw [grx,thick] (4.5,3.5) circle (\rr);
+            \draw [blx,thick] (5.5,4.5) circle (\rr);
+            \draw [grx,thick] (4.5,5.5) circle (\rr);
+
+            \draw [grx,thick] (4.5,4.5) circle (\rrr);
+        \end{tikzpicture}
+        \caption{A three-sphere in five-space.}
+        \label{fig:3-sphere5-space}
+    \end{figure}
+    \begin{itemize}
+        \item According to \emph{Exercise 10.5}, the three-sphere in the temporal model of four-space looks like a growing and shrinking two-sphere.
+        \item Now, the temporal slices of the three-sphere sit in \dq{four-dimensional slices of five-space}{273}
+        \item Let each of these four-dimensional slices have multiple different colors, so that we can see the three-sphere in the remaining spatial dimensions, as in Figure \ref{fig:3-sphere5-space}$^[$\footnote{Note that coordinate axes are not shown in Figure \ref{fig:3-sphere5-space}. Rather, they are left to the imagination, so as to leave more room for the pictures. The axes will be inferred unless stated otherwise from here-on out.}$^]$.
+        \item For any single color (or moment in time), the time (or color) slices compose a two-sphere in four-space.
+    \end{itemize}
+    \item When considering a knotted three-sphere, each colored slice (represented by a column of pictures) intersects the three-sphere in a point, unknotted two-sphere, or knotted two-sphere.
+    \item We can use other attributes to be dimensions (such as brightness, noise, etc.).
+    \begin{itemize}
+        \item In this manner, it is possible to imagine any dimension.
     \end{itemize}
 \end{itemize}
 
