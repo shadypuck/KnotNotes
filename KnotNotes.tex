@@ -72,8 +72,6 @@
 \begin{itemize}
     \item \textbf{Knot}: \dq{A knotted loop of string, except that we think of the string as having no thickness, its cross-section being a single point}{2}
     \item Do not distinguish between a `nice, even' knot and one that has been deformed through space.
-    \item \textbf{Unknot}: \dq{The simplest knot of all\dots the unknoted circle}{2} \emph{Also known as} \textbf{trivial knot}. See Figure \ref{fig:circletrefoila}.
-    \item \textbf{Trefoil knot}: \dq{The next simplest knot}{2} See Figure \ref{fig:circletrefoilb}.
     \begin{figure}[h!]
         \centering
         \begin{subfigure}{0.2\linewidth}
@@ -109,16 +107,18 @@
         \caption{Projections of the two simplest knots.}
         \label{fig:circletrefoil}
     \end{figure}
+    \item \textbf{Unknot}: \dq{The simplest knot of all\dots the unknoted circle}{2} \emph{Also known as} \textbf{trivial knot}. See Figure \ref{fig:circletrefoila}.
+    \item \textbf{Trefoil knot}: \dq{The next simplest knot}{2} See Figure \ref{fig:circletrefoilb}.
     \item \textbf{Projection}: A picture of a knot, such as those in Figure \ref{fig:circletrefoil}.
     \begin{itemize}
         \item The same knots can have multiple projections (as they are deformed in space).
     \end{itemize}
     \item \textbf{Crossings}: The places in a projection where a knot crosses itself.
     \begin{itemize}
-        \item The trefoil knot in Figure \ref{fig:circletrefoilb} is a \underline{three-crossing knot} because it crosses itself 3 times.
+        \item The trefoil knot in Figure \ref{fig:circletrefoilb} is a three-crossing knot because it crosses itself 3 times.
         \item Any one-crossing knot is trivial.
-        \item \emph{Exercise 1.2}: Any two-crossing knot must be trivial because the simplest nontrivial knot is the trefoil knot, which has three crossings.
     \end{itemize}
+    \item \emph{Exercise 1.2}: Any two-crossing knot must be trivial because the simplest nontrivial knot is the trefoil knot, which has three crossings.
     \item Atoms were originally thought to be tangles (knots) in the ether of the universe, but when chemists moved on, mathematicians took up knot theory. In the 1980s, biochemists began to see applications of knot theory in their research (see Section \ref{sse:biochemphys}).
     \item \textbf{Topology}: \dq{The study of the properties of geometric objects that are preserved under deformations}{6}
     \begin{itemize}
@@ -170,14 +170,14 @@
     \end{itemize}
     \item \textbf{Composite knot}: A knot that \dq{can be expressed as the composition of two knots, neither of which is the trivial knot}{8}
     \begin{itemize}
-        \item This definition is analogous to composite integers, where an integer is \underline{composite} if it is the product of positive integers, neither of which is $1$.
+        \item This definition is analogous to composite integers, where an integer is composite if it is the product of positive integers, neither of which is $1$.
         \item Similarly, if we compose any knot with the unknot, we get the same knot back.
     \end{itemize}
     \item \textbf{Factor knots}: \dq{The knots that make up the composite knot}{8}
     \item \textbf{Prime knot}: \dq{A knot [that] is not the composition of any two nontrivial knots}{9}
     \item The unknot, trefoil knot, and figure-eight knots are all prime (see Section \ref{sss:GenusSeifert}).
     \begin{itemize}
-        \item The unknot is not composite for the same reason that 1 is not the product of two integers greater than 1.
+        \item The unknot is not composite in the same way that 1 is not the product of two integers greater than 1.
     \end{itemize}
     \begin{figure}[h!]
         \centering
@@ -208,25 +208,24 @@
         \label{fig:figure8knot}
     \end{figure}
     \item Similar to integers, \dq{a composite knot factors into a unique set of prime knots}{10}
-    \item \emph{Exercise 1.8}: Using the appendix table, identify the factor knots that make up the composite knot in Figure \ref{fig:compos1}.
-    \begin{itemize}
-        \item The knot in Figure \ref{fig:compos1} is the composition of two projections of $5_2$.
-    \end{itemize}
-    \newpage
-    \begin{figure}[h!]
+    \item \emph{Exercise 1.8}: Using the appendix table, identify the factor knots that make up the composite knot in Figure \ref{fig:ex1-8}.
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.2\linewidth]{Blender/compos1.png}
         \caption{The composite knot.}
-        \label{fig:compos1}
+        \label{fig:ex1-8}
     \end{figure}
-    \item \emph{Exercise 1.9}: Show that the knot in Figure \ref{fig:compos2a} is composite.
+    \begin{itemize}
+        \item The knot in Figure \ref{fig:ex1-8} is the composition of two projections of $5_2$.
+    \end{itemize}
+    \item \emph{Exercise 1.9}: Show that the knot in Figure \ref{fig:ex1-9a} is composite.
     \begin{figure}[h!]
         \centering
         \begin{subfigure}[b]{0.3\textwidth}
             \centering
             \includegraphics[width=0.5\textwidth]{Blender/compos2.png}
             \caption{The composite knot.}
-            \label{fig:compos2a}
+            \label{fig:ex1-9a}
         \end{subfigure}
         \begin{subfigure}[b]{0.3\textwidth}
             \centering
@@ -260,10 +259,10 @@
             \end{tikzpicture}
             \vspace{-0.8cm}
             \caption{Factors.}
-            \label{fig:compos2b}
+            \label{fig:ex1-9b}
         \end{subfigure}
         \caption{Factorization of a `double trefoil.'}
-        \label{fig:compos2}
+        \label{fig:ex1-9}
     \end{figure}
     \item There is more than one way to take the composition of two knots (by removing different arcs).
     \begin{itemize}
@@ -311,16 +310,9 @@
 \subsection{Reidemeister Moves}\label{sss:Reidemeister}
 \begin{itemize}
     \item \textbf{Ambient isotropy}: \dq{The movement of the string through three-dimensional space without letting it pass through itself}{12}
-    \item \textbf{Planar isotropy}: A deformation of \dq{the projection plane as if it were made of ruber with the projection drawn upon it}{12}
+    \item \textbf{Planar isotropy}: A deformation of \dq{the projection plane as if it were made of rubber with the projection drawn upon it}{12}
     \begin{itemize}
         \item Stretching, squeezing, rotating, bending single arcs, etc.
-    \end{itemize}
-    \item \textbf{Reidemeister move}: \dq{One of three ways to change a projection of the knot that \emph{will} change the relation between the crossings}{13}
-    \item \textbf{First Reidemeister move}: \dq{Put in or take out a twist in the knot}{13} See Figure \ref{fig:reidema}. \emph{Also known as} \textbf{type I Reidemeister move}.
-    \item \textbf{Second Reidemeister move}: \dq{Either add two crossings or remove two crossings}{13} See Figure \ref{fig:reidemb}. \emph{Also known as} \textbf{type II Reidemeister move}.
-    \item \textbf{Third Reidemeister move}: \dq{Slide a strand of the knot from one side of a crossing to the other side of the crossing}{13} See Figure \ref{fig:reidemc}. \emph{Also known as} \textbf{type III Reidemeister move}.
-    \begin{itemize}
-        \item Note that the crossings in Figure \ref{fig:reidem} can be reversed and the move will still be classified under the same category.
     \end{itemize}
     \begin{figure}[h!]
         \centering
@@ -387,9 +379,16 @@
         \caption{Reidemeister moves.}
         \label{fig:reidem}
     \end{figure}
+    \item \textbf{Reidemeister move}: \dq{One of three ways to change a projection of the knot that \underline{will} change the relation between the crossings}{13}
+    \item \textbf{First Reidemeister move}: \dq{Put in or take out a twist in the knot}{13} See Figure \ref{fig:reidema}. \emph{Also known as} \textbf{type I Reidemeister move}.
+    \item \textbf{Second Reidemeister move}: \dq{Either add two crossings or remove two crossings}{13} See Figure \ref{fig:reidemb}. \emph{Also known as} \textbf{type II Reidemeister move}.
+    \item \textbf{Third Reidemeister move}: \dq{Slide a strand of the knot from one side of a crossing to the other side of the crossing}{13} See Figure \ref{fig:reidemc}. \emph{Also known as} \textbf{type III Reidemeister move}.
+    \begin{itemize}
+        \item Note that the crossings in Figure \ref{fig:reidem} can be reversed and the move will still be classified under the same category.
+    \end{itemize}
     \item All Reidemeister moves are ambient isotropies.
     \item \dq{If we have two distinct projections of the same knot, we can get from the one projection to the other by a series of Reidemeister moves and planar isotropies}{14}
-    \item \textbf{Amphicheiral}: A knot that \dq{is equivalent to its mirror image, that is, the knot obtained by changing every crossing\dots to the opposite crossing}{14-15} \emph{Also known as} \textbf{achiral} \emph{by chemists.}
+    \item \textbf{Amphicheiral}: A knot that \dq{is equivalent to its mirror image, that is, the knot obtained by changing every crossing\dots to the opposite crossing}{14-15} \emph{Also known (by chemists) as} \textbf{achiral}.
     \begin{itemize}
         \item A knot and its mirror image are distinct unless the knot is amphicheiral.
         \item See Sections \ref{sss:Amphicheirality} and \ref{sse:biochemphys} for more on amphicheirality.
@@ -480,14 +479,24 @@
         \label{fig:WhiteheadBorromean}
     \end{figure}
     \item \emph{Exercise 1.13}: Show that the two projections in Figure \ref{fig:ex1-13a} and \ref{fig:ex1-13c} represent the same link.
-    \begin{itemize}
-        \item Untwist the right side of the figure-eight loop, twisting the right side of the circle at the same time. Then add a further twist to the circle loop and flip (rotate along the horizontal axis) the figure-eight loop (which now looks like an ellipse).
-    \end{itemize}
     \begin{figure}[h!]
         \centering
         \begin{subfigure}[b]{0.3\linewidth}
             \centering
-            \includegraphics[width=0.5\linewidth]{Blender/ex1-13a.png}
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=4,
+                    ignore endpoint intersections=false,
+                    consider self intersections=true,
+                    every strand/.append style={black,very thick}
+                ]
+                    \strand circle (1cm);
+                    \strand plot[smooth cycle,tension=1.2] coordinates{
+                        (-0.9,0.3) (0.9,-0.3) (0.9,0.3) (-0.9,-0.3)
+                    };
+                    \flipcrossings{3,5}
+                \end{knot}
+            \end{tikzpicture}
             \caption{Initial projection.}
             \label{fig:ex1-13a}
         \end{subfigure}
@@ -522,11 +531,14 @@
         \caption{Ambient isotropies of the Whitehead link.}
         \label{fig:ex1-13}
     \end{figure}
+    \begin{itemize}
+        \item Untwist the right side of the figure-eight loop, twisting the right side of the circle at the same time. Then add a further twist to the circle loop and flip (rotate along the horizontal axis) the figure-eight loop (which now looks like an ellipse).
+    \end{itemize}
     \item \textbf{Link of \emph{n} components}: A link made up of $n$ loops knotted with each other.
     \begin{itemize}
-        \item The Whitehead link (Figure \ref{fig:WhiteheadBorromeana}) is a \underline{link of 2 components}.
-        \item The Borromean rings (Figure \ref{fig:WhiteheadBorromeanb}) are a \underline{link of 3 components}.
-        \item A knot is a \underline{link of 1 component}.
+        \item The Whitehead link (Figure \ref{fig:WhiteheadBorromeana}) is a link of 2 components.
+        \item The Borromean rings (Figure \ref{fig:WhiteheadBorromeanb}) are a link of 3 components.
+        \item A knot is a link of 1 component.
         \item If the number of components in two links differ, then the links are clearly distinct.
     \end{itemize}
     \item \textbf{Splittable}: A link whose components \dq{can be deformed so that they lie on different sides of a plane in three-space}{17}
@@ -574,6 +586,38 @@
         \label{fig:unlinkHopf}
     \end{figure}
     \item \textbf{Linking number}: A quantity that numerically measures how linked up two components are.
+    \begin{figure}[h!]
+        \centering
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    flip crossing=1
+                ]
+                    \strand[red,thick,-stealth] (-1,-0.7) -- (1,0.7);
+                    \strand[red,thick,-stealth] (-1,0.7) -- (1,-0.7);
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Count $+1$.}
+            \label{fig:linkingnumbera}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.2\linewidth}
+            \centering
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5
+                ]
+                    \strand[red,thick,-stealth] (-1,-0.7) -- (1,0.7);
+                    \strand[red,thick,-stealth] (-1,0.7) -- (1,-0.7);
+                \end{knot}
+            \end{tikzpicture}
+            \caption{Count $-1$.}
+            \label{fig:linkingnumberb}
+        \end{subfigure}
+        \caption{Computing linking numbers per crossing.}
+        \label{fig:linkingnumber}
+    \end{figure}
     \begin{itemize}
         \item If $M$ and $N$ are two components in a link, begin by orienting both of them.
         \item At each crossing, count a $+1$ if Figure \ref{fig:linkingnumbera} holds or count a $-1$ if Figure \ref{fig:linkingnumberb} holds.
@@ -582,38 +626,6 @@
             \item In the same vein, if rotating the bottom strand counterclockwise lines up the arrows, count $-1$.
             \item If a component crosses itself, do not count it.
         \end{itemize}
-        \begin{figure}[h!]
-            \centering
-            \begin{subfigure}[b]{0.2\linewidth}
-                \centering
-                \begin{tikzpicture}
-                    \begin{knot}[
-                        clip width=5,
-                        flip crossing=1
-                    ]
-                        \strand[red,thick,-stealth] (-1,-0.7) -- (1,0.7);
-                        \strand[red,thick,-stealth] (-1,0.7) -- (1,-0.7);
-                    \end{knot}
-                \end{tikzpicture}
-                \caption{Count $+1$.}
-                \label{fig:linkingnumbera}
-            \end{subfigure}
-            \begin{subfigure}[b]{0.2\linewidth}
-                \centering
-                \begin{tikzpicture}
-                    \begin{knot}[
-                        clip width=5
-                    ]
-                        \strand[red,thick,-stealth] (-1,-0.7) -- (1,0.7);
-                        \strand[red,thick,-stealth] (-1,0.7) -- (1,-0.7);
-                    \end{knot}
-                \end{tikzpicture}
-                \caption{Count $-1$.}
-                \label{fig:linkingnumberb}
-            \end{subfigure}
-            \caption{Computing linking numbers per crossing.}
-            \label{fig:linkingnumber}
-        \end{figure}
         \item Sum all of the $+1$s and $-1$s and divide this sum by 2 to yield the linking number.
         \begin{itemize}
             \item For example, the linking number for the Hopf link (Figure \ref{fig:unlinkHopfb}) is $\pm 1$ depending on the chosen orientation.
@@ -622,9 +634,6 @@
         \end{itemize}
     \end{itemize}
     \item \emph{Exercise 1.15}: Compute the linking number of the link pictured in Figure \ref{fig:ex1-15}. Now reverse the direction on one of the components and recompute it.
-    \begin{itemize}
-        \item Add up all of the numbers in the second row of Table \ref{tab:ex1-15} to yield $2$. Divide by $2$ to yield the linking number, $1$.
-    \end{itemize}
     \begin{figure}[h!]
         \centering
         \includegraphics[width=0.2\linewidth]{Blender/ex1-15.png}
@@ -645,9 +654,12 @@
         \caption{Link of linking number $n$.}
         \label{fig:ex1-15}
     \end{figure}
-    \renewcommand{\arraystretch}{1.4}
+    \begin{itemize}
+        \item Add up all of the numbers in the second row of Table \ref{tab:ex1-15} to yield $2$. Divide by $2$ to yield the linking number, $1$.
+    \end{itemize}
     \begin{table}[h!]
         \centering
+        \renewcommand{\arraystretch}{1.4}
         \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
             \hline
             A    & B    & C   & D   & E    & F   & G    & H    & I   \\
@@ -671,7 +683,7 @@
     \end{itemize}
     \item \textbf{Invariant}: A quality of a knot or link that, once orientations are chosen, is unchanged by ambient isotropy.
     \begin{itemize}
-        \item Both the linking number and the number of components are \underline{link invariants}.
+        \item Both the linking number and the number of components are link invariants.
     \end{itemize}
     \item \emph{Exercise 1.16}: Explain why the linking number of a splittable two-component link will always be $0$, no matter what projection is used to compute it.
     \begin{itemize}
@@ -697,7 +709,7 @@
 
 \subsection{Tricolorability}\label{sss:tricolor}
 \begin{itemize}
-    \item How do we \emph{prove} that every knot is not just a projection of the unknot?
+    \item How do we \underline{prove} that every knot is not just a projection of the unknot?
     \item \textbf{Strand}: \dq{A piece of the link that goes from one undercrossing to another with only overcrossings in between}{23}
     \item \textbf{Tricolorable}: A projection of a knot or link in which each strand \dq{can be colored one of three different colors, so that at each crossing, either three different colors come together or all the same color comes together}{23}
     \begin{figure}[h!]
@@ -811,8 +823,8 @@
     \item Reidemeister moves do not affect tricolorability.
     \begin{itemize}
         \item A Type I Reidemeister move generates a self-intersection. At such a crossing (made out of one original strand), every color will be the same; only one color meets at the crossing.
-        \item A Type II Reidemeister move generates two crossings. If the strands are the same color, then everything stays the same color. If the strands are different colors, than newly created loop takes on the third color.
-        \item Type III has many cases (\emph{Exercise 1.23}).
+        \item A Type II Reidemeister move generates two crossings. If the strands are the same color, then everything stays the same color. If the strands are different colors, than newly created strand takes on the third color.
+        \item Type III has many cases$^[$\footnote{These are available as an exercise in \emph{Exercise 1.23}.}$^]$.
     \end{itemize}
     \item Since the unknot is not tricolorable and the trefoil knot is, we have just proven that there is at least one other knot besides the unknot.
     \begin{itemize}
@@ -868,7 +880,7 @@
         \caption{A trefoil knot made of sticks.}
         \label{fig:sticktrefoil}
     \end{figure}
-    \item \textbf{Stick number}: \dq{The least number of straight sticks necessary to make a knot $K$}{29} \emph{Also known as} \textbf{s(K)}.
+    \item \textbf{Stick number}: \dq{The least number of straight sticks necessary to make a knot $K$}{29} \emph{Also known as} \textbf{\emph{s}(\emph{K})}.
     \item The stick number for the composition of $n$ trefoil knots is $2n+4$.
     \item Many problems listed$^[$\footnote{These could make good topics for a larger paper. Alternatively, some I am not ready to solve and need to learn more math first (those that I will come back to at the end of the book). I do not believe I'm missing anything essential by skipping these for now, but we'll see.}$^]$.
 \end{itemize}
@@ -916,7 +928,7 @@
     \end{figure}
     \item Little later published a census of 11-crossing alternating knots with 11 omissions and 1 duplication.
     \item Mary G. Haseman listed all amphicheiral knots of 12 crossings.
-    \item Early on, there were few attempts to \emph{prove} that the tabulated knots were actually distinct.
+    \item Early on, there were few attempts to \underline{prove} that the tabulated knots were actually distinct.
     \item In 1927, Alexander and Briggs proved that the knots up to 9 crossings were distinct.
     \begin{itemize}
         \item They developed the first knot polynomial, the Alexander polynomial.
@@ -928,10 +940,10 @@
     \item Meanwhile, a new notation was developed by Hugh Dowker (see Section \ref{sss:Dowker}) that was implemented as a computer algorithm by Morwen Thistlethwaite.
     \item In the 1980s-1990s (with computer help), Jim Hoste, Thistlethwaite, and Jeff Weeks (an expert in hyperbolic knots; see Section \ref{sss:Hyperbolic}) tabulated up to 16-crossing knots.
     \begin{itemize}
-        \item Note that the number of knots of successive numbers of crossings \emph{appears} to grows exponentially (this is unproven).
+        \item Note that the number of knots of successive numbers of crossings \underline{appears} to grows exponentially (this is unproven).
         \item Also note that Hoste et al's listed knots includes those that are not amphicheiral only once, so those knots actually represent 2 distinct knots.
         \begin{itemize}
-            \item Determining amphicheirality is discussed in Section \ref{sse:polynomials}
+            \item Determining amphicheirality is discussed in Section \ref{sse:polynomials}.
         \end{itemize}
     \end{itemize}
     \item On drawing a 14-crossing knot.
@@ -985,6 +997,7 @@
             ;
             \normalsize
         \end{tikzpicture}
+        \vspace{-0.8cm}
         \caption{Trefoil knot labeled in Dowker notation.}
         \label{fig:Dowkertrefoil}
     \end{figure}
@@ -1006,28 +1019,28 @@
     \item Since the top row numbers are in a predictable pattern, we can shorthand the notation for the trefoil knot in Figure \ref{fig:Dowkertrefoil} to 4 6 2.
     \item \dq{Thus, from a projection of a knot, we obtain a sequence of even integers, where the number of even integers is exactly the number of crossings in the knot}{36}
     \item \emph{Exercise 2.3}: Find a sequence of even integers that represents the projection of the knots $6_2$ and $6_3$ (Figure \ref{fig:ex2-3}). How about a second sequence of even integers that also represents the same projection of $6_3$?
-    \begin{itemize}
-        \item For Figure \ref{fig:ex2-3a}, write 6 8 10 12 2 4.
-        \item For Figure \ref{fig:ex2-3b}, write 8 6 10 12 4 2.
-        \item Another sequence of even integers for Figure \ref{fig:ex2-3b} is 4 10 8 12 2 6.
-    \end{itemize}
     \begin{figure}[h!]
         \centering
         \begin{subfigure}[b]{0.2\linewidth}
             \centering
-            \includegraphics[width=0.8\linewidth]{Blender/ex2-3a.png}
+            \includegraphics[width=0.7\linewidth]{Blender/ex2-3a.png}
             \caption{$6_2$.}
             \label{fig:ex2-3a}
         \end{subfigure}
         \begin{subfigure}[b]{0.2\linewidth}
             \centering
-            \includegraphics[width=0.7\linewidth]{Blender/ex2-3b.png}
+            \includegraphics[width=0.8\linewidth]{Blender/ex2-3b.png}
             \caption{$6_3$.}
             \label{fig:ex2-3b}
         \end{subfigure}
         \caption{Knots $6_2$ and $6_3$.}
         \label{fig:ex2-3}
     \end{figure}
+    \begin{itemize}
+        \item For Figure \ref{fig:ex2-3a}, write 6 8 10 12 2 4.
+        \item For Figure \ref{fig:ex2-3b}, write 8 6 10 12 4 2.
+        \item Another sequence of even integers for Figure \ref{fig:ex2-3b} is 4 10 8 12 2 6.
+    \end{itemize}
     \item Knots can also be reconstructed from Dowker notation. See Figure \ref{fig:reconstruction} for an example of reconstructing an alternating knot from the notation, 8 10 12 2 14 6 4.
     \begin{figure}[h!]
         \centering
@@ -1067,9 +1080,9 @@
         \end{itemize}
         \item When the Dowker notation can be broken into two subpermutations (as above) the knot is composite (unless one subpermutation is trivial).
         \item Any sequence that cannot be split in this way represents either a particular knot or its mirror image.
-        \item If the knot is amphicheiral, then the sequence only represent one knot.
+        \item If the knot is amphicheiral, then the sequence only represents one knot.
     \end{itemize}
-    \item A knot and its mirror image are equivalent when projected onto a sphere as opposed to a plane.
+    \item Two Dowker reconstructions may be equivalent when projected onto a sphere as opposed to a plane.
     \item \emph{Exercise 2.6}: Draw two projections given by 10 12 2 14 6 4 8, which are inequivalent as projections in the plane but which are equivalent as projections on the sphere.
     \begin{figure}[h!]
         \centering
@@ -1224,13 +1237,68 @@
         \centering
         \begin{subfigure}[b]{0.3\linewidth}
             \centering
-            \includegraphics[width=0.56\linewidth]{Blender/ex2-12a.png}
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    ignore endpoint intersections=false,
+                    every strand/.append style={red,thick},
+                    scale=0.5
+                ]
+                    \strand (1,0)
+                        to[out=30,in=-90]              (2,1)
+                        to[out=90,in=-90]              (1.5,2)
+                        to[out=90,in=-90]              (2.5,3.3)
+                        to[out=90,in=90,looseness=1.5] (1,3.3)
+                        to[out=-90,in=90]              (2,2)
+                        to[out=-90,in=90]              (1.5,1)
+                        to[out=-90,in=180]             (2.5,0)
+                        to[out=0,in=180]               (4,2.5)
+                        to[out=0,in=120]               (5,1.5)
+                    ;
+                    \strand (0,3.6)
+                        to[out=-45,in=180] (2.7,3.5)
+                        to[out=0,in=180]   (4,1.8)
+                        to[out=0,in=-135]  (5,2.6)
+                    ;
+                    \flipcrossings{2,5,7}
+                \end{knot}
+                \fill [white,scale=0.5] (5,2.6) rectangle (3.5,3);
+                \fill [white,scale=0.5] (5,2.6) -- (4.5,2.4) -- (4.1,2.7) -- cycle;
+            \end{tikzpicture}
             \caption{The tangle, $-2$ 3 2.}
             \label{fig:ex2-12a}
         \end{subfigure}
         \begin{subfigure}[b]{0.3\linewidth}
             \centering
-            \includegraphics[width=0.56\linewidth]{Blender/ex2-12b.png}
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=5,
+                    consider self intersections,
+                    ignore endpoint intersections=false,
+                    every strand/.append style={red,thick},
+                    scale=0.5
+                ]
+                    \strand (1,0)
+                        to[out=10,in=-90] (2.5,1)
+                        to[out=90,in=-90] (1,3)
+                        to[out=90,in=180] (1.7,3.8)
+                        to[out=0,in=180]  (5,1.5)
+                        to[out=0,in=180]  (6,2)
+                        to[out=0,in=120]  (7,0.8)
+                    ;
+                    \strand (0,3.8)
+                        to[out=-45,in=180,out looseness=2] (2.9,3.8)
+                        to[out=0,in=90]    (3.5,3)
+                        to[out=-90,in=90]  (1.8,1)
+                        to[out=-90,in=180] (2.5,0.2)
+                        to[out=0,in=180]   (5,2)
+                        to[out=0,in=180]   (6,1.5)
+                        to[out=0,in=-90]   (7,2.9)
+                    ;
+                    \flipcrossings{1,4,6,8}
+                \end{knot}
+            \end{tikzpicture}
             \caption{The tangle, 3 $-2$ 3.}
             \label{fig:ex2-12b}
         \end{subfigure}
@@ -1369,12 +1437,12 @@
         \item Note that no reflecting occurs here.
         \item \dq{If we multiply each tangle in a sequence of tangles by 0, and then add them all together, we denote the resultant tangle by the sequence of numbers that stand for the original tangles, only now separated by commas}{48}
     \end{itemize}
-    \item \textbf{Pretzel knot}: \dq{A knot obtained from a tangle represented by a finite number of integers separated by commas}{48}
+    \item \textbf{Pretzel knot}: \dq{A knot obtained from a tangle represented by a finite number of integers separated by commas}{48} See Figure \ref{fig:-357pretzel} for an example.
     \item \textbf{Algebraic tangle}: \dq{Any tangle obtained by the operations of addition and multiplication on rational tangles}{48}
     \item \textbf{Algebraic link}: \dq{A link formed when we connect the NW string to the NE string and the SW string to the SE string on an algebraic tangle}{48} \emph{Also known as} \textbf{aborescent link}.
     \begin{itemize}
         \item Denoted the same way as a tangle.
-        \item Fun fact: The trefoil knot (Figure \ref{fig:circletrefoilb}) is an algebraic link of the 3 tangle (Figure \ref{fig:tanglesc}).
+        \item The trefoil knot (Figure \ref{fig:circletrefoilb}) is an algebraic link of the 3 tangle (Figure \ref{fig:tanglesc}).
     \end{itemize}
     \item \textbf{Additive identity}: A quantity that can be added to a second quantity without changing that second quantity.
     \begin{itemize}
@@ -1403,9 +1471,7 @@
     \item There are tangles that are not algebraic.
     \item New knots can be obtained via \textbf{mutation}.
     \item \textbf{Mutation}: Severing the connections between a tangle and any adjacent tangles, transforming it (flipping horizontally, vertically, or both), and gluing the strands to their new adjacent counterparts.
-    \begin{itemize}
-        \item Knots formed in this manner are called \textbf{mutants} of one another.
-    \end{itemize}
+    \item \textbf{Mutant} (knots): Two knots that are related by one or more mutations.
     \item \emph{Exercise 2.25}: Show that if we have three tangles as in Figure \ref{fig:ex2-25a}, we can mutate several times in order to permute the tangles. Note that we can then permute $n$ tangles in a row.
     \begin{figure}[h!]
         \centering
@@ -1541,27 +1607,27 @@
 \section{Invariants of Knots}
 \subsection{Unknotting Number}\label{sss:UnknottingNumber}
 \begin{itemize}
-    \item \textbf{Unknotting number}: A value $n\in\mathbb{N}$ specific to a knot $K$ that gives the fewest number of crossing changes needed in any projection to turn it into the unknot. \emph{Also known as} $\mathbf{u(K)}$.
+    \item \textbf{Unknotting number}: A value $n\in\mathbb{N}$ specific to a knot $K$ that gives the fewest number of crossing changes needed in any projection to turn it into the unknot. \emph{Also known as} \textbf{\emph{u}(\emph{K})}.
     \begin{itemize}
-        \item It may, however, be a nasty projection of the unknot (see Figure \ref{fig:ex1-11-2} and the related Exercise).
+        \item It may, however, be a nasty projection of the unknot (see Figure \ref{fig:ex1-11} and the related \emph{Exercise 1.11*}).
     \end{itemize}
     \item \emph{Exercise 3.1}: Find the unknotting number of the figure-eight knot (Figure \ref{fig:figure8knot}).
     \begin{itemize}
         \item $u(K)=1$, where $K$ is the figure-eight knot.
-        \item $K$ is distinct from the unknot, so $u(K)\neq 0$. The next possibility ($u(K)=1$) succeeds with the projection in Figure \ref{fig:figure8knot} (in fact, flipping \emph{any} crossing in the referenced projection trivializes $K$).
+        \item $K$ is distinct from the unknot, so $u(K)\neq 0$. The next possibility ($u(K)=1$) succeeds with the projection in Figure \ref{fig:figure8knot} (in fact, flipping \underline{any} crossing in the referenced projection trivializes $K$).
     \end{itemize}
-    \item Note that performing all of the crossing changes on one projection is equivalent to performing one such change, then an ambient isotropy, then another\dots
+    \item Note that performing all of the crossing changes on one projection is equivalent to performing one such change, then an ambient isotropy, then another.
     \begin{itemize}
         \item A proof of this is listed on page 58.
     \end{itemize}
     \item \dq{The fact that every knot has a finite unknotting number follows from the fact that every projection of a knot can be changed into a projection of the unknot by changing some subset of the crossings in the projection}{58}
     \begin{itemize}
-        \item See \emph{Exercise 1.7}.
+        \item See \emph{Exercise 1.7*}.
     \end{itemize}
     \item A proof of the above:
     \begin{itemize}
         \item Pick a starting point (not a crossing) on an arbitrary knot and an orientation in whose direction to traverse the knot.
-        \item When you arrive at the first crossing, change it so that the strand that you are on is the over strand, if necessary.
+        \item When you arrive at the first crossing, change it so that the strand that you are on is the overstrand, if necessary.
         \item Continue changing every new crossing to which you come to make the current strand into the overstrand.
         \begin{itemize}
             \item Do not change crossings that you have already passed through once.
@@ -1586,10 +1652,10 @@
         u(K_1\#K_2)\leq u(K_1)+u(K_2)
     \end{equation}
     \item The unknotting number can be realized by a projection that is not \textbf{minimal}.
-    \item \textbf{Minimal projection}: The projection of a knot with the lowest possible number of crossings.
+    \item \textbf{Minimal} (projection): The projection of a knot with the lowest possible number of crossings.
     \item \textbf{\emph{k}-move}: A local change in the projection that replaces two untwisted strings with two strings that twist around each other with $k$ crossings in a right-handed manner. See Figure \ref{fig:k-moves}.
     \begin{itemize}
-        \item If $k$ is positive, then the overstrand has a positive slope.
+        \item If $k$ is positive, then the overstrand has a positive slope. If negative, vice versa.
     \end{itemize}
     \begin{figure}[h!]
         \centering
@@ -1648,7 +1714,7 @@
         \caption{Examples of $k$-moves.}
         \label{fig:k-moves}
     \end{figure}
-    \item \textbf{\emph{k}-equivalent}: Two knot or link projections that can be transformed into each other through a series of $k$-moves and $-k$-moves.
+    \item \textbf{\emph{k}-equivalent}: Two knot or link projections that can be transformed into each other through a series of $k$-moves.
     \begin{itemize}
         \item Ambient isotropies are allowed between $k$-moves.
     \end{itemize}
@@ -1657,13 +1723,48 @@
         \centering
         \begin{subfigure}[b]{0.3\linewidth}
             \centering
-            \includegraphics[width=0.5\linewidth]{Blender/ex3-8a.png}
+            \begin{tikzpicture}
+                \begin{knot}[
+                    clip width=4,
+                    consider self intersections
+                ]
+                    \strand [black,very thick] (90:1)
+                        \foreach \x in {1,2,3} {
+                            to [bend left=117,looseness=1.9] ({90+120*\x}:1)
+                        }
+                    ;
+                    \flipcrossings{1,3}
+                \end{knot}
+            \end{tikzpicture}
+            \vspace{-0.8cm}
             \caption{The knot $3_1$.}
             \label{fig:ex3-8a}
         \end{subfigure}
         \begin{subfigure}[b]{0.3\linewidth}
             \centering
-            \includegraphics[width=0.55\linewidth]{Blender/ex3-8b.png}
+            \begin{tikzpicture}[scale=0.8]
+                \begin{knot}[
+                    clip width=4,
+                    every strand/.append style={black,very thick}
+                ]
+                    \strand                  (0,0)
+                        to [out=-85,in=-95]  (4,0)
+                        to [out=90,in=0]     (3,1.2)
+                    ;
+                    \strand                  (3,1.2)
+                        to [out=180,in=60]   (1.9,0.7)
+                        to [out=-120,in=120] (1.9,-0.4)
+                        to [out=-60,in=10]   (2,-1.6)
+                    ;
+                    \strand                  (2,-1.6)
+                        to [out=170,in=-120] (2.1,-0.4)
+                        to [out=60,in=-60]   (2.1,0.7)
+                        to [out=120,in=0]    (1,1.2)
+                        to [out=180,in=90]   (0,0)
+                    ;
+                    \flipcrossings{2,3}
+                \end{knot}
+            \end{tikzpicture}
             \caption{The knot $4_1$.}
             \label{fig:ex3-8b}
         \end{subfigure}
@@ -1685,7 +1786,7 @@
     \begin{itemize}
         \item Every overstrand is entirely above and every understrand is entirely beneath. The points where the strand shifts from over to under are known as \textbf{vertices}.
     \end{itemize}
-    \item \textbf{Bridge number}: The least number of unknotted arcs lying above the plane in any projection of the knot. \emph{Also known as} $\mathbf{b(K)}$
+    \item \textbf{Bridge number}: The least number of unknotted arcs lying above the plane in any projection of the knot. \emph{Also known as} \textbf{\emph{b}(\emph{K})}.
     \begin{itemize}
         \item The number of maximal overpasses in in the projection.
     \end{itemize}
@@ -1746,15 +1847,16 @@
     \end{figure}
     \item \emph{Exercise 3.10}: Show that if a knot has bridge number 1, it must be the unknot.
     \begin{itemize}
-        \item If a knot has bridge number 1, $\exists$ a projection of the knot such that there is only one arc above the projection plane and 1 arc below the projection plane.
+        \item If a knot has bridge number 1, there exists a projection of the knot such that there is only one arc above the projection plane and one arc below the projection plane.
         \item This projection, viewed from above, will look like any isotropy of the knot. However, viewed from the side, there will be 0 crossings --- therefore, it is the unknot.
     \end{itemize}
     \item \emph{Exercise 3.11}: Show that the knot $5_2$ has bridge number 2$^[$\footnote{Idea for a paper: On reducing bridge number. Discuss manipulating a projection to its Dowker reconstruction to create the "killzone" and then using "bridging moves" to make the projection nonalternating. 2 types so far: I $\rightarrow$ III, and 2xII $\rightarrow$ III (in both cases it is the Type III move which climactically changes $b(K)$. It can be necessary to increase $b(K)$ before decreasing it.)}$^]$.
     \begin{itemize}
         \item Since $5_2$ is distinct from the unknot, $b(K)\neq 1$.
-        \item Therefore, the next possibility to check is 2. If $\exists$ a projection of $5_2$ with bridge number 2, $b(K)=2$.
+        \item Therefore, the next possibility is 2. If there is a projection of $5_2$ with bridge number 2, $b(K)=2$.
         \begin{figure}[h!]
             \centering
+            %Redo in tikz?
             \begin{subfigure}[b]{0.2\linewidth}
                 \centering
                 \includegraphics[width=0.8\linewidth]{Blender/ex3-11a.png}
@@ -1829,7 +1931,7 @@
             \item Thicker lines represent overpasses. Conversely, thinner lines represent underpasses.
             \item Like-colored strands between sequential projections represent the same strand after Reidemeister moves or planar isotropies (colored for clarity, not for any specific purpose such as tricolorability).
         \end{itemize}
-        \item From the previously determined Dowker notation, reconstruct a knot projection. This projection (Figure \ref{fig:ex3-11-2a}) contains the "killzone," a concentrated region where every crossing is displayed in an orderly fashion$^[$\footnote{Note that from here-down, I do not guarantee that this is the fastest or simplest way to generate a projection that displays $b(K)=2$, nor can I assure the reader that my solution is the "simplest" projection (perhaps the one with the fewest crossings). However, I do guarantee that it is correct. I know that it is so because all projections are separated only by Reidemeister moves and planar isotropies, and Figure \ref{fig:ex3-11-2f} visibly has bridge number 2.}$^]$.
+        \item From the previously determined Dowker notation, reconstruct a knot projection. This projection (Figure \ref{fig:ex3-11-2a}) contains the "killzone," a concentrated region where every crossing is displayed in an orderly fashion$^[$\footnote{Note that from here-down, I do not guarantee that this is the fastest or simplest way to generate a projection that displays $b(K)=2$, nor can I assure the reader that my solution is the "simplest" projection (the one with the fewest crossings). However, I do guarantee that it is correct. I know that it is so because all projections are separated only by Reidemeister moves and planar isotropies, and Figure \ref{fig:ex3-11-2f} visibly has bridge number 2.}$^]$.
         \item Employ two Type I Reidemeister moves followed respectively by Type III Reidemeister moves to eliminate two overpasses. These moves occur on the green and blue strands, independently. They yield a projection with bridge number 3 (Figure \ref{fig:ex3-11-2b}). This projection has several noteworthy properties.
         \begin{itemize}
             \item First, of the three overpasses, two contain 2 crossings while one contains 3 crossings.
@@ -1903,7 +2005,7 @@
 
 \subsection{Crossing Number}
 \begin{itemize}
-    \item \textbf{Crossing number}: \dq{The least number of crossings that occur in any projection of the knot}{67} \emph{Also known as} $\mathbf{c(K)}$.
+    \item \textbf{Crossing number}: \dq{The least number of crossings that occur in any projection of the knot}{67} \emph{Also known as} \textbf{\emph{c}(\emph{K})}.
     \item To find the crossing number of a knot, first find a projection of the knot. Count the crossings, $n$. At this point, it is clear that $c(K)\leq n$.
     \begin{itemize}
         \item If all knots with fewer crossing than $n$ are known and $K$ is distinct from all of those knots, then $c(K)=n$.
@@ -1912,9 +2014,6 @@
     \item Proving that a knot is distinct from every knot of fewer crossings is very difficult and requires knot polynomials (see Section \ref{sse:polynomials}).
     \item Determining $c(K)$ is generally very difficult (knots are currently only tabulated up to 13 crossings).
     \item \textbf{Reduced}: A projection of a knot with no easily removed crossings.
-    \begin{itemize}
-        \item All "easily removed" crossings in alternating knots are shown in Figure \ref{fig:easilyremoved}.
-    \end{itemize}
     \begin{figure}[h!]
         \centering
         \begin{tikzpicture}
@@ -1973,6 +2072,9 @@
         \caption{Easily removed crossings in an alternating knot projection.}
         \label{fig:easilyremoved}
     \end{figure}
+    \begin{itemize}
+        \item All "easily removed" crossings in alternating knots are shown in Figure \ref{fig:easilyremoved}.
+    \end{itemize}
     \item However, in 1986, Lou Kauffman, Kunio Murasugi, and Morwen Thistlethwaite all independently proved that \dq{an alternating knot in a reduced alternating projection of $n$ crossings has crossing number $n$}{68}
     \begin{itemize}
         \item They utilized the Jones polynomial (see Section \ref{sse:polynomials}).
@@ -2410,14 +2512,14 @@
     \item \textbf{Compression}: The simplifying operation of cutting $F$ along $D$, gluing $D$ to each open curve, and using an isotropy to "smooth out" the surface.
     \item \emph{Exercise 4.11}: Show that a compression always increases the Euler characteristic. Use this to show that the genus of the resulting surface or surfaces is always less than the genus of the original surface.
     \begin{itemize}
-        \item Think of $D$ as a triangle. During the compression, three vertices and three edges separate into two \emph{pairs} of three vertices and three edges. This does not change the Euler characteristic.
+        \item Think of $D$ as a triangle. During the compression, three vertices and three edges separate into two \underline{pairs} of three vertices and three edges. This does not change the Euler characteristic.
         \item However, two faces are also added. This increases the Euler characteristic by 2.
         \item This change of $+2$ changes the genus by $-1$.
     \end{itemize}
     \item \textbf{Incompressible} (surface): A surface that is not compressible.
     \item Any time we have a composite knot, there exists an incompressible \textbf{swallow-follow torus}.
     %swallow-follow torus image
-    \item \textbf{Swallow-follow torus}: A torus that encompases (swallows) one factor knot and wraps around the strand of (follows) the other factor knot.
+    \item \textbf{Swallow-follow torus}: A torus that encompases (swallows) one factor knot and encases the strand of (follows; as if the strand has been thickened) the other factor knot.
 \end{itemize}
 
 
@@ -2739,7 +2841,7 @@
         \item Begin by choosing the subdivision in Figure \ref{fig:boundsurfidentb} according to the first technique above.
         \item Count $V=20$, $E=30$, and $F=7$. Count $BC=5$ where $BC$ is the number of boundary components.
         \item Thus, $\chi=-3$. Adding $+1$ to $\chi$ for every boundary component, find $\chi$ for the original surface without boundary to be $2$.
-        \item Therefore, the surface without boundary corresponding to Figure \ref{fig:boundsurfidenta} is the sphere.
+        \item Therefore, the surface without boundary corresponding to Figure \ref{fig:boundsurfidenta} is a sphere.
     \end{itemize}
     \item Define the genus of a surface with boundary to be that of the surface without boundary obtained by capping off each of its boundary components.
     \item Coming back to knot theory, one way to define knots is as the boundary of surfaces, i.e., the unknot could be defined as the boundary of a disk.
@@ -3023,7 +3125,7 @@
     \end{figure}
     \begin{itemize}
         \item In any knot with $c(K)>0$, there exists a region with a crossing between two (possibly knotted) loops $L_1$ and $L_2$, as in Figure \ref{fig:Scirccrossa}.
-        \item When assigning an orientation to this crossing, the directions on the subarcs \emph{must} be reversed.
+        \item When assigning an orientation to this crossing, the directions on the subarcs \underline{must} be reversed.
         \begin{itemize}
             \item If they both flowed from left to right (for example), that would imply that there is some point in $L_1$ from which the orientation "flows outward" in both directions and some point in $L_2$ to which the orientation "flows inward" from both directions.
             \item This is contrary to the definition of an orientation, and, therefore, cannot be the case.
@@ -3065,9 +3167,9 @@
     \end{figure}
     \begin{itemize}
         \item This demonstration will follow the format of an induction proof. By Equation \ref{eqn:gensei}, if $g=1$ for a knot, then $s=c-1$. This argument will prove by induction that $s=c-1$.
-        \item Every twist knot can be projected in the mold of Figure \ref{fig:twistknots}, where the dots are replaced by some number of twists.
+        \item Every twist knot can be projected in the mold of Figure \ref{fig:twistknots}, where the dots are replaced by some number of half-twists.
         \item For the trefoil knot, this number of twists is 0 and $s\overset{\checkmark}{=}c-1$.
-        \item Each new twist obviously adds one crossing.
+        \item Each new half-twist obviously adds one crossing.
         \item This new crossing, when the knot is assigned an orientation, will perfectly match one of the two left images in Figure \ref{fig:seifertcrossing}.
         \begin{itemize}
             \item This is because the orientation weaves its way down all of one of the two "vertical-ish" strands and then changes direction at the bottom loop to weave its way back up.
@@ -3103,7 +3205,7 @@
         \item Arrive at $g(J)+g(K)\leq g(J\#K)$.
         \item Therefore, $g(J\#K)=g(J)+g(K)$.
     \end{itemize}
-    \item Referencing Section \ref{sss:Composition}, the trivial knot cannot be the composition of two nontrivial knots because $g(K)\geq 1$ where $K$ is nontrivial, so by Equation \ref{eqn:genuscomp}, $g(J\#K)\geq 2>0\Rightarrow g(J\#K)$ is nontrivial.
+    \item Returning to Section \ref{sss:Composition}, the trivial knot cannot be the composition of two nontrivial knots because $g(K)\geq 1$ where $K$ is nontrivial, so by Equation \ref{eqn:genuscomp}, $g(J\#K)\geq 2>0\Rightarrow g(J\#K)$ is nontrivial.
     \item \emph{Exercise 4.27}: Show that the genus 1 knots are prime.
     \begin{itemize}
         \item For a knot to be nontrivial, its genus must be greater than or equal to 1.
@@ -3112,12 +3214,12 @@
     \end{itemize}
     \item \emph{Exercise 4.28}: Prove that if we take the composition of $n$ copies of the same nontrivial knot, calling the result $J_n$, then as $n\rightarrow\infty$, $c(J_n)\rightarrow\infty$. Hint: Use the fact that there are only a finite number of knots with a given crossing number, but first use the Dowker notation to prove this fact.
     \begin{itemize}
-        \item For $c(K)=n$, the Dowker notation will consist of $n$ even numbers ranging from $2$ to $2n$. Therefore, there are $n$ possibilities for the first number, $n-1$ for the second number, and so on and so forth. This compresses down to $n!$ possible knots of $c(K)=n$.
+        \item For $c(K)=n$, the Dowker notation will consist of $n$ even numbers that are elements of $2\mathbb{N}\cap[2,2n]$. Therefore, there are $n$ possibilities for the first number, $n-1$ for the second number, and so on and so forth. This compresses down to $n!$ possible knots of $c(K)=n$.
         \begin{itemize}
-            \item Note that a large number of these knots will not be of this crossing number. This is an upper bound in the most literal sense.
+            \item Note that a large number of these knots will not be of this crossing number. This is an upper bound in an extreme sense.
         \end{itemize}
-        \item One way to prove this would be to use Equation \ref{eqn:genuscomp} to prove that the genus must increase with successive compositions. Since the genus is directly proportional to the quantity $c-s$ (by Equation \ref{eqn:gensei}), $c-s$ must increase with successive compositions. Since $s$ cannot decrease with successive compositions (and certainly cannot decrease infinitely), $c$ must increase with successive compositions.
-        \item I believe that the desired way to prove this is as follows. Composite knots are distinct from their factor knots. Generating a new composite knot creates a new knot. Since there are a finite number of knots of $c(K)=n$, eventually, all low-crossing possibilities (which will not all be reached, but regardless) must be used up. This forces $c(K)$ higher and higher as new knots are created.
+        \item \textsc{Solution 1}: Use Equation \ref{eqn:genuscomp} to prove that the genus must increase with successive compositions. Since the genus is directly proportional to the quantity $c-s$ (by Equation \ref{eqn:gensei}), $c-s$ must increase with successive compositions. Since $s$ cannot decrease with successive compositions (and certainly cannot decrease infinitely), $c$ must increase with successive compositions.
+        \item \textsc{Solution 2}: Composite knots are distinct from their factor knots. Generating a new composite knot creates a new knot. Since there are a finite number of knots of $c(K)=n$, eventually, all low-crossing possibilities (which will not all be reached, but regardless) must be used up. This forces $c(K)$ higher and higher as new knots are created.
     \end{itemize}
     \item \emph{Exercise 4.29}: Prove that if $J_n$ is the composition of $n$ copies of the same nontrivial knot, then $c(J_n)\geq n$. Hint: Use the Euler characteristic of a Seifert surface along with Equations \ref{eqn:chisc} and \ref{eqn:gensei} and \emph{Exercise 4.21}. Subsequently, prove that $c(J_n)\geq 2n+1$.
     \begin{itemize}
@@ -3125,7 +3227,7 @@
     \end{itemize}
     \item Seifert's algorithm's applicability to finding genus has been extended from alternating links to \textbf{alternative links}, which also include all \textbf{torus links} (see Section \ref{sss:TorusKnots}).
     \item There are some knots from which the minimal genus Seifert surface cannot be obtained using Seifert's algorithm on any projection of said knot.
-    \item \textbf{Canonical genus} (of a knot): \dq{The minimal genus of any Seifert surface obtained by applying Seifert's algorithm to a projection of the knot}{106} \emph{Also known as} $g_c(K)$.
+    \item \textbf{Canonical genus} (of a knot): \dq{The minimal genus of any Seifert surface obtained by applying Seifert's algorithm to a projection of the knot}{106} \emph{Also known as} \textbf{\emph{g\textsubscript{c}}(\emph{K})}.
     \item Genus was used to tell apart the Kinoshita-Terasaka mutants (see Section \ref{sss:Conway}).
 \end{itemize}
 \newpage
@@ -3753,7 +3855,29 @@
         \centering
         \begin{subfigure}[b]{0.2\linewidth}
             \centering
-            \includegraphics[width=0.8\linewidth]{Blender/ex3-8b.png}
+            \begin{tikzpicture}[scale=0.8]
+                \begin{knot}[
+                    clip width=4,
+                    every strand/.append style={black,very thick}
+                ]
+                    \strand                  (0,0)
+                        to [out=-85,in=-95]  (4,0)
+                        to [out=90,in=0]     (3,1.2)
+                    ;
+                    \strand                  (3,1.2)
+                        to [out=180,in=60]   (1.9,0.7)
+                        to [out=-120,in=120] (1.9,-0.4)
+                        to [out=-60,in=10]   (2,-1.6)
+                    ;
+                    \strand                  (2,-1.6)
+                        to [out=170,in=-120] (2.1,-0.4)
+                        to [out=60,in=-60]   (2.1,0.7)
+                        to [out=120,in=0]    (1,1.2)
+                        to [out=180,in=90]   (0,0)
+                    ;
+                    \flipcrossings{2,3}
+                \end{knot}
+            \end{tikzpicture}
             \caption{$4_1$}
             \label{fig:ex5-16a}
         \end{subfigure}
@@ -3790,7 +3914,7 @@
         \label{fig:ex5-16-2}
     \end{figure}
     \item \dq{Every knot or link is a closed braid}{129}
-    \item This was proven in 1923 by J. W. Alexander of the Alexander polynomial (see Section \ref{sse:polynomials}).
+    \item This was proven in 1923 by J. W. Alexander of the Alexander polynomial, which is discussed in Section \ref{sse:polynomials}.
     \item Let's take a look at this proof.
     %pictures?
     \begin{itemize}
@@ -3814,7 +3938,7 @@
         \item For all overpasses, first make sure that all strands lie over the region contained by the underpasses. If the overpasses have to cross one another, that is fine. Now, start at $P_{2i-1}$, increase $z$ until the crossing with $A$, and then decrease $z$ to intersect $P_{2i}$.
         \item The result is a closed braid with $A$ as an axis.
     \end{itemize}
-    \item \textbf{Braid index}: \dq{The least number of strings in a braid corresponding to a closed braid representation of the link}{132} \emph{Also known as} $b(L)$.
+    \item \textbf{Braid index}: \dq{The least number of strings in a braid corresponding to a closed braid representation of the link}{132} \emph{Also known as} \textbf{\emph{b}(\emph{L})}.
     \begin{table}[h!]
         \centering
         \renewcommand{\arraystretch}{1.4}
@@ -4983,13 +5107,13 @@
         }\rbq\stepcounter{equation}\tag{\theequation}\label{eqn:bracketI}
     \end{align*}
     \begin{itemize}
-        \item Based on the above, the bracket polynomial \emph{is} changed by a Type I Reidemeister move.
+        \item Based on the above, the bracket polynomial \underline{is} changed by a Type I Reidemeister move.
         \item Therefore, the bracket polynomial is not a knot invariant.
         \item However, it can still be modified as follows.
     \end{itemize}
     \item Assign an orientation to the knot or link.
     \item At every crossing, assign a $+1$ or $-1$ as directed by Figure \ref{fig:linkingnumber}.
-    \item \textbf{Writhe}: The sum of the $+1$s and $-1$s at every crossing. \emph{Also known as} $w(L)$.
+    \item \textbf{Writhe}: The sum of the $+1$s and $-1$s at every crossing. \emph{Also known as} \textbf{\emph{w}(\emph{L})}.
     \begin{itemize}
         \item Note that this is different from the linking number in that every crossing contributes, not just those between different link components.
     \end{itemize}
@@ -5237,7 +5361,7 @@
         \item This is because the bracket polynomial does not change under Type II and III Reidemeister moves and Type I Reidemeister moves change all exponents by $\pm 3$, which doesn't affect the span (the delta of the exponents).
     \end{itemize}
     \item Now, prove a lemma$^[$\footnote{\textbf{Lemma}: A subsidiary or intermediate theorem in an argument or proof (Google).}$^]$.
-    \item \underline{Lemma}: If $K$ has a reduced alternating projection of $n$ crossings, then $\text{span}(\lbq K\rbq)=4n$.
+    \item \emph{Lemma}: If $K$ has a reduced alternating projection of $n$ crossings, then $\text{span}(\lbq K\rbq)=4n$.
     \begin{itemize}
         \item Since the span doesn't depend on the projection, choose the reduced alternating projection.
         \item First, find the highest power. Then, find the lowest power.
@@ -5280,7 +5404,7 @@
     \begin{itemize}
         \item Since $\text{span}(\lbq K\rbq)=4n$ and the transition from the bracket polynomial to the Jones polynomial involves dividing each exponent by 4, $\text{span}(V(K))=n$.
     \end{itemize}
-    \item \underline{Theorem}: \dq{Two reduced alternating projections of the same knot have the same number of crossings}{162}
+    \item \emph{Theorem}: \dq{Two reduced alternating projections of the same knot have the same number of crossings}{162}
     \begin{itemize}
         \item If the first projection $P_1$ has $n$ crossings, the lemma implies that $\text{span}(P_1)=4n$.
         \item Since the span of the bracket polynomial is a knot invariant, the span of the second projection $P_2$ is also $4n$.
@@ -5291,7 +5415,7 @@
         \item Appears composite: In any alternating projection, a circle that intersects the knot twice can fully enclose one alternating factor knot.
     \end{itemize}
     \item Menasco's result implies the following corollary.
-    \item \underline{Corollary}: $c(K_1\#K_2)=c(K_1)+c(K_2)$ for all $K_1\#K_2$ alternating knots.
+    \item \emph{Corollary}: $c(K_1\#K_2)=c(K_1)+c(K_2)$ for all $K_1\#K_2$ alternating knots.
     \begin{itemize}
         \item Choose a reduced alternating projection of $K_1\#K_2$.
         \item By Menasco's result, $K_1$ and $K_2$ are both parts of this projection.
@@ -5364,7 +5488,7 @@
 \end{itemize}
 
 
-\subsection{The Alexander and HOMFLY Polynomials}
+\subsection{The Alexander and HOMFLY Polynomials}\label{sss:Alexander}
 \begin{itemize}
     \item The \textbf{Alexander polynomial} $\Delta$ was invented in 1928 and was the first polynomial to be invented.
     \item It is a polynomial for oriented links in $t$.
@@ -5378,7 +5502,19 @@
         \text{Rule 2}:\qquad\Delta(L_+)-\Delta(L_-)+\left( t^{\frac{1}{2}}-t^{-\frac{1}{2}} \right)\Delta(L_0)=0
     \end{equation*}
     \item It will not be proven herein, but these two rules suffice to ensure that the Alexander polynomial is an invariant for knots and links.
-    \item \emph{Exercise 6.15}: The Alexander polynomial of a splittable link is always 0. Hint: Picture the splittable link as $L_0$.
+    \item \emph{Exercise 6.15}: Show that the Alexander polynomial of a splittable link is always 0. Hint: Picture the splittable link as $L_0$ from Figure \ref{fig:ex6-8}.
+    \begin{itemize}
+        \item A splittable link will have a projection where the two components have no crossings.
+        \item Because of this, place one link component adjacent to the other but not touching. This will be $L_0$.
+        \item When the skein relation from Figure \ref{fig:ex6-8} is employed, $L_+$ and $L_-$ become the same composite knot --- one of the two components can be rotated 180$^\circ$ about the horizontal axis to yield the projection of the other$^[$\footnote{Figure \ref{fig:HOMFLYtrivial2comp} may help to visualize this.}$^]$.
+        \item Because $L_+=L_-$, $\Delta(L_+)=\Delta(L_-)$.
+        \item Therefore, Rule 2 can be used to yield the following, which simplifies to prove that the Alexander polynomial of a split(able) link ($\Delta(L_0)$) is equal to zero.
+        \begin{align*}
+            \Delta(L_+)-\Delta(L_+)+\left( t^{\frac{1}{2}}-t^{-\frac{1}{2}} \right)\Delta(L_0) &= 0\\
+            \left( t^{\frac{1}{2}}-t^{-\frac{1}{2}} \right)\Delta(L_0) &= 0\\
+            \Delta(L_0) &= 0
+        \end{align*}
+    \end{itemize}
     \item Let's calculate the Alexander polynomial for the trefoil knot.
     \begin{itemize}
         \item Orient the trefoil and consider the upper-left crossing in the leftmost term of Equation \ref{eqn:Alextrefoil1} to be $L_+$. Employ Rule 2.
@@ -5818,7 +5954,7 @@
         \item Thus, since reversing the orientation does not change which crossings correspond to $L_+$, $L_-$, and $L_0$, the new HOMFLY polynomial is calculated the same way, and is therefore identical to the original.
     \end{itemize}
     \item With links, however, changing some of the orientations can have an effect.
-    \item The HOMFLY polynomial \emph{can} always be computed, but the computations can take a long time.
+    \item The HOMFLY polynomial \underline{can} always be computed, but the computations can take a long time.
     \begin{itemize}
         \item A 100 crossing knot would resolve into $2^{100}$ unlinks.
         \item However, Hugh Morton and Hamish Short created an algorithm applicable to closed braids of nine or fewer strings that can successfully compute the polynomial of knots of several hundred crossings.
@@ -5923,7 +6059,7 @@
     \begin{itemize}
         \item The HOMFLY polynomial cannot distinguish between mutant knots.
     \end{itemize}
-    \item \textbf{Complete invariant}: An characteristic that distinguishes all entities in a set.
+    \item \textbf{Complete invariant}: A characteristic that distinguishes all entities in a set.
     \item The HOMFLY polynomial is better at telling apart knots and links than either the Jones or Alexander polynomials because these other polynomials are simply a special case of the HOMFLY polynomial.
     \begin{itemize}
         \item To convert a HOMFLY polynomial into a Jones polynomial, make the following substitutions where $i=\sqrt{-1}$.
@@ -6384,7 +6520,7 @@
     \end{figure}
     \item Christina Dietrich-Buchecker and Jean-Pierre Sauvage developed a method for synthesizing catenanes by using a transition metal as a "template" to wrap two linear molecules around before allowing for knotting and removing the transition metal (see Figure \ref{fig:template}).
     \item They then realized that by doubling the template, they could create 3 crossings.
-    \item Indeed, in 1988, they announced the first successful synthesis of a knotted molecule.
+    \item Indeed, in 1988, they announced the first successful synthesis of a knotted molecule$^[$\footnote{As revealed by the epilogue (Knot Jokes and Pastimes), the chemists synthesized a M\"{o}bius band with three half-twists and then cut it open along its center line.}$^]$.
     \item Wasserman and van Gulick independently suggested in the 1950s that the synthesis of a M\"{o}bius band ladder with extra twists followed by the breaking of the rungs would yield a knot or link (see Figure \ref{fig:ladder}).
     \begin{figure}[h!]
         \centering
@@ -6596,7 +6732,7 @@
     \begin{itemize}
         \item In other words, a molecule may be topologically achiral but not chemically achiral.
     \end{itemize}
-    \item That being said, if a molecule is topologically chiral, it \emph{must} be chemically chiral.
+    \item That being said, if a molecule is topologically chiral, it \underline{must} be chemically chiral.
     \item Jonathan Simon proved in 1986 that a M\"{o}bius ladder with four or more rungs is always topologically chiral.
     \begin{itemize}
         \item This result implies that any molecule with a molecular graph in the above-specified form has a topological stereoisomer (namely, its mirror image).
@@ -7506,8 +7642,8 @@
     \end{figure}
     \item \textbf{Triangle}: A set of three vertices with an edge joining each pair$^[$\footnote{From Section 2.2 in GIEPNotes.pdf. This part of my linear algebra notes on graph theory may prove helpful throughout this chapter of \emph{The Knot Book}.}$^]$.
     \item In an embedding of a graph, triangles can be linked or unlinked (see Figure \ref{fig:un-linktris}).
-    \item John Conway and Cameron Gordon (see Section \ref{sse:poincare} for their other exploits) published "Knots and Links in Spatial Graphs" in 1983, which proved the following theorem.
-    \item \underline{Theorem}: Every embedding of $\mathcal{K}_6$ contains at least one pair of linked triangles.
+    \item John Conway and Cameron Gordon (see Section \ref{sss:poincare} for their other exploits) published "Knots and Links in Spatial Graphs" in 1983, which proved the following theorem.
+    \item \emph{Theorem}: Every embedding of $\mathcal{K}_6$ contains at least one pair of linked triangles.
     \begin{figure}[h!]
         \centering
         \begin{tikzpicture}[
@@ -7606,7 +7742,7 @@
     \item In 1993, Neil Robertson, P. D. Seymour, and Robin Thomas proved that a graph is intrinsically linked if and only if it contains one of the \textbf{Petersen graphs} or an expansion of one of the Petersen graphs.
     \item \textbf{Petersen graphs}: Seven special graphs \dq{obtainable from $\mathcal{K}_6$ by repeated \textbf{triangle-$\mathbf{\gamma}$ exchanges}}{221}
     \item \textbf{Triangle-$\mathbf{\gamma}$ exchange}: \dq{Three edges that from a triangle in a graph are replaced by three edges and a new vertex that form a $\gamma$}{221} The inverse operation counts, as well. See Figure \ref{fig:startriangle} for a visualization.
-    \item \emph{Exercise 8.5}: Show that $\mathcal{K}_{3,3,1}$ is a Petersen graph by demonstrating that it can be obtained from $\mathcal{K}_6$ by triangle-$\gamma$ exchanges.
+    \item \emph{Exercise 8.5}: $\mathcal{K}_{3,3,1}$ is a Petersen graph. It can be obtained from $\mathcal{K}_6$ by triangle-$\gamma$ exchanges.
 \end{itemize}
 
 
@@ -7656,7 +7792,6 @@
         \label{fig:hamiltonian}
     \end{figure}
     \item Using the same method as above, Gordon and Conway, in 1983, proved that every embedding of $\mathcal{K}_7$ contains a knotted Hamiltonian cycle.
-    \item \emph{Exercise 8.7}: Find an embedding of $\mathcal{K}_7$ containing no trefoil knots. Hint: Use the fact that the trefoil knot is prime and make sure all of the knots in your embedding are composite.
     \item \textbf{Pass-move}: A change in a projection where each of the four crossings between two pairs of oppositely oriented strands is flipped. See Figure \ref{fig:passmove}.
     \begin{figure}[h!]
         \centering
@@ -7813,7 +7948,7 @@
         \item Therefore, the original statement holds.
     \end{itemize}
     \item It can be proved that the trefoil knot and unknot are not pass equivalent.
-    \item \textbf{Arf invariant}: Let the value be 0 if the knot is pass equivalent to the unknot and 1 if the knot is pass equivalent to the trefoil knot. \emph{Also known as} \emph{\textbf{a(K)}}.
+    \item \textbf{Arf invariant}: Let the value be 0 if the knot is pass equivalent to the unknot and 1 if the knot is pass equivalent to the trefoil knot. \emph{Also known as} \textbf{\emph{a}(\emph{K})}.
     \item Let $K_+$, $K_-$, and $L$ correspond to unoriented versions of Figures \ref{fig:ex6-8a}, \ref{fig:ex6-8b}, and \ref{fig:ex6-8c}, respectively.
     \begin{itemize}
         \item $K_+$ and $K_-$ are knots identical everywhere outside the region shown.
@@ -7835,6 +7970,8 @@
     \end{itemize}
     \item Miki Shimabara proved in 1988 that any embedding of the \textbf{bipartite} graph $\mathcal{K}_{5,5}$ contains a knotted Hamiltonian cycle.
     \item \textbf{Bipartite} (graph): A graph obtained by taking two sets of vertices and attaching with edges only vertices between the two sets, i.e., no two vertices in the same set can be connected by edges.
+    \item Note that $\mathcal{K}_{5,5}$ is a \textbf{complete bipartite} graph.
+    \item \textbf{Complete bipartite} (graph): A bipartite graph in which every vertex in one set is attatched with an edge to every vertex in the other set.
     \item \textbf{Intrinsically knotted} (graph): A graph such that every embedding of the graph in three-space contains a knotted cycle (not necessarily a Hamiltonian cycle).
     \item If a graph contains a subgraph that is intrinsically knotted, than it is intrinsically knotted, too.
     \item Robertson, Seymour, and Thomas proved in 1993 that an intrinsically knotted graph is always intrinsically linked.
@@ -8484,7 +8621,7 @@
 \end{itemize}
 
 
-\subsection{The Poincar\'{e} Conjecture, Dehn Surgery, and the Gordon-Luecke Theorem}
+\subsection{The Poincar\'{e} Conjecture, Dehn Surgery, and the Gordon-Luecke Theorem}\label{sss:poincare}
 \begin{itemize}
     \item Henri Poincar\'{e} conjectured the following in 1904.
     \item Poincar\'{e} conjecture (informal): \dq{If an object looks like a ball and acts like a ball, it is a ball}{257}
@@ -8848,7 +8985,7 @@
         \label{fig:trefoil-colorized}
     \end{figure}
     \begin{itemize}
-        \item By passing certain parts of the knot through itself in specific areas (flipping crossings), the knot can be unknotted.
+        \item By passing certain parts of the knot through itself in specific areas (flipping crossings), the knot can be unknotted. Recall \emph{Exercise 1.7*} and Figure \ref{fig:knottotrivial}.
         \begin{itemize}
             \item The number of crossings that must be flipped is, of course, $u(K)$.
         \end{itemize}
@@ -8969,7 +9106,7 @@
         \item Because $s(3_1)=6$ and the first and last points count as vertices, $V=8$.
         \item Six edges are present in the stick picture. Twelve further edges connect each vertex in the stick picture to the vertex in the first and last frames. Thus, $E=18$.
         \item Counting up faces (note that some of them intersect in three-dimensions) reveals that $F=12$.
-        \item Therefore, the following proves that the manifold in Figure \ref{fig:movie-trefoilsphere} is a two-sphere.
+        \item Therefore, the following use of Equation \ref{eqn:eulerchar} proves that the manifold in Figure \ref{fig:movie-trefoilsphere} is a two-sphere.
         \begin{equation*}
             \chi = 8-18+12 = 2
         \end{equation*}
