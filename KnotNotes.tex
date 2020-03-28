@@ -748,71 +748,50 @@
         \end{subfigure}
         \begin{subfigure}[b]{0.3\linewidth}
             \centering
-            \begin{tikzpicture}[scale=0.6]
-                \coordinate (a) at (-1.2,0.5);
-                \coordinate (b) at (1.2,0.5);
-                \coordinate (c) at (1.9,1.6);
-                \coordinate (d) at (1.2,2.9);
-                \coordinate (e) at (0,1.7);
-                \coordinate (f) at (-1.9,1.6);
-                \coordinate (g) at (-1.2,2.9);
-                
-                \begin{knot}[
-                    clip width=5,
-                    ignore endpoint intersections=false
-                ]
-                    \strand[orange,thick] (a)
-                        to [out=-30,in=-150] (b)
-                        to [out=30,in=-110] (c)
-                    ;
-                    \strand[red,thick] (c)
-                        to [out=70,in=30,out looseness=3] (d)
-                        to [out=-150,in=50] (e)
-                    ;
-                    \strand[red,thick] (e)
-                        to [out=-130,in=30] (a)
-                        to [out=-150,in=-110,out looseness=2.5] (f)
-                    ;
-                    \strand[orange,thick] (f)
-                        to [out=70,in=-135] (g)
-                        to [out=45,in=135] (d)
-                    ;
-                    \strand[yellow!70!black,thick] (d)
-                        to [out=-45,in=110] (c)
-                        to [out=-80,in=-30,in looseness=2.5] (b)
-                    ;
-                    \strand[red,thick] (b)
-                        to [out=150,in=-50] (e)
-                        to [out=130,in=-30] (g)
-                    ;
-                    \strand[yellow!70!black,thick] (g)
-                        to [out=150,in=100,in looseness=3] (f)
-                        to [out=-80,in=150] (a)
-                    ;
-                    \flipcrossings{10,13,19}
-                \end{knot}
-
-                \begin{scope}
-                    \path[clip] (b) circle (5pt);
-                    \draw[white,double=orange,very thick,double distance=0.9pt] (a)
-                        to [out=-30,in=-150] (b)
-                        to [out=30,in=-110] (c)
-                    ;
-                \end{scope}
-                \begin{scope}
-                    \path[clip] (d) circle (5pt);
-                    \draw[white,double=red,very thick,double distance=0.9pt] (c)
-                        to [out=70,in=30,out looseness=3] (d)
-                        to [out=-150,in=50] (e)
-                    ;
-                \end{scope}
-                \begin{scope}
-                    \path[clip] (g) circle (5pt);
-                    \draw[white,double=orange,very thick,double distance=0.9pt] (f)
-                        to [out=70,in=-135] (g)
-                        to [out=45,in=135] (d)
-                    ;
-                \end{scope}
+            \begin{tikzpicture}[
+                every path/.style={thick},
+                every node/.style={knot crossing,inner sep=1.2pt}
+            ]
+                \colorlet{rex}{red}
+                \colorlet{orx}{orange}
+                \colorlet{ylx}{yellow!70!black}
+        
+                \node (l) at (-1,0) {};
+                \node (c) at (0,0) {};
+                \node (r) at (1,0) {};
+                \node (lu) at (-0.6,0.6) {};
+                \node (lb) at (-0.6,-0.6) {};
+                \node (ru) at (0.6,0.6) {};
+                \node (rb) at (0.6,-0.6) {};
+        
+                \draw [orx] (lb)
+                    to [out=-50,in=-130] (rb.center)
+                    to [out=50,in=-120] (r)
+                ;
+                \draw [rex] (r)
+                    to [out=60,in=35,out looseness=2.5] (ru.center)
+                    to [out=-145,in=50] (c)
+                ;
+                \draw [rex] (c)
+                    to [out=-130,in=35] (lb.center)
+                    to [out=-145,in=-120,looseness=2] (l)
+                ;
+                \draw [orx] (l)
+                    to [out=60,in=-130] (lu.center)
+                    to [out=50,in=130] (ru)
+                ;
+                \draw [ylx] (ru)
+                    to [out=-50,in=120] (r.center)
+                    to [out=-60,in=-35,looseness=2] (rb)
+                ;
+                \draw [rex] (rb)
+                    to [out=145,in=-52] (c.center)
+                    to [out=128,in=-35] (lu)
+                ;
+                \draw [ylx] (lu)
+                    to [out=145,in=120,in looseness=2.5] (l.center)
+                    to [out=-60,in=130] (lb)
+                ;
             \end{tikzpicture}
             \caption{Tricolored projection.}
             \label{fig:ex1-22b}
